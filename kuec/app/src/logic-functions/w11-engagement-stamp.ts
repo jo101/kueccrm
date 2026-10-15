@@ -11,6 +11,7 @@ import {
   updateRecord,
 } from 'src/automation/api/twenty-api';
 import { OBJECT_NAMES } from 'src/automation/records/object-names';
+import { computeEngagementLapsesAt } from 'src/automation/rules/age-thresholds.rule';
 import {
   type CompanyRecord,
   type EngagementRecord,
@@ -50,6 +51,7 @@ const handler = async (
     ) {
       await updateRecord(api.asApplication, OBJECT_NAMES.company, company.id, {
         lastEngagementAt: engagement.date,
+        engagementLapsesAt: computeEngagementLapsesAt(engagement.date),
       });
       result.lastEngagementAt = engagement.date;
     }

@@ -32,13 +32,14 @@ Times are Asia/Dubai. Business days are Monday to Friday minus the holiday list.
 | `w05-work-package-blocked` | `workPackage.updated` on `status` | Every transition to Blocked: notifies the ED with the reason, Task "Decision needed", Teams post. | person |
 | `w06-work-package-released` | `workPackage.updated` on `status` | Done: stamps `completedAt`; every Planned work package depending on it becomes Offered with `offeredAt` now and its due date recomputed from today (W2 then notifies its owner and starts its timer). Submitted: notifies the reviewer. | person; stamps as app |
 | `w07-opportunity-signed` | `opportunity.updated` on `stage` | Transition to Signed: notifies the ED, Teams post. Licence type with no licence contract: creates one in status Signed. | person |
-| `w08-opportunity-stage-tracking` | `opportunity.updated` on `stage` | Stamps `stageEnteredAt`. Lost with an empty lost reason: Task "Record lost reason" for the owner. | stamp as app; task as person |
+| `w08-opportunity-stage-tracking` | `opportunity.updated` on `stage` | Stamps `stageEnteredAt` and `staleFrom` (30 days later; the BD dashboard's Stale count). Lost with an empty lost reason: Task "Record lost reason" for the owner. | stamp as app; task as person |
 | `w09-instantiate-project-template` | `project.updated` on `playbookType` | Same as W1 for projects from `project-templates.json` (Workshop, Proposal, Delivery), with milestones. Workshop steps are planned back from the event date. Sets `playbookApplied` last. | person; system fields as app |
 | `w10-milestone-status` | `milestone.updated` on `status` | Missed: project health Red. Every change: `percentComplete` = done / total. | app |
 | `w10-project-health-daily` | cron `0 4 * * *` (08:00) | Active projects: an Open milestone due within 7 days turns health Amber unless Red. All milestones Done: Task to the owner to close the project, once (`closeTaskCreatedAt`). | app |
-| `w11-engagement-stamp` | `engagement.updated` on `date`, `nextStep` | Company `lastEngagementAt` = the engagement date (never moved backwards). A next step is copied into the linked opportunity's next action. | stamp as app; next action as person |
+| `w11-engagement-stamp` | `engagement.updated` on `date`, `nextStep` | Company `lastEngagementAt` = the engagement date (never moved backwards), and `engagementLapsesAt` 60 days after it (the dashboard's accounts not engaged in 60 days). A next step is copied into the linked opportunity's next action. | stamp as app; next action as person |
 | `work-package-transition-log` | `workPackage.updated` on `status` | Stamps `acceptedAt`, `submittedAt`, `blockedAt`. Writes the transition (Offered, Accepted, Declined, Submitted, Done, Blocked) to the work package's timeline and, linked to it, to the case's timeline. | app |
 | `timer-sweep` | cron `0 * * * *` (hourly) | Re-derives every acceptance and overdue timer due within 7 days from work-package state, reads the queue (`getJobs`), and enqueues what is missing. Logs each repair. | app |
+| `derived-dates-sweep` | cron `30 * * * *` (hourly) | Recomputes `staleFrom` from `stageEnteredAt` and `engagementLapsesAt` from `lastEngagementAt` and writes any that differ: repairs a lost W8 or W11 event and backfills records from before 0.3.0. | app |
 
 W12 (Teams channel) is not a function: W1, W2 (reassignment), W5 and W7 post one line with the record link to the incoming webhook.
 
@@ -63,6 +64,7 @@ The commands use the `twenty` CLI from `kuec/app` with a remote pointing at the 
 | To | Run |
 | --- | --- |
 | Repair all timers now (after a restart, a restore, or resuming automation after an import) | `yarn twenty dev:function:exec -n timer-sweep` |
+| Backfill or repair the dashboard's Stale and Engagement lapses dates now (first install of 0.3.0, after an import) | `yarn twenty dev:function:exec -n derived-dates-sweep` |
 | Re-run the next-action guard or project health today | `yarn twenty dev:function:exec -n w04-next-action-guard` / `-n w10-project-health-daily` |
 | Re-run one timer (for example after fixing an owner) | `yarn twenty dev:function:exec -n w03-overdue-timer -p '{"workPackageId":"<id>","kind":"DUE","level":1,"anchorAt":"<dueAt ISO>"}'` (level 2 for the ED; `w02-acceptance-timer` with `"kind":"ACCEPT"` and the `offeredAt`) |
 | Instantiate a playbook for an opportunity that was created with its type | Clear Type on the record, save, set it again. Or `yarn twenty dev:function:exec -n w01-instantiate-opportunity-playbook -p '{"recordId":"<opportunity id>"}'` |
@@ -71,7 +73,7 @@ The commands use the `twenty` CLI from `kuec/app` with a remote pointing at the 
 
 A timer run returns `{ "outcome": "STALE" | "WAIT" | "FIRED", "detail": ... }`. `STALE` means the record no longer needs it (accepted, done, re-dated, already fired) and is the expected answer to a repeat run.
 
-After a CSV import (automation paused per the import runbook): resume, then run `timer-sweep` once. Imported opportunities with a type are not instantiated (see above).
+After a CSV import (automation paused per the import runbook): resume, then run `timer-sweep` and `derived-dates-sweep` once. Imported opportunities with a type are not instantiated (see above).
 
 ## 4. Read execution logs
 

@@ -1,0 +1,107 @@
+# KUEC BD Ops: stock Twenty 2.48.0 on our own container host.
+# Derived from packages/twenty-docker/docker-compose.yml. Differences:
+#   - image tag pinned (no latest), Postgres 16 and Redis pinned
+#   - no local-storage volume: files live in S3-compatible object storage
+#   - server bound to localhost; the host reverse proxy terminates TLS
+#   - security guard rails passed from .env (see 01-deploy.md section 3)
+# Run from this directory: docker compose --env-file .env up -d
+name: ${COMPOSE_PROJECT_NAME:-twenty-prod}
+
+x-twenty-env: &twenty-env
+  NODE_PORT: 3000
+  PG_DATABASE_URL: postgres://${PG_DATABASE_USER}:${PG_DATABASE_PASSWORD}@db:5432/${PG_DATABASE_NAME}
+  SERVER_URL: ${SERVER_URL}
+  REDIS_URL: redis://redis:6379
+
+  ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+  FALLBACK_ENCRYPTION_KEY: ${FALLBACK_ENCRYPTION_KEY:-}
+
+  IS_CONFIG_VARIABLES_IN_DB_ENABLED: ${IS_CONFIG_VARIABLES_IN_DB_ENABLED}
+  IS_MULTIWORKSPACE_ENABLED: ${IS_MULTIWORKSPACE_ENABLED}
+  TELEMETRY_ENABLED: ${TELEMETRY_ENABLED}
+  SIGN_IN_PREFILLED: ${SIGN_IN_PREFILLED}
+  LOGIC_FUNCTION_TYPE: ${LOGIC_FUNCTION_TYPE}
+  CODE_INTERPRETER_TYPE: ${CODE_INTERPRETER_TYPE}
+  OUTBOUND_HTTP_ALLOWED_INTERNAL_HOSTS: ${OUTBOUND_HTTP_ALLOWED_INTERNAL_HOSTS}
+  MARKETPLACE_CATALOG_SYNC_CRON_ENABLED: ${MARKETPLACE_CATALOG_SYNC_CRON_ENABLED}
+
+  STORAGE_TYPE: ${STORAGE_TYPE}
+  STORAGE_S3_REGION: ${STORAGE_S3_REGION}
+  STORAGE_S3_NAME: ${STORAGE_S3_NAME}
+  STORAGE_S3_ENDPOINT: ${STORAGE_S3_ENDPOINT}
+  STORAGE_S3_ACCESS_KEY_ID: ${STORAGE_S3_ACCESS_KEY_ID}
+  STORAGE_S3_SECRET_ACCESS_KEY: ${STORAGE_S3_SECRET_ACCESS_KEY}
+
+  # Only read when LOGIC_FUNCTION_TYPE=LAMBDA (see logic-function-type.md).
+  LOGIC_FUNCTION_LAMBDA_REGION: ${LOGIC_FUNCTION_LAMBDA_REGION:-}
+  LOGIC_FUNCTION_LAMBDA_ROLE: ${LOGIC_FUNCTION_LAMBDA_ROLE:-}
+  LOGIC_FUNCTION_LAMBDA_ACCESS_KEY_ID: ${LOGIC_FUNCTION_LAMBDA_ACCESS_KEY_ID:-}
+  LOGIC_FUNCTION_LAMBDA_SECRET_ACCESS_KEY: ${LOGIC_FUNCTION_LAMBDA_SECRET_ACCESS_KEY:-}
+
+services:
+  server:
+    image: twentycrm/twenty:${TAG:?TAG must be pinned, e.g. v2.48.0}
+    ports:
+      - "127.0.0.1:${HOST_PORT:-3000}:3000"
+    environment:
+      <<: *twenty-env
+      DISABLE_DB_MIGRATIONS: "false"
+      DISABLE_CRON_JOBS_REGISTRATION: "false"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: curl --fail http://localhost:3000/healthz
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: always
+
+  worker:
+    image: twentycrm/twenty:${TAG:?TAG must be pinned, e.g. v2.48.0}
+    command: ["yarn", "worker:prod"]
+    environment:
+      <<: *twenty-env
+      # The server runs migrations and registers the cron jobs on start.
+      DISABLE_DB_MIGRATIONS: "true"
+      DISABLE_CRON_JOBS_REGISTRATION: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+      server:
+        condition: service_healthy
+    restart: always
+
+  db:
+    image: postgres:16
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${PG_DATABASE_NAME}
+      POSTGRES_USER: ${PG_DATABASE_USER}
+      POSTGRES_PASSWORD: ${PG_DATABASE_PASSWORD}
+    healthcheck:
+      test: pg_isready -U ${PG_DATABASE_USER} -h localhost -d postgres
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: always
+
+  redis:
+    image: redis:7.4
+    # noeviction: Twenty's queues live here; evicting keys loses jobs and cron schedules.
+    command: ["--maxmemory-policy", "noeviction", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: always
+
+volumes:
+  db-data:
+  redis-data:

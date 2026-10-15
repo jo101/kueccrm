@@ -1,0 +1,9 @@
+# Reverse proxy example. Any proxy works if it terminates TLS for SERVER_URL,
+# forwards to 127.0.0.1:HOST_PORT and passes websockets.
+crm.kuec.example {
+	reverse_proxy 127.0.0.1:3000
+}
+
+crm-staging.kuec.example {
+	reverse_proxy 127.0.0.1:3100
+}

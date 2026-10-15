@@ -41,7 +41,14 @@ type GateTemplate = {
   when?: string;
   deciderRoles: string[];
   evidence: string;
-  onNo: 'LOST' | 'REWORK' | 'PARKED_OR_LOST';
+  onNo: string[];
+};
+
+type ExitTemplate = {
+  status: string;
+  label: string;
+  meaning: string;
+  records: string[];
 };
 
 type UventureHandoff = {
@@ -56,12 +63,13 @@ type PlaybookTemplate = {
   key: string;
   file: string;
   name: string;
+  caseType: keyof typeof EXIT_STATUSES_BY_CASE_TYPE;
   trigger: string;
   caseOwnerRole: string;
   anchors: { key: string; label: string; source: string }[];
   workPackages: WorkPackageTemplate[];
   gates: GateTemplate[];
-  exits: { SIGNED: string; LOST: string; PARKED: string };
+  exits: ExitTemplate[];
   uventureHandoffs: UventureHandoff[];
 };
 
@@ -74,11 +82,17 @@ type Templates = {
 
 const PLAYBOOKS_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 
-const GATE_OUTCOME_TEXT = {
-  LOST: 'If no, the case exits as Lost.',
-  REWORK: 'If no, the work goes back to the step owner for rework.',
-  PARKED_OR_LOST: 'If no, the case is postponed (Parked) or cancelled (Lost).',
+const EXIT_STATUSES_BY_CASE_TYPE = {
+  OPPORTUNITY: ['SIGNED', 'LOST', 'PARKED'],
+  PROJECT: ['DONE', 'CANCELLED', 'ON_HOLD'],
 } as const;
+
+const REWORK = 'REWORK';
+
+const RECORD_TEXT: Record<string, string> = {
+  LEAD_COUNT: 'leads',
+  OPPORTUNITY_COUNT: 'opportunities',
+};
 
 const RECIPIENT_TEXT: Record<string, string> = {
   OWNER: 'owner',
@@ -105,6 +119,18 @@ const validate = (templates: Templates) => {
     const workPackageKeys = new Set(playbook.workPackages.map((workPackage) => workPackage.key));
     const anchorKeys = new Set(playbook.anchors.map((anchor) => anchor.key));
     checkRole(playbook.caseOwnerRole, `${playbook.key}.caseOwnerRole`);
+
+    const allowedExits: readonly string[] = EXIT_STATUSES_BY_CASE_TYPE[playbook.caseType] ?? [];
+    const exitStatuses = playbook.exits.map((exit) => exit.status);
+    if (allowedExits.length === 0) errors.push(`${playbook.key}: unknown caseType ${playbook.caseType}`);
+    if (exitStatuses.join() !== allowedExits.join()) {
+      errors.push(`${playbook.key}: exits must be ${allowedExits.join(', ')} in that order`);
+    }
+    for (const exit of playbook.exits) {
+      exit.records
+        .filter((record) => !(record in RECORD_TEXT))
+        .forEach((record) => errors.push(`${playbook.key}.${exit.status}: unknown record ${record}`));
+    }
 
     for (const workPackage of playbook.workPackages) {
       const where = `${playbook.key}.${workPackage.key}`;
@@ -133,6 +159,9 @@ const validate = (templates: Templates) => {
         errors.push(`${playbook.key}.${gate.key}: duringWorkPackage needs when`);
       }
       gate.deciderRoles.forEach((role) => checkRole(role, `${playbook.key}.${gate.key}`));
+      gate.onNo
+        .filter((outcome) => outcome !== REWORK && !exitStatuses.includes(outcome))
+        .forEach((outcome) => errors.push(`${playbook.key}.${gate.key}: onNo ${outcome} is not an exit of this playbook`));
     }
 
     for (const handoff of playbook.uventureHandoffs) {
@@ -263,18 +292,25 @@ const renderPlaybook = (templates: Templates, playbook: PlaybookTemplate) => {
         ? `After ${stepLabel(gate.afterWorkPackage)}`
         : `In ${stepLabel(gate.duringWorkPackage as string)}, ${gate.when}`;
     const deciders = joinWithAnd(gate.deciderRoles.map((role) => renderRole(templates, role)));
-    lines.push(
-      `- **${position}.** Decides: ${deciders}. Evidence: ${gate.evidence} ${GATE_OUTCOME_TEXT[gate.onNo]}`,
-    );
+    const onNo = gate.onNo.includes(REWORK)
+      ? 'If no, the work goes back to the step owner for rework.'
+      : `If no, the case exits as ${gate.onNo
+          .map((status) => playbook.exits.find((exit) => exit.status === status)?.label ?? status)
+          .join(' or ')}.`;
+    lines.push(`- **${position}.** Decides: ${deciders}. Evidence: ${gate.evidence} ${onNo}`);
   }
 
   lines.push(
     '',
     '## Exit conditions',
     '',
-    `- **Signed:** ${playbook.exits.SIGNED}`,
-    `- **Lost:** ${playbook.exits.LOST}`,
-    `- **Parked:** ${playbook.exits.PARKED}`,
+    ...playbook.exits.map((exit) => {
+      const records =
+        exit.records.length === 0
+          ? ''
+          : ` Records the number of ${joinWithAnd(exit.records.map((record) => RECORD_TEXT[record]))} produced, including zero.`;
+      return `- **${exit.label}:** ${exit.meaning}${records}`;
+    }),
     '',
     '## Hand-off to uVENTURE',
     '',

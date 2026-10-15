@@ -65,6 +65,7 @@
       "key": "TECHNOLOGY_LICENSING",
       "file": "technology-licensing.md",
       "name": "Technology licensing (Push)",
+      "caseType": "OPPORTUNITY",
       "trigger": "The ED selects a technology from the uVENTURE portfolio for active marketing. The case owner opens an opportunity carrying the technology's uVENTURE record link.",
       "caseOwnerRole": "BD_OFFICER",
       "anchors": [],
@@ -192,7 +193,9 @@
             "ED"
           ],
           "evidence": "Assessment note: TRL, IP status, researcher commitment.",
-          "onNo": "LOST"
+          "onNo": [
+            "LOST"
+          ]
         },
         {
           "key": "ROUTE_APPROVAL",
@@ -201,7 +204,9 @@
             "ED"
           ],
           "evidence": "Route recommendation with target sectors and indicative value.",
-          "onNo": "LOST"
+          "onNo": [
+            "LOST"
+          ]
         },
         {
           "key": "TERMS_APPROVAL",
@@ -213,7 +218,9 @@
             "FINANCE"
           ],
           "evidence": "Draft term sheet, legal review, finance view of value.",
-          "onNo": "REWORK"
+          "onNo": [
+            "REWORK"
+          ]
         },
         {
           "key": "SIGNATURE",
@@ -223,14 +230,31 @@
             "ED"
           ],
           "evidence": "Final agreement cleared by legal.",
-          "onNo": "REWORK"
+          "onNo": [
+            "REWORK"
+          ]
         }
       ],
-      "exits": {
-        "SIGNED": "Licence executed by both parties.",
-        "LOST": "The ED stops the case at a gate, or every shortlisted partner has declined or been closed.",
-        "PARKED": "No live partner conversation for 30 business days, or the patent position is pending. The ED reviews parked cases every 3 months."
-      },
+      "exits": [
+        {
+          "status": "SIGNED",
+          "label": "Signed",
+          "meaning": "Licence executed by both parties.",
+          "records": []
+        },
+        {
+          "status": "LOST",
+          "label": "Lost",
+          "meaning": "The ED stops the case at a gate, or every shortlisted partner has declined or been closed.",
+          "records": []
+        },
+        {
+          "status": "PARKED",
+          "label": "Parked",
+          "meaning": "No live partner conversation for 30 business days, or the patent position is pending. The ED reviews parked cases every 3 months.",
+          "records": []
+        }
+      ],
       "uventureHandoffs": [
         {
           "atWorkPackage": "TECHNICAL_ASSESSMENT",
@@ -266,6 +290,7 @@
       "key": "RFQ_TECHNICAL_SERVICE",
       "file": "rfq-technical-service.md",
       "name": "RFQ / technical service (Pull)",
+      "caseType": "OPPORTUNITY",
       "trigger": "An RFQ or technical service request reaches the BD mailbox or a BD officer. The BD officer logs an opportunity the same business day, with the client deadline.",
       "caseOwnerRole": "BD_OFFICER",
       "anchors": [
@@ -442,7 +467,9 @@
             "ED"
           ],
           "evidence": "Capability, capacity in the requested window, margin, deadline feasibility, strategic fit.",
-          "onNo": "LOST"
+          "onNo": [
+            "LOST"
+          ]
         },
         {
           "key": "SUBMISSION_APPROVAL",
@@ -451,21 +478,39 @@
             "ED"
           ],
           "evidence": "Scope, price with finance review, and the response document.",
-          "onNo": "REWORK"
+          "onNo": [
+            "REWORK"
+          ]
         }
       ],
-      "exits": {
-        "SIGNED": "PO or contract received; delivery hand-off follows.",
-        "LOST": "No-bid, or the client awards the work elsewhere.",
-        "PARKED": "The client postpones, or there is no response after three follow-ups."
-      },
+      "exits": [
+        {
+          "status": "SIGNED",
+          "label": "Signed",
+          "meaning": "PO or contract received; delivery hand-off follows.",
+          "records": []
+        },
+        {
+          "status": "LOST",
+          "label": "Lost",
+          "meaning": "No-bid, or the client awards the work elsewhere.",
+          "records": []
+        },
+        {
+          "status": "PARKED",
+          "label": "Parked",
+          "meaning": "The client postpones, or there is no response after three follow-ups.",
+          "records": []
+        }
+      ],
       "uventureHandoffs": []
     },
     {
       "key": "INDUSTRY_WORKSHOP",
       "file": "industry-workshop.md",
       "name": "Industry workshop",
-      "trigger": "The ED approves a workshop topic, from the annual plan or a partner request. The case opens at least 40 business days before the event date.",
+      "caseType": "PROJECT",
+      "trigger": "The ED approves a workshop topic, from the annual plan or a partner request. The case owner opens a project at least 40 business days before the event date.",
       "caseOwnerRole": "BD_OFFICER",
       "anchors": [
         {
@@ -570,8 +615,8 @@
           "key": "OUTCOMES_TO_OPPORTUNITIES",
           "title": "Outcomes into opportunities",
           "objective": "Turn every expression of interest into owned work.",
-          "expectedOutput": "Each outcome is an opportunity on the Push or Pull playbook, or a logged \"no fit\" note.",
-          "doneCriteria": "Every attendee who asked for a follow-up or named a problem has an opportunity with owner, next action and date, or a \"no fit\" note, and industry challenges are recorded in uVENTURE and linked.",
+          "expectedOutput": "Each lead (an attendee who asked for a follow-up or named a problem) becomes an opportunity on the Push or Pull playbook, or gets a logged \"no fit\" note; lead and opportunity counts recorded on the project.",
+          "doneCriteria": "Every lead has an opportunity with owner, next action and date, or a \"no fit\" note; lead and opportunity counts are recorded on the project, zero included; industry challenges are recorded in uVENTURE and linked.",
           "ownerRole": "BD_OFFICER",
           "contributorRoles": [],
           "reviewerRole": "ED",
@@ -590,7 +635,9 @@
             "ED"
           ],
           "evidence": "Brief with topic, date and target outcomes.",
-          "onNo": "LOST"
+          "onNo": [
+            "CANCELLED"
+          ]
         },
         {
           "key": "BUDGET_APPROVAL",
@@ -600,7 +647,9 @@
             "ED"
           ],
           "evidence": "Cost estimate reviewed by finance.",
-          "onNo": "REWORK"
+          "onNo": [
+            "REWORK"
+          ]
         },
         {
           "key": "GO_NO_GO",
@@ -610,14 +659,35 @@
             "ED"
           ],
           "evidence": "Confirmed registrations; minimum 8.",
-          "onNo": "PARKED_OR_LOST"
+          "onNo": [
+            "ON_HOLD",
+            "CANCELLED"
+          ]
         }
       ],
-      "exits": {
-        "SIGNED": "Workshop held and at least one opportunity created.",
-        "LOST": "Workshop cancelled.",
-        "PARKED": "Workshop postponed with no new date."
-      },
+      "exits": [
+        {
+          "status": "DONE",
+          "label": "Done",
+          "meaning": "Workshop held and step 6 complete.",
+          "records": [
+            "LEAD_COUNT",
+            "OPPORTUNITY_COUNT"
+          ]
+        },
+        {
+          "status": "CANCELLED",
+          "label": "Cancelled",
+          "meaning": "Workshop called off at a gate or by the ED.",
+          "records": []
+        },
+        {
+          "status": "ON_HOLD",
+          "label": "On hold",
+          "meaning": "Workshop postponed with no new date.",
+          "records": []
+        }
+      ],
       "uventureHandoffs": [
         {
           "atWorkPackage": "OUTCOMES_TO_OPPORTUNITIES",

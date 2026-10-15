@@ -2,7 +2,7 @@
 
 # Industry workshop
 
-**Trigger:** The ED approves a workshop topic, from the annual plan or a partner request. The case opens at least 40 business days before the event date.
+**Trigger:** The ED approves a workshop topic, from the annual plan or a partner request. The case owner opens a project at least 40 business days before the event date.
 
 **Case owner:** BD officer
 
@@ -50,8 +50,8 @@
    - Escalation: Standard, as step 1.
 6. **Outcomes into opportunities**
    - Objective: Turn every expression of interest into owned work.
-   - Expected output: Each outcome is an opportunity on the Push or Pull playbook, or a logged "no fit" note.
-   - Done criteria: Every attendee who asked for a follow-up or named a problem has an opportunity with owner, next action and date, or a "no fit" note, and industry challenges are recorded in uVENTURE and linked.
+   - Expected output: Each lead (an attendee who asked for a follow-up or named a problem) becomes an opportunity on the Push or Pull playbook, or gets a logged "no fit" note; lead and opportunity counts recorded on the project.
+   - Done criteria: Every lead has an opportunity with owner, next action and date, or a "no fit" note; lead and opportunity counts are recorded on the project, zero included; industry challenges are recorded in uVENTURE and linked.
    - Owner: BD officer
    - Due: 5 business days after the previous step is done
    - Reviewer: ED
@@ -59,15 +59,15 @@
 
 ## Decision gates
 
-- **After step 1 (Objective).** Decides: ED. Evidence: Brief with topic, date and target outcomes. If no, the case exits as Lost.
+- **After step 1 (Objective).** Decides: ED. Evidence: Brief with topic, date and target outcomes. If no, the case exits as Cancelled.
 - **In step 4 (Logistics), before any spend is committed.** Decides: ED. Evidence: Cost estimate reviewed by finance. If no, the work goes back to the step owner for rework.
-- **In step 5 (Run), 5 business days before the event.** Decides: ED. Evidence: Confirmed registrations; minimum 8. If no, the case is postponed (Parked) or cancelled (Lost).
+- **In step 5 (Run), 5 business days before the event.** Decides: ED. Evidence: Confirmed registrations; minimum 8. If no, the case exits as On hold or Cancelled.
 
 ## Exit conditions
 
-- **Signed:** Workshop held and at least one opportunity created.
-- **Lost:** Workshop cancelled.
-- **Parked:** Workshop postponed with no new date.
+- **Done:** Workshop held and step 6 complete. Records the number of leads and opportunities produced, including zero.
+- **Cancelled:** Workshop called off at a gate or by the ED.
+- **On hold:** Workshop postponed with no new date.
 
 ## Hand-off to uVENTURE
 

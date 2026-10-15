@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "description": "Project templates applied by kuec-bd-ops when a project's Type is set. Work packages follow the same rules as templates.json: step 1 is offered on creation, every later step is planned and depends on the previous one, due offsets are business days from the day the previous step is done. A milestone is due when the work package it closes is due.",
+  "templates": [
+    {
+      "key": "WORKSHOP",
+      "name": "Industry workshop",
+      "approval": "APPROVED",
+      "caseOwnerRole": "BD_OFFICER",
+      "workPackagesFrom": "INDUSTRY_WORKSHOP",
+      "workPackages": [],
+      "milestones": [
+        {
+          "key": "OBJECTIVE_APPROVED",
+          "title": "Objective approved",
+          "closedByWorkPackage": "OBJECTIVE"
+        },
+        {
+          "key": "INVITATIONS_SENT",
+          "title": "Invitations sent",
+          "closedByWorkPackage": "INVITATIONS"
+        },
+        {
+          "key": "LOGISTICS_CONFIRMED",
+          "title": "Logistics confirmed",
+          "closedByWorkPackage": "LOGISTICS"
+        },
+        {
+          "key": "WORKSHOP_HELD",
+          "title": "Workshop held",
+          "closedByWorkPackage": "RUN"
+        },
+        {
+          "key": "OUTCOMES_LOGGED",
+          "title": "Outcomes logged as opportunities",
+          "closedByWorkPackage": "OUTCOMES_TO_OPPORTUNITIES"
+        }
+      ]
+    },
+    {
+      "key": "PROPOSAL",
+      "name": "Proposal",
+      "approval": "DRAFT_FOR_ED_REVIEW",
+      "caseOwnerRole": "BD_OFFICER",
+      "workPackagesFrom": null,
+      "workPackages": [
+        {
+          "key": "SCOPING",
+          "title": "Scoping",
+          "objective": "Define the technical work the proposal offers.",
+          "expectedOutput": "Scope: tasks, method, equipment, staff time, assumptions, exclusions.",
+          "doneCriteria": "Scope covers every client requirement or lists the exceptions, effort is estimated in person-days, and the reviewer has signed off.",
+          "ownerRole": "DEVELOPER",
+          "contributorRoles": [],
+          "reviewerRole": "BD_OFFICER",
+          "dueOffsetDays": 3
+        },
+        {
+          "key": "DRAFT_PROPOSAL",
+          "title": "Draft proposal",
+          "objective": "Write the proposal and price it.",
+          "expectedOutput": "Proposal on SharePoint, linked from the work package.",
+          "doneCriteria": "Every client requirement answered, price built from the scoped effort, and finance has reviewed it.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": ["FINANCE"],
+          "reviewerRole": "FINANCE",
+          "dueOffsetDays": 5
+        },
+        {
+          "key": "INTERNAL_APPROVAL",
+          "title": "Internal approval",
+          "objective": "Approve the proposal for submission.",
+          "expectedOutput": "ED approval recorded on the work package.",
+          "doneCriteria": "Approval recorded, or the proposal sent back with reasons.",
+          "ownerRole": "ED",
+          "contributorRoles": [],
+          "reviewerRole": null,
+          "dueOffsetDays": 2
+        },
+        {
+          "key": "SUBMISSION",
+          "title": "Submission",
+          "objective": "Deliver the proposal to the client.",
+          "expectedOutput": "Submission confirmation linked from the work package.",
+          "doneCriteria": "Submitted, confirmation linked, and the reviewer has checked it.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "OPS_COORDINATOR",
+          "dueOffsetDays": 1
+        }
+      ],
+      "milestones": [
+        {
+          "key": "SCOPE_AGREED",
+          "title": "Scope agreed",
+          "closedByWorkPackage": "SCOPING"
+        },
+        {
+          "key": "PROPOSAL_APPROVED",
+          "title": "Proposal approved",
+          "closedByWorkPackage": "INTERNAL_APPROVAL"
+        },
+        {
+          "key": "PROPOSAL_SUBMITTED",
+          "title": "Proposal submitted",
+          "closedByWorkPackage": "SUBMISSION"
+        }
+      ]
+    },
+    {
+      "key": "DELIVERY",
+      "name": "Delivery",
+      "approval": "DRAFT_FOR_ED_REVIEW",
+      "caseOwnerRole": "DEVELOPER",
+      "workPackagesFrom": null,
+      "workPackages": [
+        {
+          "key": "KICK_OFF",
+          "title": "Kick-off",
+          "objective": "Start the won work with the client.",
+          "expectedOutput": "Kick-off held, minutes linked from the work package.",
+          "doneCriteria": "Kick-off held within 5 business days of the PO, client contacts and dates confirmed.",
+          "ownerRole": "DEVELOPER",
+          "contributorRoles": [],
+          "reviewerRole": "OPS_COORDINATOR",
+          "dueOffsetDays": 5
+        },
+        {
+          "key": "DELIVERY_PLAN",
+          "title": "Delivery plan",
+          "objective": "Plan the work against the agreed scope.",
+          "expectedOutput": "Plan with tasks, dates and staff time on SharePoint, linked from the work package.",
+          "doneCriteria": "Plan covers the full scope and the reviewer has approved it.",
+          "ownerRole": "DEVELOPER",
+          "contributorRoles": [],
+          "reviewerRole": "BD_OFFICER",
+          "dueOffsetDays": 5
+        },
+        {
+          "key": "EXECUTION",
+          "title": "Execution",
+          "objective": "Do the work.",
+          "expectedOutput": "Deliverables on SharePoint, linked from the work package.",
+          "doneCriteria": "Every deliverable in the scope is complete and the reviewer has checked it.",
+          "ownerRole": "DEVELOPER",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 20
+        },
+        {
+          "key": "CLIENT_ACCEPTANCE",
+          "title": "Client acceptance",
+          "objective": "Get the client's sign-off on the deliverables.",
+          "expectedOutput": "Client acceptance (email or signed form) linked from the work package.",
+          "doneCriteria": "Acceptance received, or the client's change requests logged as work packages.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 5
+        },
+        {
+          "key": "CLOSE_OUT",
+          "title": "Close-out",
+          "objective": "Invoice and close the project.",
+          "expectedOutput": "Invoice issued and the project closed in Twenty.",
+          "doneCriteria": "Invoice issued by finance, lessons noted on the project, project status Done.",
+          "ownerRole": "OPS_COORDINATOR",
+          "contributorRoles": ["FINANCE"],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 3
+        }
+      ],
+      "milestones": [
+        {
+          "key": "KICKED_OFF",
+          "title": "Kicked off",
+          "closedByWorkPackage": "KICK_OFF"
+        },
+        {
+          "key": "PLAN_APPROVED",
+          "title": "Plan approved",
+          "closedByWorkPackage": "DELIVERY_PLAN"
+        },
+        {
+          "key": "WORK_DELIVERED",
+          "title": "Work delivered",
+          "closedByWorkPackage": "EXECUTION"
+        },
+        {
+          "key": "CLIENT_ACCEPTED",
+          "title": "Client accepted",
+          "closedByWorkPackage": "CLIENT_ACCEPTANCE"
+        },
+        {
+          "key": "CLOSED_OUT",
+          "title": "Closed out",
+          "closedByWorkPackage": "CLOSE_OUT"
+        }
+      ]
+    }
+  ]
+}

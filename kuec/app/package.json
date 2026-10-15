@@ -1,0 +1,40 @@
+{
+  "name": "kuec-bd-ops",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^24.5.0",
+    "npm": "please-use-yarn",
+    "yarn": ">=4.0.2",
+    "twenty": "2.48.0"
+  },
+  "keywords": [
+    "twenty-app"
+  ],
+  "packageManager": "yarn@4.13.0",
+  "scripts": {
+    "twenty": "twenty",
+    "lint": "oxlint -c .oxlintrc.json .",
+    "lint:fix": "oxlint --fix -c .oxlintrc.json .",
+    "typecheck": "tsgo --noEmit -p tsconfig.spec.json",
+    "playbooks:sync": "node scripts/sync-playbooks.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --config vitest.unit.config.ts"
+  },
+  "dependencies": {
+    "nodemailer": "7.0.10"
+  },
+  "devDependencies": {
+    "@types/node": "24.7.2",
+    "@types/nodemailer": "7.0.2",
+    "@typescript/native-preview": "7.0.0-dev.20260116.1",
+    "oxlint": "0.16.12",
+    "twenty-client-sdk": "2.48.0",
+    "twenty-sdk": "2.48.0",
+    "typescript": "5.9.3",
+    "vite-tsconfig-paths": "4.3.2",
+    "vitest": "4.0.16"
+  }
+}

@@ -11,6 +11,10 @@ import {
   update,
   waitFor,
 } from 'src/__tests__/utils/test-api';
+import {
+  computeEngagementLapsesAt,
+  computeStaleFrom,
+} from 'src/automation/rules/age-thresholds.rule';
 import { buildBaseJobId } from 'src/automation/timers/work-package-timers';
 
 // Runs against a disposable instance with the app installed by global-setup.
@@ -36,6 +40,7 @@ type Opportunity = IdRecord & {
   nextAction: string | null;
   nextActionDate: string | null;
   stageEnteredAt: string | null;
+  staleFrom: string | null;
   nextActionFlaggedOn: string | null;
 };
 type Task = IdRecord & { title: string; assigneeId: string | null };
@@ -276,10 +281,14 @@ describe('W1 instantiate and its guard', () => {
     it('stamps the stage and asks once for a lost reason', async () => {
       await update('opportunities', opportunityId, { stage: 'LOST' });
 
-      await waitFor(
+      const stamped = await waitFor(
         'stageEnteredAt',
         () => getOne<Opportunity>('opportunities', opportunityId),
         ({ stageEnteredAt }) => stageEnteredAt !== null,
+      );
+
+      expect(Date.parse(stamped.staleFrom ?? '')).toBe(
+        Date.parse(computeStaleFrom(stamped.stageEnteredAt) ?? ''),
       );
       await waitFor(
         'lost reason task',
@@ -440,15 +449,22 @@ describe('W11 engagement stamp', () => {
       nextStep: 'Send the capability deck',
     });
 
-    await waitFor(
+    const stamped = await waitFor(
       'company stamp and next action',
       async () => ({
-        company: await getOne<{ lastEngagementAt: string | null }>('companies', company.id),
+        company: await getOne<{
+          lastEngagementAt: string | null;
+          engagementLapsesAt: string | null;
+        }>('companies', company.id),
         opportunity: await getOne<Opportunity>('opportunities', opportunity.id),
       }),
       (state) =>
         state.company.lastEngagementAt !== null &&
         state.opportunity.nextAction === 'Send the capability deck',
+    );
+
+    expect(Date.parse(stamped.company.engagementLapsesAt ?? '')).toBe(
+      Date.parse(computeEngagementLapsesAt(date) ?? ''),
     );
   });
 });

@@ -13,6 +13,7 @@ No server needed. From `kuec/app`: `yarn test:unit`.
 | `playbooks/playbook-templates.test.ts` | Bundled `src/playbooks/*.json` match `kuec/playbooks` byte for byte (run `yarn playbooks:sync` after editing a playbook); every opportunity and project type has a template; roles and milestone references are valid |
 | `timers/work-package-timers.test.ts` | 2- and 5-business-day acceptance levels, overdue owner then ED +2 business days, re-arming on a re-offer or a later due date, nothing for Done/Declined/Cancelled/Planned; job ids; hop chaining past the 7-day job limit; a repeated or late job is stale |
 | `rules/rules.test.ts` | Next-action guard (empty, past, today, once per day, closed stages); project health Amber window, Red never downgraded, percent complete |
+| `rules/age-thresholds.test.ts` | Stale from is 30 days after the stage was entered, engagement lapses 60 days after the last engagement, empty stays empty, instants compare by value not by string |
 | `notifications/notification-messages.test.ts` | Every message is under 20 words with the record link, long names and reasons are shortened |
 
 ## Integration tests: a disposable instance
@@ -52,11 +53,11 @@ TWENTY_API_URL=http://localhost:2020 TWENTY_API_KEY=<admin API key of the dispos
 | W6 once | Mark step 1 Done | `completedAt` set; Scoping Offered with `offeredAt`, depending on step 1; one "Accept or decline: Scoping" task (W2 notifies, W6 does not, so there is no race); step 3 still Planned |
 | W3 once, retried job does not double-write | Accept Scoping with a due date an hour ago; then run `w03-overdue-timer` twice by hand with the same payload | `overdueOwnerNotifiedAt` set by the queued job; both manual runs return `STALE`; one "Overdue: Scoping" task; the stamp is unchanged |
 | W5 once per block | Block Scoping with a reason | One "Decision needed: Scoping" task for the ED; `blockedAt` set |
-| W8 once | Set the opportunity to Lost with no reason | `stageEnteredAt` set; one "Record lost reason" task |
+| W8 once | Set the opportunity to Lost with no reason | `stageEnteredAt` set, `staleFrom` 30 days after it; one "Record lost reason" task |
 | W7 once | Licence opportunity: set Type, then Signed, Meeting, Signed again | One "Confirm plan" task for the ED; exactly one licence contract |
 | Sweep repairs a lost job, once | Create a work package already Accepted with a due date in 2 days (no update event, so no job: what a lost event or a deleted job leaves); run `timer-sweep` twice | First run reports `wp-due-<id>-<dueAt ms>-l1` repaired; second run does not (the job is now pending) |
 | W9 once, W10 | Create a project with an event date, set Type Workshop, then change it to Proposal | 5 milestones and 6 work packages, unchanged after the type change; one milestone Done gives 20 percent; one Missed turns health Red |
-| W11 | Update an engagement's date and next step | Company `lastEngagementAt` set; opportunity next action is the next step |
+| W11 | Update an engagement's date and next step | Company `lastEngagementAt` set, `engagementLapsesAt` 60 days after it; opportunity next action is the next step |
 | W4 once per day | Create an opportunity with no next action; run the guard twice | Flagged on the first run only; one "Set next action" task |
 | W10 daily idempotent | Run the daily health twice | Second run changes nothing |
 
@@ -64,4 +65,4 @@ What the suite cannot do: remove a job from the queue (there is no API for it), 
 
 ## Status
 
-Unit tests: 49 passing (run in a container against `twenty-sdk` 2.47.0, the newest published; 2.48.0 is pinned in `package.json` and must be re-run once it is published). Typecheck, lint and an offline `appBuild` of the manifest pass. The integration suite has not yet been run against an instance.
+Unit tests: 68 passing across the app, the views and the BD dashboard rules (run in a container against `twenty-sdk` 2.47.0, the newest published; 2.48.0 is pinned in `package.json` and must be re-run once it is published). Typecheck, lint and an offline `appBuild` of the manifest pass. The integration suite has not yet been run against an instance.

@@ -10,6 +10,10 @@ export const ENGAGEMENT_KIND = {
 } as const;
 
 export const ENGAGEMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER = '57eb834b-9641-46e7-9d8a-21d0e92362e3';
+export const ENGAGEMENT_KIND_FIELD_UNIVERSAL_IDENTIFIER = 'b86f2c0b-c13e-478d-ae48-4af76d307a6e';
+export const ENGAGEMENT_DATE_FIELD_UNIVERSAL_IDENTIFIER = '9441df08-5c1d-4173-b019-46dfa85ecc34';
+export const ENGAGEMENT_NEXT_STEP_FIELD_UNIVERSAL_IDENTIFIER = '83639484-27b0-420a-91c7-0d879a628ef9';
+export const ENGAGEMENT_OUTCOME_FIELD_UNIVERSAL_IDENTIFIER = '45993fb6-c3f2-4891-845e-301d35ec5b45';
 
 export default defineObject({
   universalIdentifier: ENGAGEMENT_UNIVERSAL_IDENTIFIER,
@@ -30,7 +34,7 @@ export default defineObject({
       icon: 'IconAbc',
     },
     {
-      universalIdentifier: 'b86f2c0b-c13e-478d-ae48-4af76d307a6e',
+      universalIdentifier: ENGAGEMENT_KIND_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.SELECT,
       name: 'kind',
       label: 'Kind',
@@ -43,19 +47,27 @@ export default defineObject({
       ],
     },
     {
-      universalIdentifier: '9441df08-5c1d-4173-b019-46dfa85ecc34',
+      universalIdentifier: ENGAGEMENT_DATE_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'date',
       label: 'Date',
       icon: 'IconCalendar',
     },
     {
-      universalIdentifier: '83639484-27b0-420a-91c7-0d879a628ef9',
+      universalIdentifier: ENGAGEMENT_NEXT_STEP_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.TEXT,
       name: 'nextStep',
       label: 'Next step',
       description: 'Copied into the linked opportunity as its next action',
       icon: 'IconArrowRight',
+    },
+    {
+      universalIdentifier: ENGAGEMENT_OUTCOME_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.TEXT,
+      name: 'outcome',
+      label: 'Outcome',
+      description: 'What was agreed or learned; empty means not yet written up',
+      icon: 'IconClipboardCheck',
     },
   ],
 });

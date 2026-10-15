@@ -58,3 +58,16 @@ describe('bundled playbooks', () => {
     }
   });
 });
+
+describe('runtime constants', () => {
+  it('match the standard object identifiers the manifest uses', async () => {
+    const { STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS } = await import('twenty-sdk/define');
+    const { OPPORTUNITY_OBJECT_UNIVERSAL_IDENTIFIER } = await import(
+      'src/constants/standard-object-universal-identifiers'
+    );
+
+    expect(OPPORTUNITY_OBJECT_UNIVERSAL_IDENTIFIER).toBe(
+      STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.opportunity.universalIdentifier,
+    );
+  });
+});

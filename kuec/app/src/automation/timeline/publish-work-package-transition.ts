@@ -1,13 +1,8 @@
-import {
-  createTimelineActivity,
-  kv,
-} from 'twenty-sdk/logic-function';
-import {
-  isDefined,
-} from 'twenty-sdk/utils';
-import { STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS } from 'twenty-sdk/define';
+import { createTimelineActivity, kv } from 'twenty-sdk/logic-function';
+import { isDefined } from 'twenty-sdk/utils';
 
 import { type WorkPackageRecord } from 'src/automation/records/record-types';
+import { OPPORTUNITY_OBJECT_UNIVERSAL_IDENTIFIER } from 'src/constants/standard-object-universal-identifiers';
 import { PROJECT_UNIVERSAL_IDENTIFIER } from 'src/objects/project.object';
 import { WORK_PACKAGE_UNIVERSAL_IDENTIFIER } from 'src/objects/work-package.object';
 import { WORK_PACKAGE_ACCEPTED_TIMELINE_ACTIVITY_TYPE_UNIVERSAL_IDENTIFIER } from 'src/timeline-activity-types/work-package-accepted.timeline-activity-type';
@@ -90,8 +85,7 @@ export const publishWorkPackageTransition = async ({
 
   const caseTarget = isDefined(workPackage.opportunityId)
     ? {
-        targetObjectUniversalIdentifier:
-          STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.opportunity.universalIdentifier,
+        targetObjectUniversalIdentifier: OPPORTUNITY_OBJECT_UNIVERSAL_IDENTIFIER,
         targetRecordId: workPackage.opportunityId,
       }
     : isDefined(workPackage.projectId)

@@ -35,10 +35,11 @@ or the CI action `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test` wit
 
 ```bash
 cd kuec/app
-TWENTY_API_URL=http://localhost:2020 TWENTY_API_KEY=<admin API key of the disposable workspace> yarn test
+TWENTY_API_URL=http://localhost:2020 TWENTY_API_KEY=<admin API key of the disposable workspace> \
+  TWENTY_TEST_USER_EMAIL=tim@apple.dev TWENTY_TEST_USER_PASSWORD=tim@apple.dev yarn test
 ```
 
-`global-setup.ts` checks the server, uninstalls any previous copy, builds and syncs the app; teardown uninstalls it. The suite adds the Signed, Lost and Parked stage options through the metadata API (the step `config/dashboards/opportunity-stages.md` does by hand in production), and creates playbook role assignments: the first member holds every role, the second is the ops coordinator. SMTP and Teams variables stay empty, so those channels log `skipped` and the tests assert on tasks and stamps. Expect 5 to 10 minutes: every "only once" check waits a 20-second quiet period after the effect appears.
+Functions run by hand (`executeOneLogicFunction`) need a member session with the Workflows permission, so the suite signs in as the test user (the seeded admin by default); records are created with the API key. `global-setup.ts` checks the server, uninstalls any previous copy, builds and syncs the app; teardown uninstalls it. The suite adds the Signed, Lost and Parked stage options through the metadata API (the step `config/dashboards/opportunity-stages.md` does by hand in production), and creates playbook role assignments: the first member holds every role, the second is the ops coordinator. SMTP and Teams variables stay empty, so those channels log `skipped` and the tests assert on tasks and stamps. Expect 5 to 10 minutes: every "only once" check waits a 20-second quiet period after the effect appears.
 
 ### Cases
 
@@ -46,8 +47,8 @@ TWENTY_API_URL=http://localhost:2020 TWENTY_API_KEY=<admin API key of the dispos
 | --- | --- | --- |
 | Guard on a manually created record | Create an opportunity with Type already set | After the quiet period: no work packages, `playbookApplied` false |
 | W1 ignores other fields | Rename it | Still no work packages |
-| W1 fires once | Clear Type, set it to RFQ | 7 work packages, one Offered, all with an `RFQ_TECHNICAL_SERVICE.*` step; next action "Bid or no-bid" with a date; `playbookApplied` true |
-| W1 guard holds | Change Type to Licence; run W1 by hand | Still 7 work packages; the run returns `skipped`; one "Accept or decline: Bid or no-bid" task |
+| W1 fires once | Clear Type, then set it to RFQ straight away (two events racing) | 7 work packages, one Offered, all with an `RFQ_TECHNICAL_SERVICE.*` step; next action "Bid or no-bid" with a date; `playbookApplied` true |
+| W1 guard holds | Change Type to Licence; run the W1 event function and the W1 job by hand | Still 7 work packages; both runs return `skipped`; one "Accept or decline: Bid or no-bid" task |
 | Transition log once | Accept step 1 | `acceptedAt` set and unchanged after the quiet period |
 | W6 once | Mark step 1 Done | `completedAt` set; Scoping Offered with `offeredAt`, depending on step 1; one "Accept or decline: Scoping" task (W2 notifies, W6 does not, so there is no race); step 3 still Planned |
 | W3 once, retried job does not double-write | Accept Scoping with a due date an hour ago; then run `w03-overdue-timer` twice by hand with the same payload | `overdueOwnerNotifiedAt` set by the queued job; both manual runs return `STALE`; one "Overdue: Scoping" task; the stamp is unchanged |
@@ -62,6 +63,10 @@ TWENTY_API_URL=http://localhost:2020 TWENTY_API_KEY=<admin API key of the dispos
 
 What the suite cannot do: remove a job from the queue (there is no API for it), so "deleted job" is simulated by a work package whose job was never enqueued; the sweep code path is the same (`getJobs` returns nothing for the id). Clock-dependent escalations (2 and 5 business days after an offer, ED +2 days) are proven by the unit tests; the integration test drives the overdue path through a due date in the past.
 
-## Status
+## Status (2026-10-15)
 
-Unit tests: 49 passing (run in a container against `twenty-sdk` 2.47.0, the newest published; 2.48.0 is pinned in `package.json` and must be re-run once it is published). Typecheck, lint and an offline `appBuild` of the manifest pass. The integration suite has not yet been run against an instance.
+- Unit tests: 50 passing.
+- Integration: 15 of 15 passing against Twenty 2.48.0 built from this repo (server and worker on local Postgres 16 and Redis, `LOGIC_FUNCTION_TYPE=LOCAL`, seeded dev workspace), with `twenty-sdk` and `twenty-client-sdk` 2.48.0 from the same build. 2.48.0 is not on npm yet, so `yarn install` in `kuec/app` works only once it is published, and `yarn.lock` is added then.
+- Typecheck, lint and `appBuild` pass.
+
+The first real-server run found two bugs the unit tests could not: `twenty-sdk/define` is replaced by a stub inside logic-function bundles (a standard-object id read from it was undefined, so case timeline rows failed), and two quick type changes raced W1 into creating duplicate work packages (now one serialized job per case).

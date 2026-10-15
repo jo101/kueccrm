@@ -172,7 +172,12 @@ describe('W1 instantiate and its guard', () => {
       properties: { before: {}, after: {}, updatedFields: ['playbookType'] },
     });
 
+    const applyResult = await executeFunction('w01-apply-opportunity-playbook', {
+      caseId: opportunityId,
+    });
+
     expect(result.skipped).toBeDefined();
+    expect(applyResult.skipped).toBeDefined();
     expect(await workPackagesOf(opportunityId)).toHaveLength(7);
     expect(await tasksTitled('Accept or decline: Bid or no-bid')).toHaveLength(1);
   });

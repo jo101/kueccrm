@@ -23,7 +23,8 @@ Times are Asia/Dubai. Business days are Monday to Friday minus the holiday list.
 
 | Function | Trigger | Does | Writes as |
 | --- | --- | --- | --- |
-| `w01-instantiate-opportunity-playbook` | `opportunity.updated` on `playbookType` | If `playbookApplied` is false and the type has a playbook (`templates.json`): creates its work packages. Step 1 Offered with `offeredAt`, later steps Planned and depending on the previous one. Owner by role: the case-owner role goes to the opportunity owner, other roles to the least-loaded active member of the role, the ops coordinator if the role has nobody. Due at 17:00 after cumulative business-day offsets, capped before the client deadline (RFQ). Fills next action and date from step 1 if empty. Licence: Task "Confirm plan" for the ED. Teams post. Sets `playbookApplied` last. | person; system fields as app |
+| `w01-instantiate-opportunity-playbook` | `opportunity.updated` on `playbookType` | If `playbookApplied` is false and the type has a playbook: enqueues job `playbook-opportunity-<id>`. The queue keeps one job per id, so two type changes in quick succession give one run. | app |
+| `w01-apply-opportunity-playbook` | job `playbook-opportunity-<id>` | Re-checks the guard, then creates the type's work packages (`templates.json`). Step 1 Offered with `offeredAt`, later steps Planned and depending on the previous one. Owner by role: the case-owner role goes to the opportunity owner, other roles to the least-loaded active member of the role, the ops coordinator if the role has nobody. Due at 17:00 after cumulative business-day offsets, capped before the client deadline (RFQ). Fills next action and date from step 1 if empty. Licence: Task "Confirm plan" for the ED. Teams post. Sets `playbookApplied` last. | person (inherited from the event); system fields as app |
 | `w02-work-package-offered` | `workPackage.updated` on `status` | On a transition to Offered: stamps `offeredAt` (keeps one W6 just set), notifies the owner, enqueues the acceptance timer. | app |
 | `w02-acceptance-timer` | job `wp-accept-<id>-<offeredAt ms>-l1` / `-l2` | Re-reads the work package. Still Offered 2 business days after `offeredAt`: notifies owner and ED, stamps `acceptReminderSentAt`, enqueues level 2. Still Offered after 5: reassigns to the ops coordinator, notifies previous owner, new owner and ED, Teams post, Reassigned on the timeline, stamps `reassignedAt`. | person (reassignment); stamps as app |
 | `w03-work-package-due-changed` | `workPackage.updated` on `dueAt`, `status` | Enqueues the overdue timer for an open work package (Offered, Accepted, Submitted, Blocked) with a due date. | app |
@@ -33,7 +34,8 @@ Times are Asia/Dubai. Business days are Monday to Friday minus the holiday list.
 | `w06-work-package-released` | `workPackage.updated` on `status` | Done: stamps `completedAt`; every Planned work package depending on it becomes Offered with `offeredAt` now and its due date recomputed from today (W2 then notifies its owner and starts its timer). Submitted: notifies the reviewer. | person; stamps as app |
 | `w07-opportunity-signed` | `opportunity.updated` on `stage` | Transition to Signed: notifies the ED, Teams post. Licence type with no licence contract: creates one in status Signed. | person |
 | `w08-opportunity-stage-tracking` | `opportunity.updated` on `stage` | Stamps `stageEnteredAt`. Lost with an empty lost reason: Task "Record lost reason" for the owner. | stamp as app; task as person |
-| `w09-instantiate-project-template` | `project.updated` on `playbookType` | Same as W1 for projects from `project-templates.json` (Workshop, Proposal, Delivery), with milestones. Workshop steps are planned back from the event date. Sets `playbookApplied` last. | person; system fields as app |
+| `w09-instantiate-project-template` | `project.updated` on `playbookType` | Same guard and single job as W1: `playbook-project-<id>`. | app |
+| `w09-apply-project-template` | job `playbook-project-<id>` | Same as W1 for projects from `project-templates.json` (Workshop, Proposal, Delivery), with milestones. Workshop steps are planned back from the event date. Sets `playbookApplied` last. | person; system fields as app |
 | `w10-milestone-status` | `milestone.updated` on `status` | Missed: project health Red. Every change: `percentComplete` = done / total. | app |
 | `w10-project-health-daily` | cron `0 4 * * *` (08:00) | Active projects: an Open milestone due within 7 days turns health Amber unless Red. All milestones Done: Task to the owner to close the project, once (`closeTaskCreatedAt`). | app |
 | `w11-engagement-stamp` | `engagement.updated` on `date`, `nextStep` | Company `lastEngagementAt` = the engagement date (never moved backwards). A next step is copied into the linked opportunity's next action. | stamp as app; next action as person |
@@ -47,26 +49,26 @@ A notification is a Task assigned to the recipient (linked to the record, due to
 ### Why the design is safe to repeat
 
 - **Created records are ignored.** Nothing listens on `*.created`: a record created in the UI is filled by later updates, and those fire the `.updated` handlers. A record created by API or import with its type already set is not instantiated; set the type again (clear it, then set it) to start the playbook.
-- **Guards.** W1 and W9 skip when `playbookApplied` is true and set it last. A retried run finds what the earlier attempt created (by playbook step, or by title if the step was not stamped yet) and creates the rest.
+- **Guards.** W1 and W9 skip when `playbookApplied` is true and set it last. Instantiation runs as one job per case id, so concurrent triggers cannot run it twice in parallel. A retried run finds what the earlier attempt created (by playbook step, or by title if the step was not stamped yet) and creates the rest.
 - **Escalation stamps.** Each escalation level has a timestamp field. A level has fired for the current anchor (`offeredAt` or `dueAt`) when its stamp is later than the anchor. A re-offer or a later due date re-arms it; a retry or a sweep after it fired does nothing.
 - **Job ids.** Timer jobs have deterministic ids that include the anchor and level, so enqueuing the same timer twice is a no-op, and a moved due date gets its own job while the old job finds itself stale. Jobs wait at most 7 days; a later timer is reached through hop jobs (`...-h2`, `...-h1`) landing exactly 7 days apart.
 - **Channels.** Each notification channel (task, email, Teams post, timeline row) records that it went out in the app's key-value store under the escalation's key, so a retried run resumes where it stopped.
 - **Retries.** Rate limits, 5xx, network and SMTP 4xx failures throw `RetryableLogicFunctionError` (3 retries with backoff). Validation and permission errors fail the run: they are bugs. A permanent SMTP or Teams rejection (5xx, 4xx) is logged and does not block the escalation.
 - **Sweep.** A database event can be lost on a server restart or throttled under load. The sweep is the guarantee: it only needs record state.
 
-Known limits: two type changes within seconds of each other can race W1 into creating duplicates (the guard is checked before, and set after, the creation). Declined work packages are logged on the timeline but not reassigned automatically; the ops coordinator reassigns them.
+Known limit: declined work packages are logged on the timeline but not reassigned automatically; the ops coordinator reassigns them.
 
 ## 3. Re-run by hand
 
-The commands use the `twenty` CLI from `kuec/app` with a remote pointing at the instance (`yarn twenty remote:add`, signed in as the ED's Admin account; never use the Automation API key for this). Every function is idempotent, so a manual run never double-notifies.
+The commands use the `twenty` CLI from `kuec/app` with a remote pointing at the instance (`yarn twenty remote:add`, signed in as the ED's Admin account: running a function by hand needs a member session with the Workflows permission, and an API key is refused). Every function is idempotent, so a manual run never double-notifies.
 
 | To | Run |
 | --- | --- |
 | Repair all timers now (after a restart, a restore, or resuming automation after an import) | `yarn twenty dev:function:exec -n timer-sweep` |
 | Re-run the next-action guard or project health today | `yarn twenty dev:function:exec -n w04-next-action-guard` / `-n w10-project-health-daily` |
 | Re-run one timer (for example after fixing an owner) | `yarn twenty dev:function:exec -n w03-overdue-timer -p '{"workPackageId":"<id>","kind":"DUE","level":1,"anchorAt":"<dueAt ISO>"}'` (level 2 for the ED; `w02-acceptance-timer` with `"kind":"ACCEPT"` and the `offeredAt`) |
-| Instantiate a playbook for an opportunity that was created with its type | Clear Type on the record, save, set it again. Or `yarn twenty dev:function:exec -n w01-instantiate-opportunity-playbook -p '{"recordId":"<opportunity id>"}'` |
-| Same for a project | `... -n w09-instantiate-project-template -p '{"recordId":"<project id>"}'` |
+| Instantiate a playbook for an opportunity that was created with its type, or whose playbook job failed | `yarn twenty dev:function:exec -n w01-apply-opportunity-playbook -p '{"caseId":"<opportunity id>"}'`. Clearing and re-setting Type also works, except within 7 days of a failed job (the queue still holds its id). |
+| Same for a project | `... -n w09-apply-project-template -p '{"caseId":"<project id>"}'` |
 | Re-run a status handler for one work package | Set the status back and forward in the UI (each transition is logged), or run the function with `-p '{"recordId":"<id>","properties":{"before":{"status":"<old>"},"after":<record JSON with updatedAt>}}'` |
 
 A timer run returns `{ "outcome": "STALE" | "WAIT" | "FIRED", "detail": ... }`. `STALE` means the record no longer needs it (accepted, done, re-dated, already fired) and is the expected answer to a repeat run.

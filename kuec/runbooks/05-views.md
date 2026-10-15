@@ -6,6 +6,7 @@ Every view and sidebar entry is in the app manifest, so each install or upgrade 
 
 - Views: `kuec/app/src/views/*.view.ts` (`defineView`), one file per view.
 - Sidebar: `kuec/app/src/navigation-menu-items/*.navigation-menu-item.ts` (`defineNavigationMenuItem`).
+- Widget views behind the BD dashboard tables: `kuec/app/src/views/dashboard/` (types Table widget and Kanban widget, which stay out of the view picker). They are covered by `runbooks/06-weekly-update.md` and its own rules test, not by this runbook.
 - Rules test: `kuec/app/src/views/views.test.ts` (`yarn test:unit`). It fails if a view shows more than 6 columns (expert views excepted), does not lead with name then owner, sorts on anything but its third column, or if an object lacks exactly one expert view.
 
 Nothing in this runbook is set in the Settings UI except the stage options it depends on (`config/dashboards/opportunity-stages.md`).

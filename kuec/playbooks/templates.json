@@ -1,0 +1,632 @@
+{
+  "version": 1,
+  "businessDays": "Monday to Friday in Asia/Dubai, excluding the UAE holiday list held in the app",
+  "dueOffsetBasis": "Step 1 counts from case opening; every later step counts from the day the previous step is done",
+  "roles": {
+    "ED": "ED",
+    "BD_OFFICER": "BD officer",
+    "OPS_COORDINATOR": "Ops coordinator",
+    "DATA_ANALYST": "Data analyst",
+    "DEVELOPER": "Developer",
+    "RESEARCHER": "Researcher",
+    "LEGAL": "Legal",
+    "FINANCE": "Finance"
+  },
+  "externalRoles": [
+    "RESEARCHER"
+  ],
+  "standardEscalation": [
+    {
+      "trigger": "NOT_ACCEPTED",
+      "afterBusinessDays": 2,
+      "action": "NOTIFY",
+      "notify": [
+        "OWNER",
+        "ED"
+      ]
+    },
+    {
+      "trigger": "NOT_ACCEPTED",
+      "afterBusinessDays": 5,
+      "action": "REASSIGN_TO_OPS_COORDINATOR",
+      "notify": [
+        "PREVIOUS_OWNER",
+        "OWNER",
+        "ED"
+      ]
+    },
+    {
+      "trigger": "OVERDUE",
+      "afterBusinessDays": 0,
+      "action": "NOTIFY",
+      "notify": [
+        "OWNER"
+      ]
+    },
+    {
+      "trigger": "OVERDUE",
+      "afterBusinessDays": 2,
+      "action": "NOTIFY",
+      "notify": [
+        "ED"
+      ]
+    },
+    {
+      "trigger": "BLOCKED",
+      "afterBusinessDays": 0,
+      "action": "NOTIFY_WITH_REASON",
+      "notify": [
+        "ED"
+      ]
+    }
+  ],
+  "playbooks": [
+    {
+      "key": "TECHNOLOGY_LICENSING",
+      "file": "technology-licensing.md",
+      "name": "Technology licensing (Push)",
+      "trigger": "The ED selects a technology from the uVENTURE portfolio for active marketing. The case owner opens an opportunity carrying the technology's uVENTURE record link.",
+      "caseOwnerRole": "BD_OFFICER",
+      "anchors": [],
+      "workPackages": [
+        {
+          "key": "TECHNICAL_ASSESSMENT",
+          "title": "Technical assessment",
+          "objective": "Establish whether the technology is mature and protected enough to license.",
+          "expectedOutput": "Assessment note on SharePoint, linked from the work package: TRL, IP status, remaining development, researcher commitment.",
+          "doneCriteria": "Note covers all four points, the researcher has confirmed the facts, and the reviewer has signed off.",
+          "ownerRole": "DEVELOPER",
+          "contributorRoles": [
+            "RESEARCHER"
+          ],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 10,
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "COMMERCIAL_ROUTE_SCOPING",
+          "title": "Commercial route scoping",
+          "objective": "Choose the route to market: licence, option, or co-development.",
+          "expectedOutput": "Route recommendation with rationale, target sectors, deal type and indicative value range.",
+          "doneCriteria": "One route recommended with rationale, target sectors named, and the ED's gate decision recorded.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 5,
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "PARTNER_SHORTLIST",
+          "title": "Partner shortlist",
+          "objective": "Identify the companies most likely to take the technology on the chosen route.",
+          "expectedOutput": "Ranked shortlist of companies in Twenty, each with a named contact and a fit rationale.",
+          "doneCriteria": "Every shortlisted company exists in Twenty with at least one named contact and a fit rationale, and the reviewer has approved the list.",
+          "ownerRole": "DATA_ANALYST",
+          "contributorRoles": [],
+          "reviewerRole": "BD_OFFICER",
+          "dueOffsetDays": 5,
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "OUTREACH",
+          "title": "Outreach",
+          "objective": "Bring at least one shortlisted partner into a negotiation.",
+          "expectedOutput": "Logged contact with every shortlisted partner and the status of each.",
+          "doneCriteria": "Every shortlisted partner is contacted and logged as in discussion, declined, or closed; one partner has agreed to negotiate terms, or none remain.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 15,
+          "escalation": {
+            "standard": true,
+            "additional": [
+              {
+                "trigger": "NO_PARTNER_RESPONSE",
+                "afterBusinessDays": 10,
+                "action": "CREATE_FOLLOW_UP_TASK",
+                "notify": [
+                  "BD_OFFICER"
+                ],
+                "description": "No response from a shortlisted partner after 10 business days creates a follow-up task for the BD officer."
+              },
+              {
+                "trigger": "NO_PARTNER_RESPONSE_AFTER_FOLLOW_UP",
+                "afterBusinessDays": 10,
+                "action": "CLOSE_PARTNER",
+                "notify": [
+                  "BD_OFFICER"
+                ],
+                "description": "A second 10 business days of silence marks that partner closed."
+              }
+            ]
+          }
+        },
+        {
+          "key": "TERM_SHEET",
+          "title": "Term sheet",
+          "objective": "Agree headline terms with the partner.",
+          "expectedOutput": "Term sheet on SharePoint, approved internally, issued to the partner, linked from the work package.",
+          "doneCriteria": "ED, legal and finance approvals recorded, term sheet issued, and the partner's acceptance or counter logged.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [
+            "LEGAL",
+            "FINANCE"
+          ],
+          "reviewerRole": "LEGAL",
+          "dueOffsetDays": 10,
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "LICENCE_SIGNED",
+          "title": "Licence signed",
+          "objective": "Execute the licence agreement.",
+          "expectedOutput": "Licence signed by both parties, stored on SharePoint, linked from the opportunity.",
+          "doneCriteria": "Executed agreement on SharePoint, contract metadata (counterparty, type, status, key dates, value, owner) entered in Twenty, and uVENTURE records updated.",
+          "ownerRole": "LEGAL",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 20,
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        }
+      ],
+      "gates": [
+        {
+          "key": "TECHNICAL_GO",
+          "afterWorkPackage": "TECHNICAL_ASSESSMENT",
+          "deciderRoles": [
+            "ED"
+          ],
+          "evidence": "Assessment note: TRL, IP status, researcher commitment.",
+          "onNo": "LOST"
+        },
+        {
+          "key": "ROUTE_APPROVAL",
+          "afterWorkPackage": "COMMERCIAL_ROUTE_SCOPING",
+          "deciderRoles": [
+            "ED"
+          ],
+          "evidence": "Route recommendation with target sectors and indicative value.",
+          "onNo": "LOST"
+        },
+        {
+          "key": "TERMS_APPROVAL",
+          "duringWorkPackage": "TERM_SHEET",
+          "when": "before the term sheet is issued",
+          "deciderRoles": [
+            "ED",
+            "LEGAL",
+            "FINANCE"
+          ],
+          "evidence": "Draft term sheet, legal review, finance view of value.",
+          "onNo": "REWORK"
+        },
+        {
+          "key": "SIGNATURE",
+          "duringWorkPackage": "LICENCE_SIGNED",
+          "when": "before signature",
+          "deciderRoles": [
+            "ED"
+          ],
+          "evidence": "Final agreement cleared by legal.",
+          "onNo": "REWORK"
+        }
+      ],
+      "exits": {
+        "SIGNED": "Licence executed by both parties.",
+        "LOST": "The ED stops the case at a gate, or every shortlisted partner has declined or been closed.",
+        "PARKED": "No live partner conversation for 30 business days, or the patent position is pending. The ED reviews parked cases every 3 months."
+      },
+      "uventureHandoffs": [
+        {
+          "atWorkPackage": "TECHNICAL_ASSESSMENT",
+          "record": "TECHNOLOGY",
+          "byRole": "BD_OFFICER",
+          "action": "Set status to under active marketing when the case opens.",
+          "condition": null
+        },
+        {
+          "atWorkPackage": "LICENCE_SIGNED",
+          "record": "TECHNOLOGY",
+          "byRole": "BD_OFFICER",
+          "action": "Set status to licensed.",
+          "condition": null
+        },
+        {
+          "atWorkPackage": "LICENCE_SIGNED",
+          "record": "LICENCE",
+          "byRole": "LEGAL",
+          "action": "Create the licence record.",
+          "condition": null
+        },
+        {
+          "atWorkPackage": "LICENCE_SIGNED",
+          "record": "PATENT",
+          "byRole": "LEGAL",
+          "action": "Record the licence against the patent.",
+          "condition": "The licence covers a patent."
+        }
+      ]
+    },
+    {
+      "key": "RFQ_TECHNICAL_SERVICE",
+      "file": "rfq-technical-service.md",
+      "name": "RFQ / technical service (Pull)",
+      "trigger": "An RFQ or technical service request reaches the BD mailbox or a BD officer. The BD officer logs an opportunity the same business day, with the client deadline.",
+      "caseOwnerRole": "BD_OFFICER",
+      "anchors": [
+        {
+          "key": "CLIENT_DEADLINE",
+          "label": "client deadline",
+          "source": "Entered by the case owner when logging the opportunity."
+        }
+      ],
+      "workPackages": [
+        {
+          "key": "BID_NO_BID",
+          "title": "Bid or no-bid",
+          "objective": "Decide whether to respond.",
+          "expectedOutput": "Recommendation assessed against capability, capacity in the requested window, margin, deadline feasibility and strategic fit.",
+          "doneCriteria": "All five criteria assessed and the ED's decision recorded; a no-bid closes the case as Lost with the reason.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 2,
+          "dueCap": {
+            "anchor": "CLIENT_DEADLINE",
+            "businessDaysBefore": 2
+          },
+          "escalation": {
+            "standard": true,
+            "additional": [
+              {
+                "trigger": "PLAN_EXCEEDS_DEADLINE",
+                "afterBusinessDays": 0,
+                "action": "NOTIFY",
+                "notify": [
+                  "ED"
+                ],
+                "description": "If the default offsets put submission later than 2 business days before the client deadline, the case owner escalates to the ED."
+              }
+            ]
+          }
+        },
+        {
+          "key": "SCOPING",
+          "title": "Scoping",
+          "objective": "Define the technical work the client needs.",
+          "expectedOutput": "Scope: tasks, method, equipment, staff time, assumptions, exclusions.",
+          "doneCriteria": "Scope covers every RFQ requirement or lists the exceptions, effort is estimated in person-days, and the reviewer has signed off.",
+          "ownerRole": "DEVELOPER",
+          "contributorRoles": [],
+          "reviewerRole": "BD_OFFICER",
+          "dueOffsetDays": 3,
+          "dueCap": {
+            "anchor": "CLIENT_DEADLINE",
+            "businessDaysBefore": 2
+          },
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "QUOTE_OR_PROPOSAL",
+          "title": "Quote or proposal",
+          "objective": "Price the work and write the response.",
+          "expectedOutput": "Quote or proposal on SharePoint, linked from the work package.",
+          "doneCriteria": "Price built from the scoped effort with finance input, every RFQ requirement answered, and finance has reviewed it.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [
+            "FINANCE"
+          ],
+          "reviewerRole": "FINANCE",
+          "dueOffsetDays": 3,
+          "dueCap": {
+            "anchor": "CLIENT_DEADLINE",
+            "businessDaysBefore": 2
+          },
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "INTERNAL_APPROVAL",
+          "title": "Internal approval",
+          "objective": "Approve the response for submission.",
+          "expectedOutput": "ED approval recorded on the work package.",
+          "doneCriteria": "Approval recorded, or the response sent back with reasons.",
+          "ownerRole": "ED",
+          "contributorRoles": [],
+          "reviewerRole": null,
+          "dueOffsetDays": 2,
+          "dueCap": {
+            "anchor": "CLIENT_DEADLINE",
+            "businessDaysBefore": 2
+          },
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "SUBMISSION",
+          "title": "Submission",
+          "objective": "Deliver the response to the client before the deadline.",
+          "expectedOutput": "Submission confirmation (email or portal receipt) linked from the work package.",
+          "doneCriteria": "Submitted before the client deadline, confirmation linked, and the reviewer has checked it.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "OPS_COORDINATOR",
+          "dueOffsetDays": 1,
+          "dueCap": {
+            "anchor": "CLIENT_DEADLINE",
+            "businessDaysBefore": 2
+          },
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "FOLLOW_UP",
+          "title": "Follow-up",
+          "objective": "Get the client's decision.",
+          "expectedOutput": "Client decision logged: award, decline, or postponed.",
+          "doneCriteria": "Client decision logged, or three unanswered follow-ups logged and the case Parked.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 5,
+          "escalation": {
+            "standard": true,
+            "additional": [
+              {
+                "trigger": "NO_CLIENT_RESPONSE",
+                "afterBusinessDays": 5,
+                "action": "CREATE_FOLLOW_UP_TASK",
+                "notify": [
+                  "BD_OFFICER"
+                ],
+                "description": "Every 5 business days without a decision creates a follow-up task for the BD officer."
+              },
+              {
+                "trigger": "THREE_UNANSWERED_FOLLOW_UPS",
+                "afterBusinessDays": 0,
+                "action": "SET_EXIT_PARKED",
+                "notify": [
+                  "BD_OFFICER",
+                  "ED"
+                ],
+                "description": "After 3 unanswered follow-ups the case is marked Parked."
+              }
+            ]
+          }
+        },
+        {
+          "key": "DELIVERY_HANDOFF",
+          "title": "Delivery hand-off",
+          "objective": "Hand the won work to the delivery team.",
+          "expectedOutput": "Project in Twenty owned by a developer, with scope, PO link, client contacts and dates.",
+          "doneCriteria": "Project accepted by its developer owner and kick-off held within 5 business days of the PO.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "OPS_COORDINATOR",
+          "dueOffsetDays": 3,
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        }
+      ],
+      "gates": [
+        {
+          "key": "BID_DECISION",
+          "afterWorkPackage": "BID_NO_BID",
+          "deciderRoles": [
+            "ED"
+          ],
+          "evidence": "Capability, capacity in the requested window, margin, deadline feasibility, strategic fit.",
+          "onNo": "LOST"
+        },
+        {
+          "key": "SUBMISSION_APPROVAL",
+          "afterWorkPackage": "INTERNAL_APPROVAL",
+          "deciderRoles": [
+            "ED"
+          ],
+          "evidence": "Scope, price with finance review, and the response document.",
+          "onNo": "REWORK"
+        }
+      ],
+      "exits": {
+        "SIGNED": "PO or contract received; delivery hand-off follows.",
+        "LOST": "No-bid, or the client awards the work elsewhere.",
+        "PARKED": "The client postpones, or there is no response after three follow-ups."
+      },
+      "uventureHandoffs": []
+    },
+    {
+      "key": "INDUSTRY_WORKSHOP",
+      "file": "industry-workshop.md",
+      "name": "Industry workshop",
+      "trigger": "The ED approves a workshop topic, from the annual plan or a partner request. The case opens at least 40 business days before the event date.",
+      "caseOwnerRole": "BD_OFFICER",
+      "anchors": [
+        {
+          "key": "EVENT_DATE",
+          "label": "event",
+          "source": "Set by the case owner at the objective step."
+        }
+      ],
+      "workPackages": [
+        {
+          "key": "OBJECTIVE",
+          "title": "Objective",
+          "objective": "Set what the workshop is for and how success is measured.",
+          "expectedOutput": "Short brief: topic, date, target sectors, technologies or capabilities shown, target number of opportunities.",
+          "doneCriteria": "Topic, date and target outcomes approved by the ED.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 3,
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "AUDIENCE_AND_TARGET_ROLES",
+          "title": "Audience and target roles",
+          "objective": "Build the invitation list.",
+          "expectedOutput": "Target list of named people in the roles CEO, CTO, R&D head and innovation manager, each a person record in Twenty linked to a company.",
+          "doneCriteria": "At least 30 invitees per 10 expected attendees, every invitee in Twenty with company and role, and the reviewer has approved the list.",
+          "ownerRole": "DATA_ANALYST",
+          "contributorRoles": [],
+          "reviewerRole": "BD_OFFICER",
+          "dueOffsetDays": 5,
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "INVITATIONS",
+          "title": "Invitations",
+          "objective": "Get confirmed registrations.",
+          "expectedOutput": "Invitations sent and a registration list kept current.",
+          "doneCriteria": "All invitations sent no later than 20 business days before the event, and registrations tracked against the target list.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 5,
+          "dueCap": {
+            "anchor": "EVENT_DATE",
+            "businessDaysBefore": 20
+          },
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "LOGISTICS",
+          "title": "Logistics",
+          "objective": "Prepare venue, agenda, speakers and materials.",
+          "expectedOutput": "Venue, catering and AV booked, agenda with researcher presenters confirmed, materials ready, spend approved.",
+          "doneCriteria": "Everything confirmed in writing, spend approved by the ED after finance review, and the reviewer has checked it.",
+          "ownerRole": "OPS_COORDINATOR",
+          "contributorRoles": [
+            "FINANCE"
+          ],
+          "reviewerRole": "BD_OFFICER",
+          "dueOffsetDays": 10,
+          "dueCap": {
+            "anchor": "EVENT_DATE",
+            "businessDaysBefore": 1
+          },
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "RUN",
+          "title": "Run",
+          "objective": "Hold the workshop and capture interest.",
+          "expectedOutput": "Attendance recorded and interest notes logged against each attendee in Twenty.",
+          "doneCriteria": "Event held, attendance recorded on person records, and every follow-up request or stated problem noted against the attendee.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [
+            "RESEARCHER"
+          ],
+          "reviewerRole": "ED",
+          "dueOffsetDays": null,
+          "dueAnchor": {
+            "anchor": "EVENT_DATE",
+            "businessDaysAfter": 0
+          },
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        },
+        {
+          "key": "OUTCOMES_TO_OPPORTUNITIES",
+          "title": "Outcomes into opportunities",
+          "objective": "Turn every expression of interest into owned work.",
+          "expectedOutput": "Each outcome is an opportunity on the Push or Pull playbook, or a logged \"no fit\" note.",
+          "doneCriteria": "Every attendee who asked for a follow-up or named a problem has an opportunity with owner, next action and date, or a \"no fit\" note, and industry challenges are recorded in uVENTURE and linked.",
+          "ownerRole": "BD_OFFICER",
+          "contributorRoles": [],
+          "reviewerRole": "ED",
+          "dueOffsetDays": 5,
+          "escalation": {
+            "standard": true,
+            "additional": []
+          }
+        }
+      ],
+      "gates": [
+        {
+          "key": "OBJECTIVE_APPROVAL",
+          "afterWorkPackage": "OBJECTIVE",
+          "deciderRoles": [
+            "ED"
+          ],
+          "evidence": "Brief with topic, date and target outcomes.",
+          "onNo": "LOST"
+        },
+        {
+          "key": "BUDGET_APPROVAL",
+          "duringWorkPackage": "LOGISTICS",
+          "when": "before any spend is committed",
+          "deciderRoles": [
+            "ED"
+          ],
+          "evidence": "Cost estimate reviewed by finance.",
+          "onNo": "REWORK"
+        },
+        {
+          "key": "GO_NO_GO",
+          "duringWorkPackage": "RUN",
+          "when": "5 business days before the event",
+          "deciderRoles": [
+            "ED"
+          ],
+          "evidence": "Confirmed registrations; minimum 8.",
+          "onNo": "PARKED_OR_LOST"
+        }
+      ],
+      "exits": {
+        "SIGNED": "Workshop held and at least one opportunity created.",
+        "LOST": "Workshop cancelled.",
+        "PARKED": "Workshop postponed with no new date."
+      },
+      "uventureHandoffs": [
+        {
+          "atWorkPackage": "OUTCOMES_TO_OPPORTUNITIES",
+          "record": "INDUSTRY_CHALLENGE",
+          "byRole": "BD_OFFICER",
+          "action": "Create a record for each industry challenge raised, and put its link on each resulting opportunity.",
+          "condition": null
+        }
+      ]
+    }
+  ]
+}

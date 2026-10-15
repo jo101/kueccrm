@@ -16,6 +16,9 @@ export type MilestoneStatus =
   (typeof MILESTONE_STATUS)[keyof typeof MILESTONE_STATUS];
 
 export const MILESTONE_NAME_FIELD_UNIVERSAL_IDENTIFIER = '54e47163-9cf6-4a58-b98a-a125a2f3acf6';
+export const MILESTONE_STATUS_FIELD_UNIVERSAL_IDENTIFIER = 'f9bca525-1873-4a45-aaa5-0fc279b2f55e';
+export const MILESTONE_DUE_AT_FIELD_UNIVERSAL_IDENTIFIER = '23e3fafe-99cb-4d9e-b62b-9e6b7d626f3c';
+export const MILESTONE_PLAYBOOK_STEP_FIELD_UNIVERSAL_IDENTIFIER = '1e9a7463-8568-4a1c-9344-3c90bcd80398';
 
 export default defineObject({
   universalIdentifier: MILESTONE_UNIVERSAL_IDENTIFIER,
@@ -36,7 +39,7 @@ export default defineObject({
       icon: 'IconAbc',
     },
     {
-      universalIdentifier: 'f9bca525-1873-4a45-aaa5-0fc279b2f55e',
+      universalIdentifier: MILESTONE_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.SELECT,
       name: 'status',
       label: 'Status',
@@ -50,14 +53,14 @@ export default defineObject({
       ],
     },
     {
-      universalIdentifier: '23e3fafe-99cb-4d9e-b62b-9e6b7d626f3c',
+      universalIdentifier: MILESTONE_DUE_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'dueAt',
       label: 'Due',
       icon: 'IconCalendarDue',
     },
     {
-      universalIdentifier: '1e9a7463-8568-4a1c-9344-3c90bcd80398',
+      universalIdentifier: MILESTONE_PLAYBOOK_STEP_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.TEXT,
       name: 'playbookStep',
       label: 'Playbook step',

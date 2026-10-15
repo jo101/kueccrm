@@ -18,6 +18,12 @@ export const CONTRACT_STATUS = {
 } as const;
 
 export const CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER = '5a1bd926-3d31-4e7b-bb69-9a67ec830ba6';
+export const CONTRACT_KIND_FIELD_UNIVERSAL_IDENTIFIER = 'b99b5d8f-cea5-4647-a8ae-22fcca037545';
+export const CONTRACT_STATUS_FIELD_UNIVERSAL_IDENTIFIER = '7f4502ab-5493-4b76-b0bc-797792aa49fd';
+export const CONTRACT_SIGNED_ON_FIELD_UNIVERSAL_IDENTIFIER = '8570c6ca-ed9f-4d89-984a-da417433fc86';
+export const CONTRACT_EXPIRES_ON_FIELD_UNIVERSAL_IDENTIFIER = 'b469fe7a-c7f1-439d-b8e8-6d5d4906ed22';
+export const CONTRACT_VALUE_FIELD_UNIVERSAL_IDENTIFIER = '9378d767-b8f4-4555-a22c-c2709d326e02';
+export const CONTRACT_SHAREPOINT_FOLDER_FIELD_UNIVERSAL_IDENTIFIER = '90c8581b-2644-4bdc-9fe2-874b3d334058';
 
 // Metadata only: the executed document lives on SharePoint, never in Twenty.
 export default defineObject({
@@ -39,7 +45,7 @@ export default defineObject({
       icon: 'IconAbc',
     },
     {
-      universalIdentifier: 'b99b5d8f-cea5-4647-a8ae-22fcca037545',
+      universalIdentifier: CONTRACT_KIND_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.SELECT,
       name: 'kind',
       label: 'Kind',
@@ -52,7 +58,7 @@ export default defineObject({
       ],
     },
     {
-      universalIdentifier: '7f4502ab-5493-4b76-b0bc-797792aa49fd',
+      universalIdentifier: CONTRACT_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.SELECT,
       name: 'status',
       label: 'Status',
@@ -68,28 +74,28 @@ export default defineObject({
       ],
     },
     {
-      universalIdentifier: '8570c6ca-ed9f-4d89-984a-da417433fc86',
+      universalIdentifier: CONTRACT_SIGNED_ON_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE,
       name: 'signedOn',
       label: 'Signed on',
       icon: 'IconSignature',
     },
     {
-      universalIdentifier: 'b469fe7a-c7f1-439d-b8e8-6d5d4906ed22',
+      universalIdentifier: CONTRACT_EXPIRES_ON_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE,
       name: 'expiresOn',
       label: 'Expires on',
       icon: 'IconCalendarX',
     },
     {
-      universalIdentifier: '9378d767-b8f4-4555-a22c-c2709d326e02',
+      universalIdentifier: CONTRACT_VALUE_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.CURRENCY,
       name: 'value',
       label: 'Value',
       icon: 'IconCurrencyDollar',
     },
     {
-      universalIdentifier: '90c8581b-2644-4bdc-9fe2-874b3d334058',
+      universalIdentifier: CONTRACT_SHAREPOINT_FOLDER_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.LINKS,
       name: 'sharepointFolder',
       label: 'SharePoint folder',

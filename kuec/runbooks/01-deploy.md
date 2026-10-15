@@ -133,6 +133,7 @@ Set in `.env` (not the Admin Panel) per `config/deploy/logic-function-type.md`. 
 
 ## 8. Install the app, roles, members
 
+0. `config/dashboards/opportunity-stages.md` first. The app's views filter on the Signed, Lost and Parked stages, and the install fails while those options are missing.
 1. Connect the CLI as the ED (interactive login; never the Automation key, which has no Applications permission):
    ```bash
    cd kuec/app

@@ -30,6 +30,14 @@ export const PROJECT_HEALTH = {
 export type ProjectHealth = (typeof PROJECT_HEALTH)[keyof typeof PROJECT_HEALTH];
 
 export const PROJECT_NAME_FIELD_UNIVERSAL_IDENTIFIER = '7b4d9322-3655-4d44-8df3-d6491d8270fb';
+export const PROJECT_PLAYBOOK_TYPE_FIELD_UNIVERSAL_IDENTIFIER = '6ca1027b-490d-427c-9aac-eb942354cf60';
+export const PROJECT_STATUS_FIELD_UNIVERSAL_IDENTIFIER = 'aadf97fa-7759-4c22-9310-dffac316c725';
+export const PROJECT_HEALTH_FIELD_UNIVERSAL_IDENTIFIER = 'd9ae87e2-fd5f-479e-9c61-d8be140679ef';
+export const PROJECT_PERCENT_COMPLETE_FIELD_UNIVERSAL_IDENTIFIER = '3daef18d-7300-4b2b-8564-8d660b61541c';
+export const PROJECT_EVENT_DATE_FIELD_UNIVERSAL_IDENTIFIER = 'adf54f24-c7a6-46bc-9f16-314c54dc49fa';
+export const PROJECT_END_DATE_FIELD_UNIVERSAL_IDENTIFIER = 'b23b9ccd-2f7f-4c99-9bc1-4454e96345cf';
+export const PROJECT_PLAYBOOK_APPLIED_FIELD_UNIVERSAL_IDENTIFIER = '2efd38a1-e54c-4cb1-a1b7-6f741a9bc7e1';
+export const PROJECT_CLOSE_TASK_CREATED_AT_FIELD_UNIVERSAL_IDENTIFIER = '403de32b-aff4-4cb6-9c9b-1448c2c6fc8a';
 
 // `type` is a reserved field name in Twenty, hence playbookType.
 export default defineObject({
@@ -51,7 +59,7 @@ export default defineObject({
       icon: 'IconAbc',
     },
     {
-      universalIdentifier: '6ca1027b-490d-427c-9aac-eb942354cf60',
+      universalIdentifier: PROJECT_PLAYBOOK_TYPE_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.SELECT,
       name: 'playbookType',
       label: 'Type',
@@ -63,7 +71,7 @@ export default defineObject({
       ],
     },
     {
-      universalIdentifier: 'aadf97fa-7759-4c22-9310-dffac316c725',
+      universalIdentifier: PROJECT_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.SELECT,
       name: 'status',
       label: 'Status',
@@ -78,7 +86,7 @@ export default defineObject({
       ],
     },
     {
-      universalIdentifier: 'd9ae87e2-fd5f-479e-9c61-d8be140679ef',
+      universalIdentifier: PROJECT_HEALTH_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.SELECT,
       name: 'health',
       label: 'Health',
@@ -93,7 +101,7 @@ export default defineObject({
       ],
     },
     {
-      universalIdentifier: '3daef18d-7300-4b2b-8564-8d660b61541c',
+      universalIdentifier: PROJECT_PERCENT_COMPLETE_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.NUMBER,
       name: 'percentComplete',
       label: 'Percent complete',
@@ -101,7 +109,7 @@ export default defineObject({
       writability: MetadataWritability.APPLICATION,
     },
     {
-      universalIdentifier: 'adf54f24-c7a6-46bc-9f16-314c54dc49fa',
+      universalIdentifier: PROJECT_EVENT_DATE_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE,
       name: 'eventDate',
       label: 'Event date',
@@ -109,7 +117,15 @@ export default defineObject({
       icon: 'IconCalendarEvent',
     },
     {
-      universalIdentifier: '2efd38a1-e54c-4cb1-a1b7-6f741a9bc7e1',
+      universalIdentifier: PROJECT_END_DATE_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.DATE,
+      name: 'endDate',
+      label: 'End date',
+      description: 'Planned finish of the project',
+      icon: 'IconCalendarCheck',
+    },
+    {
+      universalIdentifier: PROJECT_PLAYBOOK_APPLIED_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.BOOLEAN,
       name: 'playbookApplied',
       label: 'Playbook applied',
@@ -119,7 +135,7 @@ export default defineObject({
       writability: MetadataWritability.APPLICATION,
     },
     {
-      universalIdentifier: '403de32b-aff4-4cb6-9c9b-1448c2c6fc8a',
+      universalIdentifier: PROJECT_CLOSE_TASK_CREATED_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'closeTaskCreatedAt',
       label: 'Close task created at',

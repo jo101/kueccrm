@@ -21,6 +21,21 @@ export type WorkPackageStatus =
   (typeof WORK_PACKAGE_STATUS)[keyof typeof WORK_PACKAGE_STATUS];
 
 export const WORK_PACKAGE_NAME_FIELD_UNIVERSAL_IDENTIFIER = '39aad314-0575-4891-b48b-7d69ac389b95';
+export const WORK_PACKAGE_OBJECTIVE_FIELD_UNIVERSAL_IDENTIFIER = '3e4b730f-457a-41d5-8a60-aab393fd32f7';
+export const WORK_PACKAGE_EXPECTED_OUTPUT_FIELD_UNIVERSAL_IDENTIFIER = '89da620c-73c8-402f-add1-e7603bd00466';
+export const WORK_PACKAGE_DONE_CRITERIA_FIELD_UNIVERSAL_IDENTIFIER = '3fcce0a2-71f4-484b-a71b-eb65927f116b';
+export const WORK_PACKAGE_BLOCKED_REASON_FIELD_UNIVERSAL_IDENTIFIER = '81907466-c986-4671-aacb-0441af9bb4c4';
+export const WORK_PACKAGE_PLAYBOOK_STEP_FIELD_UNIVERSAL_IDENTIFIER = 'eb6e8f40-fae2-4397-89d1-eae1fd9d4206';
+export const WORK_PACKAGE_DUE_OFFSET_BUSINESS_DAYS_FIELD_UNIVERSAL_IDENTIFIER = 'eba0a5a1-ac5e-4abc-ac6f-a373cb0074be';
+export const WORK_PACKAGE_OFFERED_AT_FIELD_UNIVERSAL_IDENTIFIER = '52bcf262-410c-473c-bc73-482ffdd5555b';
+export const WORK_PACKAGE_ACCEPTED_AT_FIELD_UNIVERSAL_IDENTIFIER = 'ec5e3261-1cf6-44f5-b1ef-9f45654139c8';
+export const WORK_PACKAGE_SUBMITTED_AT_FIELD_UNIVERSAL_IDENTIFIER = '95d7dac4-ad89-40cf-8e14-81d95de8b525';
+export const WORK_PACKAGE_BLOCKED_AT_FIELD_UNIVERSAL_IDENTIFIER = '52562444-b79f-4d67-b5dd-b5c49a77709e';
+export const WORK_PACKAGE_COMPLETED_AT_FIELD_UNIVERSAL_IDENTIFIER = '358cfea6-34ac-41a1-a6d0-f06f9466f8c0';
+export const WORK_PACKAGE_ACCEPT_REMINDER_SENT_AT_FIELD_UNIVERSAL_IDENTIFIER = 'e323cfac-930a-40cb-ac9d-68e157840fea';
+export const WORK_PACKAGE_REASSIGNED_AT_FIELD_UNIVERSAL_IDENTIFIER = '54a535c1-d39b-4aad-8637-3680aa6a0c8a';
+export const WORK_PACKAGE_OVERDUE_OWNER_NOTIFIED_AT_FIELD_UNIVERSAL_IDENTIFIER = '5a32efd0-55b6-4c38-bf78-9811d8754297';
+export const WORK_PACKAGE_OVERDUE_ED_NOTIFIED_AT_FIELD_UNIVERSAL_IDENTIFIER = '3535b5db-0174-4121-9ac9-ce8be2926ae2';
 export const WORK_PACKAGE_STATUS_FIELD_UNIVERSAL_IDENTIFIER = '87062c11-2f25-46f1-b31e-2a71a545d558';
 export const WORK_PACKAGE_DUE_AT_FIELD_UNIVERSAL_IDENTIFIER = 'd28399c6-e6f2-43ce-b2b0-6ca33c959429';
 
@@ -70,35 +85,35 @@ export default defineObject({
       icon: 'IconCalendarDue',
     },
     {
-      universalIdentifier: '3e4b730f-457a-41d5-8a60-aab393fd32f7',
+      universalIdentifier: WORK_PACKAGE_OBJECTIVE_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.TEXT,
       name: 'objective',
       label: 'Objective',
       icon: 'IconTarget',
     },
     {
-      universalIdentifier: '89da620c-73c8-402f-add1-e7603bd00466',
+      universalIdentifier: WORK_PACKAGE_EXPECTED_OUTPUT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.TEXT,
       name: 'expectedOutput',
       label: 'Expected output',
       icon: 'IconFileDescription',
     },
     {
-      universalIdentifier: '3fcce0a2-71f4-484b-a71b-eb65927f116b',
+      universalIdentifier: WORK_PACKAGE_DONE_CRITERIA_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.TEXT,
       name: 'doneCriteria',
       label: 'Done criteria',
       icon: 'IconListCheck',
     },
     {
-      universalIdentifier: '81907466-c986-4671-aacb-0441af9bb4c4',
+      universalIdentifier: WORK_PACKAGE_BLOCKED_REASON_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.TEXT,
       name: 'blockedReason',
       label: 'Blocked reason',
       icon: 'IconBarrierBlock',
     },
     {
-      universalIdentifier: 'eb6e8f40-fae2-4397-89d1-eae1fd9d4206',
+      universalIdentifier: WORK_PACKAGE_PLAYBOOK_STEP_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.TEXT,
       name: 'playbookStep',
       label: 'Playbook step',
@@ -107,7 +122,7 @@ export default defineObject({
       writability: MetadataWritability.APPLICATION,
     },
     {
-      universalIdentifier: 'eba0a5a1-ac5e-4abc-ac6f-a373cb0074be',
+      universalIdentifier: WORK_PACKAGE_DUE_OFFSET_BUSINESS_DAYS_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.NUMBER,
       name: 'dueOffsetBusinessDays',
       label: 'Due offset (business days)',
@@ -116,7 +131,7 @@ export default defineObject({
       writability: MetadataWritability.APPLICATION,
     },
     {
-      universalIdentifier: '52bcf262-410c-473c-bc73-482ffdd5555b',
+      universalIdentifier: WORK_PACKAGE_OFFERED_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'offeredAt',
       label: 'Offered at',
@@ -124,7 +139,7 @@ export default defineObject({
       writability: MetadataWritability.APPLICATION,
     },
     {
-      universalIdentifier: 'ec5e3261-1cf6-44f5-b1ef-9f45654139c8',
+      universalIdentifier: WORK_PACKAGE_ACCEPTED_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'acceptedAt',
       label: 'Accepted at',
@@ -132,7 +147,7 @@ export default defineObject({
       writability: MetadataWritability.APPLICATION,
     },
     {
-      universalIdentifier: '95d7dac4-ad89-40cf-8e14-81d95de8b525',
+      universalIdentifier: WORK_PACKAGE_SUBMITTED_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'submittedAt',
       label: 'Submitted at',
@@ -140,7 +155,7 @@ export default defineObject({
       writability: MetadataWritability.APPLICATION,
     },
     {
-      universalIdentifier: '52562444-b79f-4d67-b5dd-b5c49a77709e',
+      universalIdentifier: WORK_PACKAGE_BLOCKED_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'blockedAt',
       label: 'Blocked at',
@@ -148,7 +163,7 @@ export default defineObject({
       writability: MetadataWritability.APPLICATION,
     },
     {
-      universalIdentifier: '358cfea6-34ac-41a1-a6d0-f06f9466f8c0',
+      universalIdentifier: WORK_PACKAGE_COMPLETED_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'completedAt',
       label: 'Completed at',
@@ -156,7 +171,7 @@ export default defineObject({
       writability: MetadataWritability.APPLICATION,
     },
     {
-      universalIdentifier: 'e323cfac-930a-40cb-ac9d-68e157840fea',
+      universalIdentifier: WORK_PACKAGE_ACCEPT_REMINDER_SENT_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'acceptReminderSentAt',
       label: 'Acceptance reminder sent at',
@@ -166,7 +181,7 @@ export default defineObject({
       isAuditLogged: false,
     },
     {
-      universalIdentifier: '54a535c1-d39b-4aad-8637-3680aa6a0c8a',
+      universalIdentifier: WORK_PACKAGE_REASSIGNED_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'reassignedAt',
       label: 'Reassigned at',
@@ -176,7 +191,7 @@ export default defineObject({
       isAuditLogged: false,
     },
     {
-      universalIdentifier: '5a32efd0-55b6-4c38-bf78-9811d8754297',
+      universalIdentifier: WORK_PACKAGE_OVERDUE_OWNER_NOTIFIED_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'overdueOwnerNotifiedAt',
       label: 'Overdue owner notified at',
@@ -185,7 +200,7 @@ export default defineObject({
       isAuditLogged: false,
     },
     {
-      universalIdentifier: '3535b5db-0174-4121-9ac9-ce8be2926ae2',
+      universalIdentifier: WORK_PACKAGE_OVERDUE_ED_NOTIFIED_AT_FIELD_UNIVERSAL_IDENTIFIER,
       type: FieldType.DATE_TIME,
       name: 'overdueEdNotifiedAt',
       label: 'Overdue ED notified at',

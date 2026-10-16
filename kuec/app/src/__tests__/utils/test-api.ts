@@ -174,3 +174,73 @@ export const ensureOpportunityStageOptions = async () => {
     },
   });
 };
+
+export type SignedInPerson = {
+  userId: string;
+  member: { id: string; firstName: string };
+  // What a front component of this app receives: the person's role
+  // intersected with the app role.
+  frontComponentAccessToken: string;
+};
+
+export const signInForFrontComponent = async (
+  frontComponentUniversalIdentifier: string,
+): Promise<SignedInPerson> => {
+  const origin = process.env.TWENTY_API_URL ?? '';
+  const email = process.env.TWENTY_TEST_USER_EMAIL ?? '';
+  const password = process.env.TWENTY_TEST_USER_PASSWORD ?? '';
+
+  const { getLoginTokenFromCredentials } = await new MetadataApiClient().mutation({
+    getLoginTokenFromCredentials: {
+      __args: { email, password, origin },
+      loginToken: { token: true },
+    },
+  });
+  const { getAuthTokensFromLoginToken } = await new MetadataApiClient().mutation({
+    getAuthTokensFromLoginToken: {
+      __args: { loginToken: getLoginTokenFromCredentials.loginToken.token, origin },
+      tokens: { accessOrWorkspaceAgnosticToken: { token: true } },
+    },
+  });
+  const personClient = new MetadataApiClient({
+    headers: {
+      Authorization: `Bearer ${getAuthTokensFromLoginToken.tokens.accessOrWorkspaceAgnosticToken.token}`,
+    },
+  });
+  const { currentUser, frontComponents } = await personClient.query({
+    currentUser: {
+      id: true,
+      workspaceMember: { id: true, name: { firstName: true } },
+    },
+    frontComponents: { id: true, universalIdentifier: true },
+  });
+  const frontComponentId = frontComponents.find(
+    ({ universalIdentifier }) => universalIdentifier === frontComponentUniversalIdentifier,
+  )?.id;
+
+  if (!isDefined(frontComponentId) || !isDefined(currentUser.workspaceMember)) {
+    throw new Error('The test user has no workspace member, or the component is not installed');
+  }
+
+  const { frontComponent } = await personClient.query({
+    frontComponent: {
+      __args: { id: frontComponentId },
+      applicationTokenPair: { applicationAccessToken: { token: true } },
+    },
+  });
+  const frontComponentAccessToken =
+    frontComponent?.applicationTokenPair?.applicationAccessToken.token;
+
+  if (!isDefined(frontComponentAccessToken)) {
+    throw new Error('No application token was issued for the front component');
+  }
+
+  return {
+    userId: currentUser.id,
+    member: {
+      id: currentUser.workspaceMember.id,
+      firstName: currentUser.workspaceMember.name.firstName,
+    },
+    frontComponentAccessToken,
+  };
+};

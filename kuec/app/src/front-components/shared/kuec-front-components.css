@@ -1,0 +1,105 @@
+/* Injected into the host page unscoped: every class carries the kuec- prefix
+   and no rule targets a bare element. */
+
+.kuec-card {
+  box-sizing: border-box;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  color: var(--t-font-color-primary);
+  font-family: var(--t-font-family);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.kuec-card__header {
+  align-items: baseline;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.kuec-card__eyebrow {
+  color: var(--t-font-color-tertiary);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.kuec-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  margin: 0;
+}
+
+.kuec-card__meta {
+  align-items: center;
+  color: var(--t-font-color-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  gap: 8px;
+  line-height: 18px;
+}
+
+.kuec-card__section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kuec-card__section-heading {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  margin: 0;
+}
+
+.kuec-card__section-body {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.kuec-card__muted {
+  color: var(--t-font-color-tertiary);
+  margin: 0;
+}
+
+.kuec-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kuec-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kuec-card__label {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.kuec-card__hint {
+  color: var(--t-font-color-tertiary);
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0;
+}
+
+.kuec-card__error {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kuec-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

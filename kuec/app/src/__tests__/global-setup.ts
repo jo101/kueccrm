@@ -4,6 +4,8 @@ import * as path from 'path';
 
 import { appDevOnce, appUninstall } from 'twenty-sdk/cli';
 
+import { ensureOpportunityStageOptions } from 'src/__tests__/utils/test-api';
+
 const APP_PATH = process.cwd();
 const CONFIG_DIR = path.join(os.homedir(), '.twenty');
 
@@ -62,6 +64,9 @@ export async function setup() {
   await checkServer(apiUrl);
 
   writeConfig(apiUrl, apiKey);
+
+  // The app's views filter on these stages, so the install fails without them.
+  await ensureOpportunityStageOptions();
 
   await appUninstall({ appPath: APP_PATH }).catch(() => {});
 

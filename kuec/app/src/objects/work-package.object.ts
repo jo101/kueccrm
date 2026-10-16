@@ -25,6 +25,7 @@ export const WORK_PACKAGE_OBJECTIVE_FIELD_UNIVERSAL_IDENTIFIER = '3e4b730f-457a-
 export const WORK_PACKAGE_EXPECTED_OUTPUT_FIELD_UNIVERSAL_IDENTIFIER = '89da620c-73c8-402f-add1-e7603bd00466';
 export const WORK_PACKAGE_DONE_CRITERIA_FIELD_UNIVERSAL_IDENTIFIER = '3fcce0a2-71f4-484b-a71b-eb65927f116b';
 export const WORK_PACKAGE_BLOCKED_REASON_FIELD_UNIVERSAL_IDENTIFIER = '81907466-c986-4671-aacb-0441af9bb4c4';
+export const WORK_PACKAGE_DECLINED_REASON_FIELD_UNIVERSAL_IDENTIFIER = 'a62a91b7-c5f9-4a65-8e99-a1b4a51ac3fc';
 export const WORK_PACKAGE_PLAYBOOK_STEP_FIELD_UNIVERSAL_IDENTIFIER = 'eb6e8f40-fae2-4397-89d1-eae1fd9d4206';
 export const WORK_PACKAGE_DUE_OFFSET_BUSINESS_DAYS_FIELD_UNIVERSAL_IDENTIFIER = 'eba0a5a1-ac5e-4abc-ac6f-a373cb0074be';
 export const WORK_PACKAGE_OFFERED_AT_FIELD_UNIVERSAL_IDENTIFIER = '52bcf262-410c-473c-bc73-482ffdd5555b';
@@ -111,6 +112,14 @@ export default defineObject({
       name: 'blockedReason',
       label: 'Blocked reason',
       icon: 'IconBarrierBlock',
+    },
+    {
+      universalIdentifier: WORK_PACKAGE_DECLINED_REASON_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.TEXT,
+      name: 'declinedReason',
+      label: 'Declined reason',
+      description: 'Why the owner could not take this work, typed when declining',
+      icon: 'IconThumbDown',
     },
     {
       universalIdentifier: WORK_PACKAGE_PLAYBOOK_STEP_FIELD_UNIVERSAL_IDENTIFIER,

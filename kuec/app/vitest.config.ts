@@ -5,6 +5,10 @@ import { defineConfig } from 'vitest/config';
 // and uninstalls the app. Never point it at production.
 const TWENTY_API_URL = process.env.TWENTY_API_URL ?? 'http://localhost:2020';
 const TWENTY_API_KEY = process.env.TWENTY_API_KEY;
+// A member of the disposable workspace the front-component tests sign in as;
+// the default is the user Twenty's seeded dev workspace ships with.
+const TWENTY_TEST_USER_EMAIL = process.env.TWENTY_TEST_USER_EMAIL ?? 'tim@apple.dev';
+const TWENTY_TEST_USER_PASSWORD = process.env.TWENTY_TEST_USER_PASSWORD ?? 'tim@apple.dev';
 
 if (TWENTY_API_KEY === undefined) {
   throw new Error(
@@ -33,6 +37,8 @@ export default defineConfig({
     env: {
       TWENTY_API_URL,
       TWENTY_API_KEY,
+      TWENTY_TEST_USER_EMAIL,
+      TWENTY_TEST_USER_PASSWORD,
     },
   },
 });

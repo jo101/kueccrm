@@ -73,7 +73,7 @@ The commands use the `twenty` CLI from `kuec/app` with a remote pointing at the 
 
 A timer run returns `{ "outcome": "STALE" | "WAIT" | "FIRED", "detail": ... }`. `STALE` means the record no longer needs it (accepted, done, re-dated, already fired) and is the expected answer to a repeat run.
 
-After a CSV import (automation paused per the import runbook): resume, then run `timer-sweep` and `derived-dates-sweep` once. Imported opportunities with a type are not instantiated (see above).
+After a CSV import (automation paused per `09-import.md`): resume, then run `timer-sweep` and `derived-dates-sweep` once. Imported opportunities with a type are not instantiated (see above).
 
 ## 4. Read execution logs
 

@@ -1,0 +1,129 @@
+[sync] Checking server...
+[sync] Building manifest...
+[sync] Building application files...
+[sync] Running typecheck...
+[sync] Computing metadata plan...
+Twenty will perform the following actions:
+
+  # fieldMetadata "declinedReason" will be destroyed
+  - applicationUniversalIdentifier                   = "aa97f60d-3af8-4242-bb46-5413d0813bfa"
+  - calendarEndViewUniversalIdentifiers              = []
+  - calendarViewUniversalIdentifiers                 = []
+  - description                                      = "Why the owner could not take this work, typed when declining"
+  - fieldPermissionUniversalIdentifiers              = []
+  - icon                                             = "IconThumbDown"
+  - isActive                                         = true
+  - isAuditLogged                                    = true
+  - isLabelSyncedWithName                            = false
+  - isNullable                                       = true
+  - isSearchable                                     = false
+  - isSystem                                         = false
+  - isSystemSideEffect                               = false
+  - isUIEditable                                     = true
+  - isUnique                                         = false
+  - kanbanAggregateOperationViewUniversalIdentifiers = []
+  - label                                            = "Declined reason"
+  - mainGroupByFieldMetadataViewUniversalIdentifiers = []
+  - name                                             = "declinedReason"
+  - objectMetadataUniversalIdentifier                = "8455b49c-d156-4855-8cf9-04f6966c92eb"
+  - searchFieldMetadataUniversalIdentifiers          = []
+  - type                                             = "TEXT"
+  - viewFieldUniversalIdentifiers                    = ["6eaaf908-2aba-5fa4-aafb-3f636efa78a3","af5eae38-e2a0-5510-855e-83ae14b911ad"]
+  - viewFilterUniversalIdentifiers                   = []
+  - viewSortUniversalIdentifiers                     = []
+  - writability                                      = "OPEN"
+
+  # viewField "6eaaf908-2aba-5fa4-aafb-3f636efa78a3" will be destroyed
+  - applicationUniversalIdentifier   = "aa97f60d-3af8-4242-bb46-5413d0813bfa"
+  - fieldMetadataUniversalIdentifier = "a62a91b7-c5f9-4a65-8e99-a1b4a51ac3fc"
+  - isActive                         = true
+  - isSystemSideEffect               = true
+  - isVisible                        = true
+  - position                         = 7
+  - size                             = 180
+  - viewUniversalIdentifier          = "527d18d0-0fc4-5b67-93df-668d7a239e7a"
+
+  # viewField "af5eae38-e2a0-5510-855e-83ae14b911ad" will be destroyed
+  - applicationUniversalIdentifier   = "aa97f60d-3af8-4242-bb46-5413d0813bfa"
+  - fieldMetadataUniversalIdentifier = "a62a91b7-c5f9-4a65-8e99-a1b4a51ac3fc"
+  - isActive                         = true
+  - isSystemSideEffect               = true
+  - isVisible                        = true
+  - position                         = 6
+  - size                             = 180
+  - viewUniversalIdentifier          = "f6bac283-4630-53b1-9c38-c6e9aa67b6c1"
+
+  # logicFunction "derived-dates-sweep" will be updated in-place
+  ~ checksum = "c62b066def319255f4cca313c8c27c5a" -> "bf5106764e403317de2e47b05ec7a5fe"
+
+  # logicFunction "timer-sweep" will be updated in-place
+  ~ checksum = "b6930fe315a53460a55014130991c5b3" -> "96dd9a21384763ee2f3fb3af15ceb91e"
+
+  # logicFunction "w01-instantiate-opportunity-playbook" will be updated in-place
+  ~ checksum = "c2e3e24e793eb49029064858d196af43" -> "768c988e9175d14fdb2af4ea84be547f"
+
+  # logicFunction "w02-acceptance-timer" will be updated in-place
+  ~ checksum = "f8e3f38a419718db90f624e1ae09d5d4" -> "e1db3a9bdecfa3b4bb94c5a02d183b1b"
+
+  # logicFunction "w02-work-package-offered" will be updated in-place
+  ~ checksum = "35c425f9e9012e0ef145a03577f5df3c" -> "89e6245c9b9d5e3df6184f9472a22f36"
+
+  # logicFunction "w03-overdue-timer" will be updated in-place
+  ~ checksum = "84afb384021b1bcd91d2c2953d65340e" -> "0697e746d93519c5bc3ba2a32cd8c596"
+
+  # logicFunction "w03-work-package-due-changed" will be updated in-place
+  ~ checksum = "76639af1e12f5b37da47f9e132b8f329" -> "b95a5193bb7b88f07267755958f1c3ff"
+
+  # logicFunction "w04-next-action-guard" will be updated in-place
+  ~ checksum = "b738650929c8a87b2815f0a13a11902f" -> "60df5d1a1deb35d5566f939421bd5c0f"
+
+  # logicFunction "w05-work-package-blocked" will be updated in-place
+  ~ checksum = "042b31421fc3d8501abe5dad4bae9303" -> "589cbdba23a9df3e8266097eac9bf960"
+
+  # logicFunction "w06-work-package-released" will be updated in-place
+  ~ checksum = "1ebc8a11eb7e3df04e1b492bba9757df" -> "c358d4b5c4868dbf25a4f918297abee9"
+
+  # logicFunction "w07-opportunity-signed" will be updated in-place
+  ~ checksum = "5864caca8e31ef13232e43b85f00c692" -> "a376346d30bcc6233597487c3e0ef16e"
+
+  # logicFunction "w08-opportunity-stage-tracking" will be updated in-place
+  ~ checksum = "d4bd7f8cd44c62d2907c0e7963ae174b" -> "3a0da0707414c8fbbe8eb226e3d4dfbd"
+
+  # logicFunction "w09-instantiate-project-template" will be updated in-place
+  ~ checksum = "753f6a5646044180dc97974002a752cf" -> "ab51d22c9423452dbbf9e08eb81457bd"
+
+  # logicFunction "w10-milestone-status" will be updated in-place
+  ~ checksum = "0d48ac34e9e326883a326bae89037cc6" -> "bba795efcca9bb5aae549d8b1cdc08f9"
+
+  # logicFunction "w10-project-health-daily" will be updated in-place
+  ~ checksum = "e6f27e0e16cb26839e3042e331da5989" -> "a206b9638d7b10be1b2d80d4a122ae31"
+
+  # logicFunction "w11-engagement-stamp" will be updated in-place
+  ~ checksum = "3d07922c27e4b8100b4a9eda6ceb5c2d" -> "07544ad1151d7e24b565bf6cea7aa923"
+
+  # logicFunction "work-package-transition-log" will be updated in-place
+  ~ checksum = "59d387913be560ae95dd753c3b0e90f6" -> "be446212044c60bf162931cf95243683"
+
+  # frontComponent "work-package-card" will be updated in-place
+  ~ builtComponentChecksum = "14d9a479418886f3f7fa656d49aad7e5c2badb733b000ccdb393a3cb0d9d8b98" -> "0706a6064cab38ca9afce7f7139b3c229fc5f049e8cde7a064832c4ad167bd8e"
+
+  # pageLayoutWidget "cf6a3aac-740c-5cba-ae9d-0d9469b8016b" will be destroyed
+  - applicationUniversalIdentifier    = "aa97f60d-3af8-4242-bb46-5413d0813bfa"
+  - gridPosition                      = {"row":0,"column":0,"rowSpan":1,"columnSpan":12}
+  - isActive                          = true
+  - isSystemSideEffect                = true
+  - objectMetadataUniversalIdentifier = "8455b49c-d156-4855-8cf9-04f6966c92eb"
+  - pageLayoutTabUniversalIdentifier  = "c13e2500-6e01-5ec5-b41d-d9fcf41b4197"
+  - position                          = {"index":7,"layoutMode":"VERTICAL_LIST"}
+  - title                             = ""
+  - type                              = "FORM_FIELD"
+  - universalConfiguration            = {"configurationType":"FORM_FIELD","fieldMetadataId":"a62a91b7-c5f9-4a65-8e99-a1…
+
+Plan: 0 to add, 18 to change, 4 to destroy.
+Entities missing from your source are destroyed by default. Re-run with --no-delete to keep them.
+
+Warning: 1 destructive change(s) will permanently delete data.
+  - fieldMetadata "declinedReason" — drops the column and its data
+Destroys are irreversible. Review carefully before applying.
+[sync] plan destroys 1 entities; refused
+[sync] result {"code":"APPLY_ABORTED","message":"Apply cancelled — no changes were made."}

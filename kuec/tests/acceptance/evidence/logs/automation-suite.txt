@@ -1,0 +1,58 @@
+ RUN  v4.0.16 /home/user/kueccrm/kuec/app
+ ❯ src/__tests__/automation.integration-test.ts (15 tests | 3 failed) 409669ms
+     ✓ does nothing for a record created with its type already filled  20079ms
+     ✓ ignores updates to other fields  20075ms
+     × instantiates once when the type is set by an update 91005ms
+     × holds the guard when the type changes again or the function re-runs 21253ms
+       ✓ stamps acceptance once (transition log)  22117ms
+       ✓ W6 releases the dependent step exactly once when a step is done  22271ms
+       ✓ W3 notifies the owner of overdue work once, and a retried job does not write again  23610ms
+       ✓ W5 asks the ED for a decision once per block  22134ms
+       ✓ stamps the stage and asks once for a lost reason  22120ms
+     × creates one licence contract when a licence opportunity is signed, even if signed twice 90974ms
+     ✓ re-enqueues a timer whose event was lost, and only once  1556ms
+     ✓ builds the workshop once and tracks milestone health  26278ms
+     ✓ stamps the company and copies the next step  2191ms
+     ✓ W4 flags an opportunity without a next action once per day  21893ms
+     ✓ W10 daily run is idempotent  1406ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/__tests__/automation.integration-test.ts > W1 instantiate and its guard > instantiates once when the type is set by an update
+Error: Timed out waiting for playbookApplied: {"id":"2517b777-c095-4e87-b641-bc90377623d7","createdAt":"2026-10-16T06:51:52.880Z","updatedAt":"2026-10-16T06:52:33.064Z","deletedAt":null,"name":"it-1792133512428 RFQ for thermal tests","amount":{"amountMicros":null,"currencyCode":null},"closeDate":null,"position":-5,"createdBy":{"source":"API","workspaceMemberId":null,"name":"kuec-acceptance2","cont
+ ❯ waitFor src/__tests__/utils/test-api.ts:82:13
+     80|   while (!isDone(value)) {
+     81|     if (Date.now() - startedAt > timeoutMs) {
+     82|       throw new Error(`Timed out waiting for ${description}: ${JSON.st…
+       |             ^
+     83|     }
+     84| 
+ ❯ src/__tests__/automation.integration-test.ts:155:25
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+ FAIL  src/__tests__/automation.integration-test.ts > W1 instantiate and its guard > holds the guard when the type changes again or the function re-runs
+Error: w01-instantiate-opportunity-playbook threw: Bad Request: {"errors":[{"message":"Expected non-nullable type \"UUID!\" not to be null.","extensions":{"http":{"status":400},"code":"BAD_USER_INPUT","userFriendlyMessage":"An error occurred."}}]}
+2026-10-16T06:54:25.263Z INFO enqueued wp-accept-38acbc10-c1b0-4f9f-a588-62400d71bd2e-1792133644925-l1 to run in 5760 min
+2026-10-16T06:54:25.263Z INFO enqueued wp-due-38acbc10-c1b0-4f9f-a588-62400d71bd2e-1793365200000-l1-h2 to run in 366 min
+ ❯ executeFunction src/__tests__/utils/test-api.ts:112:11
+    110| 
+    111|   if (isDefined(result.data.error)) {
+    112|     throw new Error(
+       |           ^
+    113|       `${functionName} threw: ${result.data.error.errorMessage}\n${res…
+    114|     );
+ ❯ src/__tests__/automation.integration-test.ts:175:20
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+ FAIL  src/__tests__/automation.integration-test.ts > W7 licence contract > creates one licence contract when a licence opportunity is signed, even if signed twice
+Error: Timed out waiting for licence playbook applied: {"id":"28436006-e995-4bf9-b7a7-1d28e83508c7","createdAt":"2026-10-16T06:56:17.541Z","updatedAt":"2026-10-16T06:56:17.564Z","deletedAt":null,"name":"it-1792133512428 Licence thermal storage","amount":{"amountMicros":null,"currencyCode":null},"closeDate":null,"position":-6,"createdBy":{"source":"API","workspaceMemberId":null,"name":"kuec-accepta
+ ❯ waitFor src/__tests__/utils/test-api.ts:82:13
+     80|   while (!isDone(value)) {
+     81|     if (Date.now() - startedAt > timeoutMs) {
+     82|       throw new Error(`Timed out waiting for ${description}: ${JSON.st…
+       |             ^
+     83|     }
+     84| 
+ ❯ src/__tests__/automation.integration-test.ts:317:5
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+ Test Files  1 failed (1)
+      Tests  3 failed | 12 passed (15)
+   Start at  06:49:40
+   Duration  541.73s (transform 13.02s, setup 0ms, import 15.81s, tests 409.67s, environment 0ms)
+EXIT 1

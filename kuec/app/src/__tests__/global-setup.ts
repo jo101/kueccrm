@@ -46,7 +46,13 @@ function writeConfig(apiUrl: string, apiKey: string) {
     {
       version: 1,
       remotes: {
-        local: { apiUrl, apiKey, twentyCLIAccessToken: apiKey },
+        // Manual function runs (executeOneLogicFunction) need a signed-in
+        // user since 2.48; an API key is refused there.
+        local: {
+          apiUrl,
+          apiKey,
+          twentyCLIAccessToken: process.env.TWENTY_CLI_ACCESS_TOKEN ?? apiKey,
+        },
       },
       defaultRemote: 'local',
     },

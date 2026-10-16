@@ -1,0 +1,83 @@
+ RUN  v4.0.16 /home/user/kueccrm/kuec/app
+[t1] Confirm plan tasks: []
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts (4 tests | 4 failed) 92576ms
+     × creates every work package with owner, dates and playbookStep, once 90912ms
+     × creates one Confirm-plan task for the ED 28ms
+     × notifies only the first owner to accept 14ms
+     × does not create anything more on a type change, a re-set type or a re-run 1280ms
+[t5] task {"assigneeId":"20202020-0687-4c41-b707-ed1bfca972a7","body":"Blocked, decision needed: t5-1792127083447 Sample analysis. Reason: Client has not sent the sample spec. /object/workPackage/51ab14a7-cb10-40b7-acf2-a8a3f70db83a"}; blockedAt 2026-10-16T05:04:45.601Z
+[t5] block without reason: accepted by the API; status BLOCKED; tasks ["Blocked, decision needed: t5-1792127083447 No reason given. Reason: none given. /object/workPackage/7bd34aca-8ffb-4815-9371-617949c2b41c"]
+ ❯ src/__tests__/acceptance/t5-blocked.integration-test.ts (3 tests | 1 failed) 72556ms
+     ✓ notifies the ED with the reason in a Decision needed task, once  24124ms
+     ✓ notifies the ED again on a second block  26177ms
+     × refuses a block without a reason 22113ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/__tests__/acceptance/t1-licence-playbook.integration-test.ts > T1 W1 on a Licence opportunity > creates every work package with owner, dates and playbookStep, once
+Error: Timed out waiting for playbookApplied: {"id":"ad749261-571c-4432-9cd8-35885c15fafe","createdAt":"2026-10-16T05:03:09.140Z","updatedAt":"2026-10-16T05:03:09.160Z","deletedAt":null,"name":"t1-1792126988950 Licence thermal storage","amount":{"amountMicros":null,"currencyCode":null},"closeDate":null,"position":-3,"createdBy":{"source":"API","workspaceMemberId":null,"name":"kuec-acceptance2","co
+ ❯ waitFor src/__tests__/utils/test-api.ts:82:13
+     80|   while (!isDone(value)) {
+     81|     if (Date.now() - startedAt > timeoutMs) {
+     82|       throw new Error(`Timed out waiting for ${description}: ${JSON.st…
+       |             ^
+     83|     }
+     84| 
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts:96:21
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+ FAIL  src/__tests__/acceptance/t1-licence-playbook.integration-test.ts > T1 W1 on a Licence opportunity > creates one Confirm-plan task for the ED
+AssertionError: expected [] to have a length of 1 but got +0
+- Expected
++ Received
+- 1
++ 0
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts:177:19
+    175| 
+    176|     console.log(`[t1] Confirm plan tasks: ${JSON.stringify(tasks.map((…
+    177|     expect(tasks).toHaveLength(1);
+       |                   ^
+    178|     expect(tasks[0]!.assigneeId).toBe(roleMembers.ED);
+    179|   });
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+ FAIL  src/__tests__/acceptance/t1-licence-playbook.integration-test.ts > T1 W1 on a Licence opportunity > notifies only the first owner to accept
+AssertionError: expected [] to deeply equal [ Array(1) ]
+- Expected
++ Received
+- [
+-   "20202020-463f-435b-828c-107e007a2711",
+- ]
++ []
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts:187:55
+    185|     );
+    186| 
+    187|     expect(tasks.map(({ assigneeId }) => assigneeId)).toEqual([roleMem…
+       |                                                       ^
+    188|   });
+    189| 
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+ FAIL  src/__tests__/acceptance/t1-licence-playbook.integration-test.ts > T1 W1 on a Licence opportunity > does not create anything more on a type change, a re-set type or a re-run
+Error: w01-instantiate-opportunity-playbook threw: Bad Request: {"errors":[{"message":"Expected non-nullable type \"UUID!\" not to be null.","extensions":{"http":{"status":400},"code":"BAD_USER_INPUT","userFriendlyMessage":"An error occurred."}}]}
+2026-10-16T05:04:41.333Z INFO enqueued wp-accept-9319d3d1-9542-4edc-8aba-dd7f94ea4d20-1792126990196-l1 to run in 5758 min
+2026-10-16T05:04:41.333Z INFO enqueued wp-due-9319d3d1-9542-4edc-8aba-dd7f94ea4d20-1793365200000-l1-h2 to run in 475 min
+ ❯ executeFunction src/__tests__/utils/test-api.ts:112:11
+    110| 
+    111|   if (isDefined(result.data.error)) {
+    112|     throw new Error(
+       |           ^
+    113|       `${functionName} threw: ${result.data.error.errorMessage}\n${res…
+    114|     );
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts:194:19
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+ FAIL  src/__tests__/acceptance/t5-blocked.integration-test.ts > T5 W5 blocked work package > refuses a block without a reason
+AssertionError: expected 'BLOCKED' not to be 'BLOCKED' // Object.is equality
+ ❯ src/__tests__/acceptance/t5-blocked.integration-test.ts:128:31
+    126| 
+    127|     console.log(`[t5] block without reason: ${outcome}; status ${recor…
+    128|     expect(record.status).not.toBe('BLOCKED');
+       |                               ^
+    129|   });
+    130| });
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+ Test Files  2 failed (2)
+      Tests  5 failed | 2 passed (7)
+   Start at  05:01:44
+   Duration  251.52s (transform 7.51s, setup 0ms, import 10.89s, tests 165.13s, environment 0ms)
+EXIT 1

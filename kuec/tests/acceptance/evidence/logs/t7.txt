@@ -1,0 +1,14 @@
+== 1. a work package with a history
+work package 64a09b0e-ffef-43a9-a95d-16ee0371ee05 on opportunity 2833884e-0388-404c-8a5d-2b41164d9634
+== 2. backup (source stopped so the snapshot and the dump see the same rows)
+{"status":"ok","info":{},"error":{},"details":{}}
+dump twenty-test-db-20261016T062518Z.dump: 5.0M, 165 TABLE DATA entries; files 95M
+== 3. restore into a fresh container
+twenty-test-db-20261016T062518Z.dump: OK
+container mirror.gcr.io/library/postgres:16 2026-10-16T06:25:36.668559685Z
+== 4. boot Twenty against the copy (no worker, logic functions disabled)
+{"status":"ok","info":{},"error":{},"details":{}}
+== 5. compare
+snapshots identical: 124 table counts, 20 timeline rows, 1 tasks
+API read of the work package identical on both instances
+T7 PASS

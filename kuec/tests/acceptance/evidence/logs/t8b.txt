@@ -1,0 +1,36 @@
+== before
+column: 1
+field metadata: 1
+value on T7 record: Kept for T8: written before the T7 backup
+work packages: 2
+== sync without confirmation (must be refused)
+Plan: 0 to add, 18 to change, 4 to destroy.
+column: 1
+field metadata: 1
+value on T7 record: Kept for T8: written before the T7 backup
+work packages: 2
+== sync with confirmation
+Plan: 0 to add, 18 to change, 4 to destroy.
+column: 0
+field metadata: 0
+value on T7 record: ERROR:  column "declinedReason" does not exist
+work packages: 2
+API read: False None
+== restore from the T7 backup
+twenty-test-db-20261016T062518Z.dump: OK
+DROP DATABASE
+CREATE DATABASE
+column: 1
+field metadata: 1
+value on T7 record: Kept for T8: written before the T7 backup
+work packages: 2
+OK
+crons registered: 31
+{"status":"ok","info":{},"error":{},"details":{}}
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys; d=json.load(sys.stdin)['data']['workPackage']; print('declinedReason' in d, d.get('declinedReason'))
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'data'
+API read after restore: 
+T8 field removal and restore PASS

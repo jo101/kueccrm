@@ -1,0 +1,46 @@
+ RUN  v4.0.16 /home/user/kueccrm/kuec/app
+[t6] member: REST status of another owner: ALLOWED (200) {"data":{"updateWorkPackage":{"id":"4c027249-0cf8-4ce6-aae9-c4898e7be36f","name":"t6-1792128711469 Baseline","status":"DONE","dueAt":"2026-10-26T05:31:51.750Z","objective":"","expectedOutput":"","doneCriteria":"Acceptance test criteria","blockedReason":"","declinedReason":"","playbookStep":"","dueOf
+[t6] restricted: REST status of another owner: BLOCKED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission: no permission to write field \"status\" on \"workPackage\""],"code":"PERMISSION_DENIED"}
+[t6] restricted: GraphQL status of another owner: BLOCKED (200) [{"message":"Entity performing the request does not have permission: no permission to write field \"status\" on \"workPackage\"","extensions":{"userFriendlyMessage":"User does not have permission.","subCode":"PERMISSION_DENIED","code":"FORBIDDEN"}}]
+[t6] restricted: REST bulk status by filter: BLOCKED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission: no permission to write field \"status\" on \"workPackage\""],"code":"PERMISSION_DENIED"}
+[t6] restricted: REST status of own work package: BLOCKED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission: no permission to write field \"status\" on \"workPackage\""],"code":"PERMISSION_DENIED"}
+[t6] restricted: REST owner of another owner -> self: ALLOWED (200) {"data":{"updateWorkPackage":{"id":"c0735978-9661-48bc-aeab-71b8804407b5","name":"t6-1792128711469 Restricted other","status":"OFFERED","dueAt":"2026-10-26T05:31:53.258Z","objective":"","expectedOutput":"","doneCriteria":"Acceptance test criteria","blockedReason":"","declinedReason":"","playbookStep
+[t6] restricted: REST due date, done criteria, blocked reason of another owner: ALLOWED (200) {"data":{"updateWorkPackage":{"id":"c0735978-9661-48bc-aeab-71b8804407b5","name":"t6-1792128711469 Restricted other","status":"OFFERED","dueAt":"2026-12-15T05:31:53.519Z","objective":"","expectedOutput":"","doneCriteria":"Changed by someone else","blockedReason":"Set by someone else","declinedReason
+[t6] restricted: REST create a work package already Done: BLOCKED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission: no permission to write field \"status\" on \"workPackage\""],"code":"PERMISSION_DENIED"}
+[t6] restricted: REST delete another owner’s work package: BLOCKED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t6] summary {
+  "member: REST status of another owner": "ALLOWED",
+  "restricted: REST status of another owner": "BLOCKED",
+  "restricted: GraphQL status of another owner": "BLOCKED",
+  "restricted: REST bulk status by filter": "BLOCKED",
+  "restricted: REST status of own work package": "BLOCKED",
+  "restricted: REST owner of another owner -> self": "ALLOWED",
+  "restricted: REST due date, done criteria, blocked reason of another owner": "ALLOWED",
+  "restricted: REST create a work package already Done": "BLOCKED",
+  "restricted: REST delete another owner’s work package": "BLOCKED"
+}
+ ❯ src/__tests__/acceptance/t6-field-permissions-api.integration-test.ts (4 tests | 1 failed) 3101ms
+     ✓ lets the user change the status of a work package owned by someone else 116ms
+     ✓ blocks a status change on someone else’s work package (REST and GraphQL) 143ms
+     ✓ also blocks the status of the user’s own work package: no row-level rule 15ms
+     × does not block the other ways to take or end someone else’s work 112ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/__tests__/acceptance/t6-field-permissions-api.integration-test.ts > T6 with Work package > Status read-only on the role > does not block the other ways to take or end someone else’s work
+AssertionError: expected false to be true // Object.is equality
+- Expected
++ Received
+- true
++ false
+ ❯ src/__tests__/acceptance/t6-field-permissions-api.integration-test.ts:299:32
+    297|     expect(takeOver.allowed).toBe(true);
+    298|     expect(otherFields.allowed).toBe(true);
+    299|     expect(softDelete.allowed).toBe(true);
+       |                                ^
+    300|   });
+    301| });
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  05:29:54
+   Duration  120.23s (transform 13.01s, setup 0ms, import 16.34s, tests 3.10s, environment 0ms)
+EXIT 1

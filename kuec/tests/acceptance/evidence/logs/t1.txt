@@ -1,0 +1,79 @@
+ RUN  v4.0.16 /home/user/kueccrm/kuec/app
+[t1] 6 work packages:
+  TECHNOLOGY_LICENSING.TECHNICAL_ASSESSMENT | OFFERED | owner 20202020-463f-435b-828c-107e007a2711 | reviewer 20202020-0687-4c41-b707-ed1bfca972a7 | due 2026-10-30T13:00:00.000Z
+  TECHNOLOGY_LICENSING.COMMERCIAL_ROUTE_SCOPING | PLANNED | owner 32323232-0002-4000-8000-000000000000 | reviewer 20202020-0687-4c41-b707-ed1bfca972a7 | due 2026-11-06T13:00:00.000Z
+  TECHNOLOGY_LICENSING.PARTNER_SHORTLIST | PLANNED | owner 20202020-77d5-4cb6-b60a-f4a835a85d61 | reviewer 32323232-0002-4000-8000-000000000000 | due 2026-11-13T13:00:00.000Z
+  TECHNOLOGY_LICENSING.OUTREACH | PLANNED | owner 32323232-0002-4000-8000-000000000000 | reviewer 20202020-0687-4c41-b707-ed1bfca972a7 | due 2026-12-04T13:00:00.000Z
+  TECHNOLOGY_LICENSING.TERM_SHEET | PLANNED | owner 32323232-0002-4000-8000-000000000000 | reviewer 32323232-0001-4000-8000-000000000000 | due 2026-12-18T13:00:00.000Z
+  TECHNOLOGY_LICENSING.LICENCE_SIGNED | PLANNED | owner 32323232-0001-4000-8000-000000000000 | reviewer 20202020-0687-4c41-b707-ed1bfca972a7 | due 2027-01-15T13:00:00.000Z
+[t1] opportunity after W1: {"playbookApplied":false,"nextAction":"","nextActionDate":null}
+[t1] Confirm plan tasks: []
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts (5 tests | 4 failed) 23325ms
+     ✓ creates every work package with owner, dates and playbookStep, once  22102ms
+     × marks the playbook applied and fills the next action from step 1 20ms
+     × creates one Confirm-plan task for the ED 16ms
+     × notifies only the first owner to accept 11ms
+     × does not create anything more on a type change, a re-set type or a re-run 853ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/__tests__/acceptance/t1-licence-playbook.integration-test.ts > T1 W1 on a Licence opportunity > marks the playbook applied and fills the next action from step 1
+AssertionError: expected false to be true // Object.is equality
+- Expected
++ Received
+- true
++ false
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts:178:41
+    176| 
+    177|     console.log(`[t1] opportunity after W1: ${JSON.stringify({ playboo…
+    178|     expect(opportunity.playbookApplied).toBe(true);
+       |                                         ^
+    179|     expect(opportunity.nextAction).toBe(licenceTemplate!.workPackages[…
+    180|     expect(opportunity.nextActionDate?.slice(0, 10)).toBe(
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+ FAIL  src/__tests__/acceptance/t1-licence-playbook.integration-test.ts > T1 W1 on a Licence opportunity > creates one Confirm-plan task for the ED
+AssertionError: expected [] to have a length of 1 but got +0
+- Expected
++ Received
+- 1
++ 0
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts:189:19
+    187| 
+    188|     console.log(`[t1] Confirm plan tasks: ${JSON.stringify(tasks.map((…
+    189|     expect(tasks).toHaveLength(1);
+       |                   ^
+    190|     expect(tasks[0]!.assigneeId).toBe(roleMembers.ED);
+    191|   });
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+ FAIL  src/__tests__/acceptance/t1-licence-playbook.integration-test.ts > T1 W1 on a Licence opportunity > notifies only the first owner to accept
+AssertionError: expected [] to deeply equal [ Array(1) ]
+- Expected
++ Received
+- [
+-   "20202020-463f-435b-828c-107e007a2711",
+- ]
++ []
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts:199:55
+    197|     );
+    198| 
+    199|     expect(tasks.map(({ assigneeId }) => assigneeId)).toEqual([roleMem…
+       |                                                       ^
+    200|   });
+    201| 
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+ FAIL  src/__tests__/acceptance/t1-licence-playbook.integration-test.ts > T1 W1 on a Licence opportunity > does not create anything more on a type change, a re-set type or a re-run
+Error: w01-instantiate-opportunity-playbook threw: Bad Request: {"errors":[{"message":"Expected non-nullable type \"UUID!\" not to be null.","extensions":{"http":{"status":400},"code":"BAD_USER_INPUT","userFriendlyMessage":"An error occurred."}}]}
+2026-10-16T05:08:01.449Z INFO enqueued wp-accept-f9e87318-5b00-4d57-8567-f41aa4f6c8a2-1792127259782-l1 to run in 5760 min
+2026-10-16T05:08:01.449Z INFO enqueued wp-due-f9e87318-5b00-4d57-8567-f41aa4f6c8a2-1793365200000-l1-h2 to run in 472 min
+ ❯ executeFunction src/__tests__/utils/test-api.ts:112:11
+    110| 
+    111|   if (isDefined(result.data.error)) {
+    112|     throw new Error(
+       |           ^
+    113|       `${functionName} threw: ${result.data.error.errorMessage}\n${res…
+    114|     );
+ ❯ src/__tests__/acceptance/t1-licence-playbook.integration-test.ts:206:19
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  05:06:20
+   Duration  100.69s (transform 7.46s, setup 0ms, import 9.22s, tests 23.32s, environment 0ms)
+EXIT 1

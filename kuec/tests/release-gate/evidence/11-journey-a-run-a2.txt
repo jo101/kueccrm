@@ -1,0 +1,36 @@
+PASS forms route refuses a bad signature :: 401 {"error":"unauthorized"}
+PASS forms route refuses a stale timestamp :: 401 {"error":"unauthorized"}
+PASS forms route accepts a signed delivery :: 202 {"deliveryId":"a2-3f59fed8","accepted":1}
+PASS resent delivery accepted (no-op by job id) :: 202
+PASS lead created once with source and external id, triaged :: {"ms":9168,"count":1,"id":"b2c2eb5b-78b5-4b26-aa70-292a23267cc8","source":"INBOUND","sourceSystem":"WEBSITE_FORM","owner":"ops","status":"NEW","triaged":true}
+PASS L1: owner is the ops coordinator :: ops
+PASS L1: one Triage task for the ops coordinator :: [{"id":"89d554e2-6fc4-4a19-a382-e0cac2355271","title":"Triage: Mariam Journey a2, Example Energy a2","dueAt":"2026-10-19T13:00:00.000Z"}]
+PASS ops coordinator assigns the lead to bd1 (persona ops) :: 200 
+PASS bd1 ticks four checks (persona bd1) :: 200 
+PASS L4: score 4 and Qualified :: {"ms":3047,"status":"QUALIFIED","score":4,"qualifiedAt":"2026-10-17T20:08:12.555Z"}
+PASS L4: Convert or park task for bd1 :: ["83fbb5ad-ca1c-46e7-80a0-49d5d8b0efb7"]
+PASS L4: ED told about a licence-grade lead :: ["Licence-grade lead qualified: Mariam Journey a2, Example Energy a2"]
+PASS L6: Thank the referrer at Qualified :: ["36ab1d66-6dd2-404a-b98f-8d7b29c35d40"]
+PASS bd1 converts the lead (persona bd1) :: 200
+PASS L5: opportunity created and linked :: {"ms":3104,"opportunityId":"6d5930e3-a8e7-4c45-9123-44f75d891e12"}
+PASS L5: stage Qualify (NEW), owner bd1, next action copied :: {"name":"Mariam Journey a2, Example Energy a2","stage":"NEW","owner":"bd1","type":"TECHNOLOGY_LICENSING","nextAction":"Scoping call with the decision maker","nextActionDate":"2026-10-18","amount":{"amountMicros":null,"currencyCode":null}}
+FAIL W1: playbookApplied true :: {"ms":181551,"type":"TECHNOLOGY_LICENSING","playbookApplied":false}
+PASS W1: six work packages, step 1 Offered, rest Planned :: [{"id":"2e5b6a39-facb-4a4d-8bc3-d7370e8b3f88","name":"Technical assessment","status":"OFFERED","owner":"dev","reviewer":"ed","dueAt":"2026-10-30T13:00:00.000Z","step":"TECHNOLOGY_LICENSING.TECHNICAL_ASSESSMENT"},{"id":"f973fe1d-24d9-4846-9c72-58c1ca13dcfb","name":"Commercial route scoping","status":"PLANNED","owner":"bd1","reviewer":"ed","dueAt":"2026-11-06T13:00:00.000Z","step":"TECHNOLOGY_LICENSING.COMMERCIAL_ROUTE_SCOPING"},{"id":"ef380b1f-5432-47ac-9fc5-f416210c6fb4","name":"Partner shortlist","status":"PLANNED","owner":"analyst","reviewer":"bd1","dueAt":"2026-11-13T13:00:00.000Z","step":"TECHNOLOGY_LICENSING.PARTNER_SHORTLIST"},{"id":"6f47a6a5-eacb-47e6-bdce-a26fd7b0efd3","name":"Outreach","status":"PLANNED","owner":"bd1","reviewer":"ed","dueAt":"2026-12-09T13:00:00.000Z","step":"TECHNOLOGY_LICENSING.OUTREACH"},{"id":"d2c7a98a-0bef-4470-bcea-df279462d039","name":"Term sheet","status":"PLANNED","owner":"bd1","reviewer":"legal","dueAt":"2026-12-23T13:00:00.000Z","step":"TECHNOLOGY_LICENSING.TERM_SHEET"},{"id":"5f18d02f-1a1d-4241-9789-515919a50ea0","name":"Licence signed","status":"PLANNED","owner":"legal","reviewer":"ed","dueAt":"2027-01-21T13:00:00.000Z","step":"TECHNOLOGY_LICENSING.LICENCE_SIGNED"}]
+FAIL W1: Confirm plan task for the ED :: []
+PASS owner dev accepts work package 1 :: 200 
+PASS owner dev submits work package 1 :: 200
+PASS reviewer ed marks work package 1 Done :: 200 
+PASS W6: step 2 released to Offered with offeredAt :: {"ms":3038,"status":"OFFERED","offeredAt":"2026-10-17T20:11:27.102Z","dueAt":"2026-10-23T13:00:00.000Z","owner":"bd1"}
+PASS stamps on work package 1 :: {"offeredAt":"2026-10-17T20:08:17.206Z","acceptedAt":"2026-10-17T20:11:19.753Z","submittedAt":"2026-10-17T20:11:22.812Z","completedAt":"2026-10-17T20:11:27.102Z"}
+PASS bd1 moves the opportunity to Signed (persona bd1) :: 200 
+PASS W7: one licence contract, status Signed :: [{"id":"98544bcb-b143-4c6c-bfe9-b425a6a57546","name":"Licence: Mariam Journey a2, Example Energy a2","kind":"LICENCE","status":"SIGNED"}]
+PASS L6: referral credited at stamped on the lead :: {"referralCreditedAt":"2026-10-17T20:11:30.123Z"}
+PASS L6: Thank the referrer once per status (Qualified, Converted) :: [{"id":"36ab1d66-6dd2-404a-b98f-8d7b29c35d40","title":"Thank the referrer: Mariam Journey a2, Example Energy a2"},{"id":"c19bd520-12ad-413c-92d1-a987331e0cae","title":"Thank the referrer: Mariam Journey a2, Example Energy a2"}]
+FAIL L6: referral credit note on the lead :: 0 note targets
+FAIL timeline: work package 1 transitions :: []
+FAIL timeline: transitions on the opportunity (case audit trail) :: []
+FAIL email notifications received, none twice :: []
+FAIL Teams posts received (W1, W7), none twice :: ["{\"type\":\"message\",\"text\":\"Signed: Mariam Journey a2, Example Energy a2. http://localhost:3000/object/opportunity/6d5930e3-a8e7-4c45-9123-44f75d891e12\",\"attachme"]
+PASS T1/T2 events sent to uVENTURE, signed, once each :: ["crm-lead-converted-b2c2eb5b-78b5-4b26-aa70-292a23267cc8 sig=present","crm-licence-signed-6d5930e3-a8e7-4c45-9123-44f75d891e12 sig=present"]
+FAIL no task created twice :: [["bd1|Thank the referrer: Mariam Journey a2, Example Energy a2",2]]
+RESULT 8 failed of 35

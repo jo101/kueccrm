@@ -1,0 +1,10 @@
+# Installed app (rehearsal) against the committed manifest (built from main with only "scripts" excluded from tsconfig)
+fields:  manifest 234, live 432, in manifest not live 0, live not in manifest 198
+objects: manifest 11, live 11, missing 0, extra 0
+views:   manifest 130, live 152, missing 0, extra 22
+# The 198 extra fields are Twenty's own per object: id, createdAt, updatedAt, deletedAt, createdBy, updatedBy, position, searchVector,
+# attachments, noteTargets, taskTargets, timelineActivities, agentChatThreadTargets (13 x 11) and target<Object> links (5 x 11).
+# The 22 extra views are Twenty's "All {objectLabelPlural}" (11) and "<Object> Record Page Fields" (11).
+# Exception: the rehearsal carries five relabelled options (21-comma-label-probe.txt); values and ids are unchanged.
+# Unique indexes on externalId: _capability, _contract, _lead, _document (all UNIQUE).
+# Playbook work packages: 19, without done criteria: 0.

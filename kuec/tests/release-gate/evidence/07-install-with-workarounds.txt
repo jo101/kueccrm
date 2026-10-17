@@ -1,0 +1,3 @@
+Plan: 3362 to add, 3 to change, 0 to destroy.
+[sync] Generating API client...
+[sync] result {"success":true}

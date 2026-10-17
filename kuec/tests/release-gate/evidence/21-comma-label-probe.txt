@@ -1,0 +1,18 @@
+# Fresh install on a clean 2.48.0 workspace fails (05-install-clean-workspace.txt):
+#   Sync failed with error: Could not find flat entity with universal identifier 5306e386-af98-4ac0-8fd5-f88b5658aaf7
+# 5306e386-... is SECTOR_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER (src/fields/sector-on-company.field.ts).
+# Probe: the same field definition sent through createOneField (metadata API) on the rehearsal:
+{"errors":[{"message":"Multiple validation errors occurred while creating fields","extensions":{"code":"METADATA_VALIDATION_FAILED","errors":{"fieldMetadata":[{"status":"fail","errors":[{"code":"INVALID_FIELD_INPUT","message":"Label must not contain a comma","value":"Information technology, telecoms and digital"}]...}]}}}]}
+
+# Every select option label with a comma in the committed manifest:
+company.sector              ICT                    Information technology, telecoms and digital
+project.targetSector        ICT                    Information technology, telecoms and digital
+opportunity.source          INBOUND                Inbound (web, email, phone)
+lead.source                 INBOUND                Inbound (web, email, phone)
+opportunity.playbookType    PROGRAMME_SPONSORSHIP  Programme sponsorship (workshop, sprint, fellowship)
+# The same labels are in kuec/playbooks/lookups.json, so playbooks/lookups.test.ts passes while the platform refuses them.
+
+# After relabelling those five in a scratch copy only, the install fails next on (06-install-after-label-workaround.txt):
+#   pageLayoutWidget: 16 errors ... Invalid widget position for widget "How this record works": index -1 must be a non-negative integer
+# GUIDANCE_WIDGET_INDEX = -1 in src/page-layout-widgets/utils/guidance-record-page-widget.ts.
+# With that set to 0 as well (scratch copy only), the install succeeds: "Plan: 3362 to add, 3 to change, 0 to destroy." (07-install-with-workarounds.txt)

@@ -1,0 +1,12 @@
+OK   cron:messaging:message-list-fetch              pattern=2-59/5 * * * * last_ok=2026-10-17T21:02:00.104Z next=2026-10-17T21:07:00.000Z
+OK   cron:messaging:messages-import                 pattern=*/1 * * * * last_ok=2026-10-17T21:05:00.109Z next=2026-10-17T21:06:00.000Z
+OK   cron:messaging:ongoing-stale                   pattern=0 * * * * last_ok=2026-10-17T21:00:00.065Z next=2026-10-17T22:00:00.000Z
+OK   cron:calendar:calendar-event-list-fetch        pattern=*/5 * * * * last_ok=2026-10-17T21:05:00.096Z next=2026-10-17T21:10:00.000Z
+OK   cron:calendar:calendar-events-import           pattern=*/1 * * * * last_ok=2026-10-17T21:05:00.115Z next=2026-10-17T21:06:00.000Z
+OK   cron:calendar:ongoing-stale                    pattern=0 * * * * last_ok=2026-10-17T21:00:00.071Z next=2026-10-17T22:00:00.000Z
+OK   cron:workflow:automated-cron-trigger           pattern=* * * * * last_ok=2026-10-17T21:05:00.125Z next=2026-10-17T21:06:00.000Z
+OK   cron:workflow:enqueue-awaiting-workflow-run    pattern=* * * * * last_ok=2026-10-17T21:05:00.131Z next=2026-10-17T21:06:00.000Z
+OK   cron:trigger:start-cron-trigger                pattern=* * * * * last_ok=2026-10-17T21:05:00.169Z next=2026-10-17T21:06:00.000Z
+
+30 schedulers registered on bull:cron-queue
+logic functions (retained window): 64 ok, 2 failed; latest failure: teams post failed transiently: 503

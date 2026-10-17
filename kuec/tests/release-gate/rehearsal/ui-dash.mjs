@@ -1,0 +1,35 @@
+import { chromium } from 'playwright-core';
+import { readFileSync, writeFileSync } from 'node:fs';
+const OUT = new URL('../evidence/', import.meta.url).pathname;
+const ids = JSON.parse(readFileSync(new URL('./ui-ids.json', import.meta.url)));
+const email = process.argv[2] ?? 'ed@kuec.test';
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+const consoleErrors = []; const gqlErrors = [];
+page.on('console', (m) => { if (m.type() === 'error') consoleErrors.push(m.text().slice(0, 200)); });
+page.on('response', async (r) => { if (/graphql|metadata/.test(r.url()) && r.request().method() === 'POST') { try { const t = await r.text(); if (t.includes('"errors"')) gqlErrors.push(`${(r.request().postData() ?? '').match(/"operationName":"(\w+)"/)?.[1]}: ${t.slice(0, 220)}`); } catch {} } });
+await page.goto('http://server:3000/');
+await page.getByPlaceholder(/email/i).fill(email);
+await page.getByRole('button', { name: /continue/i }).first().click();
+await page.getByPlaceholder(/password/i).fill('Rehearsal-2026!pw');
+await page.getByRole('button', { name: /sign in|continue/i }).first().click();
+await page.waitForTimeout(6000);
+const out = { email, url: page.url() };
+const measure = async (label, url, readySelectorFn) => {
+  const start = Date.now();
+  await page.goto(url);
+  let ready = null;
+  try { await readySelectorFn(); ready = Date.now() - start; } catch { ready = 'not ready in 20s'; }
+  await page.waitForTimeout(15000);
+  const skeletons = await page.locator('[class*="skeleton" i], .react-loading-skeleton').count();
+  await page.screenshot({ path: `${OUT}${label}.png`, fullPage: true });
+  out[label] = { readyMs: ready, skeletonsAfter15s: skeletons, guidance: await page.getByText(/How this (record|tab) works/).count() };
+};
+await measure('ui-20-opportunity-record', `http://server:3000/object/opportunity/${ids.opportunity}`, () => page.getByText('Load Co 5 – Licence – Topic 5').first().waitFor({ timeout: 20000 }));
+await measure('ui-21-work-package-record', `http://server:3000/object/workPackage/${ids.workPackage}`, () => page.getByText('Draft load item 3').first().waitFor({ timeout: 20000 }));
+await measure('ui-22-company-record', `http://server:3000/object/company/${ids.company}`, () => page.getByText('Load Company 7 LLC').first().waitFor({ timeout: 20000 }));
+for (const tab of ids.tabs) await measure(`ui-3${ids.tabs.indexOf(tab)}-bd-${tab.title.replace(/\W+/g, '-').toLowerCase()}`, `http://server:3000/page/${ids.bdPage}?tabId=${tab.id}`, () => page.getByText(tab.title).first().waitFor({ timeout: 20000 }));
+out.consoleErrors = [...new Set(consoleErrors)].slice(0, 15); out.gqlErrors = [...new Set(gqlErrors)].slice(0, 15);
+writeFileSync(`${OUT}ui-dash-${email.split('@')[0]}.json`, JSON.stringify(out, null, 2));
+console.log(JSON.stringify(out, null, 1));
+await browser.close();

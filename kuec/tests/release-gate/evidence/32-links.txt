@@ -1,0 +1,27 @@
+# Navigation link targets in the committed manifest
+Open uVENTURE: https://uventure.kuec.example/        -> no DNS (placeholder default of KUEC_UVENTURE_ORIGIN, src/constants/uventure.ts)
+Help: https://kuac.sharepoint.com/sites/BD/SitePages/CRM-Help.aspx -> no DNS
+# Comparison:
+kuac.sharepoint.com -> 000, no DNS            (same as an invented tenant, zzqxnotatenant987.sharepoint.com)
+kuec.sharepoint.com -> 403, 13.107.138.10     (a tenant that exists)
+microsoft.sharepoint.com -> 401
+
+# Every app navigation entry and what it points at, on the rehearsal (core."navigationMenuItem")
+Home|PAGE_LAYOUT|page ok
+Exceptions|PAGE_LAYOUT|page ok
+Leads|VIEW|view ok
+Pipeline|VIEW|view ok
+My work|VIEW|view ok
+BD Executive|PAGE_LAYOUT|page ok
+Projects|VIEW|view ok
+Companies|OBJECT|object ok
+People|OBJECT|object ok
+Engagements|VIEW|view ok
+Contracts|VIEW|view ok
+Documents|VIEW|view ok
+Capabilities|VIEW|view ok
+Milestones|VIEW|view ok
+Data quality|PAGE_LAYOUT|page ok
+uVENTURE|PAGE_LAYOUT|page ok
+Open uVENTURE|LINK|https://uventure.kuec.example/
+Help|LINK|https://kuac.sharepoint.com/sites/BD/SitePages/CRM-Help.aspx

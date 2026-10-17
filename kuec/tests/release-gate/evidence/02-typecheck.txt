@@ -1,0 +1,2 @@
+src/import/import-target-values.test.ts(19,8): error TS6307: File '/home/user/kueccrm/kuec/app/scripts/import/target-values.ts' is not listed within the file list of project '/home/user/kueccrm/kuec/app/tsconfig.spec.json'. Projects must list all files or use an 'include' pattern.
+typecheck exit 2

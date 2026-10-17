@@ -1,0 +1,4 @@
+FAIL server STORAGE_TYPE=LOCAL (want S_3)
+FAIL worker STORAGE_TYPE=LOCAL (want S_3)
+FAIL SERVER_URL is not https: http://localhost:3000
+exit 1

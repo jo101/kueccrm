@@ -1,0 +1,13 @@
+# yarn twenty dev:function:exec -n w01-instantiate-opportunity-playbook -p '{"recordId":"6d5930e3-a8e7-4c45-9123-44f75d891e12"}'  (as the ED, 2026-10-17 20:14 UTC)
+Status: ERROR
+Duration: 1042ms
+  Message: Bad Request: {"errors":[{"message":"Expected non-nullable type \"UUID!\" not to be null.","extensions":{"http":{"status":400},"code":"BAD_USER_INPUT"}}]}
+    at Bp.assertResponseIsSuccessful (.../twenty-client-sdk/dist/metadata.mjs:7908:48)
+    at async aR (.../w01-instantiate-opportunity-playbook.mjs:189920:92)
+    at async publishOnce (.../w01-instantiate-opportunity-playbook.mjs:194123:3)
+    at async publishWorkPackageTransition (.../w01-instantiate-opportunity-playbook.mjs:194154:3)
+    at async instantiateCase (.../w01-instantiate-opportunity-playbook.mjs:194626:5)
+# The same opportunity after the event-triggered runs (jobs 51 and 52 at 20:12:28 and 20:12:31, both "completed", no failedReason):
+{"playbookType":"TECHNOLOGY_LICENSING","playbookApplied":false,"stage":"SIGNED","nextAction":"Scoping call with the decision maker"}
+# The worker log has no error line for these runs and the function log stream (17-function-log-stream.txt) shows nothing from w01.
+# Same result for the RFQ opportunity 032ff62b-dcc0-4c0e-aa9a-2f7d38f86147 (12-journeys-b-c-f.txt). W9 on a project completes (playbookApplied true).

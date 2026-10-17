@@ -1,0 +1,13 @@
+  OK   cron:messaging:message-list-fetch              pattern=2-59/5 * * * * last_ok=2026-10-17T19:47:00.089Z next=2026-10-17T19:52:00.000Z
+  OK   cron:messaging:messages-import                 pattern=*/1 * * * * last_ok=2026-10-17T19:48:00.075Z next=2026-10-17T19:49:00.000Z
+  FAIL cron:messaging:ongoing-stale                   pattern=0 * * * * last_ok=- next=2026-10-17T20:00:00.000Z  <- no completed run retained
+  OK   cron:calendar:calendar-event-list-fetch        pattern=*/5 * * * * last_ok=2026-10-17T19:45:00.115Z next=2026-10-17T19:50:00.000Z
+  OK   cron:calendar:calendar-events-import           pattern=*/1 * * * * last_ok=2026-10-17T19:48:00.085Z next=2026-10-17T19:49:00.000Z
+  FAIL cron:calendar:ongoing-stale                    pattern=0 * * * * last_ok=- next=2026-10-17T20:00:00.000Z  <- no completed run retained
+  OK   cron:workflow:automated-cron-trigger           pattern=* * * * * last_ok=2026-10-17T19:48:00.099Z next=2026-10-17T19:49:00.000Z
+  OK   cron:workflow:enqueue-awaiting-workflow-run    pattern=* * * * * last_ok=2026-10-17T19:48:00.106Z next=2026-10-17T19:49:00.000Z
+  OK   cron:trigger:start-cron-trigger                pattern=* * * * * last_ok=2026-10-17T19:47:00.123Z next=2026-10-17T19:49:00.000Z
+  
+  30 schedulers registered on bull:cron-queue
+  logic functions (retained window): 0 ok, 0 failed
+  exit 1

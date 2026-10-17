@@ -1,0 +1,14 @@
+# Blocked (W5), rehearsal. bd2 (owner) accepts work package b9af81c3-088e-4cc9-b9e0-86dd803cc7ff, then sets Blocked with reason "Client has not sent the sample spec".
+accept 200
+block 200
+ED decision tasks after 15s quiet: 1 [{"id":"a2c2ecd5-cd0d-41d8-b442-e0adc3685506","title":"Decision needed: Draft journey g assessment"}]
+blockedAt 2026-10-17T21:06:08.653Z reason Client has not sent the sample spec
+teams 21:06:10.167 "Blocked, decision needed: Draft journey g assessment. Reason: Client has not sent the sample spec ..."   (once)
+
+# Next-action guard (W4), run by hand twice as the ED. Opportunity 0f5c8c1d-f6e6-4895-b528-d06e18210c4a created by bd2 at stage Meeting with no next action.
+== w04 run 1  Status: SUCCESS
+INFO notified 5927268b-...: Set a next action and date: GuardCo – Licence – No next action d1. http://localhost:3000/object/opportunity/0f5c8c1d-...
+== w04 run 2  Status: SUCCESS
+INFO w04 flagged 0 of 211 open opportunities
+Set next action tasks for bd2: 1 [{"title":"Set next action: GuardCo – Licence – No next action d1","dueAt":"2026-10-18T13:00:00.000Z"}] nextActionFlaggedOn 2026-10-18
+# 21:06 UTC is 01:06 Sunday 18 October in Asia/Dubai: the stamp and the 17:00 Dubai due time use the Dubai day.

@@ -1,0 +1,7 @@
+# Journey (h), rehearsal. Teams stub set to answer 503. bd1 creates opportunity 799cea51-1170-4367-8ea1-dd35bf79a81f ("HCo – Licence – Retry test h1", Type Technology licensing) and moves it to Signed.
+# Teams stub log (19-notification-sinks.jsonl): W7 post attempts at 20:27:17.406, 20:27:19.132, 20:27:21.551, 20:27:26.206 (4 attempts in 8.8 s), all answered 503.
+contracts after 60s with Teams down: 0
+ED tasks: [ 'Signed: HCo – Licence – Retry test h1' ]       (created once, not on every retry)
+# uVENTURE stub: crm-licence-signed-799cea51-... received once, signed.
+# Teams restored to 200: still 0 contracts. No sweep repairs W7 (timer-sweep, derived-dates-sweep, lead-sweep and packs-sweep do not create contracts).
+# verify-crons.sh afterwards: "logic functions (retained window): 64 ok, 2 failed; latest failure: teams post failed transiently: 503"

@@ -1,0 +1,26 @@
+npm notice 4.7MB src/logic-functions/w10-milestone-status.mjs
+npm notice 9.1MB src/logic-functions/w10-milestone-status.mjs.map
+npm notice 2.0kB src/logic-functions/w10-milestone-status.ts
+npm notice 5.1MB src/logic-functions/w10-project-health-daily.mjs
+npm notice 9.9MB src/logic-functions/w10-project-health-daily.mjs.map
+npm notice 3.2kB src/logic-functions/w10-project-health-daily.ts
+npm notice 4.5MB src/logic-functions/w11-engagement-stamp.mjs
+npm notice 8.8MB src/logic-functions/w11-engagement-stamp.mjs.map
+npm notice 3.8kB src/logic-functions/w11-engagement-stamp.ts
+npm notice 4.7MB src/logic-functions/work-package-transition-log.mjs
+npm notice 9.1MB src/logic-functions/work-package-transition-log.mjs.map
+npm notice 2.4kB src/logic-functions/work-package-transition-log.ts
+npm notice Tarball Details
+npm notice name: kuec-bd-ops
+npm notice version: 0.11.0
+npm notice filename: kuec-bd-ops-0.11.0.tgz
+npm notice package size: 117.2 MB
+npm notice unpacked size: 617.0 MB
+npm notice shasum: 466ce9c7683866c71296ad3a4d8de7d8108f2297
+npm notice integrity: sha512-+MscPXSH6WaiH[...]l4U25qCtesk2g==
+npm notice total files: 131
+npm notice
+Uploading <scratch>/app-ws/.twenty/output/kuec-bd-ops-0.11.0.tgz...
+Registering application...
+Upload failed: socket hang up - (ECONNRESET)
+publish exit 1

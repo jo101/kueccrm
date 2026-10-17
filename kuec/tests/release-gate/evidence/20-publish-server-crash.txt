@@ -1,0 +1,21 @@
+# app:publish --private of kuec-bd-ops 0.11.0 to the rehearsal server (twentycrm/twenty v2.48.0), 2026-10-17 19:25 UTC
+# CLI side (tail of 04-publish.txt):
+npm notice package size: 117.2 MB
+npm notice unpacked size: 617.0 MB
+npm notice total files: 131
+Registering application...
+Upload failed: socket hang up - (ECONNRESET)
+
+# Server side (docker compose logs server):
+server-1  | /app/packages/twenty-server/dist/engine/core-modules/application/application-package/utils/extract-tarball-securely.util.js:83
+server-1  |                 throw new _applicationexception.ApplicationException(`Extracted size exceeds ${MAX_EXTRACTED_SIZE_BYTES} bytes`, ...TARBALL_EXTRACTION_FAILED);
+server-1  | ApplicationException [Error]: Extracted size exceeds 524288000 bytes
+server-1  |   code: 'TARBALL_EXTRACTION_FAILED',
+server-1  | Node.js v24.19.0
+server-1  | Running database setup and migrations...
+# docker inspect twenty-rehearsal-server-1: RestartCount 1, StartedAt 2026-10-17T19:25:32Z
+# /healthz answered 200 again 55 s after the first probe following the crash (the server was down from about 19:25:30).
+
+# Build output sizes (.twenty/output of the app build):
+701M  total; 43 *.mjs function bundles = 200M; 43 *.mjs.map source maps = 389M
+# twenty-sdk 2.48.0 compile-application sets `sourcemap: !0` for function bundles; the app cannot turn it off.

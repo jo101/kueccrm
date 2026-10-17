@@ -1,0 +1,1643 @@
+{
+  "results": [
+    {
+      "principal": "ED",
+      "object": "opportunities",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "companies",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "people",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "leads",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "engagements",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "documents",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "campaignTargets",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "tasks",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "notes",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "workPackages",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "projects",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "milestones",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "contracts",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "ED",
+      "object": "capabilities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "opportunities",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "companies",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "people",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "leads",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "engagements",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "documents",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "campaignTargets",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "tasks",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "notes",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "workPackages",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "projects",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "milestones",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "contracts",
+      "read": 200,
+      "create": 201,
+      "delete": 200,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": true
+      },
+      "ok": true
+    },
+    {
+      "principal": "Ops coordinator",
+      "object": "capabilities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "opportunities",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "companies",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "people",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "leads",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "engagements",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "documents",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "campaignTargets",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "tasks",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "notes",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "workPackages",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "projects",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "milestones",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "contracts",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "BD officer",
+      "object": "capabilities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "opportunities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "companies",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "people",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "leads",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "engagements",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "documents",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "campaignTargets",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "tasks",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "notes",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "workPackages",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "projects",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "milestones",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "contracts",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Engineer",
+      "object": "capabilities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "opportunities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "companies",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "people",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "leads",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "engagements",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "documents",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "campaignTargets",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "tasks",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "notes",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "workPackages",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "projects",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "milestones",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "contracts",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Leadership viewer",
+      "object": "capabilities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": false
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "opportunities",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "companies",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "people",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "leads",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "engagements",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "documents",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "campaignTargets",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "tasks",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "notes",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "workPackages",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "projects",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "milestones",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "contracts",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "IP office (department)",
+      "object": "capabilities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "opportunities",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "companies",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "people",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "leads",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "engagements",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "documents",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "campaignTargets",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "tasks",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "notes",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "workPackages",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "projects",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "milestones",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "contracts",
+      "read": 200,
+      "create": 201,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": true,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "Automation (API key)",
+      "object": "capabilities",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "opportunities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "companies",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "people",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "leads",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "engagements",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "documents",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "campaignTargets",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "tasks",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "notes",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "workPackages",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "projects",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "milestones",
+      "read": 400,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": false,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "contracts",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "object": "capabilities",
+      "read": 200,
+      "create": 400,
+      "delete": 400,
+      "want": {
+        "R": true,
+        "W": false,
+        "D": false
+      },
+      "ok": true
+    }
+  ],
+  "locked": [
+    {
+      "principal": "ED",
+      "appStampOfferedAt": 400,
+      "openLockedExternalId": 200
+    },
+    {
+      "principal": "Ops coordinator",
+      "appStampOfferedAt": 400,
+      "openLockedExternalId": 200
+    },
+    {
+      "principal": "BD officer",
+      "appStampOfferedAt": 400,
+      "openLockedExternalId": 400
+    },
+    {
+      "principal": "Engineer",
+      "appStampOfferedAt": 400,
+      "openLockedExternalId": 400
+    },
+    {
+      "principal": "Leadership viewer",
+      "appStampOfferedAt": 400,
+      "openLockedExternalId": 400
+    },
+    {
+      "principal": "IP office (department)",
+      "appStampOfferedAt": 400,
+      "openLockedExternalId": 400
+    },
+    {
+      "principal": "Automation (API key)",
+      "appStampOfferedAt": 400,
+      "openLockedExternalId": 200
+    },
+    {
+      "principal": "uVENTURE reader (API key)",
+      "appStampOfferedAt": 400,
+      "openLockedExternalId": 400
+    }
+  ],
+  "flags": [
+    {
+      "role": "Admin",
+      "settings": true,
+      "flags": []
+    },
+    {
+      "role": "Member",
+      "settings": false,
+      "flags": []
+    },
+    {
+      "role": "BD officer",
+      "settings": false,
+      "flags": [
+        "CONNECTED_ACCOUNTS",
+        "DOWNLOAD_FILE",
+        "EXPORT_CSV",
+        "PROFILE_INFORMATION"
+      ]
+    },
+    {
+      "role": "uVENTURE reader",
+      "settings": false,
+      "flags": []
+    },
+    {
+      "role": "Lab access",
+      "settings": false,
+      "flags": [
+        "CONNECTED_ACCOUNTS",
+        "DOWNLOAD_FILE",
+        "EXPORT_CSV",
+        "PROFILE_INFORMATION"
+      ]
+    },
+    {
+      "role": "Automation",
+      "settings": false,
+      "flags": []
+    },
+    {
+      "role": "Startups and investment",
+      "settings": false,
+      "flags": [
+        "CONNECTED_ACCOUNTS",
+        "DOWNLOAD_FILE",
+        "EXPORT_CSV",
+        "PROFILE_INFORMATION"
+      ]
+    },
+    {
+      "role": "KUEC BD Ops function role",
+      "settings": false,
+      "flags": []
+    },
+    {
+      "role": "Ops coordinator",
+      "settings": false,
+      "flags": [
+        "CONNECTED_ACCOUNTS",
+        "DOWNLOAD_FILE",
+        "EXPORT_CSV",
+        "IMPORT_CSV",
+        "PROFILE_INFORMATION"
+      ]
+    },
+    {
+      "role": "Engineer",
+      "settings": false,
+      "flags": [
+        "APPLICATIONS",
+        "CONNECTED_ACCOUNTS",
+        "DATA_MODEL",
+        "DOWNLOAD_FILE",
+        "LAYOUTS",
+        "PROFILE_INFORMATION",
+        "UPLOAD_FILE",
+        "VIEWS",
+        "WORKFLOWS",
+        "WORKSPACE"
+      ]
+    },
+    {
+      "role": "ED",
+      "settings": false,
+      "flags": [
+        "API_KEYS_AND_WEBHOOKS",
+        "APPLICATIONS",
+        "CONNECTED_ACCOUNTS",
+        "DATA_MODEL",
+        "DOWNLOAD_FILE",
+        "EXPORT_CSV",
+        "LAYOUTS",
+        "PROFILE_INFORMATION",
+        "ROLES",
+        "SECURITY",
+        "VIEWS",
+        "WORKFLOWS",
+        "WORKSPACE",
+        "WORKSPACE_MEMBERS"
+      ]
+    },
+    {
+      "role": "IP office",
+      "settings": false,
+      "flags": [
+        "CONNECTED_ACCOUNTS",
+        "DOWNLOAD_FILE",
+        "EXPORT_CSV",
+        "PROFILE_INFORMATION"
+      ]
+    },
+    {
+      "role": "Commercialization",
+      "settings": false,
+      "flags": [
+        "CONNECTED_ACCOUNTS",
+        "DOWNLOAD_FILE",
+        "EXPORT_CSV",
+        "PROFILE_INFORMATION"
+      ]
+    },
+    {
+      "role": "Leasing",
+      "settings": false,
+      "flags": [
+        "CONNECTED_ACCOUNTS",
+        "DOWNLOAD_FILE",
+        "EXPORT_CSV",
+        "PROFILE_INFORMATION"
+      ]
+    },
+    {
+      "role": "Leadership viewer",
+      "settings": false,
+      "flags": [
+        "PROFILE_INFORMATION"
+      ]
+    }
+  ]
+}

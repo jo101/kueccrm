@@ -1,0 +1,53 @@
+{
+  "email": "ed@kuec.test",
+  "url": "http://server:3000/page/4e461e43-64b4-405d-ad14-46078ad2329d",
+  "ui-20-opportunity-record": {
+    "readyMs": 5545,
+    "skeletonsAfter15s": 0,
+    "guidance": 0
+  },
+  "ui-21-work-package-record": {
+    "readyMs": 4998,
+    "skeletonsAfter15s": 0,
+    "guidance": 0
+  },
+  "ui-22-company-record": {
+    "readyMs": 5490,
+    "skeletonsAfter15s": 0,
+    "guidance": 0
+  },
+  "ui-30-bd-executive": {
+    "readyMs": 7309,
+    "skeletonsAfter15s": 0,
+    "guidance": 0
+  },
+  "ui-31-bd-team": {
+    "readyMs": "not ready in 20s",
+    "skeletonsAfter15s": 0,
+    "guidance": 0
+  },
+  "ui-32-bd-mine": {
+    "readyMs": "not ready in 20s",
+    "skeletonsAfter15s": 0,
+    "guidance": 0
+  },
+  "ui-33-bd-pipeline-pack": {
+    "readyMs": "not ready in 20s",
+    "skeletonsAfter15s": 0,
+    "guidance": 0
+  },
+  "ui-34-bd-project-pack": {
+    "readyMs": "not ready in 20s",
+    "skeletonsAfter15s": 0,
+    "guidance": 0
+  },
+  "ui-35-bd-campaign-pack": {
+    "readyMs": "not ready in 20s",
+    "skeletonsAfter15s": 0,
+    "guidance": 0
+  },
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "gqlErrors": []
+}

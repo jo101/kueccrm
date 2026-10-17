@@ -1,0 +1,17 @@
+# Journey (g), rehearsal, 2026-10-17. Work package b9af81c3-088e-4cc9-b9e0-86dd803cc7ff created by the ops coordinator, owner bd2, due 2026-10-23 17:00 Dubai, set to Offered.
+delayed wp-due-b9af81c3-...-1792760400000-l1 due 2026-10-23T13:00:00.025Z
+delayed wp-accept-b9af81c3-...-1792268690715-l1 due 2026-10-19T20:24:50.894Z
+# Both delayed jobs removed from Redis (a lost timer), then: docker kill twenty-rehearsal-server-1 twenty-rehearsal-worker-1 at 20:25:13 UTC; docker compose up -d; healthy after 84 s.
+# After restart: no job for the work package. Then, as the ED (runbook 04 section 3, "Repair all timers now"):
+== sweep run 1
+Status: SUCCESS  Duration: 898ms
+INFO sweep repaired wp-accept-b9af81c3-...-1792268690715-l1: no job found
+INFO sweep repaired wp-due-b9af81c3-...-1792760400000-l1: no job found
+INFO sweep checked 4 open work packages, 8 timers due within 7 days, repaired 2
+== sweep run 2
+Status: SUCCESS  Duration: 733ms
+INFO sweep checked 4 open work packages, 8 timers due within 7 days, repaired 0
+delayed wp-due-b9af81c3-...-1792760400000-l1 due 2026-10-23T13:00:00.267Z
+delayed wp-accept-b9af81c3-...-1792268690715-l1 due 2026-10-19T20:24:50.959Z
+# One job per timer, same deterministic ids, so neither can fire twice.
+# Hourly ticks after the restart (logic-function-queue): l02-lead-contact-sla 20:20:00, derived-dates-sweep 20:30:00, lead-sweep 20:45:00, timer-sweep 21:00:00 (finished in 1670 ms, ok).

@@ -1,0 +1,7 @@
+scripts/import/prepare-import.ts(7,30): An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/import/prepare-import.ts(8,69): An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/import/prepare-import.ts(9,51): An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/import/source-columns.ts(1,31): An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/import/value-mapper.ts(1,31): An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/import/value-mapper.ts(6,8): An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+plan exit 1

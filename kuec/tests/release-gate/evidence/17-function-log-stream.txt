@@ -1,0 +1,44 @@
+Warning: The CLI bundled with twenty-sdk is deprecated. Use the standalone twenty package instead.
+Install: npm install -g twenty
+🚀 Watching KUEC BD Ops functions logs on local:
+
+
+2026-10-17T20:12:32.949Z INFO enqueued wp-accept-f973fe1d-24d9-4846-9c72-58c1ca13dcfb-1792267887102-l1 to run in 2879 min
+2026-10-17T20:12:32.949Z INFO enqueued wp-due-f973fe1d-24d9-4846-9c72-58c1ca13dcfb-1792760400000-l1 to run in 8207 min
+
+2026-10-17T20:14:36.749Z INFO enqueued wp-accept-f973fe1d-24d9-4846-9c72-58c1ca13dcfb-1792267887102-l1 to run in 2877 min
+2026-10-17T20:14:36.749Z INFO enqueued wp-due-f973fe1d-24d9-4846-9c72-58c1ca13dcfb-1792760400000-l1 to run in 8205 min
+
+2026-10-17T20:20:01.035Z INFO l02 checked 0 New leads, fired 0
+
+2026-10-17T20:23:11.787Z INFO enqueued wp-accept-343b0372-57cf-4844-a23a-374296572228-1792268591034-l1 to run in 2880 min
+2026-10-17T20:23:11.787Z INFO enqueued wp-due-343b0372-57cf-4844-a23a-374296572228-1792501200000-l1 to run in 3877 min
+
+
+2026-10-17T20:24:15.757Z INFO enqueued wp-accept-1fe2a027-ecde-4640-b1d2-f10f0f518e76-1792268654803-l1 to run in 2880 min
+2026-10-17T20:24:15.757Z INFO enqueued wp-due-1fe2a027-ecde-4640-b1d2-f10f0f518e76-1792587600000-l1 to run in 5316 min
+2026-10-17T20:24:15.757Z INFO notified 5927268b-92e2-4030-ab42-5d1eeb22e9ec: Offered to you, please accept or decline: Objective (Workshop – Water reuse – 2026 bcf1). http://localhost:3000/object/workPackage/1fe2a027-ecde-4640-b1d2-f10f0f518e76
+2026-10-17T20:24:15.757Z INFO w09 applied WORKSHOP to 3accddf9-0101-4ccd-b269-aa7c1a238aa1: 6 work packages, 5 milestones
+2026-10-17T20:24:15.758Z ERROR email to bd2@kuec.test failed permanently: 500 Error upgrading connection with STARTTLS: 500 Error: command not recognized
+
+
+2026-10-17T20:24:20.725Z ERROR uventure delivery refused bcf1-uv-bad: BAD_SIGNATURE
+
+2026-10-17T20:24:21.458Z INFO uventure delivery bcf1-uv-good accepted 1 events
+
+2026-10-17T20:24:22.244Z INFO uventure delivery bcf1-uv-good: 1 events, 1 created, 0 updated, 0 unchanged, 0 stale
+
+
+
+
+2026-10-17T20:24:50.863Z INFO enqueued wp-due-b9af81c3-088e-4cc9-b9e0-86dd803cc7ff-1792760400000-l1 to run in 8195 min
+
+2026-10-17T20:24:51.135Z INFO enqueued wp-accept-b9af81c3-088e-4cc9-b9e0-86dd803cc7ff-1792268690715-l1 to run in 2880 min
+2026-10-17T20:24:51.135Z INFO notified 5927268b-92e2-4030-ab42-5d1eeb22e9ec: Offered to you, please accept or decline: Draft journey g assessment. http://localhost:3000/object/workPackage/b9af81c3-088e-4cc9-b9e0-86dd803cc7ff
+2026-10-17T20:24:51.135Z ERROR email to bd2@kuec.test failed permanently: 500 Error upgrading connection with STARTTLS: 500 Error: command not recognized
+
+NetworkError: fetch failed
+    at connect (/home/user/kueccrm/kuec/app/node_modules/graphql-sse/lib/client.js:537:15)
+    at async /home/user/kueccrm/kuec/app/node_modules/graphql-sse/lib/client.js:236:48 {
+  response: undefined
+}

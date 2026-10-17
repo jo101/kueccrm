@@ -49,7 +49,7 @@ kuec/
 
 ### 4. Data classes
 
-- Twenty holds relationships and work: companies, people, opportunities, projects, milestones, work packages, tasks, notes, and contract metadata (counterparty, type, status, key dates, value, owner).
+- Twenty holds relationships and work: companies, people, leads, opportunities, projects, milestones, work packages, tasks, notes, contract metadata (counterparty, type, status, key dates, value, owner), and document metadata (type, status, confidentiality, version, expiry, and the link to the file).
 - Never upload contracts, proposals, IP disclosures, or confidential documents to Twenty, including as attachments, notes, or pasted text. A record carries a link (SharePoint or uVENTURE) instead.
 - Link fields are `LINKS` type. Label them by destination, e.g. "SharePoint folder", "uVENTURE record".
 

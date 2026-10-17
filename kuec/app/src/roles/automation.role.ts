@@ -4,7 +4,9 @@ import {
 } from 'twenty-sdk/define';
 
 import { CONTRACT_UNIVERSAL_IDENTIFIER } from '../objects/contract.object';
+import { DOCUMENT_UNIVERSAL_IDENTIFIER } from '../objects/document.object';
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from '../objects/engagement.object';
+import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { MILESTONE_UNIVERSAL_IDENTIFIER } from '../objects/milestone.object';
 import { PROJECT_UNIVERSAL_IDENTIFIER } from '../objects/project.object';
 import { WORK_PACKAGE_UNIVERSAL_IDENTIFIER } from '../objects/work-package.object';
@@ -53,6 +55,8 @@ export default defineRole({
       WORK_PACKAGE_UNIVERSAL_IDENTIFIER,
       CONTRACT_UNIVERSAL_IDENTIFIER,
       ENGAGEMENT_UNIVERSAL_IDENTIFIER,
+      LEAD_UNIVERSAL_IDENTIFIER,
+      DOCUMENT_UNIVERSAL_IDENTIFIER,
     ].map((objectUniversalIdentifier) => ({
       objectUniversalIdentifier,
       ...READ_WRITE_NO_DELETE,

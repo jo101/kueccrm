@@ -217,6 +217,14 @@ Each item lists what ships, the data model and logic it adds, what it removes, a
 - **Removes.** F20 50% (10), F2 5% (7): 17. **Days** 4. **Score** 4.2.
 - **Done when.** A BD officer's request reaches the ops coordinator once, and approving it on Exceptions moves the date and re-arms W03.
 
+### B19. Convert command on a lead
+
+Added with the lead layer in `kuec-bd-ops` 0.9.0 (`runbooks/19-leads.md`); not yet ranked against B1 to B18.
+
+- **Ships.** `command-menu-items/convert-lead.command-menu-item.ts` (record selection on Lead, one record) opening a small front component: the type it will create (from Offering interest, editable), the next action and date, Confirm. Route `lead-convert` (`isAuthRequired: true`) calls `convertLead` from `src/automation/leads/convert-lead.ts`, the same code L5 runs on a status change, with the request id as the conversion key. The route sets the lead to Converted itself, so the two paths cannot both convert.
+- **Removes.** The status round trip for a cross-sell (Converted to Qualified to Converted, `19-leads.md` section 4).
+- **Done when.** Convert on a Converted lead creates a second opportunity linked to it, a double click creates one, and a role that cannot write opportunities sees no command.
+
 ---
 
 ## 5. After four weeks: measure and re-rank
@@ -291,6 +299,7 @@ All follow `kuec/CLAUDE.md` section 7 and 8: pure rules tested on a fixed clock,
 | B15 | `w18-delivery-project-on-signed` | `opportunity.updated`, `stage` | app |
 | B16 | `target-follow-up` | `engagement.updated` on `date`; `0 4 * * *` (08:00 Asia/Dubai) | app |
 | B18 | `work-package-more-time` | HTTP route, the owner only | person (Task, Note) |
+| B19 | `lead-convert` | HTTP route, a role that writes opportunities | person (opportunity); app (links) |
 
 ## 8. Decisions for the ED
 

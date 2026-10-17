@@ -19,6 +19,7 @@ import {
 import {
   type CompanyRecord,
   type EngagementRecord,
+  type LeadRecord,
   type OpportunityRecord,
 } from 'src/automation/records/record-types';
 
@@ -69,6 +70,26 @@ const handler = async (
     }
   }
 
+  if (isDefined(engagement.date) && isDefined(engagement.leadId)) {
+    const lead = await getRecord<LeadRecord>(
+      api.asApplication,
+      OBJECT_NAMES.lead,
+      engagement.leadId,
+    );
+
+    // The lead's quiet clock (L3) restarts on contact, never moves backwards.
+    if (
+      isDefined(lead) &&
+      (!isDefined(lead.lastEngagementAt) ||
+        Date.parse(lead.lastEngagementAt) < Date.parse(engagement.date))
+    ) {
+      await updateRecord(api.asApplication, OBJECT_NAMES.lead, lead.id, {
+        lastEngagementAt: engagement.date,
+      });
+      result.leadLastEngagementAt = engagement.date;
+    }
+  }
+
   const nextStep = (engagement.nextStep ?? '').trim();
 
   if (nextStep.length > 0 && isDefined(engagement.opportunityId)) {
@@ -93,11 +114,11 @@ export default defineLogicFunction({
   universalIdentifier: W11_ENGAGEMENT_STAMP_UNIVERSAL_IDENTIFIER,
   name: 'w11-engagement-stamp',
   description:
-    "W11: an engagement's date sets its outcomeDueAt and becomes the company's last engagement; its next step becomes the linked opportunity's next action",
+    "W11: an engagement's date sets its outcomeDueAt and becomes the company's and the lead's last engagement; its next step becomes the linked opportunity's next action",
   timeoutSeconds: 60,
   handler,
   databaseEventTriggerSettings: {
     eventName: 'engagement.updated',
-    updatedFields: ['date', 'nextStep'],
+    updatedFields: ['date', 'nextStep', 'leadId'],
   },
 });

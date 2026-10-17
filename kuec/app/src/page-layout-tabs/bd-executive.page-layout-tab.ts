@@ -15,6 +15,14 @@ import {
   CONTRACT_VALUE_FIELD_UNIVERSAL_IDENTIFIER,
 } from '../objects/contract.object';
 import {
+  LEAD_CREATED_AT_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_SOURCE_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_STATUS,
+  LEAD_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_UNIVERSAL_IDENTIFIER,
+} from '../objects/lead.object';
+import {
   MILESTONE_NAME_FIELD_UNIVERSAL_IDENTIFIER,
   MILESTONE_UNIVERSAL_IDENTIFIER,
 } from '../objects/milestone.object';
@@ -25,11 +33,13 @@ import {
 } from '../objects/project.object';
 import { BD_DASHBOARD_PAGE_LAYOUT_UNIVERSAL_IDENTIFIER } from '../page-layouts/bd-dashboard.page-layout';
 import activeProjectsView from '../views/dashboard/bd-active-projects.view';
+import allLeadsView from '../views/dashboard/bd-all-leads.view';
 import closingThisQuarterView from '../views/dashboard/bd-closing-this-quarter.view';
 import contractsExpiringIn90DaysView from '../views/dashboard/bd-contracts-expiring-in-90-days.view';
 import contractsInNegotiationView from '../views/dashboard/bd-contracts-in-negotiation.view';
 import contractsSignedThisYearView from '../views/dashboard/bd-contracts-signed-this-year.view';
 import keyAccountsNotEngagedView from '../views/dashboard/bd-key-accounts-not-engaged.view';
+import leadsCreatedPast12MonthsView from '../views/dashboard/bd-leads-created-past-12-months.view';
 import lostThisQuarterView from '../views/dashboard/bd-lost-this-quarter.view';
 import milestonesDueIn30DaysView from '../views/dashboard/bd-milestones-due-in-30-days.view';
 import openPipelineByStageView from '../views/dashboard/bd-open-pipeline-by-stage.view';
@@ -485,6 +495,59 @@ export default definePageLayoutTab({
       title: 'Milestones due in 30 days',
       view: milestonesDueIn30DaysView,
       position: gridPosition(79, TABLE_COLUMN, 4, TABLE_WIDTH),
+    }),
+    {
+      universalIdentifier: '11479a63-865c-45f4-9ad8-1055d5f6080b',
+      title: 'Leads created per month, by source',
+      type: 'GRAPH',
+      objectUniversalIdentifier: LEAD_UNIVERSAL_IDENTIFIER,
+      position: gridPosition(83, CHART_COLUMN, 5, CHART_WIDTH),
+      configuration: {
+        configurationType: 'BAR_CHART',
+        aggregateFieldMetadataUniversalIdentifier: LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+        aggregateOperation: AggregateOperations.COUNT,
+        primaryAxisGroupByFieldMetadataUniversalIdentifier: LEAD_CREATED_AT_FIELD_UNIVERSAL_IDENTIFIER,
+        primaryAxisDateGranularity: 'MONTH',
+        primaryAxisOrderBy: 'FIELD_ASC',
+        secondaryAxisGroupByFieldMetadataUniversalIdentifier: LEAD_SOURCE_FIELD_UNIVERSAL_IDENTIFIER,
+        secondaryAxisOrderBy: 'FIELD_POSITION_ASC',
+        groupMode: 'STACKED',
+        displayLegend: true,
+        description: 'The past 12 months, this month included',
+        filter: chartFilterFromView(leadsCreatedPast12MonthsView),
+        ...BAR_CHART_DEFAULTS,
+      },
+    },
+    recordTableWidget({
+      universalIdentifier: '66273247-5070-42a5-8caf-c95f2002f53c',
+      title: 'Leads created, past 12 months',
+      view: leadsCreatedPast12MonthsView,
+      position: gridPosition(83, TABLE_COLUMN, 5, TABLE_WIDTH),
+    }),
+    {
+      universalIdentifier: '59583e23-fd8a-49c0-9f59-6435042af465',
+      title: 'Lead conversion rate',
+      type: 'GRAPH',
+      objectUniversalIdentifier: LEAD_UNIVERSAL_IDENTIFIER,
+      position: gridPosition(88, CHART_COLUMN, 4, CHART_WIDTH),
+      configuration: {
+        configurationType: 'AGGREGATE_CHART',
+        aggregateFieldMetadataUniversalIdentifier: LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+        aggregateOperation: AggregateOperations.COUNT,
+        ratioAggregateConfig: {
+          fieldMetadataUniversalIdentifier: LEAD_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
+          optionValue: LEAD_STATUS.CONVERTED,
+        },
+        description: 'Leads with Status Converted as a share of all leads',
+        filter: chartFilterFromView(allLeadsView),
+        ...CHART_DEFAULTS,
+      },
+    },
+    recordTableWidget({
+      universalIdentifier: '8b531067-ef42-4b5d-a6d3-bf41884ba224',
+      title: 'All leads',
+      view: allLeadsView,
+      position: gridPosition(88, TABLE_COLUMN, 4, TABLE_WIDTH),
     }),
   ],
 });

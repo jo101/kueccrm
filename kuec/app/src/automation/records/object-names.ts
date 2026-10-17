@@ -23,4 +23,9 @@ export const OBJECT_NAMES = {
     plural: 'playbookRoleAssignments',
   },
   publicHoliday: { singular: 'publicHoliday', plural: 'publicHolidays' },
+  lead: { singular: 'lead', plural: 'leads' },
+  document: { singular: 'document', plural: 'documents' },
+  person: { singular: 'person', plural: 'people' },
+  note: { singular: 'note', plural: 'notes' },
+  noteTarget: { singular: 'noteTarget', plural: 'noteTargets' },
 } as const satisfies Record<string, ObjectNames>;

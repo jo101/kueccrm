@@ -145,7 +145,7 @@ If a file fails halfway, import it again: rows already in were written with thei
    ```
 
 2. Run the checks after a restart (`01-deploy.md` section 13), including `scripts/verify-crons.sh`.
-3. From `kuec/app`, signed in as the ED or an engineer (`04-automation.md` section 3): run `timer-sweep`, `derived-dates-sweep`, `w04-next-action-guard` and `w10-project-health-daily` once each. W4 must report no flag for an imported opportunity.
+3. From `kuec/app`, signed in as the ED or an engineer (`04-automation.md` section 3): run `timer-sweep`, `derived-dates-sweep`, `lead-sweep`, `w04-next-action-guard` and `w10-project-health-daily` once each. `lead-sweep` triages every imported lead still in New (one Triage task each for the ops coordinator, `19-leads.md` section 7); leads imported with any other status are left as they are. W4 must report no flag for an imported opportunity.
 4. Reactivate the workflows written in the import log in section 3.1, if any.
 5. Imported opportunities and projects carry their Type but have no playbook work packages, because creating a record does not start W1 or W9. For one that should get its playbook now: clear Type, save, set it again (`04-automation.md` section 3).
 

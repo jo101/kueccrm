@@ -14,7 +14,9 @@ import {
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import { CONTRACT_UNIVERSAL_IDENTIFIER } from 'src/objects/contract.object';
+import { DOCUMENT_UNIVERSAL_IDENTIFIER } from 'src/objects/document.object';
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from 'src/objects/engagement.object';
+import { LEAD_UNIVERSAL_IDENTIFIER } from 'src/objects/lead.object';
 import { MILESTONE_UNIVERSAL_IDENTIFIER } from 'src/objects/milestone.object';
 import { PROJECT_UNIVERSAL_IDENTIFIER } from 'src/objects/project.object';
 import {
@@ -101,6 +103,8 @@ const BUSINESS_OBJECT_UNIVERSAL_IDENTIFIERS = [
   PROJECT_UNIVERSAL_IDENTIFIER,
   MILESTONE_UNIVERSAL_IDENTIFIER,
   CONTRACT_UNIVERSAL_IDENTIFIER,
+  LEAD_UNIVERSAL_IDENTIFIER,
+  DOCUMENT_UNIVERSAL_IDENTIFIER,
 ];
 
 // Objects whose changes start automation that creates notification tasks as
@@ -111,6 +115,7 @@ const TRIGGERING_OBJECT_UNIVERSAL_IDENTIFIERS = [
   WORK_PACKAGE_UNIVERSAL_IDENTIFIER,
   PROJECT_UNIVERSAL_IDENTIFIER,
   MILESTONE_UNIVERSAL_IDENTIFIER,
+  LEAD_UNIVERSAL_IDENTIFIER,
 ];
 
 const SETTINGS_FLAGS = [
@@ -503,6 +508,8 @@ describe('roles', () => {
         note.universalIdentifier,
         ENGAGEMENT_UNIVERSAL_IDENTIFIER,
         WORK_PACKAGE_UNIVERSAL_IDENTIFIER,
+        LEAD_UNIVERSAL_IDENTIFIER,
+        DOCUMENT_UNIVERSAL_IDENTIFIER,
       ].sort(),
     );
 
@@ -516,6 +523,8 @@ describe('roles', () => {
           task.universalIdentifier,
           note.universalIdentifier,
           ENGAGEMENT_UNIVERSAL_IDENTIFIER,
+          LEAD_UNIVERSAL_IDENTIFIER,
+          DOCUMENT_UNIVERSAL_IDENTIFIER,
         ].sort(),
       );
     }

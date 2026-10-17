@@ -10,7 +10,9 @@ import { beforeAll, describe, expect, it } from 'vitest';
 
 import { OPPORTUNITY_STAGE } from 'src/constants/opportunity-stage';
 import { OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-contract.field';
+import { OWNER_ON_DOCUMENT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-document.field';
 import { OWNER_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-engagement.field';
+import { OWNER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-lead.field';
 import { OWNER_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-milestone.field';
 import { OWNER_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-project.field';
 import { OWNER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-work-package.field';
@@ -19,9 +21,17 @@ import {
   CONTRACT_UNIVERSAL_IDENTIFIER,
 } from 'src/objects/contract.object';
 import {
+  DOCUMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+  DOCUMENT_UNIVERSAL_IDENTIFIER,
+} from 'src/objects/document.object';
+import {
   ENGAGEMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
   ENGAGEMENT_UNIVERSAL_IDENTIFIER,
 } from 'src/objects/engagement.object';
+import {
+  LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_UNIVERSAL_IDENTIFIER,
+} from 'src/objects/lead.object';
 import {
   MILESTONE_NAME_FIELD_UNIVERSAL_IDENTIFIER,
   MILESTONE_UNIVERSAL_IDENTIFIER,
@@ -101,6 +111,14 @@ const LEADING_COLUMNS_BY_OBJECT: Record<string, { name: string; owner: string }>
   [task.universalIdentifier]: {
     name: task.fields.title.universalIdentifier,
     owner: task.fields.assignee.universalIdentifier,
+  },
+  [LEAD_UNIVERSAL_IDENTIFIER]: {
+    name: LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    owner: OWNER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER,
+  },
+  [DOCUMENT_UNIVERSAL_IDENTIFIER]: {
+    name: DOCUMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    owner: OWNER_ON_DOCUMENT_FIELD_UNIVERSAL_IDENTIFIER,
   },
 };
 

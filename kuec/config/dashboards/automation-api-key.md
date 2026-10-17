@@ -2,7 +2,7 @@
 
 - **Why not the manifest:** API keys are secrets created at runtime. The Automation **role** comes from the app manifest (`automation.role.ts`); the key bound to it does not.
 - **Written against:** Twenty 2.48.0.
-- **Prerequisites:** the ED's Admin account; `kuec-bd-ops` installed so the **Automation** role exists with `canBeAssignedToApiKeys: true`; write access to secrets-manager path `twenty/<env>/AUTOMATION_API_KEY`.
+- **Prerequisites:** the ED's account (the ED role: creating a key needs both the **API keys** and the **Roles** permission, which no other team role holds); a row for the key in the inventory, `runbooks/13-roles.md` section 4.1; `kuec-bd-ops` installed so the **Automation** role exists with `canBeAssignedToApiKeys: true`; write access to secrets-manager path `twenty/<env>/AUTOMATION_API_KEY`.
 
 ## Steps
 

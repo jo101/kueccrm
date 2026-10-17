@@ -2,7 +2,7 @@
 
 - **Why not the manifest:** Stage is a standard Twenty field. An app can add fields to a standard object but cannot change the options of a field it does not own. The automation (W4, W7, W8) and the opportunity views (`runbooks/05-views.md`) use the API values `SIGNED`, `LOST` and `PARKED`, defined in `kuec/app/src/constants/opportunity-stage.ts`.
 - **Written against:** Twenty 2.48.0.
-- **Prerequisites:** the ED's Admin account (Data model permission). Do this before the first `app:install` of `kuec-bd-ops` 0.2.0 or later: the app's views filter on these values, and install rejects a view filter that names a stage option that does not exist.
+- **Prerequisites:** the **Data model** permission: the ED's Admin account before the app's first install, the ED or an engineer afterwards (`runbooks/13-roles.md`). Do this before the first `app:install` of `kuec-bd-ops` 0.2.0 or later: the app's views filter on these values, and install rejects a view filter that names a stage option that does not exist.
 
 ## Steps
 

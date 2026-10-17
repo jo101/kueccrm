@@ -101,7 +101,7 @@ Rerunning is safe: the same sources give the same IDs.
 3. Day one: Companies, People, Opportunities, Projects, Milestones and Contracts are empty apart from test records you delete now.
 4. Take a backup (`01-deploy.md` section 10) and note its file name in the import log.
 5. Agree a window outside working hours and tell the team: automation, reminders and the work package card's actions stop for its length.
-6. Import signed in as the ED's Admin account.
+6. Import signed in as the ops coordinator, the only role with **Import CSV** (`runbooks/13-roles.md`). Section 3.1 needs the **Workflows** permission, so the ED or an engineer does it.
 
 ### 3.1 Deactivate workflows triggered by the imported objects
 
@@ -145,7 +145,7 @@ If a file fails halfway, import it again: rows already in were written with thei
    ```
 
 2. Run the checks after a restart (`01-deploy.md` section 13), including `scripts/verify-crons.sh`.
-3. From `kuec/app`, signed in as the ED (`04-automation.md` section 3): run `timer-sweep`, `derived-dates-sweep`, `w04-next-action-guard` and `w10-project-health-daily` once each. W4 must report no flag for an imported opportunity.
+3. From `kuec/app`, signed in as the ED or an engineer (`04-automation.md` section 3): run `timer-sweep`, `derived-dates-sweep`, `w04-next-action-guard` and `w10-project-health-daily` once each. W4 must report no flag for an imported opportunity.
 4. Reactivate the workflows written in the import log in section 3.1, if any.
 5. Imported opportunities and projects carry their Type but have no playbook work packages, because creating a record does not start W1 or W9. For one that should get its playbook now: clear Type, save, set it again (`04-automation.md` section 3).
 

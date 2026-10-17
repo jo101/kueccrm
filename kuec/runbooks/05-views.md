@@ -187,7 +187,7 @@ Signed in as a BD staff member with at least one open work package:
 
 ### CSV export from every view
 
-Export needs the **Export CSV** permission on the user's role. Give it to the ED, BD staff and ops coordinator roles, and to the engineer role only if engineers need it.
+Export needs the **Export CSV** permission on the user's role: the ED, the ops coordinator, BD officers and the department roles hold it; engineers and the Leadership viewer do not (`13-roles.md`).
 
 For each view below, open it, run **Export view** from the command menu (or the view's options menu), open the file, and record a pass when the CSV has the view's visible columns in order and the same row count as the view. For the calendar views, check that the export runs and lists the view's records.
 

@@ -2,7 +2,7 @@
 
 - **Why not the manifest:** a connected account is an OAuth grant by its owner, and its visibility and contact-creation settings belong to that account. Twenty 2.48 has no workspace-wide visibility setting and does not let an admin change another member's account settings, so each member sets their own. The internal-email switch is a workspace setting, not metadata.
 - **Written against:** Twenty 2.48.0.
-- **Prerequisites:** Microsoft login and the Microsoft mail and calendar providers are on (`admin-panel-config-variables.md`), IT has granted admin consent (it-request item 1), and the member's role includes the **Sync Account** permission (every role except Automation; `members-and-roles.md`). The bd-ops mailbox has its own runbook (`connect-bd-ops-mailbox.md`).
+- **Prerequisites:** Microsoft login and the Microsoft mail and calendar providers are on (`admin-panel-config-variables.md`), IT has granted admin consent (it-request item 1), and the member's role includes the **Sync Account** permission (every role a person holds except Leadership viewer; `config/roles/role-definitions.md`). The bd-ops mailbox has its own runbook (`connect-bd-ops-mailbox.md`).
 
 ## What the team agreed
 

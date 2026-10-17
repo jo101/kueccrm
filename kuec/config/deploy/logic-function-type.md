@@ -26,8 +26,8 @@ Any code that runs as a logic function can therefore read the database credentia
 ## Why LOCAL is acceptable here, and only while these hold
 
 1. **The only logic-function code is our own app**, `kuec-bd-ops`, built from this repo, reviewed and versioned. No marketplace or third-party app is installed (Settings > Apps shows `kuec-bd-ops` only).
-2. **No BD user can create code.** No role other than the ED's Admin role has the Workflows permission flag or the Applications flag. Workflow-builder Code actions are not used (`CLAUDE.md` section 6). The Automation role and API key have no settings permissions at all.
-3. **The ED's Admin account is the only one that could change either.** It signs in through Microsoft 365 with KUEC's MFA policy.
+2. **No BD user can create code.** Only the ED and Engineer roles hold the Workflows or Applications permission (`runbooks/13-roles.md`; `kuec/app/src/roles/roles.test.ts` fails if another role gains them). Workflow-builder Code actions are not used (`CLAUDE.md` section 6). The Automation role and API key have no settings permissions at all.
+3. **Only the ED, the engineers and the break-glass Admin could change either.** All sign in through Microsoft 365 with KUEC's MFA policy; the break-glass account is sealed and its use is reviewed each quarter.
 4. `CODE_INTERPRETER_TYPE=DISABLED`.
 
 If any of these stops being true (a new app, a role that gains Workflows or Applications, a BD user made admin), switch to `LAMBDA` or set `LOGIC_FUNCTION_TYPE=DISABLED` before the change goes live.
@@ -35,7 +35,7 @@ If any of these stops being true (a new app, a role that gains Workflows or Appl
 ## Residual risk (accepted by the ED)
 
 - A bug or a compromised dependency in our app runs with database-level access. Mitigation: app dependencies are pinned and reviewed in PRs; `plan` before every deploy.
-- An attacker who takes over the ED's account could add a workflow Code step that runs on the host. Mitigation: M365 MFA and Conditional Access on the ED; quarterly role review against this file.
+- An attacker who takes over the ED's or an engineer's account, or an engineer acting alone, could add a workflow Code step or a logic function that runs on the host, outside the reviewed app. Engineers hold Workflows since `kuec-bd-ops` 0.6.0, which this decision has to be re-signed for. Mitigation: M365 MFA and Conditional Access on the ED and engineers; the quarterly access review (`runbooks/13-roles.md` section 6) checks the Workflows list is empty and that only the ED and engineers hold Workflows and Applications.
 - A runaway function can starve the server or worker. Mitigation: Twenty's function timeout; `LOGIC_FUNCTION_EXEC_THROTTLE_LIMIT` stays at its default.
 
 Accepted by: ____________ (ED)  Date: ____________

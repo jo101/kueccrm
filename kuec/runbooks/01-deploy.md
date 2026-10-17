@@ -18,7 +18,7 @@ Check these before starting. Each one is something the request assumed different
 | G6 | MinIO's community edition is no longer maintained: no images after September 2025, repository archived April 2026. | Use the host's S3-compatible object store. If IT can only offer MinIO, they pin the final image and own the risk. |
 | G7 | Per-API-key rate limits need the Organization plan's usage-limit entitlement. | We raise `API_RATE_LIMITING_LONG_LIMIT` for the whole instance (section 5). |
 | G8 | Field validation rules ("required" enforced by the server) need the Organization plan. | "Required next action / date / owner" is enforced by the app's sweep, as `CLAUDE.md` section 7 already says. |
-| G9 | "Roles per Prompt 13" is not in this repo. | Section 8 uses the role set from `kuec/CLAUDE.md` (ED, BD staff, Engineer, Ops coordinator, Automation). Reconcile with Prompt 13 when the app's `src/roles/` is written. |
+| G9 | Resolved: the roles ship in the app since 0.6.0 (`runbooks/13-roles.md`). | Section 8 installs them; the ED moves to the ED role and a break-glass account holds Admin. |
 
 Out of scope because they need the Organization plan: SSO (SAML/OIDC), custom domains, row-level permissions, record sharing, audit logs, per-key usage limits, validation rules, and more than 5 workspaces.
 
@@ -134,7 +134,7 @@ Set in `.env` (not the Admin Panel) per `config/deploy/logic-function-type.md`. 
 ## 8. Install the app, roles, members
 
 0. `config/dashboards/opportunity-stages.md` first. The app's views filter on the Signed, Lost and Parked stages, and the install fails while those options are missing.
-1. Connect the CLI as the ED (interactive login; never the Automation key, which has no Applications permission):
+1. Connect the CLI with an interactive login: the ED for the first install (the only member, on Admin), an engineer afterwards. `app:publish` uploads the build, which needs **Upload files** as well as **Apps**; after the first install only the Engineer role holds both (the ED role can install a published version but not publish one). Never the Automation key, which has neither:
    ```bash
    cd kuec/app
    npx twenty remote:add --as prod --url https://crm.kuec.example
@@ -143,89 +143,18 @@ Set in `.env` (not the Admin Panel) per `config/deploy/logic-function-type.md`. 
    npx twenty app:publish --private -r prod
    npx twenty app:install -r prod
    ```
-   The app ships the roles: ED, BD staff, Engineer, Ops coordinator (per Prompt 13), and Automation (below).
-2. `config/dashboards/members-and-roles.md`: invite members, keep the ED on the built-in **Admin** role and on no other admin, assign everyone else exactly one role.
+   The app ships the roles of `runbooks/13-roles.md`: ED, Ops coordinator, BD officer, Engineer, Leadership viewer, IP office, Leasing, Lab access, Startups and investment, and Automation (below).
+2. `config/dashboards/members-and-roles.md`: the break-glass account takes Admin and moves the ED to the ED role; the default role becomes Leadership viewer; everyone else is invited with exactly one role.
 3. `config/dashboards/connect-bd-ops-mailbox.md`: bd-ops signs in with Microsoft and connects its mailbox and calendar. That mailbox is the sender the automation uses.
 4. Re-run `scripts/verify-crons.sh`. Messaging and calendar jobs now have real work, and the logic-function line shows runs.
 
 ## 9. Automation role and API key
 
-The role is defined in the app (`kuec/app/src/roles/automation.role.ts`, UUID generated once with `uuidgen`):
+The Automation role ships in the app: `kuec/app/src/roles/automation.role.ts`, defined in `kuec/config/roles/role-definitions.md`. It reads and writes Opportunity, Company, Person, Task, Note, Task target, Note target, Project, Milestone, Work package, Contract and Engagement, reads workspace members, and deletes nothing. It holds no settings or tools and can be bound only to API keys.
 
-```ts
-import {
-  defineRole,
-  STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
-} from 'twenty-sdk/define';
-import { CAPABILITY_UNIVERSAL_IDENTIFIER } from '../objects/capability.object';
-import { CONTRACT_UNIVERSAL_IDENTIFIER } from '../objects/contract.object';
-import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from '../objects/engagement.object';
-import { MILESTONE_UNIVERSAL_IDENTIFIER } from '../objects/milestone.object';
-import { PROJECT_UNIVERSAL_IDENTIFIER } from '../objects/project.object';
-import { WORK_PACKAGE_UNIVERSAL_IDENTIFIER } from '../objects/work-package.object';
+Compared with the first draft of this section: the Capability object is gone (capabilities live in uVENTURE, so there is no such object), and timeline, attachment, synced mail and calendar records are read-only for the key, because Twenty otherwise lets any role destroy them through the API. `taskTarget`, `noteTarget` (write) and `workspaceMember` (read) stay: without them the key cannot link a task or note to its record or resolve an owner.
 
-export const AUTOMATION_ROLE_UNIVERSAL_IDENTIFIER = '<uuidgen once>';
-
-const READ_WRITE_NO_DELETE = {
-  canReadObjectRecords: true,
-  canUpdateObjectRecords: true,
-  canSoftDeleteObjectRecords: false,
-  canDestroyObjectRecords: false,
-} as const;
-
-const READ_ONLY = {
-  canReadObjectRecords: true,
-  canUpdateObjectRecords: false,
-  canSoftDeleteObjectRecords: false,
-  canDestroyObjectRecords: false,
-} as const;
-
-const { opportunity, company, person, task, note, taskTarget, noteTarget, workspaceMember } =
-  STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS;
-
-export default defineRole({
-  universalIdentifier: AUTOMATION_ROLE_UNIVERSAL_IDENTIFIER,
-  label: 'Automation',
-  description: 'Behind the automation API key. Read and write on BD objects, no delete, no settings.',
-  canReadAllObjectRecords: false,
-  canUpdateAllObjectRecords: false,
-  canSoftDeleteAllObjectRecords: false,
-  canDestroyAllObjectRecords: false,
-  canUpdateAllSettings: false,
-  canAccessAllTools: false,
-  canBeAssignedToUsers: false,
-  canBeAssignedToAgents: false,
-  canBeAssignedToApiKeys: true,
-  permissionFlagUniversalIdentifiers: [],
-  objectPermissions: [
-    ...[
-      opportunity, company, person, task, note,
-      // join objects: without them a created task or note cannot be linked to its record
-      taskTarget, noteTarget,
-    ].map(({ universalIdentifier }) => ({
-      objectUniversalIdentifier: universalIdentifier,
-      ...READ_WRITE_NO_DELETE,
-    })),
-    ...[
-      PROJECT_UNIVERSAL_IDENTIFIER,
-      MILESTONE_UNIVERSAL_IDENTIFIER,
-      WORK_PACKAGE_UNIVERSAL_IDENTIFIER,
-      CONTRACT_UNIVERSAL_IDENTIFIER,
-      ENGAGEMENT_UNIVERSAL_IDENTIFIER,
-      CAPABILITY_UNIVERSAL_IDENTIFIER,
-    ].map((objectUniversalIdentifier) => ({
-      objectUniversalIdentifier,
-      ...READ_WRITE_NO_DELETE,
-    })),
-    // owners are workspace members; reading them is needed to assign and notify
-    { objectUniversalIdentifier: workspaceMember.universalIdentifier, ...READ_ONLY },
-  ],
-});
-```
-
-`taskTarget`, `noteTarget` (write) and `workspaceMember` (read) go beyond the list in the request. Without them the key cannot link a task or note to its record or resolve an owner. Drop them if Prompt 13 says otherwise.
-
-Then the key: `config/dashboards/automation-api-key.md`. Expiry is 1 year, role Automation, and the key goes straight into the secrets manager. Its verify step proves read and update work while delete and metadata changes are refused.
+Then the key: `config/dashboards/automation-api-key.md`, with its row in the inventory (`runbooks/13-roles.md` section 4.1) first. Expiry is 1 year, role Automation, and the key goes straight into the secrets manager. Its verify step proves read and update work while delete and metadata changes are refused.
 
 ## 10. Backups and the restore test
 

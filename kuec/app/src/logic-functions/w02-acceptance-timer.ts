@@ -56,8 +56,10 @@ const handler = async (payload: TimerJobPayload) => {
         console.error('w02 cannot reassign: no active ops coordinator in playbook role assignments');
       }
 
+      // The escalation is the app's action, and the person whose change
+      // started the timer may not be allowed to change owners.
       if (newOwnerId !== previousOwnerId) {
-        await updateRecord(api.asPerson, OBJECT_NAMES.workPackage, workPackage.id, {
+        await updateRecord(api.asApplication, OBJECT_NAMES.workPackage, workPackage.id, {
           ownerId: newOwnerId,
         });
       }

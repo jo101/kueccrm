@@ -1,0 +1,51 @@
+# T10 roles, kuec-bd-ops 0.6.0 on Twenty 2.48.0 built from this checkout, 2026-10-17
+# Final run, with app-scoped playbook and escalation writes
+[t10] bd accepts own work package: ALLOWED (200) {"data":{"updateWorkPackage":{"id":"1ef6c769-d0c7-4ff1-a716-05b6dd6b556a","name":"t10-1792229804316 Draft term sheet","status":"ACCEPTED","dueAt":"2026-10-27T09:36:46.637Z","objective":"","expectedOut
+[t10] bd sets blocked reason: ALLOWED (200) {"data":{"updateWorkPackage":{"id":"1ef6c769-d0c7-4ff1-a716-05b6dd6b556a","name":"t10-1792229804316 Draft term sheet","status":"ACCEPTED","dueAt":"2026-10-27T09:36:46.637Z","objective":"","expectedOut
+[t10] bd moves a due date: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission: no permission to write field \"dueAt\" on \"workPackage\""],"code":"PERMISSION_DENIED"}
+[t10] bd reassigns a work package: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission: no permission to write field \"owner\" on \"workPackage\""],"code":"PERMISSION_DENIED"}
+[t10] bd edits an opportunity: ALLOWED (200) {"data":{"updateOpportunity":{"id":"b32462f2-3942-4bc7-b3ca-ccb8f704fd99","createdAt":"2026-10-17T09:36:46.624Z","updatedAt":"2026-10-17T09:36:47.069Z","deletedAt":null,"name":"t10-1792229804316 Licen
+[t10] bd edits a company: ALLOWED (200) {"data":{"updateCompany":{"id":"1414a717-887e-4a76-a219-326f705992e6","createdAt":"2026-10-17T09:36:46.595Z","updatedAt":"2026-10-17T09:36:47.100Z","deletedAt":null,"name":"t10-1792229804316 Gulf Ther
+[t10] bd edits a project: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] bd deletes an opportunity: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] bd creates a task: ALLOWED (201) {"data":{"createTask":{"id":"cf47e0a2-44ad-4c2d-9488-5650de0634c9","createdAt":"2026-10-17T09:36:47.141Z","updatedAt":"2026-10-17T09:36:47.141Z","deletedAt":null,"position":-3,"title":"t10-17922298043
+[t10] bd links the task: ALLOWED (201) {"data":{"createTaskTarget":{"id":"0441b5b4-a49e-4aa1-a884-a5408496acd9","createdAt":"2026-10-17T09:36:47.165Z","updatedAt":"2026-10-17T09:36:47.165Z","deletedAt":null,"createdBy":{"source":"MANUAL","
+[t10] bd destroys a timeline row: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] dept edits an opportunity: ALLOWED (200) {"data":{"updateOpportunity":{"id":"b32462f2-3942-4bc7-b3ca-ccb8f704fd99","createdAt":"2026-10-17T09:36:46.624Z","updatedAt":"2026-10-17T09:36:49.515Z","deletedAt":null,"name":"t10-1792229804316 Licen
+[t10] dept edits a company: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] dept changes a work package status: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] dept reads people: ALLOWED (200) {"data":{"people":[{"id":"20202020-b000-4485-94de-70c2a98daef2","createdAt":"2026-10-17T09:21:42.129Z","updatedAt":"2026-10-17T09:21:42.129Z","deletedAt":null,"name":{"firstName":"Jeffery","lastName":
+[t10] engineer reads people: ALLOWED (200) {"data":{"people":[{"id":"20202020-b000-4485-94de-70c2a98daef2","createdAt":"2026-10-17T09:21:42.129Z","updatedAt":"2026-10-17T09:21:42.129Z","deletedAt":null,"name":{"firstName":"Jeffery","lastName":
+[t10] engineer edits a company: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] engineer creates a note: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] engineer creates an API key: [{"message":"Entity performing the request does not have permission","extensions":{"userFriendlyMessage":"User does not have permission.","subCode":"PERMISSION_DENIED","code":"FORBIDDEN"}}]
+[t10] leadership reads opportunities: ALLOWED (200) {"data":{"opportunities":[{"id":"50505050-0001-4e7c-8001-123456789abc","createdAt":"2026-10-17T09:21:42.129Z","updatedAt":"2026-10-17T09:21:42.129Z","deletedAt":null,"name":"Enterprise iPad Deployment
+[t10] leadership reads projects: ALLOWED (200) {"data":{"projects":[{"id":"ba6dd637-3bd5-4ce1-a5d9-725be3673a43","name":"t10-1792229804316 Workshop","playbookType":null,"status":"ACTIVE","health":"GREEN","percentComplete":null,"eventDate":null,"en
+[t10] leadership reads contracts: ALLOWED (200) {"data":{"contracts":[]},"totalCount":0,"pageInfo":{"startCursor":null,"endCursor":null,"hasNextPage":false,"hasPreviousPage":false}}
+[t10] leadership reads dashboards: ALLOWED (200) {"data":{"dashboards":[{"id":"20202020-9e82-4342-91ef-c9e70f16a675","title":"Sales Overview","position":0,"createdAt":"2026-10-17T09:21:42.129Z","updatedAt":"2026-10-17T09:21:42.129Z","deletedAt":null
+[t10] leadership reads people: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] leadership reads engagements: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] leadership reads the timeline: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] leadership edits an opportunity: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] ops moves a due date: ALLOWED (200) {"data":{"updateWorkPackage":{"id":"1ef6c769-d0c7-4ff1-a716-05b6dd6b556a","name":"t10-1792229804316 Draft term sheet","status":"ACCEPTED","dueAt":"2026-10-18T09:36:49.772Z","objective":"","expectedOut
+[t10] ops deletes an opportunity: ALLOWED (200) {"data":{"deleteOpportunity":{"id":"6c508bc0-5c51-4b7b-80b8-2cf2fed26881"}}}
+[t10] ED creates the automation key: {"createApiKey":{"id":"b00950d9-3224-44dc-805b-1120f51be881"}}
+[t10] key edits an opportunity: ALLOWED (200) {"data":{"updateOpportunity":{"id":"b32462f2-3942-4bc7-b3ca-ccb8f704fd99","createdAt":"2026-10-17T09:36:46.624Z","updatedAt":"2026-10-17T09:36:50.116Z","deletedAt":null,"name":"t10-1792229804316 Licen
+[t10] key deletes an opportunity: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] key destroys a timeline row: REFUSED (400) {"statusCode":400,"error":"Error","messages":["Entity performing the request does not have permission"],"code":"PERMISSION_DENIED"}
+[t10] bd sets the playbook type: ALLOWED (200) {"data":{"updateOpportunity":{"id":"b32462f2-3942-4bc7-b3ca-ccb8f704fd99","createdAt":"2026-10-17T09:36:46.624Z","updatedAt":"2026-10-17T09:36:52.227Z","deletedAt":null,"name":"t10-1792229804316 Licen
+[t10] bd marks step 1 done: ALLOWED (200) {"data":{"updateWorkPackage":{"id":"cbb94cfa-b8ea-45fd-874a-4637ff63f99a","name":"Technical assessment","status":"DONE","dueAt":"2026-10-30T13:00:00.000Z","objective":"Establish whether the technology
+[t10] bd signs the opportunity: ALLOWED (200) {"data":{"updateOpportunity":{"id":"b32462f2-3942-4bc7-b3ca-ccb8f704fd99","createdAt":"2026-10-17T09:36:46.624Z","updatedAt":"2026-10-17T09:36:56.370Z","deletedAt":null,"name":"t10-1792229804316 Licen
+ ✓ src/__tests__/acceptance/t10-roles.integration-test.ts (7 tests) 15895ms
+     ✓ BD officer: works the pipeline and a work package status, nothing else  2539ms
+     ✓ Ops coordinator: changes plans and deletes; ED creates the automation key  329ms
+     ✓ Automation key: reads and writes BD records, deletes nothing  2115ms
+     ✓ a BD officer starts the licence playbook, completes a step and signs; the app writes what the role cannot  6225ms
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+
+# Uninstall check, same instance, 2026-10-17
+# A member is given the BD officer role, then kuec-bd-ops is uninstalled (twenty app:uninstall).
+role after uninstall: <no role>
+REST GET /rest/companies as that member: 400 {"messages":["User workspace <id> has no role assigned"],"code":"NO_ROLE_FOUND_FOR_USER_WORKSPACE"}
+# The member was put back on Member afterwards.

@@ -6,6 +6,7 @@ import {
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from '../objects/engagement.object';
 import { LEAD_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER } from './lead-on-engagement.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const ENGAGEMENTS_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER = '9c529ca5-b84c-42cc-bfab-f7cc4862e487';
 
@@ -15,6 +16,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'engagements',
   label: 'Engagements',
+  description: fieldDescription('lead.engagements'),
   icon: 'IconMessages',
   relationTargetObjectMetadataUniversalIdentifier:
     ENGAGEMENT_UNIVERSAL_IDENTIFIER,

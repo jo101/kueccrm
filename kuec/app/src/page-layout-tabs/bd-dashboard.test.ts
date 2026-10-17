@@ -1,4 +1,3 @@
-import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 import {
@@ -9,6 +8,7 @@ import {
 } from 'twenty-sdk/define';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import { loadDefaultExports } from 'src/__tests__/utils/load-default-exports';
 import { CURRENT_WORKSPACE_MEMBER_FILTER_VALUE } from 'src/constants/view-filter-values';
 import { OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-contract.field';
 import { OWNER_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-engagement.field';
@@ -19,11 +19,15 @@ import { OWNER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/own
 import { REFERRED_BY_MEMBER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/referred-by-member-on-lead.field';
 import { REVIEWER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/reviewer-on-work-package.field';
 import executiveTab, {
+  BD_EXECUTIVE_GUIDANCE_WIDGET_UNIVERSAL_IDENTIFIER,
   BD_THURSDAY_UPDATE_WIDGET_UNIVERSAL_IDENTIFIER,
 } from 'src/page-layout-tabs/bd-executive.page-layout-tab';
 import mineTab from 'src/page-layout-tabs/bd-mine.page-layout-tab';
 import teamTab from 'src/page-layout-tabs/bd-team.page-layout-tab';
-import { chartFilterFromView } from 'src/page-layout-tabs/utils/dashboard-widgets';
+import {
+  chartFilterFromView,
+  GUIDANCE_ROW_SPAN,
+} from 'src/page-layout-tabs/utils/dashboard-widgets';
 
 type TabDefinition = ReturnType<typeof definePageLayoutTab>;
 type ViewDefinition = ReturnType<typeof defineView>;
@@ -90,19 +94,9 @@ describe('BD dashboard', () => {
   const viewsByUniversalIdentifier = new Map<string, ViewDefinition>();
 
   beforeAll(async () => {
-    const fileNames = readdirSync(WIDGET_VIEW_DIRECTORY).filter((fileName) =>
-      fileName.endsWith('.view.ts'),
-    );
-    const modules = await Promise.all(
-      fileNames.map(
-        (fileName) =>
-          import(join(WIDGET_VIEW_DIRECTORY, fileName)) as Promise<{
-            default: ViewDefinition;
-          }>,
-      ),
-    );
+    const views = await loadDefaultExports<ViewDefinition>(WIDGET_VIEW_DIRECTORY, '.view.ts');
 
-    for (const { default: view } of modules) {
+    for (const view of views) {
       viewsByUniversalIdentifier.set(view.config.universalIdentifier, view);
     }
   });
@@ -175,13 +169,19 @@ describe('BD dashboard', () => {
     }
   });
 
-  it('opens Executive with the Thursday update', () => {
-    const [firstWidget] = widgetsOf(executiveTab);
+  it('opens Executive with its guidance, then the Thursday update', () => {
+    const [guidanceWidget, thursdayUpdateWidget] = widgetsOf(executiveTab);
 
-    expect(firstWidget.universalIdentifier).toBe(
+    expect(guidanceWidget.universalIdentifier).toBe(BD_EXECUTIVE_GUIDANCE_WIDGET_UNIVERSAL_IDENTIFIER);
+    expect(gridOf(guidanceWidget)).toMatchObject({ row: 0, column: 0, columnSpan: GRID_COLUMNS });
+    expect(thursdayUpdateWidget.universalIdentifier).toBe(
       BD_THURSDAY_UPDATE_WIDGET_UNIVERSAL_IDENTIFIER,
     );
-    expect(gridOf(firstWidget)).toMatchObject({ row: 0, column: 0, columnSpan: GRID_COLUMNS });
+    expect(gridOf(thursdayUpdateWidget)).toMatchObject({
+      row: GUIDANCE_ROW_SPAN,
+      column: 0,
+      columnSpan: GRID_COLUMNS,
+    });
   });
 
   it('puts the owner, the reviewer or the referrer on the X axis of every Team chart', () => {

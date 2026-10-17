@@ -36,9 +36,9 @@ All are additive. Option ids are permanent; labels can be relabelled later. Neve
 | --- | --- | --- | --- |
 | Opportunity | Source (`source`) | Select | Replaced in 0.8.0 by the KUEC taxonomy: `18-taxonomy.md` |
 | Opportunity | Probability (`probability`) | Select | 10%, 25%, 50%, 75%, 90% |
-| Opportunity | Lost reason category (`lostReasonCategory`) | Select | Price, Timing, No budget, Went to a competitor, Technical fit, No response, Our capacity, Other. The existing text **Lost reason** keeps the detail. |
+| Opportunity | Lost reason category (`lostReasonCategory`) | Select | No response, Price too high, No budget, Wrong timing, Went to a competitor, Not a technical fit, No capacity on our side, Other (relabelled and reordered in 0.10.0, `20-guidance.md` section 2). The existing text **Lost reason** keeps the detail. |
 | Company | Account tier (`accountTier`) | Select | Tier 1 (strategic), Tier 2 (active), Tier 3 (watch) |
-| Company | Sector (`sector`) | Select | Oil and gas, Energy and utilities, Defence and security, Aerospace, Healthcare and life sciences, ICT and digital, Advanced manufacturing, Transport and logistics, Government, Other (to be replaced by the UAE industrial cluster list, `18-taxonomy.md`) |
+| Company | Sector (`sector`) | Select | Oil and gas, Energy and utilities, Defence and security, Aerospace, Healthcare and life sciences, Information technology, telecoms and digital, Advanced manufacturing, Transport and logistics, Government, Other (to be replaced by the UAE industrial cluster list, `18-taxonomy.md`) |
 | Company | Offset obligor (`isOffsetObligor`) | Boolean, default false | |
 | Person | Decision role (`decisionRole`) | Select | Decision maker, Budget holder, Technical evaluator, Influencer, End user, Gatekeeper |
 | Person | Champion (`isChampion`) | Boolean, default false | |
@@ -51,7 +51,7 @@ The option lists are a first cut by engineering. The ED should confirm them befo
 
 0.8.0 replaces the options of Engagement Kind, Opportunity Source and Type, Contract Kind and Project Type with the KUEC taxonomy, and adds Engagement **Outcome type**, Opportunity **Offering** and **Funding path**, Task **Type**, Company **Relationship type**, **Department** on Engagement, Project, Contract, Work package and Milestone, and **Other details** on each object with an Other option. Every list, option and description: `18-taxonomy.md`.
 
-0.7.0 adds Company **Size class** (`sizeClass`, select: Startup, SME, Large enterprise, Government or semi-government) and two dates the app writes, Opportunity **Parked lapses at** and Engagement **Outcome due at**, for the hygiene views (`14-hygiene.md` section 2).
+0.7.0 adds Company **Size class** (`sizeClass`, select: Startup, Small or medium business, Large enterprise, Government or semi-government) and two dates the app writes, Opportunity **Parked lapses at** and Engagement **Outcome due at**, for the hygiene views (`14-hygiene.md` section 2).
 
 ## 3. Views
 

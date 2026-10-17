@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const PLAYBOOK_TYPE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = 'a20b8831-fa86-4478-9410-e6b145787cc6';
 
@@ -44,7 +45,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'playbookType',
   label: 'Type',
-  description: 'What KUEC is selling; Licence and Technical service start a playbook',
+  description: fieldDescription('opportunity.playbookType'),
   icon: 'IconCategory',
   options: [
     {
@@ -55,67 +56,67 @@ export default defineField({
       color: 'purple',
     },
     {
-      id: 'd50b6b98-aef8-43d6-a3af-f1be790b93d6',
-      value: OPPORTUNITY_TYPE.SPINOUT_OR_STARTUP,
-      label: 'Spinout or startup',
-      position: 1,
-      color: 'green',
-    },
-    {
       id: '30af4820-8497-4ca2-9dca-d2403ae831a7',
       value: OPPORTUNITY_TYPE.RFQ_TECHNICAL_SERVICE,
       label: 'Technical service (research as a service)',
-      position: 2,
+      position: 1,
       color: 'blue',
     },
     {
       id: '04951334-2313-44be-90d6-d267698ae951',
       value: OPPORTUNITY_TYPE.LAB_TESTING,
       label: 'Lab testing',
-      position: 3,
+      position: 2,
       color: 'orange',
     },
     {
       id: '3be66613-991e-4f68-bce4-12ddbf79a092',
       value: OPPORTUNITY_TYPE.EQUIPMENT_OR_FACILITY_ACCESS,
       label: 'Equipment or facility access',
-      position: 4,
+      position: 3,
       color: 'turquoise',
-    },
-    {
-      id: 'e950614a-dcd4-41c6-bac2-2439df96c5be',
-      value: OPPORTUNITY_TYPE.LEASING,
-      label: 'Leasing (space)',
-      position: 5,
-      color: 'pink',
     },
     {
       id: '68ac40c6-5190-47b2-af5d-df099199329e',
       value: OPPORTUNITY_TYPE.RESEARCH_COLLABORATION,
-      label: 'Research collaboration or JDA',
-      position: 6,
+      label: 'Research collaboration or joint development',
+      position: 4,
       color: 'sky',
-    },
-    {
-      id: 'bd9078fe-b611-443b-82ea-2ad7661c785a',
-      value: OPPORTUNITY_TYPE.INDUSTRY_PILOT,
-      label: 'Industry pilot',
-      position: 7,
-      color: 'amber',
     },
     {
       id: 'c3acb45f-efc8-4adc-971a-5114c8ced0ef',
       value: OPPORTUNITY_TYPE.CONSULTING_OR_ADVISORY,
       label: 'Consulting or advisory',
-      position: 8,
+      position: 5,
       color: 'red',
+    },
+    {
+      id: 'bd9078fe-b611-443b-82ea-2ad7661c785a',
+      value: OPPORTUNITY_TYPE.INDUSTRY_PILOT,
+      label: 'Industry pilot',
+      position: 6,
+      color: 'amber',
     },
     {
       id: 'd90ce4df-daa8-4750-bba4-0edff972377e',
       value: OPPORTUNITY_TYPE.TRAINING_OR_BOOTCAMP,
       label: 'Training or bootcamp',
-      position: 9,
+      position: 7,
       color: 'violet',
+    },
+    {
+      id: 'd50b6b98-aef8-43d6-a3af-f1be790b93d6',
+      value: OPPORTUNITY_TYPE.SPINOUT_OR_STARTUP,
+      label: 'Spinout or startup',
+      position: 8,
+      color: 'green',
+    },
+    {
+      id: 'e950614a-dcd4-41c6-bac2-2439df96c5be',
+      value: OPPORTUNITY_TYPE.LEASING,
+      label: 'Leasing (space)',
+      position: 9,
+      color: 'pink',
     },
     {
       id: 'e986a18f-4351-4b4e-867d-39ca93f68eee',
@@ -141,7 +142,7 @@ export default defineField({
     {
       id: 'aad351cd-2183-489b-9429-e21eed9ce68b',
       value: OPPORTUNITY_TYPE.OFFSET_OR_ICV_PROJECT,
-      label: 'Offset or ICV project',
+      label: 'Offset or in-country value project',
       position: 13,
       color: 'tomato',
     },
@@ -155,7 +156,7 @@ export default defineField({
     {
       id: 'ce092f4b-2fa7-4443-8f4f-99621f61859f',
       value: OPPORTUNITY_TYPE.PARTNERSHIP_OR_MOU,
-      label: 'Partnership or MoU',
+      label: 'Partnership or memorandum of understanding',
       position: 15,
       color: 'plum',
     },

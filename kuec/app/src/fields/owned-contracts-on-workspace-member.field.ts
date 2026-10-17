@@ -7,6 +7,7 @@ import {
 
 import { CONTRACT_UNIVERSAL_IDENTIFIER } from '../objects/contract.object';
 import { OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from './owner-on-contract.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const OWNED_CONTRACTS_ON_WORKSPACE_MEMBER_FIELD_UNIVERSAL_IDENTIFIER = '3bc4046f-6dca-4e4e-803f-0b487f6a4385';
 
@@ -16,6 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'ownedContracts',
   label: 'Owned contracts',
+  description: fieldDescription('workspaceMember.ownedContracts'),
   icon: 'IconFileCertificate',
   relationTargetObjectMetadataUniversalIdentifier:
     CONTRACT_UNIVERSAL_IDENTIFIER,

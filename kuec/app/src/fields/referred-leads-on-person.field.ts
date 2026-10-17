@@ -6,6 +6,7 @@ import {
 } from 'twenty-sdk/define';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { REFERRED_BY_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from './referred-by-on-lead.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const REFERRED_LEADS_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER = 'cca91da3-9466-4b25-b88d-1de5c946eae9';
 
@@ -15,6 +16,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'referredLeads',
   label: 'Referred leads',
+  description: fieldDescription('person.referredLeads'),
   icon: 'IconUserShare',
   relationTargetObjectMetadataUniversalIdentifier:
     LEAD_UNIVERSAL_IDENTIFIER,

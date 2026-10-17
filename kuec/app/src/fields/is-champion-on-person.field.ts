@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const IS_CHAMPION_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER = '79d90b92-46ae-4df7-8eb5-02c230ddedaf';
 
@@ -13,7 +14,7 @@ export default defineField({
   type: FieldType.BOOLEAN,
   name: 'isChampion',
   label: 'Champion',
-  description: 'Argues for KUEC inside their organisation',
+  description: fieldDescription('person.isChampion'),
   icon: 'IconStar',
   isNullable: false,
   defaultValue: false,

@@ -36,13 +36,22 @@ export const CARD_ACTION = {
 
 export type CardAction = (typeof CARD_ACTION)[keyof typeof CARD_ACTION];
 
-// The status each action is offered for; a write is refused when the record
-// has moved on since the card was rendered.
-export const STATUS_REQUIRED_BY_ACTION: Record<CardAction, WorkPackageStatus> = {
-  [CARD_ACTION.ACCEPT]: WORK_PACKAGE_STATUS.OFFERED,
-  [CARD_ACTION.DECLINE]: WORK_PACKAGE_STATUS.OFFERED,
-  [CARD_ACTION.REQUEST_HELP]: WORK_PACKAGE_STATUS.ACCEPTED,
-  [CARD_ACTION.SUBMIT]: WORK_PACKAGE_STATUS.ACCEPTED,
+export const OPEN_WORK_PACKAGE_STATUSES: readonly WorkPackageStatus[] = [
+  WORK_PACKAGE_STATUS.PLANNED,
+  WORK_PACKAGE_STATUS.OFFERED,
+  WORK_PACKAGE_STATUS.ACCEPTED,
+  WORK_PACKAGE_STATUS.SUBMITTED,
+  WORK_PACKAGE_STATUS.BLOCKED,
+];
+
+// The statuses each action is offered for; a write is refused when the record
+// has moved on since the card was rendered. Request help is the way out of
+// "I don't know what to do", so the owner has it until the work is finished.
+export const STATUSES_BY_ACTION: Record<CardAction, readonly WorkPackageStatus[]> = {
+  [CARD_ACTION.ACCEPT]: [WORK_PACKAGE_STATUS.OFFERED],
+  [CARD_ACTION.DECLINE]: [WORK_PACKAGE_STATUS.OFFERED],
+  [CARD_ACTION.REQUEST_HELP]: OPEN_WORK_PACKAGE_STATUSES,
+  [CARD_ACTION.SUBMIT]: [WORK_PACKAGE_STATUS.ACCEPTED],
 };
 
 export const REASON_MAX_LENGTH = 200;
@@ -58,9 +67,57 @@ export const getAvailableCardActions = ({
     return [];
   }
 
-  return (Object.keys(STATUS_REQUIRED_BY_ACTION) as CardAction[]).filter(
-    (action) => STATUS_REQUIRED_BY_ACTION[action] === workPackage.status,
+  return (Object.keys(STATUSES_BY_ACTION) as CardAction[]).filter((action) =>
+    STATUSES_BY_ACTION[action].includes(workPackage.status),
   );
+};
+
+export const CARD_NEXT_STEP = {
+  DECLINE_FORM: 'DECLINE_FORM',
+  HELP_FORM: 'HELP_FORM',
+  OWNER: 'OWNER',
+  FINISHED: 'FINISHED',
+  NO_OWNER: 'NO_OWNER',
+  REVIEWER: 'REVIEWER',
+  SOMEONE_ELSE: 'SOMEONE_ELSE',
+} as const;
+
+export type CardNextStep = (typeof CARD_NEXT_STEP)[keyof typeof CARD_NEXT_STEP];
+
+// Which "What do I do now?" line ends the card for this viewer.
+export const getCardNextStep = ({
+  workPackage,
+  viewerMemberId,
+  openForm,
+}: {
+  workPackage: Pick<CardWorkPackage, 'status' | 'owner' | 'reviewer'>;
+  viewerMemberId: string | null;
+  openForm: typeof CARD_ACTION.DECLINE | typeof CARD_ACTION.REQUEST_HELP | null;
+}): CardNextStep => {
+  if (openForm === CARD_ACTION.DECLINE) {
+    return CARD_NEXT_STEP.DECLINE_FORM;
+  }
+
+  if (openForm === CARD_ACTION.REQUEST_HELP) {
+    return CARD_NEXT_STEP.HELP_FORM;
+  }
+
+  if (!OPEN_WORK_PACKAGE_STATUSES.includes(workPackage.status)) {
+    return CARD_NEXT_STEP.FINISHED;
+  }
+
+  if (workPackage.owner === null) {
+    return CARD_NEXT_STEP.NO_OWNER;
+  }
+
+  if (workPackage.owner.id === viewerMemberId) {
+    return CARD_NEXT_STEP.OWNER;
+  }
+
+  return workPackage.status === WORK_PACKAGE_STATUS.SUBMITTED &&
+    workPackage.reviewer?.id === viewerMemberId
+    ? CARD_NEXT_STEP.REVIEWER
+    : CARD_NEXT_STEP.SOMEONE_ELSE;
 };
 
 // One line, so it reads as a sentence in the ED's list and in notifications.

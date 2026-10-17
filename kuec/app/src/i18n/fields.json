@@ -1,0 +1,2163 @@
+{
+  "about": "What every custom field of kuec-bd-ops means, in English and Arabic: one sentence on what to put and when. Field files read their English description from here; scripts/sync-locales.mjs writes the Arabic into locales/ar-SA.json. Rules: kuec/runbooks/20-guidance.md.",
+  "objects": {
+    "contract": {
+      "labelSingular": {
+        "en": "Contract",
+        "ar": "عقد"
+      },
+      "labelPlural": {
+        "en": "Contracts",
+        "ar": "العقود"
+      },
+      "description": {
+        "en": "One agreement with a company: its kind, status, key dates, value and owner, with the files kept on SharePoint.",
+        "ar": "اتفاقية واحدة مع شركة: نوعها وحالتها وتواريخها الرئيسية وقيمتها والمسؤول عنها، مع حفظ الملفات على SharePoint."
+      }
+    },
+    "document": {
+      "labelSingular": {
+        "en": "Document",
+        "ar": "وثيقة"
+      },
+      "labelPlural": {
+        "en": "Documents",
+        "ar": "الوثائق"
+      },
+      "description": {
+        "en": "A link to a file on SharePoint or in uVENTURE, with its type, status and confidentiality.",
+        "ar": "رابط إلى ملف على SharePoint أو في uVENTURE، مع نوعه وحالته ودرجة سريته."
+      }
+    },
+    "engagement": {
+      "labelSingular": {
+        "en": "Engagement",
+        "ar": "تواصل"
+      },
+      "labelPlural": {
+        "en": "Engagements",
+        "ar": "التواصلات"
+      },
+      "description": {
+        "en": "One logged contact with a company or a lead: a meeting, a call, an email thread, a visit or an event.",
+        "ar": "تواصل واحد مسجَّل مع شركة أو عميل محتمل: اجتماع أو مكالمة أو سلسلة رسائل أو زيارة أو فعالية."
+      }
+    },
+    "lead": {
+      "labelSingular": {
+        "en": "Lead",
+        "ar": "عميل محتمل"
+      },
+      "labelPlural": {
+        "en": "Leads",
+        "ar": "العملاء المحتملون"
+      },
+      "description": {
+        "en": "A contact with a possible need, to triage, qualify and convert into an opportunity.",
+        "ar": "جهة اتصال لديها حاجة محتملة، تُفرز وتؤهَّل وتُحوَّل إلى فرصة."
+      }
+    },
+    "milestone": {
+      "labelSingular": {
+        "en": "Milestone",
+        "ar": "مرحلة رئيسية"
+      },
+      "labelPlural": {
+        "en": "Milestones",
+        "ar": "المراحل الرئيسية"
+      },
+      "description": {
+        "en": "A dated checkpoint in a project.",
+        "ar": "نقطة متابعة مؤرخة في مشروع."
+      }
+    },
+    "playbookRoleAssignment": {
+      "labelSingular": {
+        "en": "Playbook role assignment",
+        "ar": "إسناد دور دليل العمل"
+      },
+      "labelPlural": {
+        "en": "Playbook role assignments",
+        "ar": "إسنادات أدوار دليل العمل"
+      },
+      "description": {
+        "en": "Who fills each playbook role; work goes to the least-loaded active member, and the ED and the ops coordinator are read from here.",
+        "ar": "من يشغل كل دور في دليل العمل؛ يذهب العمل إلى أقل الأعضاء النشطين انشغالاً، ومن هنا يُعرف المدير التنفيذي ومنسق العمليات."
+      }
+    },
+    "project": {
+      "labelSingular": {
+        "en": "Project",
+        "ar": "مشروع"
+      },
+      "labelPlural": {
+        "en": "Projects",
+        "ar": "المشاريع"
+      },
+      "description": {
+        "en": "A workshop, proposal, delivery or campaign run as dated milestones and work packages.",
+        "ar": "ورشة عمل أو مقترح أو تنفيذ أو حملة تُدار على شكل مراحل مؤرخة وحزم عمل."
+      }
+    },
+    "publicHoliday": {
+      "labelSingular": {
+        "en": "UAE public holiday",
+        "ar": "عطلة رسمية في الإمارات"
+      },
+      "labelPlural": {
+        "en": "UAE public holidays",
+        "ar": "العطلات الرسمية في الإمارات"
+      },
+      "description": {
+        "en": "A UAE public holiday, left out of every working-day count.",
+        "ar": "عطلة رسمية في الإمارات، لا تُحسب في أي عدّ لأيام العمل."
+      }
+    },
+    "workPackage": {
+      "labelSingular": {
+        "en": "Work package",
+        "ar": "حزمة عمل"
+      },
+      "labelPlural": {
+        "en": "Work packages",
+        "ar": "حزم العمل"
+      },
+      "description": {
+        "en": "One piece of work in a case or project, with one owner, a due date and done criteria.",
+        "ar": "جزء واحد من العمل في ملف أو مشروع، له مسؤول واحد وموعد تسليم ومعايير إنجاز."
+      }
+    }
+  },
+  "fields": {
+    "company.accountTier": {
+      "label": {
+        "en": "Account tier",
+        "ar": "فئة الحساب"
+      },
+      "description": {
+        "en": "Pick how much attention this account gets: Tier 1 for the few strategic accounts, Tier 2 for active ones, Tier 3 to watch.",
+        "ar": "اختر مقدار الاهتمام الذي يستحقه هذا الحساب: الفئة 1 للحسابات الاستراتيجية القليلة، والفئة 2 للحسابات النشطة، والفئة 3 للمتابعة."
+      }
+    },
+    "company.contracts": {
+      "label": {
+        "en": "Contracts",
+        "ar": "العقود"
+      },
+      "description": {
+        "en": "Every contract that names this company as its counterparty.",
+        "ar": "كل العقود التي تذكر هذه الشركة طرفاً مقابلاً."
+      }
+    },
+    "company.documents": {
+      "label": {
+        "en": "Documents",
+        "ar": "الوثائق"
+      },
+      "description": {
+        "en": "Links to files about this company on SharePoint or uVENTURE; add a document whenever a file about them is saved there.",
+        "ar": "روابط إلى ملفات عن هذه الشركة على SharePoint أو uVENTURE؛ أضف وثيقة كلما حُفظ هناك ملف يخصّها."
+      }
+    },
+    "company.engagementLapsesAt": {
+      "label": {
+        "en": "Engagement lapses at",
+        "ar": "ينتهي التواصل في"
+      },
+      "description": {
+        "en": "Set by the app to 60 days after the last engagement; once it passes, the dashboard lists the company as not engaged.",
+        "ar": "يضبطه النظام على 60 يوماً بعد آخر تواصل؛ وبعد مروره تظهر الشركة في لوحة المتابعة على أنها بلا تواصل."
+      }
+    },
+    "company.engagements": {
+      "label": {
+        "en": "Engagements",
+        "ar": "التواصلات"
+      },
+      "description": {
+        "en": "Every logged contact with this company; log a new engagement the same day you meet, call or email them.",
+        "ar": "كل تواصل مسجَّل مع هذه الشركة؛ سجّل تواصلاً جديداً في اليوم نفسه الذي تلتقيهم فيه أو تتصل بهم أو تراسلهم."
+      }
+    },
+    "company.isOffsetObligor": {
+      "label": {
+        "en": "Offset obligor",
+        "ar": "ملتزم بالأوفست"
+      },
+      "description": {
+        "en": "Tick it when the company holds an offset obligation in the UAE, so offset-funded work can be proposed to it.",
+        "ar": "ضع علامة إذا كانت على الشركة التزامات أوفست في الإمارات، حتى يمكن اقتراح أعمال ممولة من الأوفست عليها."
+      }
+    },
+    "company.keywords": {
+      "label": {
+        "en": "Search keywords",
+        "ar": "كلمات البحث"
+      },
+      "description": {
+        "en": "Other spellings, Arabic variants and short names people search for, added whenever you create an important company.",
+        "ar": "تهجئات أخرى وصيغ عربية وأسماء مختصرة يبحث بها الناس، تضيفها كلما أنشأت شركة مهمة."
+      }
+    },
+    "company.lastEngagementAt": {
+      "label": {
+        "en": "Last engagement",
+        "ar": "آخر تواصل"
+      },
+      "description": {
+        "en": "Set by the app from the latest engagement date; log every contact to keep it current.",
+        "ar": "يضبطه النظام من تاريخ آخر تواصل؛ سجّل كل تواصل حتى يبقى محدَّثاً."
+      }
+    },
+    "company.leads": {
+      "label": {
+        "en": "Leads",
+        "ar": "العملاء المحتملون"
+      },
+      "description": {
+        "en": "Every lead from this company; create one the same working day you meet someone there with a possible need.",
+        "ar": "كل العملاء المحتملين من هذه الشركة؛ أنشئ واحداً في يوم العمل نفسه الذي تلتقي فيه شخصاً منها لديه حاجة محتملة."
+      }
+    },
+    "company.nameArabic": {
+      "label": {
+        "en": "Name (Arabic)",
+        "ar": "الاسم (بالعربية)"
+      },
+      "description": {
+        "en": "The company's name in Arabic exactly as it writes it, so that Arabic search finds it.",
+        "ar": "اسم الشركة بالعربية كما تكتبه هي تماماً، حتى يجدها البحث بالعربية."
+      }
+    },
+    "company.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "company.projects": {
+      "label": {
+        "en": "Projects",
+        "ar": "المشاريع"
+      },
+      "description": {
+        "en": "Every project run with or for this company, such as a workshop, a proposal or a delivery.",
+        "ar": "كل مشروع يُنفَّذ مع هذه الشركة أو لها، مثل ورشة عمل أو مقترح أو تنفيذ."
+      }
+    },
+    "company.relationshipType": {
+      "label": {
+        "en": "Relationship type",
+        "ar": "نوع العلاقة"
+      },
+      "description": {
+        "en": "Pick the main relationship KUEC has with this company today, and change it when that relationship changes.",
+        "ar": "اختر العلاقة الرئيسية بين KUEC وهذه الشركة اليوم، وغيّرها عندما تتغير العلاقة."
+      }
+    },
+    "company.sector": {
+      "label": {
+        "en": "Sector",
+        "ar": "القطاع"
+      },
+      "description": {
+        "en": "Pick the company's main industry; if none fits, pick Other and name the industry in Other details.",
+        "ar": "اختر القطاع الرئيسي للشركة؛ وإن لم يناسبها أي قطاع فاختر Other واذكر القطاع في «تفاصيل أخرى»."
+      }
+    },
+    "company.sizeClass": {
+      "label": {
+        "en": "Size class",
+        "ar": "فئة الحجم"
+      },
+      "description": {
+        "en": "Pick the kind of organisation: a startup, a small or medium business, a large enterprise, or government.",
+        "ar": "اختر نوع الجهة: شركة ناشئة، أو شركة صغيرة أو متوسطة، أو مؤسسة كبيرة، أو جهة حكومية."
+      }
+    },
+    "contract.counterparty": {
+      "label": {
+        "en": "Counterparty",
+        "ar": "الطرف المقابل"
+      },
+      "description": {
+        "en": "The company that signs the contract with KUEC, picked when you create the contract.",
+        "ar": "الشركة التي توقّع العقد مع KUEC، وتختارها عند إنشاء العقد."
+      }
+    },
+    "contract.department": {
+      "label": {
+        "en": "Department",
+        "ar": "الإدارة"
+      },
+      "description": {
+        "en": "Pick the KUEC department that leads this work, which is Business development unless another department runs it.",
+        "ar": "اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى."
+      }
+    },
+    "contract.documents": {
+      "label": {
+        "en": "Documents",
+        "ar": "الوثائق"
+      },
+      "description": {
+        "en": "Links to this contract's files on SharePoint, such as the signed copy and any amendment.",
+        "ar": "روابط إلى ملفات هذا العقد على SharePoint، مثل النسخة الموقَّعة وأي تعديل عليها."
+      }
+    },
+    "contract.expiresOn": {
+      "label": {
+        "en": "Expires on",
+        "ar": "تاريخ الانتهاء"
+      },
+      "description": {
+        "en": "The date the contract ends, taken from the signed copy; the dashboard lists it 90 days before.",
+        "ar": "تاريخ انتهاء العقد كما في النسخة الموقَّعة؛ وتعرضه لوحة المتابعة قبل 90 يوماً من حلوله."
+      }
+    },
+    "contract.kind": {
+      "label": {
+        "en": "Kind",
+        "ar": "النوع"
+      },
+      "description": {
+        "en": "Pick what sort of agreement it is; a non-disclosure agreement is the most common.",
+        "ar": "اختر نوع الاتفاقية؛ واتفاقية عدم الإفصاح هي الأكثر شيوعاً."
+      }
+    },
+    "contract.name": {
+      "label": {
+        "en": "Name",
+        "ar": "الاسم"
+      },
+      "description": {
+        "en": "A short name people recognise, made of the company and the agreement, such as ADNOC non-disclosure agreement 2026.",
+        "ar": "اسم قصير يعرفه الناس، من اسم الشركة ونوع الاتفاقية، مثل: اتفاقية عدم إفصاح ADNOC 2026."
+      }
+    },
+    "contract.opportunity": {
+      "label": {
+        "en": "Opportunity",
+        "ar": "الفرصة"
+      },
+      "description": {
+        "en": "The opportunity this contract came from, picked so the case and its contract stay linked.",
+        "ar": "الفرصة التي نتج عنها هذا العقد، وتختارها حتى يبقى الملف وعقده مرتبطين."
+      }
+    },
+    "contract.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "contract.owner": {
+      "label": {
+        "en": "Owner",
+        "ar": "المسؤول"
+      },
+      "description": {
+        "en": "The colleague who looks after this contract and is told before it expires.",
+        "ar": "الزميل الذي يتابع هذا العقد ويُبلَّغ قبل انتهائه."
+      }
+    },
+    "contract.sharepointFolder": {
+      "label": {
+        "en": "SharePoint folder",
+        "ar": "مجلد SharePoint"
+      },
+      "description": {
+        "en": "The link to the SharePoint folder that holds the contract files; never upload the file itself here.",
+        "ar": "رابط مجلد SharePoint الذي يحفظ ملفات العقد؛ لا ترفع الملف نفسه هنا أبداً."
+      }
+    },
+    "contract.signedOn": {
+      "label": {
+        "en": "Signed on",
+        "ar": "تاريخ التوقيع"
+      },
+      "description": {
+        "en": "The date both sides signed, filled in when the status becomes Signed.",
+        "ar": "التاريخ الذي وقّع فيه الطرفان، ويُعبّأ عندما تصبح الحالة Signed."
+      }
+    },
+    "contract.status": {
+      "label": {
+        "en": "Status",
+        "ar": "الحالة"
+      },
+      "description": {
+        "en": "Where the contract stands; set it to Signed, with the signed date, once both sides have signed.",
+        "ar": "أين وصل العقد؛ اجعلها Signed مع تاريخ التوقيع بعد أن يوقّع الطرفان."
+      }
+    },
+    "contract.value": {
+      "label": {
+        "en": "Value",
+        "ar": "القيمة"
+      },
+      "description": {
+        "en": "The total value in AED as written in the contract, left empty for an agreement with no money in it.",
+        "ar": "القيمة الإجمالية بالدرهم كما في العقد، وتُترك فارغة إذا لم تتضمن الاتفاقية أي مبلغ."
+      }
+    },
+    "document.company": {
+      "label": {
+        "en": "Company",
+        "ar": "الشركة"
+      },
+      "description": {
+        "en": "The company this document is about or was exchanged with; fill every link that applies.",
+        "ar": "الشركة التي تخصها هذه الوثيقة أو تبادلناها معها؛ املأ كل رابط ينطبق."
+      }
+    },
+    "document.confidentiality": {
+      "label": {
+        "en": "Confidentiality",
+        "ar": "السرية"
+      },
+      "description": {
+        "en": "Pick the label written on the file; SharePoint or uVENTURE permissions, not this label, decide who can open it.",
+        "ar": "اختر التصنيف المكتوب على الملف؛ صلاحيات SharePoint أو uVENTURE، لا هذا التصنيف، هي التي تحدد من يمكنه فتحه."
+      }
+    },
+    "document.contract": {
+      "label": {
+        "en": "Contract",
+        "ar": "العقد"
+      },
+      "description": {
+        "en": "The contract this document belongs to, such as its signed copy or an amendment.",
+        "ar": "العقد الذي تتبعه هذه الوثيقة، مثل نسخته الموقَّعة أو تعديل عليه."
+      }
+    },
+    "document.documentLink": {
+      "label": {
+        "en": "SharePoint or uVENTURE link",
+        "ar": "رابط SharePoint أو uVENTURE"
+      },
+      "description": {
+        "en": "The link to the file on SharePoint or in uVENTURE; the file itself is never uploaded to the CRM.",
+        "ar": "رابط الملف على SharePoint أو في uVENTURE؛ ولا يُرفع الملف نفسه إلى النظام أبداً."
+      }
+    },
+    "document.expiresAt": {
+      "label": {
+        "en": "Expires on",
+        "ar": "تاريخ الانتهاء"
+      },
+      "description": {
+        "en": "When the document stops applying, such as the end of a non-disclosure term or a quote's validity, left empty if it never expires.",
+        "ar": "متى تتوقف الوثيقة عن السريان، مثل نهاية مدة عدم الإفصاح أو صلاحية عرض السعر، وتُترك فارغة إن لم تكن لها نهاية."
+      }
+    },
+    "document.externalId": {
+      "label": {
+        "en": "External id",
+        "ar": "المعرّف الخارجي"
+      },
+      "description": {
+        "en": "Filled by an integration with the record's id in the system that created it, such as uventure:DOC-0042; people never type it.",
+        "ar": "يملؤه الربط الآلي بمعرّف السجل في النظام الذي أنشأه، مثل uventure:DOC-0042؛ ولا يكتبه أحد بيده."
+      }
+    },
+    "document.kind": {
+      "label": {
+        "en": "Type",
+        "ar": "النوع"
+      },
+      "description": {
+        "en": "Pick what the document is; if nothing fits, pick Other and say what it is in Other details.",
+        "ar": "اختر نوع الوثيقة؛ وإن لم يناسبها شيء فاختر Other واذكر نوعها في «تفاصيل أخرى»."
+      }
+    },
+    "document.lead": {
+      "label": {
+        "en": "Lead",
+        "ar": "العميل المحتمل"
+      },
+      "description": {
+        "en": "The lead this document belongs to, such as a capability brief sent before the lead was converted.",
+        "ar": "العميل المحتمل الذي تتبعه هذه الوثيقة، مثل نبذة عن القدرات أُرسلت قبل تحويله."
+      }
+    },
+    "document.name": {
+      "label": {
+        "en": "Name",
+        "ar": "الاسم"
+      },
+      "description": {
+        "en": "What the document is, as people say it, such as ADNOC non-disclosure agreement 2026.",
+        "ar": "ما هي الوثيقة كما يسميها الناس، مثل: اتفاقية عدم إفصاح ADNOC 2026."
+      }
+    },
+    "document.opportunity": {
+      "label": {
+        "en": "Opportunity",
+        "ar": "الفرصة"
+      },
+      "description": {
+        "en": "The opportunity this document belongs to, such as a proposal or a quote.",
+        "ar": "الفرصة التي تتبعها هذه الوثيقة، مثل مقترح أو عرض سعر."
+      }
+    },
+    "document.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "document.owner": {
+      "label": {
+        "en": "Owner",
+        "ar": "المسؤول"
+      },
+      "description": {
+        "en": "The colleague who keeps this document's status, version and expiry up to date.",
+        "ar": "الزميل الذي يُبقي حالة الوثيقة وإصدارها وتاريخ انتهائها محدَّثة."
+      }
+    },
+    "document.person": {
+      "label": {
+        "en": "Person",
+        "ar": "الشخص"
+      },
+      "description": {
+        "en": "The person this document is about or for, such as the faculty member in a profile.",
+        "ar": "الشخص الذي تخصه هذه الوثيقة أو أُعدّت له، مثل عضو هيئة التدريس في ملف تعريفي."
+      }
+    },
+    "document.project": {
+      "label": {
+        "en": "Project",
+        "ar": "المشروع"
+      },
+      "description": {
+        "en": "The project this document belongs to, such as a workshop report.",
+        "ar": "المشروع الذي تتبعه هذه الوثيقة، مثل تقرير ورشة عمل."
+      }
+    },
+    "document.sourceSystem": {
+      "label": {
+        "en": "Source system",
+        "ar": "النظام المصدر"
+      },
+      "description": {
+        "en": "Filled by an integration with the system that created the record; empty means a person typed it.",
+        "ar": "يملؤه الربط الآلي باسم النظام الذي أنشأ السجل؛ وإن كان فارغاً فقد أدخله شخص بيده."
+      }
+    },
+    "document.status": {
+      "label": {
+        "en": "Status",
+        "ar": "الحالة"
+      },
+      "description": {
+        "en": "Where the document stands; update it when you share it, get it signed or replace it with a new version.",
+        "ar": "أين وصلت الوثيقة؛ حدّثها عندما تشاركها أو توقَّع أو تُستبدل بإصدار جديد."
+      }
+    },
+    "document.versionLabel": {
+      "label": {
+        "en": "Version",
+        "ar": "الإصدار"
+      },
+      "description": {
+        "en": "The version as written on the file, such as v3 or Final, updated whenever a new version is saved.",
+        "ar": "الإصدار كما هو مكتوب على الملف، مثل v3 أو Final، ويُحدَّث كلما حُفظ إصدار جديد."
+      }
+    },
+    "engagement.company": {
+      "label": {
+        "en": "Company",
+        "ar": "الشركة"
+      },
+      "description": {
+        "en": "The company you met, called or emailed, picked for every engagement.",
+        "ar": "الشركة التي التقيتها أو اتصلت بها أو راسلتها، وتُختار لكل تواصل."
+      }
+    },
+    "engagement.date": {
+      "label": {
+        "en": "Date",
+        "ar": "التاريخ"
+      },
+      "description": {
+        "en": "When the contact happened; its outcome is due 2 days later.",
+        "ar": "متى حدث التواصل؛ وتُستحق نتيجته بعد يومين."
+      }
+    },
+    "engagement.department": {
+      "label": {
+        "en": "Department",
+        "ar": "الإدارة"
+      },
+      "description": {
+        "en": "Pick the KUEC department that leads this work, which is Business development unless another department runs it.",
+        "ar": "اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى."
+      }
+    },
+    "engagement.kind": {
+      "label": {
+        "en": "Kind",
+        "ar": "النوع"
+      },
+      "description": {
+        "en": "Pick what kind of contact it was; the meeting types count whether you met in person or online.",
+        "ar": "اختر نوع التواصل؛ وأنواع الاجتماعات تنطبق سواء كان اللقاء حضورياً أو عبر الإنترنت."
+      }
+    },
+    "engagement.lead": {
+      "label": {
+        "en": "Lead",
+        "ar": "العميل المحتمل"
+      },
+      "description": {
+        "en": "The lead this contact was about, picked so the lead's last engagement and its 30-day clock move on.",
+        "ar": "العميل المحتمل الذي كان التواصل بشأنه، وتختاره حتى يتحدّث آخر تواصل معه وتبدأ مهلة الثلاثين يوماً من جديد."
+      }
+    },
+    "engagement.name": {
+      "label": {
+        "en": "Subject",
+        "ar": "الموضوع"
+      },
+      "description": {
+        "en": "A short subject people recognise, such as Intro meeting with the ADNOC research team.",
+        "ar": "موضوع قصير يعرفه الناس، مثل: اجتماع تعارف مع فريق البحث في ADNOC."
+      }
+    },
+    "engagement.nextStep": {
+      "label": {
+        "en": "Next step",
+        "ar": "الخطوة التالية"
+      },
+      "description": {
+        "en": "What happens next and who does it; it is copied to the linked opportunity as its next action.",
+        "ar": "ما الذي سيحدث بعد ذلك ومن سيقوم به؛ ويُنسخ إلى الفرصة المرتبطة بصفته إجراءها التالي."
+      }
+    },
+    "engagement.opportunity": {
+      "label": {
+        "en": "Opportunity",
+        "ar": "الفرصة"
+      },
+      "description": {
+        "en": "The opportunity this contact was about, if there is one; its next action takes the next step.",
+        "ar": "الفرصة التي كان التواصل بشأنها إن وُجدت؛ ويأخذ إجراؤها التالي الخطوة التالية."
+      }
+    },
+    "engagement.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "engagement.outcome": {
+      "label": {
+        "en": "Outcome",
+        "ar": "النتيجة"
+      },
+      "description": {
+        "en": "What was agreed or learned, written within 2 days of the contact; empty means it is not written up yet.",
+        "ar": "ما اتُّفق عليه أو ما عرفناه، ويُكتب خلال يومين من التواصل؛ وإن كان فارغاً فلم يُكتب بعد."
+      }
+    },
+    "engagement.outcomeDueAt": {
+      "label": {
+        "en": "Outcome due at",
+        "ar": "موعد كتابة النتيجة"
+      },
+      "description": {
+        "en": "Set by the app to 2 days after the date; after that an empty outcome shows on the hygiene list.",
+        "ar": "يضبطه النظام على يومين بعد التاريخ؛ وبعدها تظهر النتيجة الفارغة في قائمة جودة البيانات."
+      }
+    },
+    "engagement.outcomeType": {
+      "label": {
+        "en": "Outcome type",
+        "ar": "نوع النتيجة"
+      },
+      "description": {
+        "en": "Pick what the contact led to, and write the details in Outcome.",
+        "ar": "اختر ما أسفر عنه التواصل، واكتب التفاصيل في «النتيجة»."
+      }
+    },
+    "engagement.owner": {
+      "label": {
+        "en": "Owner",
+        "ar": "المسؤول"
+      },
+      "description": {
+        "en": "The colleague who held the contact and writes up its outcome.",
+        "ar": "الزميل الذي أجرى التواصل ويكتب نتيجته."
+      }
+    },
+    "lead.autoClosedAt": {
+      "label": {
+        "en": "Closed for no response at",
+        "ar": "أُغلق لعدم الرد في"
+      },
+      "description": {
+        "en": "Set by the app when it marked the lead Dead after 30 quiet days; you never type it.",
+        "ar": "يضبطه النظام عندما جعل العميل المحتمل Dead بعد 30 يوماً بلا تواصل؛ ولا تكتبه بنفسك."
+      }
+    },
+    "lead.campaign": {
+      "label": {
+        "en": "Campaign",
+        "ar": "الحملة"
+      },
+      "description": {
+        "en": "The go-to-market campaign or workshop project the lead came from, picked when it came from one.",
+        "ar": "حملة دخول السوق أو مشروع ورشة العمل الذي جاء منه العميل المحتمل، وتختاره إن جاء من أحدهما."
+      }
+    },
+    "lead.capabilityMatched": {
+      "label": {
+        "en": "Capability matched",
+        "ar": "توجد قدرة مطابقة"
+      },
+      "description": {
+        "en": "Tick it only when you can name the Khalifa University technology, lab, service or team that can meet the need.",
+        "ar": "ضع علامة فقط عندما تستطيع تسمية التقنية أو المختبر أو الخدمة أو الفريق في جامعة خليفة القادر على تلبية الحاجة."
+      }
+    },
+    "lead.company": {
+      "label": {
+        "en": "Company",
+        "ar": "الشركة"
+      },
+      "description": {
+        "en": "The company the contact works for; search before you create a new company.",
+        "ar": "الشركة التي يعمل فيها الشخص؛ ابحث قبل أن تنشئ شركة جديدة."
+      }
+    },
+    "lead.contactEdNotifiedAt": {
+      "label": {
+        "en": "Contact ED notified at",
+        "ar": "تاريخ إبلاغ المدير التنفيذي بعدم التواصل"
+      },
+      "description": {
+        "en": "Set by the app when the ED was told the lead sat in New for 7 working days; you never type it.",
+        "ar": "يضبطه النظام عندما أُبلغ المدير التنفيذي بأن العميل المحتمل بقي New مدة 7 أيام عمل؛ ولا تكتبه بنفسك."
+      }
+    },
+    "lead.contactNudgeSentAt": {
+      "label": {
+        "en": "Contact nudge sent at",
+        "ar": "تاريخ تذكير المسؤول بالتواصل"
+      },
+      "description": {
+        "en": "Set by the app when the owner was reminded after 3 working days in New; you never type it.",
+        "ar": "يضبطه النظام عندما ذُكّر المسؤول بعد 3 أيام عمل في New؛ ولا تكتبه بنفسك."
+      }
+    },
+    "lead.convertedOpportunity": {
+      "label": {
+        "en": "Converted opportunity",
+        "ar": "الفرصة الناتجة عن التحويل"
+      },
+      "description": {
+        "en": "Set by the app to the latest opportunity created from this lead; open it to carry on the work.",
+        "ar": "يضبطه النظام على آخر فرصة أُنشئت من هذا العميل المحتمل؛ افتحها لتواصل العمل."
+      }
+    },
+    "lead.deadReason": {
+      "label": {
+        "en": "Dead reason",
+        "ar": "سبب الإغلاق"
+      },
+      "description": {
+        "en": "Pick why the lead went nowhere whenever you set its status to Dead.",
+        "ar": "اختر سبب عدم تقدّم العميل المحتمل كلما جعلت حالته Dead."
+      }
+    },
+    "lead.decisionMakerReached": {
+      "label": {
+        "en": "Decision maker reached",
+        "ar": "تم الوصول إلى صاحب القرار"
+      },
+      "description": {
+        "en": "Tick it once you have spoken to the person who can say yes and sign, or they have joined the conversation.",
+        "ar": "ضع علامة بعد أن تتحدث مع من يملك الموافقة والتوقيع، أو بعد أن ينضم إلى الحديث."
+      }
+    },
+    "lead.department": {
+      "label": {
+        "en": "Department",
+        "ar": "الإدارة"
+      },
+      "description": {
+        "en": "Pick the KUEC department that leads this work, which is Business development unless another department runs it.",
+        "ar": "اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى."
+      }
+    },
+    "lead.documents": {
+      "label": {
+        "en": "Documents",
+        "ar": "الوثائق"
+      },
+      "description": {
+        "en": "Links to files about this lead on SharePoint or uVENTURE; never attach the file itself.",
+        "ar": "روابط إلى ملفات عن هذا العميل المحتمل على SharePoint أو uVENTURE؛ لا ترفق الملف نفسه أبداً."
+      }
+    },
+    "lead.engagements": {
+      "label": {
+        "en": "Engagements",
+        "ar": "التواصلات"
+      },
+      "description": {
+        "en": "Every contact logged against this lead; each new one restarts its 30-day quiet clock.",
+        "ar": "كل تواصل مسجَّل مع هذا العميل المحتمل؛ وكل تواصل جديد يعيد مهلة الثلاثين يوماً من البداية."
+      }
+    },
+    "lead.estimatedValue": {
+      "label": {
+        "en": "Estimated value",
+        "ar": "القيمة التقديرية"
+      },
+      "description": {
+        "en": "Your first guess at the deal size in AED, filled when you have one; it becomes the opportunity amount.",
+        "ar": "تقديرك الأول لحجم الصفقة بالدرهم، تملؤه حين يتوفر لديك؛ ويصبح مبلغ الفرصة."
+      }
+    },
+    "lead.externalId": {
+      "label": {
+        "en": "External id",
+        "ar": "المعرّف الخارجي"
+      },
+      "description": {
+        "en": "Filled by the form or system that created the lead, such as web:4711; people never type it.",
+        "ar": "يملؤه النموذج أو النظام الذي أنشأ العميل المحتمل، مثل web:4711؛ ولا يكتبه أحد بيده."
+      }
+    },
+    "lead.fundingPathIdentified": {
+      "label": {
+        "en": "Funding path identified",
+        "ar": "مسار التمويل معروف"
+      },
+      "description": {
+        "en": "Tick it once you know who would pay: their budget, a grant, an offset obligation or a sponsor.",
+        "ar": "ضع علامة بعد أن تعرف من سيدفع: ميزانيتهم، أو منحة، أو التزام أوفست، أو راعٍ."
+      }
+    },
+    "lead.lastConvertedAt": {
+      "label": {
+        "en": "Last converted at",
+        "ar": "تاريخ آخر تحويل"
+      },
+      "description": {
+        "en": "Set by the app when the latest opportunity was created from this lead; you never type it.",
+        "ar": "يضبطه النظام عند إنشاء آخر فرصة من هذا العميل المحتمل؛ ولا تكتبه بنفسك."
+      }
+    },
+    "lead.lastEngagementAt": {
+      "label": {
+        "en": "Last engagement",
+        "ar": "آخر تواصل"
+      },
+      "description": {
+        "en": "Set by the app from the latest engagement linked to this lead; log every contact to keep it current.",
+        "ar": "يضبطه النظام من آخر تواصل مرتبط بهذا العميل المحتمل؛ سجّل كل تواصل حتى يبقى محدَّثاً."
+      }
+    },
+    "lead.name": {
+      "label": {
+        "en": "Name",
+        "ar": "الاسم"
+      },
+      "description": {
+        "en": "The person and company as you would say them, such as Mariam Al Hosani, ADNOC.",
+        "ar": "الشخص والشركة كما تنطقهما، مثل: مريم الحوسني، ADNOC."
+      }
+    },
+    "lead.need": {
+      "label": {
+        "en": "Need",
+        "ar": "الحاجة"
+      },
+      "description": {
+        "en": "What they want, in their own words, written as soon as you know it; it becomes the opportunity description.",
+        "ar": "ما يريدونه بكلماتهم، وتكتبه بمجرد أن تعرفه؛ ويصبح وصف الفرصة."
+      }
+    },
+    "lead.needIdentified": {
+      "label": {
+        "en": "Need identified",
+        "ar": "الحاجة محددة"
+      },
+      "description": {
+        "en": "Tick it once they have named a concrete problem or request KUEC could answer.",
+        "ar": "ضع علامة بعد أن يذكروا مشكلة أو طلباً محدداً يمكن لـ KUEC تلبيته."
+      }
+    },
+    "lead.nextAction": {
+      "label": {
+        "en": "Next action",
+        "ar": "الإجراء التالي"
+      },
+      "description": {
+        "en": "The one thing you will do next on this lead, starting with a verb, such as Call to book a site visit.",
+        "ar": "الشيء الوحيد الذي ستفعله بعد ذلك مع هذا العميل المحتمل، ويبدأ بفعل، مثل: اتصل لحجز زيارة ميدانية."
+      }
+    },
+    "lead.nextActionDate": {
+      "label": {
+        "en": "Next action date",
+        "ar": "تاريخ الإجراء التالي"
+      },
+      "description": {
+        "en": "The day you will do the next action, kept today or later.",
+        "ar": "اليوم الذي ستنفذ فيه الإجراء التالي، ويبقى اليوم أو بعده."
+      }
+    },
+    "lead.nurtureReviewDate": {
+      "label": {
+        "en": "Nurture review date",
+        "ar": "تاريخ مراجعة المتابعة"
+      },
+      "description": {
+        "en": "When to look at a Nurture lead again; the app sets it 90 days out if you leave it empty.",
+        "ar": "متى تعود إلى عميل محتمل في الحالة Nurture؛ ويضبطه النظام بعد 90 يوماً إن تركته فارغاً."
+      }
+    },
+    "lead.offeringInterest": {
+      "label": {
+        "en": "Offering interest",
+        "ar": "ما يهتمون به من خدمات KUEC"
+      },
+      "description": {
+        "en": "Pick every KUEC offering they asked about; the first one in the list sets the opportunity type at conversion.",
+        "ar": "اختر كل ما سألوا عنه من خدمات KUEC؛ وأولها في القائمة يحدد نوع الفرصة عند التحويل."
+      }
+    },
+    "lead.opportunities": {
+      "label": {
+        "en": "Opportunities",
+        "ar": "الفرص"
+      },
+      "description": {
+        "en": "Every opportunity converted from this lead, later cross-sells included.",
+        "ar": "كل فرصة حُوّلت من هذا العميل المحتمل، ومنها فرص البيع الإضافي اللاحقة."
+      }
+    },
+    "lead.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "lead.owner": {
+      "label": {
+        "en": "Owner",
+        "ar": "المسؤول"
+      },
+      "description": {
+        "en": "The colleague who works this lead; the ops coordinator owns it until triage hands it on.",
+        "ar": "الزميل الذي يعمل على هذا العميل المحتمل؛ ويكون لدى منسق العمليات حتى يُسنده بعد الفرز."
+      }
+    },
+    "lead.person": {
+      "label": {
+        "en": "Person",
+        "ar": "الشخص"
+      },
+      "description": {
+        "en": "The contact person at the company; search before you create a new person.",
+        "ar": "الشخص الذي نتواصل معه في الشركة؛ ابحث قبل أن تنشئ شخصاً جديداً."
+      }
+    },
+    "lead.playbookApplied": {
+      "label": {
+        "en": "Triaged",
+        "ar": "تم الفرز"
+      },
+      "description": {
+        "en": "Set by the app once triage has run, so that it runs only once; you never tick it.",
+        "ar": "يضبطه النظام بعد إجراء الفرز حتى لا يتكرر؛ ولا تضع العلامة بنفسك."
+      }
+    },
+    "lead.qualificationScore": {
+      "label": {
+        "en": "Qualification score",
+        "ar": "درجة التأهيل"
+      },
+      "description": {
+        "en": "Set by the app to the number of ticked checks; at 4 or more the lead becomes Qualified.",
+        "ar": "يضبطه النظام على عدد الشروط المحققة؛ وعند 4 أو أكثر يصبح العميل المحتمل Qualified."
+      }
+    },
+    "lead.qualifiedAt": {
+      "label": {
+        "en": "Qualified at",
+        "ar": "تاريخ التأهيل"
+      },
+      "description": {
+        "en": "Set by the app when the score first reached 4 and the lead became Qualified; you never type it.",
+        "ar": "يضبطه النظام عندما بلغت الدرجة 4 أول مرة وأصبح العميل المحتمل Qualified؛ ولا تكتبه بنفسك."
+      }
+    },
+    "lead.referralCreditedAt": {
+      "label": {
+        "en": "Referral credited at",
+        "ar": "تاريخ احتساب رصيد الإحالة"
+      },
+      "description": {
+        "en": "Set by the app when an opportunity from this lead was signed and the referrer got the credit; you never type it.",
+        "ar": "يضبطه النظام عند توقيع فرصة من هذا العميل المحتمل واحتساب الرصيد لصاحب الإحالة؛ ولا تكتبه بنفسك."
+      }
+    },
+    "lead.referralNote": {
+      "label": {
+        "en": "Referral note",
+        "ar": "ملاحظة الإحالة"
+      },
+      "description": {
+        "en": "How the referral came about and what was promised to the referrer, written when the lead is referred.",
+        "ar": "كيف جاءت الإحالة وما الذي وُعد به صاحبها، وتُكتب عند إحالة العميل المحتمل."
+      }
+    },
+    "lead.referredBy": {
+      "label": {
+        "en": "Referred by",
+        "ar": "أحاله"
+      },
+      "description": {
+        "en": "The person outside the team who introduced this contact, such as a faculty member, so that they keep the credit.",
+        "ar": "الشخص من خارج الفريق الذي عرّفنا بهذا التواصل، مثل عضو هيئة تدريس، حتى يحتفظ بالرصيد."
+      }
+    },
+    "lead.referredByMember": {
+      "label": {
+        "en": "Referred by (colleague)",
+        "ar": "أحاله (زميل)"
+      },
+      "description": {
+        "en": "The colleague who referred or logged this contact and holds the referral credit, which is you when you type the lead yourself.",
+        "ar": "الزميل الذي أحال هذا التواصل أو سجّله ويحتفظ برصيد الإحالة، وهو أنت عندما تُدخل العميل المحتمل بنفسك."
+      }
+    },
+    "lead.source": {
+      "label": {
+        "en": "Source",
+        "ar": "المصدر"
+      },
+      "description": {
+        "en": "Pick where the lead came from when you create it; it is copied to the opportunity at conversion.",
+        "ar": "اختر من أين جاء العميل المحتمل عند إنشائه؛ ويُنسخ إلى الفرصة عند التحويل."
+      }
+    },
+    "lead.sourceSystem": {
+      "label": {
+        "en": "Source system",
+        "ar": "النظام المصدر"
+      },
+      "description": {
+        "en": "Filled by the form or system that created the lead; empty means a person typed it.",
+        "ar": "يملؤه النموذج أو النظام الذي أنشأ العميل المحتمل؛ وإن كان فارغاً فقد أدخله شخص بيده."
+      }
+    },
+    "lead.status": {
+      "label": {
+        "en": "Status",
+        "ar": "الحالة"
+      },
+      "description": {
+        "en": "Where the lead stands; move it on as you contact, engage and qualify them, or set Nurture or Dead.",
+        "ar": "أين وصل العميل المحتمل؛ انقله إلى الحالة التالية كلما تواصلت معه أو تحاورت أو أهّلته، أو اجعله Nurture أو Dead."
+      }
+    },
+    "lead.statusEnteredAt": {
+      "label": {
+        "en": "Status entered at",
+        "ar": "تاريخ دخول الحالة"
+      },
+      "description": {
+        "en": "Set by the app when the lead entered its current status; you never type it.",
+        "ar": "يضبطه النظام عند دخول العميل المحتمل حالته الحالية؛ ولا تكتبه بنفسك."
+      }
+    },
+    "lead.timingKnown": {
+      "label": {
+        "en": "Timing known",
+        "ar": "التوقيت معروف"
+      },
+      "description": {
+        "en": "Tick it once they have given a date or a window by which they need it.",
+        "ar": "ضع علامة بعد أن يحددوا تاريخاً أو فترة يحتاجونه خلالها."
+      }
+    },
+    "milestone.department": {
+      "label": {
+        "en": "Department",
+        "ar": "الإدارة"
+      },
+      "description": {
+        "en": "Pick the KUEC department that leads this work, which is Business development unless another department runs it.",
+        "ar": "اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى."
+      }
+    },
+    "milestone.dueAt": {
+      "label": {
+        "en": "Due",
+        "ar": "موعد التسليم"
+      },
+      "description": {
+        "en": "The date the milestone must be reached, moved only with the project owner's agreement.",
+        "ar": "التاريخ الذي يجب بلوغ المرحلة فيه، ولا يُغيَّر إلا بموافقة مسؤول المشروع."
+      }
+    },
+    "milestone.name": {
+      "label": {
+        "en": "Name",
+        "ar": "الاسم"
+      },
+      "description": {
+        "en": "A short name for the checkpoint, such as Invitations sent.",
+        "ar": "اسم قصير لنقطة المتابعة، مثل: أُرسلت الدعوات."
+      }
+    },
+    "milestone.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "milestone.owner": {
+      "label": {
+        "en": "Owner",
+        "ar": "المسؤول"
+      },
+      "description": {
+        "en": "The colleague responsible for reaching this milestone on time.",
+        "ar": "الزميل المسؤول عن بلوغ هذه المرحلة في موعدها."
+      }
+    },
+    "milestone.playbookStep": {
+      "label": {
+        "en": "Playbook step",
+        "ar": "خطوة دليل العمل"
+      },
+      "description": {
+        "en": "Set by the app with the template step that created this milestone; you never type it.",
+        "ar": "يضبطه النظام بخطوة القالب التي أنشأت هذه المرحلة؛ ولا تكتبه بنفسك."
+      }
+    },
+    "milestone.project": {
+      "label": {
+        "en": "Project",
+        "ar": "المشروع"
+      },
+      "description": {
+        "en": "The project this milestone belongs to.",
+        "ar": "المشروع الذي تتبعه هذه المرحلة."
+      }
+    },
+    "milestone.status": {
+      "label": {
+        "en": "Status",
+        "ar": "الحالة"
+      },
+      "description": {
+        "en": "Set it to Done when the checkpoint is reached; Missed turns the project red.",
+        "ar": "اجعلها Done عند بلوغ نقطة المتابعة؛ و Missed يجعل المشروع أحمر."
+      }
+    },
+    "milestone.workPackages": {
+      "label": {
+        "en": "Work packages",
+        "ar": "حزم العمل"
+      },
+      "description": {
+        "en": "The work packages that must be done to reach this milestone.",
+        "ar": "حزم العمل التي يجب إنجازها لبلوغ هذه المرحلة."
+      }
+    },
+    "opportunity.clientDeadline": {
+      "label": {
+        "en": "Client deadline",
+        "ar": "الموعد النهائي للعميل"
+      },
+      "description": {
+        "en": "The client's deadline for our reply to a request for quotation, filled when you open the case; the steps finish 2 working days before it.",
+        "ar": "الموعد النهائي الذي حدده العميل لردّنا على طلب عرض السعر، ويُعبّأ عند فتح الملف؛ وتنتهي الخطوات قبله بيومي عمل."
+      }
+    },
+    "opportunity.contracts": {
+      "label": {
+        "en": "Contracts",
+        "ar": "العقود"
+      },
+      "description": {
+        "en": "Every contract that came from this opportunity; the app creates the licence contract when a licence is signed.",
+        "ar": "كل العقود الناتجة عن هذه الفرصة؛ وينشئ النظام عقد الترخيص عند توقيع ترخيص."
+      }
+    },
+    "opportunity.convertedFromLeads": {
+      "label": {
+        "en": "Latest conversion of",
+        "ar": "آخر تحويل من"
+      },
+      "description": {
+        "en": "Set by the app to the leads whose latest conversion is this opportunity.",
+        "ar": "يضبطه النظام على العملاء المحتملين الذين كانت هذه الفرصة آخر تحويل لهم."
+      }
+    },
+    "opportunity.department": {
+      "label": {
+        "en": "Department",
+        "ar": "الإدارة"
+      },
+      "description": {
+        "en": "Pick the KUEC department that leads this work, which is Business development unless another department runs it.",
+        "ar": "اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى."
+      }
+    },
+    "opportunity.description": {
+      "label": {
+        "en": "Description",
+        "ar": "الوصف"
+      },
+      "description": {
+        "en": "What the client needs, in plain words; a converted lead's Need is copied here.",
+        "ar": "ما يحتاجه العميل بكلمات بسيطة؛ وتُنسخ إليه «الحاجة» من العميل المحتمل المحوَّل."
+      }
+    },
+    "opportunity.documents": {
+      "label": {
+        "en": "Documents",
+        "ar": "الوثائق"
+      },
+      "description": {
+        "en": "Links to this opportunity's files, such as proposals and quotes, on SharePoint or uVENTURE.",
+        "ar": "روابط إلى ملفات هذه الفرصة، مثل المقترحات وعروض الأسعار، على SharePoint أو uVENTURE."
+      }
+    },
+    "opportunity.engagements": {
+      "label": {
+        "en": "Engagements",
+        "ar": "التواصلات"
+      },
+      "description": {
+        "en": "Every contact logged against this opportunity, each logged the same day it happens.",
+        "ar": "كل تواصل مسجَّل بشأن هذه الفرصة، ويُسجَّل كل تواصل في اليوم نفسه."
+      }
+    },
+    "opportunity.fundingPath": {
+      "label": {
+        "en": "Funding path",
+        "ar": "مسار التمويل"
+      },
+      "description": {
+        "en": "Pick who pays for the work once you know; Unknown is fine early on.",
+        "ar": "اختر من سيدفع مقابل العمل عندما تعرف؛ ولا بأس بـ Unknown في البداية."
+      }
+    },
+    "opportunity.lead": {
+      "label": {
+        "en": "Lead",
+        "ar": "العميل المحتمل"
+      },
+      "description": {
+        "en": "Set by the app to the lead this opportunity was converted from.",
+        "ar": "يضبطه النظام على العميل المحتمل الذي حُوّلت منه هذه الفرصة."
+      }
+    },
+    "opportunity.lostReason": {
+      "label": {
+        "en": "Lost reason",
+        "ar": "سبب الخسارة"
+      },
+      "description": {
+        "en": "Why we lost, in one sentence, written when you set the stage to Lost.",
+        "ar": "لماذا خسرنا، في جملة واحدة، وتُكتب عندما تجعل المرحلة Lost."
+      }
+    },
+    "opportunity.lostReasonCategory": {
+      "label": {
+        "en": "Lost reason category",
+        "ar": "فئة سبب الخسارة"
+      },
+      "description": {
+        "en": "Pick the closest reason when you set the stage to Lost, and write the detail in Lost reason.",
+        "ar": "اختر أقرب سبب عندما تجعل المرحلة Lost، واكتب التفاصيل في «سبب الخسارة»."
+      }
+    },
+    "opportunity.nextAction": {
+      "label": {
+        "en": "Next action",
+        "ar": "الإجراء التالي"
+      },
+      "description": {
+        "en": "The one thing the owner does next, starting with a verb, such as Send the quote; every open opportunity needs one.",
+        "ar": "الشيء الوحيد الذي سيفعله المسؤول بعد ذلك، ويبدأ بفعل، مثل: أرسل عرض السعر؛ ولكل فرصة مفتوحة إجراء تالٍ."
+      }
+    },
+    "opportunity.nextActionDate": {
+      "label": {
+        "en": "Next action date",
+        "ar": "تاريخ الإجراء التالي"
+      },
+      "description": {
+        "en": "The day the next action happens, kept today or later, or the owner gets a task at 08:00.",
+        "ar": "اليوم الذي يُنفَّذ فيه الإجراء التالي، ويبقى اليوم أو بعده، وإلا وصلت المسؤول مهمة في الساعة 08:00."
+      }
+    },
+    "opportunity.nextActionFlaggedOn": {
+      "label": {
+        "en": "Next action flagged on",
+        "ar": "تاريخ التنبيه على الإجراء التالي"
+      },
+      "description": {
+        "en": "Set by the app on the day it flagged a missing or past next action, so that it flags once a day; you never type it.",
+        "ar": "يضبطه النظام في اليوم الذي نبّه فيه إلى إجراء تالٍ ناقص أو فات موعده، حتى لا ينبّه أكثر من مرة في اليوم؛ ولا تكتبه بنفسك."
+      }
+    },
+    "opportunity.offering": {
+      "label": {
+        "en": "Offering",
+        "ar": "ما تقدمه KUEC"
+      },
+      "description": {
+        "en": "Pick every KUEC offering in the deal.",
+        "ar": "اختر كل ما تقدمه KUEC في هذه الصفقة."
+      }
+    },
+    "opportunity.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "opportunity.parkedLapsesAt": {
+      "label": {
+        "en": "Parked lapses at",
+        "ar": "تنتهي فترة التأجيل في"
+      },
+      "description": {
+        "en": "Set by the app to 90 days after the opportunity was parked; after that it shows on the hygiene list for review.",
+        "ar": "يضبطه النظام على 90 يوماً بعد تأجيل الفرصة؛ وبعدها تظهر في قائمة جودة البيانات للمراجعة."
+      }
+    },
+    "opportunity.playbookApplied": {
+      "label": {
+        "en": "Playbook applied",
+        "ar": "طُبّق دليل العمل"
+      },
+      "description": {
+        "en": "Set by the app once the playbook created this case's work packages, so that it runs only once; you never tick it.",
+        "ar": "يضبطه النظام بعد أن ينشئ دليل العمل حزم العمل لهذا الملف حتى لا يتكرر؛ ولا تضع العلامة بنفسك."
+      }
+    },
+    "opportunity.playbookType": {
+      "label": {
+        "en": "Type",
+        "ar": "النوع"
+      },
+      "description": {
+        "en": "Pick what KUEC is selling; Licence and Technical service start a playbook of work packages straight away.",
+        "ar": "اختر ما تبيعه KUEC؛ و Licence و Technical service يبدآن دليل عمل بحزم العمل فوراً."
+      }
+    },
+    "opportunity.probability": {
+      "label": {
+        "en": "Probability",
+        "ar": "الاحتمال"
+      },
+      "description": {
+        "en": "Your honest estimate that it signs, updated whenever the stage changes.",
+        "ar": "تقديرك الصادق لاحتمال التوقيع، وتحدّثه كلما تغيرت المرحلة."
+      }
+    },
+    "opportunity.projects": {
+      "label": {
+        "en": "Projects",
+        "ar": "المشاريع"
+      },
+      "description": {
+        "en": "The projects that deliver this opportunity, such as a proposal or a delivery project.",
+        "ar": "المشاريع التي تنفّذ هذه الفرصة، مثل مشروع مقترح أو مشروع تنفيذ."
+      }
+    },
+    "opportunity.sharepointFolder": {
+      "label": {
+        "en": "SharePoint folder",
+        "ar": "مجلد SharePoint"
+      },
+      "description": {
+        "en": "The link to this case's SharePoint folder, pasted when you open the case; documents live there, never here.",
+        "ar": "رابط مجلد SharePoint لهذا الملف، تلصقه عند فتح الملف؛ فالوثائق تُحفظ هناك لا هنا."
+      }
+    },
+    "opportunity.source": {
+      "label": {
+        "en": "Source",
+        "ar": "المصدر"
+      },
+      "description": {
+        "en": "Pick where the opportunity came from when you create it; a converted lead fills it for you.",
+        "ar": "اختر من أين جاءت الفرصة عند إنشائها؛ ويملؤه العميل المحتمل المحوَّل نيابة عنك."
+      }
+    },
+    "opportunity.stageEnteredAt": {
+      "label": {
+        "en": "Stage entered at",
+        "ar": "تاريخ دخول المرحلة"
+      },
+      "description": {
+        "en": "Set by the app whenever the stage changes; you never type it.",
+        "ar": "يضبطه النظام كلما تغيرت المرحلة؛ ولا تكتبه بنفسك."
+      }
+    },
+    "opportunity.staleFrom": {
+      "label": {
+        "en": "Stale from",
+        "ar": "راكدة منذ"
+      },
+      "description": {
+        "en": "Set by the app to 30 days after the stage last changed; after that the opportunity counts as stale.",
+        "ar": "يضبطه النظام على 30 يوماً بعد آخر تغيير للمرحلة؛ وبعدها تُعدّ الفرصة راكدة."
+      }
+    },
+    "opportunity.workPackages": {
+      "label": {
+        "en": "Work packages",
+        "ar": "حزم العمل"
+      },
+      "description": {
+        "en": "Every work package of this case, created by the playbook or added by the ED or the ops coordinator.",
+        "ar": "كل حزم العمل لهذا الملف، ينشئها دليل العمل أو يضيفها المدير التنفيذي أو منسق العمليات."
+      }
+    },
+    "person.decisionRole": {
+      "label": {
+        "en": "Decision role",
+        "ar": "الدور في القرار"
+      },
+      "description": {
+        "en": "Pick the part this person plays in the buying decision once you know it.",
+        "ar": "اختر الدور الذي يؤديه هذا الشخص في قرار الشراء عندما تعرفه."
+      }
+    },
+    "person.documents": {
+      "label": {
+        "en": "Documents",
+        "ar": "الوثائق"
+      },
+      "description": {
+        "en": "Links to files about this person, such as a faculty profile, on SharePoint or uVENTURE.",
+        "ar": "روابط إلى ملفات عن هذا الشخص، مثل ملف تعريفي لعضو هيئة تدريس، على SharePoint أو uVENTURE."
+      }
+    },
+    "person.isChampion": {
+      "label": {
+        "en": "Champion",
+        "ar": "مناصر"
+      },
+      "description": {
+        "en": "Tick it when this person argues for KUEC inside their own organisation.",
+        "ar": "ضع علامة إذا كان هذا الشخص يدافع عن KUEC داخل جهته."
+      }
+    },
+    "person.leads": {
+      "label": {
+        "en": "Leads",
+        "ar": "العملاء المحتملون"
+      },
+      "description": {
+        "en": "Every lead where this person is the contact.",
+        "ar": "كل عميل محتمل يكون هذا الشخص جهة الاتصال فيه."
+      }
+    },
+    "person.nameArabic": {
+      "label": {
+        "en": "Name (Arabic)",
+        "ar": "الاسم (بالعربية)"
+      },
+      "description": {
+        "en": "The person's name in Arabic as they write it, so that Arabic search finds them.",
+        "ar": "اسم الشخص بالعربية كما يكتبه هو، حتى يجده البحث بالعربية."
+      }
+    },
+    "person.referredLeads": {
+      "label": {
+        "en": "Referred leads",
+        "ar": "العملاء المحتملون المُحالون"
+      },
+      "description": {
+        "en": "Every lead this person introduced to KUEC; they keep the referral credit.",
+        "ar": "كل عميل محتمل عرّف هذا الشخص KUEC به؛ ويحتفظ برصيد الإحالة."
+      }
+    },
+    "playbookRoleAssignment.isActive": {
+      "label": {
+        "en": "Active",
+        "ar": "نشط"
+      },
+      "description": {
+        "en": "Untick it when the member stops filling this role, instead of deleting the record.",
+        "ar": "أزل العلامة عندما يتوقف العضو عن هذا الدور، بدلاً من حذف السجل."
+      }
+    },
+    "playbookRoleAssignment.member": {
+      "label": {
+        "en": "Member",
+        "ar": "العضو"
+      },
+      "description": {
+        "en": "The colleague who fills this playbook role.",
+        "ar": "الزميل الذي يشغل دور دليل العمل هذا."
+      }
+    },
+    "playbookRoleAssignment.name": {
+      "label": {
+        "en": "Name",
+        "ar": "الاسم"
+      },
+      "description": {
+        "en": "A label people recognise, such as Sara as business development officer.",
+        "ar": "تسمية يعرفها الناس، مثل: سارة مسؤولة تطوير أعمال."
+      }
+    },
+    "playbookRoleAssignment.playbookRole": {
+      "label": {
+        "en": "Playbook role",
+        "ar": "دور دليل العمل"
+      },
+      "description": {
+        "en": "Pick the role this member fills; new work for that role goes to its least-loaded active member.",
+        "ar": "اختر الدور الذي يشغله هذا العضو؛ ويذهب العمل الجديد لهذا الدور إلى أقل أعضائه النشطين انشغالاً."
+      }
+    },
+    "project.campaignLeads": {
+      "label": {
+        "en": "Leads",
+        "ar": "العملاء المحتملون"
+      },
+      "description": {
+        "en": "The leads that came from this campaign or workshop, which name this project as their campaign.",
+        "ar": "العملاء المحتملون الذين جاؤوا من هذه الحملة أو الورشة، ويذكرون هذا المشروع حملةً لهم."
+      }
+    },
+    "project.closeTaskCreatedAt": {
+      "label": {
+        "en": "Close task created at",
+        "ar": "تاريخ إنشاء مهمة الإغلاق"
+      },
+      "description": {
+        "en": "Set by the app when it asked the owner to close the project after every milestone was done; you never type it.",
+        "ar": "يضبطه النظام عندما طلب من المسؤول إغلاق المشروع بعد إنجاز كل المراحل؛ ولا تكتبه بنفسك."
+      }
+    },
+    "project.company": {
+      "label": {
+        "en": "Company",
+        "ar": "الشركة"
+      },
+      "description": {
+        "en": "The company the project is run for or with, if there is one.",
+        "ar": "الشركة التي يُنفَّذ المشروع لها أو معها، إن وُجدت."
+      }
+    },
+    "project.department": {
+      "label": {
+        "en": "Department",
+        "ar": "الإدارة"
+      },
+      "description": {
+        "en": "Pick the KUEC department that leads this work, which is Business development unless another department runs it.",
+        "ar": "اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى."
+      }
+    },
+    "project.documents": {
+      "label": {
+        "en": "Documents",
+        "ar": "الوثائق"
+      },
+      "description": {
+        "en": "Links to this project's files, such as the workshop report, on SharePoint.",
+        "ar": "روابط إلى ملفات هذا المشروع، مثل تقرير ورشة العمل، على SharePoint."
+      }
+    },
+    "project.endDate": {
+      "label": {
+        "en": "End date",
+        "ar": "تاريخ الانتهاء المخطط"
+      },
+      "description": {
+        "en": "The planned finish date of the project, set when you create it.",
+        "ar": "التاريخ المخطط لانتهاء المشروع، ويُضبط عند إنشائه."
+      }
+    },
+    "project.eventDate": {
+      "label": {
+        "en": "Event date",
+        "ar": "تاريخ الفعالية"
+      },
+      "description": {
+        "en": "The workshop date, set before you pick the type, because the invitation, logistics and run steps are planned back from it.",
+        "ar": "تاريخ ورشة العمل، ويُضبط قبل اختيار النوع، لأن خطوات الدعوة والتجهيز والتنفيذ تُخطَّط رجوعاً منه."
+      }
+    },
+    "project.health": {
+      "label": {
+        "en": "Health",
+        "ar": "سلامة المشروع"
+      },
+      "description": {
+        "en": "Set by the app from the milestones: amber when one is due within 7 days, red when one is missed.",
+        "ar": "يضبطه النظام من المراحل: كهرماني إذا استُحقت مرحلة خلال 7 أيام، وأحمر إذا فاتت مرحلة."
+      }
+    },
+    "project.milestones": {
+      "label": {
+        "en": "Milestones",
+        "ar": "المراحل الرئيسية"
+      },
+      "description": {
+        "en": "The dated checkpoints of this project, created by the template or added by the owner.",
+        "ar": "نقاط المتابعة المؤرخة لهذا المشروع، ينشئها القالب أو يضيفها المسؤول."
+      }
+    },
+    "project.name": {
+      "label": {
+        "en": "Name",
+        "ar": "الاسم"
+      },
+      "description": {
+        "en": "A short name people recognise, such as Membrane workshop, March 2027.",
+        "ar": "اسم قصير يعرفه الناس، مثل: ورشة الأغشية، مارس 2027."
+      }
+    },
+    "project.opportunity": {
+      "label": {
+        "en": "Opportunity",
+        "ar": "الفرصة"
+      },
+      "description": {
+        "en": "The opportunity this project delivers, if there is one.",
+        "ar": "الفرصة التي ينفّذها هذا المشروع، إن وُجدت."
+      }
+    },
+    "project.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "project.owner": {
+      "label": {
+        "en": "Owner",
+        "ar": "المسؤول"
+      },
+      "description": {
+        "en": "The colleague who runs the project and closes it when every milestone is done.",
+        "ar": "الزميل الذي يدير المشروع ويغلقه بعد إنجاز كل المراحل."
+      }
+    },
+    "project.percentComplete": {
+      "label": {
+        "en": "Percent complete",
+        "ar": "نسبة الإنجاز"
+      },
+      "description": {
+        "en": "Set by the app to the share of milestones that are done; you never type it.",
+        "ar": "يضبطه النظام على نسبة المراحل المنجزة؛ ولا تكتبه بنفسك."
+      }
+    },
+    "project.playbookApplied": {
+      "label": {
+        "en": "Playbook applied",
+        "ar": "طُبّق دليل العمل"
+      },
+      "description": {
+        "en": "Set by the app once the template created this project's milestones and work packages; you never tick it.",
+        "ar": "يضبطه النظام بعد أن ينشئ القالب مراحل هذا المشروع وحزم عمله؛ ولا تضع العلامة بنفسك."
+      }
+    },
+    "project.playbookType": {
+      "label": {
+        "en": "Type",
+        "ar": "النوع"
+      },
+      "description": {
+        "en": "Pick what sort of project it is; Workshop, Proposal and Delivery start a template of milestones and work packages.",
+        "ar": "اختر نوع المشروع؛ و Workshop و Proposal و Delivery تبدأ قالباً من المراحل وحزم العمل."
+      }
+    },
+    "project.status": {
+      "label": {
+        "en": "Status",
+        "ar": "الحالة"
+      },
+      "description": {
+        "en": "Where the project stands; set On hold when it pauses and Done when the owner closes it.",
+        "ar": "أين وصل المشروع؛ اجعلها On hold عند التوقف و Done عندما يغلقه المسؤول."
+      }
+    },
+    "project.workPackages": {
+      "label": {
+        "en": "Work packages",
+        "ar": "حزم العمل"
+      },
+      "description": {
+        "en": "Every work package of this project.",
+        "ar": "كل حزم العمل في هذا المشروع."
+      }
+    },
+    "publicHoliday.date": {
+      "label": {
+        "en": "Date",
+        "ar": "التاريخ"
+      },
+      "description": {
+        "en": "The date of the holiday; the app skips it when it counts working days.",
+        "ar": "تاريخ العطلة؛ ويتخطاه النظام عند حساب أيام العمل."
+      }
+    },
+    "publicHoliday.name": {
+      "label": {
+        "en": "Name",
+        "ar": "الاسم"
+      },
+      "description": {
+        "en": "The holiday's name, such as Eid al-Fitr, entered by the ops coordinator when the year's holidays are announced.",
+        "ar": "اسم العطلة، مثل عيد الفطر، ويُدخله منسق العمليات عند إعلان عطلات السنة."
+      }
+    },
+    "task.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "task.taskType": {
+      "label": {
+        "en": "Type",
+        "ar": "النوع"
+      },
+      "description": {
+        "en": "Pick what sort of task it is when you create it.",
+        "ar": "اختر نوع المهمة عند إنشائها."
+      }
+    },
+    "workPackage.acceptReminderSentAt": {
+      "label": {
+        "en": "Acceptance reminder sent at",
+        "ar": "تاريخ تذكير القبول"
+      },
+      "description": {
+        "en": "Set by the app when the owner and the ED were reminded after 2 working days without acceptance; you never type it.",
+        "ar": "يضبطه النظام عندما ذُكّر المسؤول والمدير التنفيذي بعد يومي عمل دون قبول؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workPackage.acceptedAt": {
+      "label": {
+        "en": "Accepted at",
+        "ar": "تاريخ القبول"
+      },
+      "description": {
+        "en": "Set by the app when the owner accepted the work; you never type it.",
+        "ar": "يضبطه النظام عندما قبل المسؤول العمل؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workPackage.blockedAt": {
+      "label": {
+        "en": "Blocked at",
+        "ar": "تاريخ التعطّل"
+      },
+      "description": {
+        "en": "Set by the app when the work package was blocked; you never type it.",
+        "ar": "يضبطه النظام عندما تعطّلت حزمة العمل؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workPackage.blockedReason": {
+      "label": {
+        "en": "Blocked reason",
+        "ar": "سبب التعطّل"
+      },
+      "description": {
+        "en": "What is stopping you and who can clear it, typed in the same edit that sets the status to Blocked.",
+        "ar": "ما الذي يوقفك ومن يستطيع رفع العائق، وتكتبه في التعديل نفسه الذي تجعل فيه الحالة Blocked."
+      }
+    },
+    "workPackage.completedAt": {
+      "label": {
+        "en": "Completed at",
+        "ar": "تاريخ الإنجاز"
+      },
+      "description": {
+        "en": "Set by the app when the reviewer marked the work Done; you never type it.",
+        "ar": "يضبطه النظام عندما جعل المراجِع العمل Done؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workPackage.declinedReason": {
+      "label": {
+        "en": "Declined reason",
+        "ar": "سبب الرفض"
+      },
+      "description": {
+        "en": "Why you cannot take this work, in one line, typed when you press Decline.",
+        "ar": "لماذا لا تستطيع تولّي هذا العمل، في سطر واحد، وتكتبه عندما تضغط «رفض» في البطاقة."
+      }
+    },
+    "workPackage.department": {
+      "label": {
+        "en": "Department",
+        "ar": "الإدارة"
+      },
+      "description": {
+        "en": "Pick the KUEC department that leads this work, which is Business development unless another department runs it.",
+        "ar": "اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى."
+      }
+    },
+    "workPackage.dependents": {
+      "label": {
+        "en": "Dependents",
+        "ar": "الحزم التالية"
+      },
+      "description": {
+        "en": "The work packages that start when this one is done.",
+        "ar": "حزم العمل التي تبدأ عندما تُنجز هذه الحزمة."
+      }
+    },
+    "workPackage.dependsOn": {
+      "label": {
+        "en": "Depends on",
+        "ar": "يعتمد على"
+      },
+      "description": {
+        "en": "The work package that must be done before this one starts.",
+        "ar": "حزمة العمل التي يجب إنجازها قبل أن تبدأ هذه الحزمة."
+      }
+    },
+    "workPackage.doneCriteria": {
+      "label": {
+        "en": "Done criteria",
+        "ar": "معايير الإنجاز"
+      },
+      "description": {
+        "en": "The checks that must all be true before you submit, written by whoever plans the work.",
+        "ar": "الشروط التي يجب أن تتحقق كلها قبل التسليم، ويكتبها من يخطط للعمل."
+      }
+    },
+    "workPackage.dueAt": {
+      "label": {
+        "en": "Due",
+        "ar": "موعد التسليم"
+      },
+      "description": {
+        "en": "The date the work must be submitted; if it is late, the owner is told that day and the ED 2 working days later.",
+        "ar": "التاريخ الذي يجب تسليم العمل فيه؛ وإذا تأخر يُبلَّغ المسؤول في اليوم نفسه والمدير التنفيذي بعد يومي عمل."
+      }
+    },
+    "workPackage.dueOffsetBusinessDays": {
+      "label": {
+        "en": "Due offset (business days)",
+        "ar": "مهلة التسليم (أيام عمل)"
+      },
+      "description": {
+        "en": "Set by the app from the playbook as the working days from release to due; you never type it.",
+        "ar": "يضبطه النظام من دليل العمل بعدد أيام العمل من بدء الحزمة إلى موعد تسليمها؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workPackage.expectedOutput": {
+      "label": {
+        "en": "Expected output",
+        "ar": "المُخرَج المتوقع"
+      },
+      "description": {
+        "en": "What you hand over at the end, such as a two-page note saved on SharePoint.",
+        "ar": "ما تسلّمه في النهاية، مثل مذكرة من صفحتين محفوظة على SharePoint."
+      }
+    },
+    "workPackage.milestone": {
+      "label": {
+        "en": "Milestone",
+        "ar": "المرحلة الرئيسية"
+      },
+      "description": {
+        "en": "The project milestone this work package helps reach, if there is one.",
+        "ar": "مرحلة المشروع التي تساعد هذه الحزمة على بلوغها، إن وُجدت."
+      }
+    },
+    "workPackage.name": {
+      "label": {
+        "en": "Title",
+        "ar": "العنوان"
+      },
+      "description": {
+        "en": "A short name for the work, starting with a verb, such as Draft the partner shortlist.",
+        "ar": "اسم قصير للعمل يبدأ بفعل، مثل: اكتب القائمة المختصرة للشركاء."
+      }
+    },
+    "workPackage.objective": {
+      "label": {
+        "en": "Objective",
+        "ar": "الهدف"
+      },
+      "description": {
+        "en": "Why this work matters, in one sentence, written before the work is offered.",
+        "ar": "لماذا يهم هذا العمل، في جملة واحدة، ويُكتب قبل عرض العمل."
+      }
+    },
+    "workPackage.offeredAt": {
+      "label": {
+        "en": "Offered at",
+        "ar": "تاريخ العرض"
+      },
+      "description": {
+        "en": "Set by the app when the work was offered to its owner, which starts the 2-day acceptance clock.",
+        "ar": "يضبطه النظام عند عرض العمل على مسؤوله، ومنه تبدأ مهلة القبول البالغة يومين."
+      }
+    },
+    "workPackage.opportunity": {
+      "label": {
+        "en": "Opportunity",
+        "ar": "الفرصة"
+      },
+      "description": {
+        "en": "The opportunity this work package belongs to, when it is part of a case.",
+        "ar": "الفرصة التي تتبعها حزمة العمل هذه، عندما تكون جزءاً من ملف."
+      }
+    },
+    "workPackage.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "When any list on this record is set to Other, write in a few words what it is.",
+        "ar": "عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو."
+      }
+    },
+    "workPackage.overdueEdNotifiedAt": {
+      "label": {
+        "en": "Overdue ED notified at",
+        "ar": "تاريخ إبلاغ المدير التنفيذي بالتأخير"
+      },
+      "description": {
+        "en": "Set by the app when the ED was told the work is 2 working days late; you never type it.",
+        "ar": "يضبطه النظام عندما أُبلغ المدير التنفيذي بتأخر العمل يومي عمل؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workPackage.overdueOwnerNotifiedAt": {
+      "label": {
+        "en": "Overdue owner notified at",
+        "ar": "تاريخ إبلاغ المسؤول بالتأخير"
+      },
+      "description": {
+        "en": "Set by the app when the owner was told the work was due and not done; you never type it.",
+        "ar": "يضبطه النظام عندما أُبلغ المسؤول بأن موعد العمل حلّ ولم يُنجز؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workPackage.owner": {
+      "label": {
+        "en": "Owner",
+        "ar": "المسؤول"
+      },
+      "description": {
+        "en": "The one colleague who delivers this work; only they see the buttons on the card.",
+        "ar": "الزميل الوحيد الذي ينجز هذا العمل؛ وهو وحده يرى الأزرار في البطاقة."
+      }
+    },
+    "workPackage.playbookStep": {
+      "label": {
+        "en": "Playbook step",
+        "ar": "خطوة دليل العمل"
+      },
+      "description": {
+        "en": "Set by the app with the playbook and step that created this work package; you never type it.",
+        "ar": "يضبطه النظام بدليل العمل والخطوة التي أنشأت حزمة العمل هذه؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workPackage.project": {
+      "label": {
+        "en": "Project",
+        "ar": "المشروع"
+      },
+      "description": {
+        "en": "The project this work package belongs to, when it is part of a project.",
+        "ar": "المشروع الذي تتبعه حزمة العمل هذه، عندما تكون جزءاً من مشروع."
+      }
+    },
+    "workPackage.reassignedAt": {
+      "label": {
+        "en": "Reassigned at",
+        "ar": "تاريخ إعادة الإسناد"
+      },
+      "description": {
+        "en": "Set by the app when it moved the work to the ops coordinator after 5 working days without acceptance; you never type it.",
+        "ar": "يضبطه النظام عندما نقل العمل إلى منسق العمليات بعد 5 أيام عمل دون قبول؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workPackage.reviewer": {
+      "label": {
+        "en": "Reviewer",
+        "ar": "المراجِع"
+      },
+      "description": {
+        "en": "The colleague who checks the work against its done criteria and marks it Done.",
+        "ar": "الزميل الذي يراجع العمل وفق معايير الإنجاز ويجعله Done."
+      }
+    },
+    "workPackage.status": {
+      "label": {
+        "en": "Status",
+        "ar": "الحالة"
+      },
+      "description": {
+        "en": "Where the work stands; use the card's buttons, and set Blocked here with a reason when you cannot go on.",
+        "ar": "أين وصل العمل؛ استخدم أزرار البطاقة، واجعلها Blocked هنا مع السبب عندما لا تستطيع المتابعة."
+      }
+    },
+    "workPackage.submittedAt": {
+      "label": {
+        "en": "Submitted at",
+        "ar": "تاريخ التسليم"
+      },
+      "description": {
+        "en": "Set by the app when the owner submitted the work for review; you never type it.",
+        "ar": "يضبطه النظام عندما سلّم المسؤول العمل للمراجعة؛ ولا تكتبه بنفسك."
+      }
+    },
+    "workspaceMember.ownedContracts": {
+      "label": {
+        "en": "Owned contracts",
+        "ar": "العقود التي يتولاها"
+      },
+      "description": {
+        "en": "The contracts this colleague owns.",
+        "ar": "العقود التي يتولاها هذا الزميل."
+      }
+    },
+    "workspaceMember.ownedDocuments": {
+      "label": {
+        "en": "Owned documents",
+        "ar": "الوثائق التي يتولاها"
+      },
+      "description": {
+        "en": "The documents this colleague keeps up to date.",
+        "ar": "الوثائق التي يُبقيها هذا الزميل محدَّثة."
+      }
+    },
+    "workspaceMember.ownedEngagements": {
+      "label": {
+        "en": "Owned engagements",
+        "ar": "التواصلات التي أجراها"
+      },
+      "description": {
+        "en": "The engagements this colleague held.",
+        "ar": "التواصلات التي أجراها هذا الزميل."
+      }
+    },
+    "workspaceMember.ownedLeads": {
+      "label": {
+        "en": "Owned leads",
+        "ar": "العملاء المحتملون لديه"
+      },
+      "description": {
+        "en": "The leads this colleague works.",
+        "ar": "العملاء المحتملون الذين يعمل عليهم هذا الزميل."
+      }
+    },
+    "workspaceMember.ownedMilestones": {
+      "label": {
+        "en": "Owned milestones",
+        "ar": "المراحل الرئيسية التي يتولاها"
+      },
+      "description": {
+        "en": "The milestones this colleague is responsible for.",
+        "ar": "المراحل الرئيسية التي يتولى هذا الزميل مسؤوليتها."
+      }
+    },
+    "workspaceMember.ownedProjects": {
+      "label": {
+        "en": "Owned projects",
+        "ar": "المشاريع التي يديرها"
+      },
+      "description": {
+        "en": "The projects this colleague runs.",
+        "ar": "المشاريع التي يديرها هذا الزميل."
+      }
+    },
+    "workspaceMember.ownedWorkPackages": {
+      "label": {
+        "en": "Owned work packages",
+        "ar": "حزم العمل لديه"
+      },
+      "description": {
+        "en": "The work packages this colleague delivers; My work shows the open ones.",
+        "ar": "حزم العمل التي ينجزها هذا الزميل؛ وتعرض My work المفتوح منها."
+      }
+    },
+    "workspaceMember.playbookRoleAssignments": {
+      "label": {
+        "en": "Playbook roles",
+        "ar": "أدوار دليل العمل"
+      },
+      "description": {
+        "en": "The playbook roles this colleague fills, set by the ED or the ops coordinator.",
+        "ar": "أدوار دليل العمل التي يشغلها هذا الزميل، ويحددها المدير التنفيذي أو منسق العمليات."
+      }
+    },
+    "workspaceMember.referredLeads": {
+      "label": {
+        "en": "Referred leads",
+        "ar": "العملاء المحتملون المُحالون"
+      },
+      "description": {
+        "en": "The leads this colleague referred or logged, for which they hold the referral credit.",
+        "ar": "العملاء المحتملون الذين أحالهم هذا الزميل أو سجّلهم، ويحتفظ برصيد إحالتهم."
+      }
+    },
+    "workspaceMember.reviewedWorkPackages": {
+      "label": {
+        "en": "Work packages to review",
+        "ar": "حزم العمل للمراجعة"
+      },
+      "description": {
+        "en": "The work packages this colleague reviews before they are marked Done.",
+        "ar": "حزم العمل التي يراجعها هذا الزميل قبل أن تصبح Done."
+      }
+    }
+  }
+}

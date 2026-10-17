@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const LOST_REASON_CATEGORY_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = '9e423fd4-f6e8-4a5f-ad12-52cd4dcb91f9';
 
@@ -24,22 +25,22 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'lostReasonCategory',
   label: 'Lost reason category',
-  description: 'Groupable reason; the Lost reason text holds the detail',
+  description: fieldDescription('opportunity.lostReasonCategory'),
   icon: 'IconMoodSad',
   options: [
     {
-      id: '18204126-6b67-4596-8314-6aea24b5535d',
-      value: LOST_REASON_CATEGORY.PRICE,
-      label: 'Price',
+      id: 'ab317829-787c-427f-8fbe-85a8709723ff',
+      value: LOST_REASON_CATEGORY.NO_RESPONSE,
+      label: 'No response',
       position: 0,
-      color: 'red',
+      color: 'gray',
     },
     {
-      id: 'a76d3903-9b13-4393-8f5d-4e8df8142cf9',
-      value: LOST_REASON_CATEGORY.TIMING,
-      label: 'Timing',
+      id: '18204126-6b67-4596-8314-6aea24b5535d',
+      value: LOST_REASON_CATEGORY.PRICE,
+      label: 'Price too high',
       position: 1,
-      color: 'orange',
+      color: 'red',
     },
     {
       id: '8cfc92b4-7909-43ae-b8da-a804385af148',
@@ -49,30 +50,30 @@ export default defineField({
       color: 'amber',
     },
     {
+      id: 'a76d3903-9b13-4393-8f5d-4e8df8142cf9',
+      value: LOST_REASON_CATEGORY.TIMING,
+      label: 'Wrong timing',
+      position: 3,
+      color: 'orange',
+    },
+    {
       id: 'f0b29cf9-b9fd-433c-a26d-634f843d1efb',
       value: LOST_REASON_CATEGORY.COMPETITOR,
       label: 'Went to a competitor',
-      position: 3,
+      position: 4,
       color: 'purple',
     },
     {
       id: 'd9d46608-d48f-4b0f-a7c8-58d666518406',
       value: LOST_REASON_CATEGORY.TECHNICAL_FIT,
-      label: 'Technical fit',
-      position: 4,
-      color: 'blue',
-    },
-    {
-      id: 'ab317829-787c-427f-8fbe-85a8709723ff',
-      value: LOST_REASON_CATEGORY.NO_RESPONSE,
-      label: 'No response',
+      label: 'Not a technical fit',
       position: 5,
-      color: 'gray',
+      color: 'blue',
     },
     {
       id: 'af04b335-3d41-446d-9e4d-8ea418024941',
       value: LOST_REASON_CATEGORY.CAPACITY,
-      label: 'Our capacity',
+      label: 'No capacity on our side',
       position: 6,
       color: 'pink',
     },

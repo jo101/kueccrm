@@ -49,7 +49,7 @@ Companies and People also have **Added in the last 7 days** (position 18): every
 
 | Object | Field (API name) | Type | Set by |
 | --- | --- | --- | --- |
-| Company | Size class (`sizeClass`) | Select: Startup, SME, Large enterprise, Government or semi-government | People. A first cut: the ED confirms the options before go-live; relabelling one needs no data change. Values from the day-one register are not imported yet (`09-import.md` section 8) |
+| Company | Size class (`sizeClass`) | Select: Startup, Small or medium business (SME until 0.10.0), Large enterprise, Government or semi-government | People. A first cut: the ED confirms the options before go-live; relabelling one needs no data change. Values from the day-one register are not imported yet (`09-import.md` section 8) |
 | Opportunity | Parked lapses at (`parkedLapsesAt`) | Date and time, app-written | W8 on every stage change: Stage entered at plus 90 days when the new stage is Parked, empty in any other stage |
 | Engagement | Outcome due at (`outcomeDueAt`) | Date and time, app-written | W11 when Date changes: Date plus 2 days |
 

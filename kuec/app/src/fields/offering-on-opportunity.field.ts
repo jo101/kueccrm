@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const OFFERING_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = '67778937-5501-480a-9f19-afb877c5bb17';
 
@@ -28,13 +29,13 @@ export default defineField({
   type: FieldType.MULTI_SELECT,
   name: 'offering',
   label: 'Offering',
-  description: 'Every KUEC offering in the deal; pick all that apply',
+  description: fieldDescription('opportunity.offering'),
   icon: 'IconPackages',
   options: [
     {
       id: 'd1296e9f-5fe3-4753-b7f0-883198121e2a',
       value: OPPORTUNITY_OFFERING.IP_LICENCE,
-      label: 'IP licence',
+      label: 'Intellectual property licence',
       position: 0,
       color: 'blue',
     },

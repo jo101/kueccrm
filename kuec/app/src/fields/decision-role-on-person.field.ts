@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const DECISION_ROLE_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER = 'c1b8df3b-adbc-4f77-9a29-0d425d33049b';
 
@@ -22,6 +23,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'decisionRole',
   label: 'Decision role',
+  description: fieldDescription('person.decisionRole'),
   icon: 'IconHierarchy2',
   options: [
     {

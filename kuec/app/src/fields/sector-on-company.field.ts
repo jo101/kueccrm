@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const SECTOR_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER = '5306e386-af98-4ac0-8fd5-f88b5658aaf7';
 
@@ -26,7 +27,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'sector',
   label: 'Sector',
-  description: 'The company\'s main industry',
+  description: fieldDescription('company.sector'),
   icon: 'IconBuildingFactory2',
   options: [
     {
@@ -67,7 +68,7 @@ export default defineField({
     {
       id: 'aff91be0-d8d8-497b-9850-bfc6a5dfc4f7',
       value: COMPANY_SECTOR.ICT,
-      label: 'ICT and digital',
+      label: 'Information technology, telecoms and digital',
       position: 5,
       color: 'blue',
     },

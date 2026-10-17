@@ -39,8 +39,9 @@ const filterKeysOf = (view: ViewDefinition) =>
     JSON.stringify([filter.fieldMetadataUniversalIdentifier, filter.operand, filter.value]),
   );
 
+// The guidance widget opens each page (src/i18n/guidance.json); the tables follow it.
 const tablesOf = (widgets: PageLayoutWidgetManifest[] | undefined) =>
-  (widgets ?? []).map((widget) => ({
+  (widgets ?? []).slice(1).map((widget) => ({
     title: widget.title,
     type: widget.type,
     viewUniversalIdentifier: tableConfigurationOf(widget).viewUniversalIdentifier,

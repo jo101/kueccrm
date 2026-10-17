@@ -7,6 +7,7 @@ import {
 } from 'twenty-sdk/define';
 import { DOCUMENT_UNIVERSAL_IDENTIFIER } from '../objects/document.object';
 import { DOCUMENTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from './documents-on-company.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const COMPANY_ON_DOCUMENT_FIELD_UNIVERSAL_IDENTIFIER = '4a03251c-892f-4420-a91e-875127937bb0';
 
@@ -16,6 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'company',
   label: 'Company',
+  description: fieldDescription('document.company'),
   icon: 'IconBuildingSkyscraper',
   relationTargetObjectMetadataUniversalIdentifier:
     STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.company.universalIdentifier,

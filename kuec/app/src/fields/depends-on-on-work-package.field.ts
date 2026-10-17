@@ -7,6 +7,7 @@ import {
 
 import { WORK_PACKAGE_UNIVERSAL_IDENTIFIER } from '../objects/work-package.object';
 import { DEPENDENTS_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from './dependents-on-work-package.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const DEPENDS_ON_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER = '1df6bc29-f2f2-4dfe-8adb-3cca45efedc0';
 
@@ -16,6 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'dependsOn',
   label: 'Depends on',
+  description: fieldDescription('workPackage.dependsOn'),
   icon: 'IconArrowBarToLeft',
   relationTargetObjectMetadataUniversalIdentifier:
     WORK_PACKAGE_UNIVERSAL_IDENTIFIER,

@@ -70,17 +70,17 @@ A lead is qualified when the answer to at least four of these is yes. Tick a che
 
 **Licence-grade.** When a lead qualifies, the ED is also told, by task and email, if either is true:
 
-- **Offering interest** includes **IP licence**; or
-- **Estimated value** is above the threshold the ED sets in the app variable **Lead value that notifies the ED** (`config/dashboards/kuec-bd-ops-variables.md`). The amount is compared as entered, so enter estimates in AED. Until the threshold is set, only the IP licence rule applies.
+- **Offering interest** includes **Intellectual property licence**; or
+- **Estimated value** is above the threshold the ED sets in the app variable **Lead value that notifies the ED** (`config/dashboards/kuec-bd-ops-variables.md`). The amount is compared as entered, so enter estimates in AED. Until the threshold is set, only the intellectual property licence rule applies.
 
 ## 4. Disposition rules
 
 Every lead ends in one of three places: **Converted**, **Nurture** or **Dead**. A lead is never deleted to close it (only the ED and the ops coordinator delete, and only mistakes, `14-hygiene.md` section 7).
 
-- **Convert** when the lead is Qualified and the next step is real work for KUEC: a scoping call with the decision maker, a quote, a technical assessment. Set Status to **Converted**. The CRM creates the opportunity within a minute: stage **Qualify**, Type from the first offering in **Offering interest** (in the order of the Offering list, so an IP licence interest makes a Licence case), and Source, Company, Person (as point of contact), Owner, Department, Next action and its date, Estimated value (as Amount) and Offering copied over. **Need** becomes the opportunity's **Description**. The lead shows the new case in **Converted opportunity**; the case shows the lead in **Lead**. If the type is Licence or Technical service, the playbook starts as if you had set the type yourself (W1, `04-automation.md`).
+- **Convert** when the lead is Qualified and the next step is real work for KUEC: a scoping call with the decision maker, a quote, a technical assessment. Set Status to **Converted**. The CRM creates the opportunity within a minute: stage **Qualify**, Type from the first offering in **Offering interest** (in the order of the Offering list, so an Intellectual property licence interest makes a Licence case), and Source, Company, Person (as point of contact), Owner, Department, Next action and its date, Estimated value (as Amount) and Offering copied over. **Need** becomes the opportunity's **Description**. The lead shows the new case in **Converted opportunity**; the case shows the lead in **Lead**. If the type is Licence or Technical service, the playbook starts as if you had set the type yourself (W1, `04-automation.md`).
 - **Cross-sell.** The same lead may convert again when the same contact wants something else. Set Status back to **Qualified**, change **Offering interest** and the next action to the new need, then set **Converted** again: each conversion is a new opportunity, and the lead's **Opportunities** list shows all of them. **Converted opportunity** always shows the latest.
 - **Nurture** when the need is real but not now. Set a **Nurture review date**; if you leave it empty the CRM sets it 90 days out. On that date the lead appears in **Nurture review due**.
-- **Dead** when it is going nowhere. Pick a **Dead reason**: No response, No fit, No budget, Duplicate, Competitor, Timing, Not decision maker, or Other (then say what in **Other details**). Duplicate means another lead or an opportunity already covers this contact: link or merge rather than work both. Without a reason the owner gets a task **Record dead reason**.
+- **Dead** when it is going nowhere. Pick a **Dead reason**: No response, No fit, No budget, Duplicate, Went to a competitor, Wrong timing, Not the decision maker, or Other (then say what in **Other details**). Duplicate means another lead or an opportunity already covers this contact: link or merge rather than work both. Without a reason the owner gets a task **Record dead reason**.
 - **Automatic Dead.** A Contacted or Engaged lead with no engagement dated after its last status change, and no status change, for 30 days, is set to Dead with reason **No response** by the CRM at 08:10. The owner gets a task **Confirm or revive** due in 5 days: leave it Dead, or move it back to Contacted or Engaged with a next action. Logging an engagement on the lead restarts the 30 days.
 - **Contact SLA.** A lead in New for 3 working days nudges its owner (task and email); after 7 working days the ED is told. Moving the lead out of New stops both; a lead that goes back to New starts a new clock.
 
@@ -105,7 +105,7 @@ The three forms post their submissions to the CRM, so no contact is retyped. Eac
 | Form | Source | Source system | External id |
 | --- | --- | --- | --- |
 | Website contact form | Inbound (web, email, phone) | Website form | `web:<submission id>` |
-| Gala QR form | Gala QR | Gala QR form | `gala:<submission id>` |
+| Gala QR form | Gala QR code | Gala QR code form | `gala:<submission id>` |
 | Workshop sign-up | Workshop | Workshop sign-up form | `workshop:<submission id>` |
 
 An existing person is linked, never changed, except that an empty company is filled. A submission whose external id already has a lead creates nothing, so a resent form is harmless.
@@ -136,7 +136,7 @@ An existing person is linked, never changed, except that an empty company is fil
   }
   ```
 
-  `form` is `WEBSITE`, `GALA_QR` or `WORKSHOP_SIGNUP`. Each submission needs a `submissionId` and at least one of email, a name or a company. `offeringInterest` takes the Offering values of `18-taxonomy.md` section 8; unknown values are dropped. `campaignId` must be a Project of type GTM campaign or Workshop, otherwise Campaign stays empty. At most 100 submissions per delivery.
+  `form` is `WEBSITE`, `GALA_QR` or `WORKSHOP_SIGNUP`. Each submission needs a `submissionId` and at least one of email, a name or a company. `offeringInterest` takes the Offering values of `18-taxonomy.md` section 8; unknown values are dropped. `campaignId` must be a Project of type Go-to-market campaign or Workshop, otherwise Campaign stays empty. At most 100 submissions per delivery.
 - Answers: **202** with the delivery id (queued; the job writes the leads within a minute); **401** for a missing header, a timestamp more than 5 minutes off, or a wrong signature; **400** for a malformed body (the reason is in the answer); **413** for more than 100 submissions; **503** while no signing secret is set or the queue is down. The sender retries 5xx and network errors with backoff for 24 hours and never retries 4xx.
 - The route writes nothing itself: it enqueues one job, `lead-intake-job`, with the id `lead-intake-<delivery id>`, so the same delivery twice is one job. The job retries 3 times on rate limits, server errors and network failures. Logs carry the delivery id and counts, never names or emails.
 
@@ -213,7 +213,7 @@ A Document record is the link and its metadata. It never holds the file: there i
 | Field | Meaning |
 | --- | --- |
 | Name | What it is, as people say it: "ADNOC NDA 2026" |
-| Type | NDA, MoU, MSA, Proposal or SOW, Quote, RFQ or RFP received, ... (`18-taxonomy.md` section 8.7) |
+| Type | Non-disclosure agreement, Memorandum of understanding, Master services agreement, Proposal or statement of work, Quote, Request for quotation or proposal received, ... (`18-taxonomy.md` section 8.7) |
 | Status | Draft, Shared, Under review, Signed, Expired, Superseded, Other |
 | Confidentiality | Internal, Confidential (the default), Restricted, Other. A label for people: anyone who can read Documents in Twenty sees the record and its link, and SharePoint or uVENTURE decides who can open the file. Never put anything in a Document record's name or Other details that the label forbids sharing |
 | SharePoint or uVENTURE link | Where the file lives |
@@ -222,7 +222,7 @@ A Document record is the link and its metadata. It never holds the file: there i
 | Expires on | When it stops applying: an NDA's term, a quote's validity |
 | External id, Source system | For a future feed (uVENTURE). Locked for people |
 
-Every Company, Person, Lead, Opportunity, Project and Contract record page has a **Documents** card on its Home tab listing the documents linked to it. A **PO or invoice** is linked for reference only: finance is the system of record.
+Every Company, Person, Lead, Opportunity, Project and Contract record page has a **Documents** card on its Home tab listing the documents linked to it. A **Purchase order or invoice** is linked for reference only: finance is the system of record.
 
 ## 10. Install and verify (0.9.0)
 
@@ -244,7 +244,7 @@ Verify (ops coordinator, on staging first):
 
 1. The sidebar reads Home, Exceptions, **Leads**, Pipeline, ... Contracts, **Documents**, Milestones, Data quality.
 2. As a BD officer, create a lead "Test lead, Test Co" with no owner. Within a minute: owner is the ops coordinator, Referred by (colleague) is the BD officer, Triaged is on, and the ops coordinator has a task **Triage: Test lead, Test Co** due the next working day at 17:00. It is in her Lead inbox.
-3. Tick four checks: within a minute the score is 4, Status is Qualified, the owner has **Convert or park**, and **Thank the referrer** (the lead has a colleague referrer). Tick IP licence in Offering interest first and the ED also gets a task and an email.
+3. Tick four checks: within a minute the score is 4, Status is Qualified, the owner has **Convert or park**, and **Thank the referrer** (the lead has a colleague referrer). Tick Intellectual property licence in Offering interest first and the ED also gets a task and an email.
 4. Set Status to Converted: an opportunity at Qualify appears with Type Licence, the lead's Need in Description, and links both ways. The Licence playbook starts (W1).
 5. Set that opportunity to Signed: the lead shows Referral credited at, a Note "Referral credit: ..." is on the lead, and BD > Team > Leads by referrer has a bar for the BD officer.
 6. Create a Document linked to the test company with a SharePoint link: the company's Home tab shows it in the Documents card. Set Expires on to next week: it is in Documents expiring in 60 days.
@@ -254,7 +254,7 @@ Verify (ops coordinator, on staging first):
 
 - **Two quick edits can race.** L1 and the lead sweep both check Triaged before they act and set it last; a lead edited twice in the same second can get two Triage tasks only if the key-value store is unavailable. Conversion: a server restart in the second a lead is set to Converted can lose both the status stamp and the conversion; the lead then shows Converted with no Converted opportunity. Set it to Qualified and back to Converted.
 - **The inbox is "owned by me".** If the ops coordinator changes, the new one sees the leads L1 gives her from then on; reassign the old inbox by hand (**Leads > Everything (expert)**, filter Owner).
-- **Campaign is not restricted by type.** Twenty 2.48 cannot limit a relation to projects of one type. The intake route checks it; by hand, pick a GTM campaign or Workshop project.
+- **Campaign is not restricted by type.** Twenty 2.48 cannot limit a relation to projects of one type. The intake route checks it; by hand, pick a Go-to-market campaign or Workshop project.
 - **Confidentiality does not restrict access** in Twenty (row-level permissions are an Organization-plan feature, `kuec/CLAUDE.md` section 3). SharePoint and uVENTURE permissions protect the files.
 - **Imported leads.** Pause automation per `09-import.md`, import, resume, then run `lead-sweep`: every imported New lead is triaged (one Triage task each), and an imported Converted lead never gets an opportunity created for it.
 - **Phase B.** A **Convert** command on the lead (`design/backlog.md`, B19) will call the same conversion code as L5, so a cross-sell will not need the status round trip.

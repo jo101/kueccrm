@@ -103,3 +103,38 @@
   flex-direction: column;
   gap: 12px;
 }
+
+.kuec-with-info {
+  align-items: center;
+  display: inline-flex;
+  gap: 4px;
+}
+
+.kuec-info {
+  align-items: center;
+  border-radius: var(--t-border-radius-sm);
+  color: var(--t-font-color-tertiary);
+  cursor: help;
+  display: inline-flex;
+}
+
+.kuec-info:focus-visible {
+  outline: 2px solid var(--t-color-blue);
+  outline-offset: 1px;
+}
+
+.kuec-card__label-row {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.kuec-card__next-step {
+  border-block-start: 1px solid var(--t-border-color-light);
+  margin: 0;
+  padding-block-start: 12px;
+}
+
+.kuec-card__next-step-label {
+  font-weight: 600;
+}

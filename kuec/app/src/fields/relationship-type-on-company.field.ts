@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const RELATIONSHIP_TYPE_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER = '8a2d006a-b219-448b-a250-6d8905a703d0';
 
@@ -26,7 +27,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'relationshipType',
   label: 'Relationship type',
-  description: 'The main relationship KUEC has with this company',
+  description: fieldDescription('company.relationshipType'),
   icon: 'IconHeartHandshake',
   options: [
     {

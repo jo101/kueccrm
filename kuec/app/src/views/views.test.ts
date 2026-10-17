@@ -1,6 +1,3 @@
-import { readdirSync } from 'node:fs';
-import { join } from 'node:path';
-
 import {
   type defineView,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
@@ -8,6 +5,7 @@ import {
 } from 'twenty-sdk/define';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import { loadDefaultExports } from 'src/__tests__/utils/load-default-exports';
 import { OPPORTUNITY_STAGE } from 'src/constants/opportunity-stage';
 import { OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-contract.field';
 import { OWNER_ON_DOCUMENT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-document.field';
@@ -123,18 +121,7 @@ const LEADING_COLUMNS_BY_OBJECT: Record<string, { name: string; owner: string }>
 };
 
 const loadViews = async (): Promise<ViewDefinition[]> => {
-  const viewFileNames = readdirSync(__dirname).filter((fileName) =>
-    fileName.endsWith('.view.ts'),
-  );
-
-  const viewModules = await Promise.all(
-    viewFileNames.map(
-      (fileName) =>
-        import(join(__dirname, fileName)) as Promise<{ default: ViewDefinition }>,
-    ),
-  );
-
-  return viewModules.map((viewModule) => viewModule.default);
+  return loadDefaultExports<ViewDefinition>(__dirname, '.view.ts');
 };
 
 const getColumnsInOrder = (view: ViewDefinition) =>

@@ -151,6 +151,36 @@ describe('applyCardAction', () => {
     expect(workPackage.status).toBe(WORK_PACKAGE_STATUS.ACCEPTED);
   });
 
+  it('Request help works on blocked work too, and leaves it blocked', async () => {
+    const { client, mutations, workPackage } = createFakeClient(WORK_PACKAGE_STATUS.BLOCKED);
+
+    const result = await apply(client, {
+      action: CARD_ACTION.REQUEST_HELP,
+      question: 'Who can approve the purchase order?',
+      helper: OMAR,
+    });
+
+    expect(result.outcome).toBe('APPLIED');
+    expect(mutations.map(({ operation }) => operation)).toEqual([
+      'createTask',
+      'createTaskTarget',
+    ]);
+    expect(workPackage.status).toBe(WORK_PACKAGE_STATUS.BLOCKED);
+  });
+
+  it('refuses Request help once the work is done', async () => {
+    const { client, mutations } = createFakeClient(WORK_PACKAGE_STATUS.DONE);
+
+    const result = await apply(client, {
+      action: CARD_ACTION.REQUEST_HELP,
+      question: 'Is this still needed?',
+      helper: OMAR,
+    });
+
+    expect(result.outcome).toBe('CONFLICT');
+    expect(mutations).toEqual([]);
+  });
+
   it('writes nothing when the status moved on since the card was shown', async () => {
     const { client, mutations } = createFakeClient(WORK_PACKAGE_STATUS.SUBMITTED);
 

@@ -3,7 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
-import { OTHER_DETAILS_FIELD_DESCRIPTION } from '../constants/taxonomy';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const OTHER_DETAILS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER = '51a5f237-d4de-416e-86fb-8ec608756cb0';
 
@@ -14,6 +14,6 @@ export default defineField({
   type: FieldType.TEXT,
   name: 'otherDetails',
   label: 'Other details',
-  description: OTHER_DETAILS_FIELD_DESCRIPTION,
+  description: fieldDescription('company.otherDetails'),
   icon: 'IconNotes',
 });

@@ -1,8 +1,10 @@
-import { readdirSync } from 'node:fs';
-import { join } from 'node:path';
-
 import { type defineNavigationMenuItem } from 'twenty-sdk/define';
 import { beforeAll, describe, expect, it } from 'vitest';
+
+import { loadDefaultExports } from 'src/__tests__/utils/load-default-exports';
+import helpNavigationMenuItem, {
+  HELP_PAGE_URL,
+} from 'src/navigation-menu-items/help.navigation-menu-item';
 
 type NavigationMenuItemDefinition = ReturnType<typeof defineNavigationMenuItem>;
 
@@ -10,20 +12,7 @@ type NavigationMenuItemDefinition = ReturnType<typeof defineNavigationMenuItem>;
 const FIRST_STANDARD_POSITION = 0;
 
 const loadNavigationMenuItems = async (): Promise<NavigationMenuItemDefinition[]> => {
-  const fileNames = readdirSync(__dirname).filter((fileName) =>
-    fileName.endsWith('.navigation-menu-item.ts'),
-  );
-
-  const itemModules = await Promise.all(
-    fileNames.map(
-      (fileName) =>
-        import(join(__dirname, fileName)) as Promise<{
-          default: NavigationMenuItemDefinition;
-        }>,
-    ),
-  );
-
-  return itemModules.map((itemModule) => itemModule.default);
+  return loadDefaultExports<NavigationMenuItemDefinition>(__dirname, '.navigation-menu-item.ts');
 };
 
 describe('sidebar', () => {
@@ -39,7 +28,7 @@ describe('sidebar', () => {
     }
   });
 
-  it('list the pinned entries in the agreed order, with Home and Exceptions above them', () => {
+  it('list the pinned entries in the agreed order, with Home and Exceptions above them and Help last', () => {
     const namesInOrder = [...items]
       .sort((left, right) => left.config.position - right.config.position)
       .map((item) => item.config.name);
@@ -59,6 +48,7 @@ describe('sidebar', () => {
       'Documents',
       'Milestones',
       'Data quality',
+      'Help',
     ]);
   });
 
@@ -68,5 +58,13 @@ describe('sidebar', () => {
         FIRST_STANDARD_POSITION,
       );
     }
+  });
+
+  it('ends with Help, a link that opens the Help page outside the CRM', () => {
+    expect(helpNavigationMenuItem.config).toMatchObject({
+      type: 'LINK',
+      link: HELP_PAGE_URL,
+    });
+    expect(HELP_PAGE_URL).toMatch(/^https:\/\/[a-z0-9-]+\.sharepoint\.com\//);
   });
 });

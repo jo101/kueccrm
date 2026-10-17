@@ -7,8 +7,11 @@ import { defineFrontComponent, PageLayoutType } from 'twenty-sdk/define';
 import {
   AppPath,
   enqueueSnackbar,
+  type MessageDescriptor,
+  msg,
   navigate,
   openCommandConfirmationModal,
+  type TranslationValues,
   useSelectedRecordIds,
   useTranslate,
   useUserId,
@@ -19,6 +22,7 @@ import { Button, Input } from 'twenty-ui/primitives/input';
 
 import { CardSkeleton } from 'src/front-components/shared/card-skeleton';
 import { FallbackLink } from 'src/front-components/shared/fallback-link';
+import { InfoTooltip, WithInfo } from 'src/front-components/shared/info-tooltip';
 import {
   clearUnsentDraft,
   readUnsentDraft,
@@ -33,19 +37,25 @@ import {
 } from 'src/front-components/work-package-card/work-package-card-api';
 import {
   getDueLabel,
-  STATUS_BADGE,
-  STATUS_INFO,
+  STATUS_BADGE_COLOR,
 } from 'src/front-components/work-package-card/work-package-card-labels';
 import {
   CARD_ACTION,
+  CARD_NEXT_STEP,
   type CardAction,
   type CardMember,
+  type CardNextStep,
   type CardWorkPackage,
   getAvailableCardActions,
+  getCardNextStep,
   isOneLineTextValid,
   REASON_MAX_LENGTH,
 } from 'src/front-components/work-package-card/work-package-card-rules';
-import { WORK_PACKAGE_UNIVERSAL_IDENTIFIER } from 'src/objects/work-package.object';
+import {
+  WORK_PACKAGE_STATUS,
+  WORK_PACKAGE_UNIVERSAL_IDENTIFIER,
+  type WorkPackageStatus,
+} from 'src/objects/work-package.object';
 
 export const WORK_PACKAGE_CARD_FRONT_COMPONENT_UNIVERSAL_IDENTIFIER =
   '66553b44-6627-495a-b489-db239e558380';
@@ -65,6 +75,73 @@ type OpenForm = typeof CARD_ACTION.DECLINE | typeof CARD_ACTION.REQUEST_HELP;
 
 const SUCCESS_TOAST_DURATION_MS = 4000;
 const ERROR_TOAST_DURATION_MS = 8000;
+
+// The SDK extracts catalog strings from this file only, so every card text
+// is declared here (src/i18n/interface.json holds the Arabic).
+
+// Plain words for each status; a first-week employee never meets an API value.
+const STATUS_LABEL: Record<WorkPackageStatus, MessageDescriptor> = {
+  [WORK_PACKAGE_STATUS.PLANNED]: msg('Not started'),
+  [WORK_PACKAGE_STATUS.OFFERED]: msg('Waiting to be accepted'),
+  [WORK_PACKAGE_STATUS.ACCEPTED]: msg('In progress'),
+  [WORK_PACKAGE_STATUS.SUBMITTED]: msg('Waiting for review'),
+  [WORK_PACKAGE_STATUS.BLOCKED]: msg('Blocked'),
+  [WORK_PACKAGE_STATUS.DONE]: msg('Done'),
+  [WORK_PACKAGE_STATUS.DECLINED]: msg('Declined'),
+  [WORK_PACKAGE_STATUS.CANCELLED]: msg('Stopped'),
+};
+
+// The record names these statuses differently, so the tooltip gives that name too.
+const STATUS_TOOLTIP: Record<WorkPackageStatus, MessageDescriptor> = {
+  [WORK_PACKAGE_STATUS.PLANNED]: msg('Status Planned: it is offered to its owner when the step before it is done.'),
+  [WORK_PACKAGE_STATUS.OFFERED]: msg('Status Offered: the owner accepts or declines it within 2 working days.'),
+  [WORK_PACKAGE_STATUS.ACCEPTED]: msg('Status Accepted: the owner has taken it on and delivers it by the due date.'),
+  [WORK_PACKAGE_STATUS.SUBMITTED]: msg('Status Submitted: it waits for the reviewer to check it against the done criteria.'),
+  [WORK_PACKAGE_STATUS.BLOCKED]: msg("Status Blocked: something outside the owner's control stops the work, and the ED has the reason."),
+  [WORK_PACKAGE_STATUS.DONE]: msg('Status Done: the reviewer accepted it, and the next step went to its owner.'),
+  [WORK_PACKAGE_STATUS.DECLINED]: msg('Status Declined: the owner could not take it, and the ED gives it to someone else.'),
+  [WORK_PACKAGE_STATUS.CANCELLED]: msg('Status Cancelled: the work is no longer needed.'),
+};
+
+const OWNER_NEXT_STEP: Record<WorkPackageStatus, MessageDescriptor> = {
+  [WORK_PACKAGE_STATUS.PLANNED]: msg('Nothing yet: it starts when the step before it is done, and Request help is here if you have a question now.'),
+  [WORK_PACKAGE_STATUS.OFFERED]: msg('Accept it if it is yours to do, or decline it with a reason, within 2 working days.'),
+  [WORK_PACKAGE_STATUS.ACCEPTED]: msg('Do the work and press Submit when every done criterion is met; if you are stuck, press Request help.'),
+  [WORK_PACKAGE_STATUS.SUBMITTED]: msg('Wait for the review, and if it comes back to you, fix what is missing and submit again.'),
+  [WORK_PACKAGE_STATUS.BLOCKED]: msg('Tell the ED what would clear the block, and when it clears, open the full record and set the status back to Accepted.'),
+  [WORK_PACKAGE_STATUS.DONE]: msg('Nothing: this work is finished.'),
+  [WORK_PACKAGE_STATUS.DECLINED]: msg('Nothing: the ED gives it to someone else.'),
+  [WORK_PACKAGE_STATUS.CANCELLED]: msg('Nothing: this work was stopped.'),
+};
+
+const NEXT_STEP: Record<
+  Exclude<CardNextStep, typeof CARD_NEXT_STEP.OWNER | typeof CARD_NEXT_STEP.FINISHED>,
+  MessageDescriptor
+> = {
+  [CARD_NEXT_STEP.DECLINE_FORM]: msg("Type in one line why you can't take it, then press Decline."),
+  [CARD_NEXT_STEP.HELP_FORM]: msg('Type your question in one line, then press Ask for help.'),
+  [CARD_NEXT_STEP.NO_OWNER]: msg('Nothing for you yet: this work has no owner, and the ops coordinator gives it one.'),
+  [CARD_NEXT_STEP.REVIEWER]: msg('Check it against the done criteria, then open the full record and set Done, or set Accepted and tell {firstName} what is missing.'),
+  [CARD_NEXT_STEP.SOMEONE_ELSE]: msg("Nothing on this card is for you: it is {firstName}'s work, so ask them if you need something."),
+};
+
+const LOADING_NEXT_STEP = msg('Wait a moment while the work package loads.');
+const ERROR_NEXT_STEP = msg('Press Try again, and if it still does not load, open the full record.');
+const MISSING_NEXT_STEP = msg('Open the full record, or ask the ops coordinator if you expected to see this work.');
+
+const CONTROL_TOOLTIP = {
+  OPEN_FULL_RECORD: msg('Opens the full work package page, with every field and its history.'),
+  ACCEPT: msg('Says the work is yours and you will deliver it by the due date, and the reminders stop.'),
+  DECLINE: msg('Hands the work back with a one-line reason, and the ED gives it to someone else.'),
+  SUBMIT: msg('Sends the finished work to the reviewer; press it only when every done criterion is met.'),
+  REQUEST_HELP: msg('Sends your question to the ops coordinator as a task due today, while the work stays yours with the same due date.'),
+  CANCEL: msg('Closes this form without sending anything, and what you typed stays here for later.'),
+  CONFIRM_DECLINE: msg('Asks you to confirm, then declines the work with your reason.'),
+  CONFIRM_HELP: msg('Asks you to confirm, then sends your question to the ops coordinator.'),
+  TRY_AGAIN: msg('Loads the work package again without changing anything.'),
+  DECLINE_REASON: msg('One line on why you cannot take this work, such as leave dates or a clash with other work.'),
+  HELP_QUESTION: msg('One line on what you need, so the ops coordinator can answer quickly.'),
+} as const;
 
 const readInputValue = (event: { target: unknown }): string => {
   const target = event.target as { value?: unknown } | null;
@@ -93,6 +170,13 @@ const WorkPackageCard = () => {
     t('Expected output'),
     t('Done criteria'),
   ];
+
+  const nextStepLine = (descriptor: MessageDescriptor, values?: TranslationValues) => (
+    <p className="kuec-card__next-step">
+      <span className="kuec-card__next-step-label">{t('What do I do now?')}</span>{' '}
+      {t(descriptor, values)}
+    </p>
+  );
 
   const load = useCallback(async () => {
     if (!isDefined(workPackageId) || !isDefined(userId)) {
@@ -297,7 +381,9 @@ const WorkPackageCard = () => {
   const header = (
     <div className="kuec-card__header">
       <span className="kuec-card__eyebrow">{t('Work package')}</span>
-      <FallbackLink label={t('Open full record')} onOpen={openFullRecord} />
+      <WithInfo info={t(CONTROL_TOOLTIP.OPEN_FULL_RECORD)}>
+        <FallbackLink label={t('Open full record')} onOpen={openFullRecord} />
+      </WithInfo>
     </div>
   );
 
@@ -309,6 +395,7 @@ const WorkPackageCard = () => {
       <div className="kuec-card" style={{ direction }}>
         {header}
         <CardSkeleton sectionHeadings={sectionHeadings} />
+        {nextStepLine(LOADING_NEXT_STEP)}
       </div>
     );
   }
@@ -327,20 +414,25 @@ const WorkPackageCard = () => {
           </p>
           <div className="kuec-card__actions">
             {state.status === 'error' && (
-              <Button variant="outline" color="neutral" size="sm" onClick={load}>
-                {t('Try again')}
-              </Button>
+              <WithInfo info={t(CONTROL_TOOLTIP.TRY_AGAIN)}>
+                <Button variant="outline" color="neutral" size="sm" onClick={load}>
+                  {t('Try again')}
+                </Button>
+              </WithInfo>
             )}
-            <Button
-              variant="outline"
-              color="neutral"
-              size="sm"
-              onClick={openFullRecord}
-            >
-              {t('Open full record')}
-            </Button>
+            <WithInfo info={t(CONTROL_TOOLTIP.OPEN_FULL_RECORD)}>
+              <Button
+                variant="outline"
+                color="neutral"
+                size="sm"
+                onClick={openFullRecord}
+              >
+                {t('Open full record')}
+              </Button>
+            </WithInfo>
           </div>
         </div>
+        {nextStepLine(state.status === 'error' ? ERROR_NEXT_STEP : MISSING_NEXT_STEP)}
       </div>
     );
   }
@@ -350,7 +442,15 @@ const WorkPackageCard = () => {
     workPackage,
     viewerMemberId: viewer?.id ?? null,
   });
-  const badge = STATUS_BADGE[workPackage.status];
+  const nextStep = getCardNextStep({
+    workPackage,
+    viewerMemberId: viewer?.id ?? null,
+    openForm,
+  });
+  const nextStepDescriptor =
+    nextStep === CARD_NEXT_STEP.OWNER || nextStep === CARD_NEXT_STEP.FINISHED
+      ? OWNER_NEXT_STEP[workPackage.status]
+      : NEXT_STEP[nextStep];
   const dueLabel = getDueLabel({ dueAt: workPackage.dueAt, now: new Date(), locale });
   const isBusy = pendingAction !== null;
   const reviewerOrCaseOwnerPrompt = isDefined(workPackage.reviewer)
@@ -365,7 +465,11 @@ const WorkPackageCard = () => {
 
       <h2 className="kuec-card__title">{workPackage.name}</h2>
       <div className="kuec-card__meta">
-        <Tag color={badge.color}>{t(badge.label)}</Tag>
+        <WithInfo info={t(STATUS_TOOLTIP[workPackage.status])}>
+          <Tag color={STATUS_BADGE_COLOR[workPackage.status]}>
+            {t(STATUS_LABEL[workPackage.status])}
+          </Tag>
+        </WithInfo>
         {isDefined(dueLabel) && (
           <span>
             {dueLabel.isLate
@@ -412,19 +516,14 @@ const WorkPackageCard = () => {
         </p>
       </section>
 
-      {availableActions.length === 0 && (
-        <p className="kuec-card__muted">
-          {t(STATUS_INFO[workPackage.status], {
-            firstName: workPackage.owner?.firstName ?? '',
-          })}
-        </p>
-      )}
-
       {openForm === CARD_ACTION.DECLINE && (
         <div className="kuec-card__form">
-          <label className="kuec-card__label" htmlFor="kuec-decline-reason">
-            {t("Why can't you take this?")}
-          </label>
+          <span className="kuec-card__label-row">
+            <label className="kuec-card__label" htmlFor="kuec-decline-reason">
+              {t("Why can't you take this?")}
+            </label>
+            <InfoTooltip text={t(CONTROL_TOOLTIP.DECLINE_REASON)} />
+          </span>
           <Input
             id="kuec-decline-reason"
             value={declineReason}
@@ -441,32 +540,39 @@ const WorkPackageCard = () => {
             {t('The ED will see your reason and give it to someone else.')}
           </p>
           <div className="kuec-card__actions">
-            <Button
-              variant="outline"
-              color="neutral"
-              size="sm"
-              onClick={() => setOpenForm(null)}
-            >
-              {t('Cancel')}
-            </Button>
-            <Button
-              variant="solid"
-              color="danger"
-              size="sm"
-              disabled={isBusy || !isOneLineTextValid(declineReason)}
-              onClick={handleDecline}
-            >
-              {t('Decline')}
-            </Button>
+            <WithInfo info={t(CONTROL_TOOLTIP.CANCEL)}>
+              <Button
+                variant="outline"
+                color="neutral"
+                size="sm"
+                onClick={() => setOpenForm(null)}
+              >
+                {t('Cancel')}
+              </Button>
+            </WithInfo>
+            <WithInfo info={t(CONTROL_TOOLTIP.CONFIRM_DECLINE)}>
+              <Button
+                variant="solid"
+                color="danger"
+                size="sm"
+                disabled={isBusy || !isOneLineTextValid(declineReason)}
+                onClick={handleDecline}
+              >
+                {t('Decline')}
+              </Button>
+            </WithInfo>
           </div>
         </div>
       )}
 
       {openForm === CARD_ACTION.REQUEST_HELP && (
         <div className="kuec-card__form">
-          <label className="kuec-card__label" htmlFor="kuec-help-question">
-            {t('What do you need?')}
-          </label>
+          <span className="kuec-card__label-row">
+            <label className="kuec-card__label" htmlFor="kuec-help-question">
+              {t('What do you need?')}
+            </label>
+            <InfoTooltip text={t(CONTROL_TOOLTIP.HELP_QUESTION)} />
+          </span>
           <Input
             id="kuec-help-question"
             value={helpQuestion}
@@ -487,29 +593,33 @@ const WorkPackageCard = () => {
               : t('No ops coordinator is set up yet. Ask the ED to add one.')}
           </p>
           <div className="kuec-card__actions">
-            <Button
-              variant="outline"
-              color="neutral"
-              size="sm"
-              onClick={() => setOpenForm(null)}
-            >
-              {t('Cancel')}
-            </Button>
-            <Button
-              variant="solid"
-              color="accent"
-              size="sm"
-              disabled={
-                isBusy ||
-                !isDefined(opsCoordinator) ||
-                !isOneLineTextValid(helpQuestion)
-              }
-              onClick={() =>
-                isDefined(opsCoordinator) && handleRequestHelp(opsCoordinator)
-              }
-            >
-              {t('Ask for help')}
-            </Button>
+            <WithInfo info={t(CONTROL_TOOLTIP.CANCEL)}>
+              <Button
+                variant="outline"
+                color="neutral"
+                size="sm"
+                onClick={() => setOpenForm(null)}
+              >
+                {t('Cancel')}
+              </Button>
+            </WithInfo>
+            <WithInfo info={t(CONTROL_TOOLTIP.CONFIRM_HELP)}>
+              <Button
+                variant="solid"
+                color="accent"
+                size="sm"
+                disabled={
+                  isBusy ||
+                  !isDefined(opsCoordinator) ||
+                  !isOneLineTextValid(helpQuestion)
+                }
+                onClick={() =>
+                  isDefined(opsCoordinator) && handleRequestHelp(opsCoordinator)
+                }
+              >
+                {t('Ask for help')}
+              </Button>
+            </WithInfo>
           </div>
         </div>
       )}
@@ -517,53 +627,65 @@ const WorkPackageCard = () => {
       {openForm === null && availableActions.length > 0 && (
         <div className="kuec-card__actions">
           {availableActions.includes(CARD_ACTION.ACCEPT) && (
-            <Button
-              variant="solid"
-              color="accent"
-              size="sm"
-              loading={pendingAction === CARD_ACTION.ACCEPT}
-              disabled={isBusy}
-              onClick={handleAccept}
-            >
-              {t('Accept')}
-            </Button>
+            <WithInfo info={t(CONTROL_TOOLTIP.ACCEPT)}>
+              <Button
+                variant="solid"
+                color="accent"
+                size="sm"
+                loading={pendingAction === CARD_ACTION.ACCEPT}
+                disabled={isBusy}
+                onClick={handleAccept}
+              >
+                {t('Accept')}
+              </Button>
+            </WithInfo>
           )}
           {availableActions.includes(CARD_ACTION.DECLINE) && (
-            <Button
-              variant="outline"
-              color="neutral"
-              size="sm"
-              disabled={isBusy}
-              onClick={() => setOpenForm(CARD_ACTION.DECLINE)}
-            >
-              {t('Decline')}
-            </Button>
+            <WithInfo info={t(CONTROL_TOOLTIP.DECLINE)}>
+              <Button
+                variant="outline"
+                color="neutral"
+                size="sm"
+                disabled={isBusy}
+                onClick={() => setOpenForm(CARD_ACTION.DECLINE)}
+              >
+                {t('Decline')}
+              </Button>
+            </WithInfo>
           )}
           {availableActions.includes(CARD_ACTION.SUBMIT) && (
-            <Button
-              variant="solid"
-              color="accent"
-              size="sm"
-              loading={pendingAction === CARD_ACTION.SUBMIT}
-              disabled={isBusy}
-              onClick={() => handleSubmit(workPackage.reviewer)}
-            >
-              {t('Submit')}
-            </Button>
+            <WithInfo info={t(CONTROL_TOOLTIP.SUBMIT)}>
+              <Button
+                variant="solid"
+                color="accent"
+                size="sm"
+                loading={pendingAction === CARD_ACTION.SUBMIT}
+                disabled={isBusy}
+                onClick={() => handleSubmit(workPackage.reviewer)}
+              >
+                {t('Submit')}
+              </Button>
+            </WithInfo>
           )}
           {availableActions.includes(CARD_ACTION.REQUEST_HELP) && (
-            <Button
-              variant="outline"
-              color="neutral"
-              size="sm"
-              disabled={isBusy}
-              onClick={() => setOpenForm(CARD_ACTION.REQUEST_HELP)}
-            >
-              {t('Request help')}
-            </Button>
+            <WithInfo info={t(CONTROL_TOOLTIP.REQUEST_HELP)}>
+              <Button
+                variant="outline"
+                color="neutral"
+                size="sm"
+                disabled={isBusy}
+                onClick={() => setOpenForm(CARD_ACTION.REQUEST_HELP)}
+              >
+                {t('Request help')}
+              </Button>
+            </WithInfo>
           )}
         </div>
       )}
+
+      {nextStepLine(nextStepDescriptor, {
+        firstName: workPackage.owner?.firstName ?? '',
+      })}
     </div>
   );
 };

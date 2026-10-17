@@ -6,6 +6,7 @@ import {
 } from 'twenty-sdk/define';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { OWNER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from './owner-on-lead.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const OWNED_LEADS_ON_WORKSPACE_MEMBER_FIELD_UNIVERSAL_IDENTIFIER = '413d5ee3-d7cd-4146-baf3-a334f89fa9d2';
 
@@ -15,6 +16,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'ownedLeads',
   label: 'Owned leads',
+  description: fieldDescription('workspaceMember.ownedLeads'),
   icon: 'IconUserSearch',
   relationTargetObjectMetadataUniversalIdentifier:
     LEAD_UNIVERSAL_IDENTIFIER,

@@ -1,4 +1,5 @@
 import { defineObject, FieldType } from 'twenty-sdk/define';
+import { fieldDescription, objectDescription } from '../i18n/field-guidance';
 
 export const PUBLIC_HOLIDAY_UNIVERSAL_IDENTIFIER = '81bc65ae-89c6-4d4b-8bf0-0373fe074882';
 
@@ -11,7 +12,7 @@ export default defineObject({
   namePlural: 'publicHolidays',
   labelSingular: 'UAE public holiday',
   labelPlural: 'UAE public holidays',
-  description: 'Days excluded from business-day counts',
+  description: objectDescription('publicHoliday'),
   icon: 'IconBeach',
   labelIdentifierFieldMetadataUniversalIdentifier:
     PUBLIC_HOLIDAY_NAME_FIELD_UNIVERSAL_IDENTIFIER,
@@ -21,6 +22,7 @@ export default defineObject({
       type: FieldType.TEXT,
       name: 'name',
       label: 'Name',
+      description: fieldDescription('publicHoliday.name'),
       icon: 'IconAbc',
     },
     {
@@ -28,6 +30,7 @@ export default defineObject({
       type: FieldType.DATE,
       name: 'date',
       label: 'Date',
+      description: fieldDescription('publicHoliday.date'),
       icon: 'IconCalendar',
     },
   ],

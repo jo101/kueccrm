@@ -6,6 +6,7 @@ import {
 } from 'twenty-sdk/define';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { CONVERTED_OPPORTUNITY_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from './converted-opportunity-on-lead.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const CONVERTED_FROM_LEADS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = 'e7ab5554-3050-467d-843d-397f41f90ade';
 
@@ -15,7 +16,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'convertedFromLeads',
   label: 'Latest conversion of',
-  description: 'Leads whose latest conversion is this opportunity',
+  description: fieldDescription('opportunity.convertedFromLeads'),
   icon: 'IconUserSearch',
   relationTargetObjectMetadataUniversalIdentifier:
     LEAD_UNIVERSAL_IDENTIFIER,

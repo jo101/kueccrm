@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const SHAREPOINT_FOLDER_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = 'e5b839c1-f922-43f9-b63c-5293a81b4bfc';
 
@@ -14,5 +15,6 @@ export default defineField({
   type: FieldType.LINKS,
   name: 'sharepointFolder',
   label: 'SharePoint folder',
+  description: fieldDescription('opportunity.sharepointFolder'),
   icon: 'IconFolder',
 });

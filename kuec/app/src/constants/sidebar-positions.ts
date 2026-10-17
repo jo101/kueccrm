@@ -19,4 +19,5 @@ export const SIDEBAR_POSITION = {
   DOCUMENTS: -10.5,
   MILESTONES: -10,
   DATA_QUALITY: -9,
+  HELP: -8.5,
 } as const;

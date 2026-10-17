@@ -7,6 +7,7 @@ import {
 } from 'twenty-sdk/define';
 import { DOCUMENT_UNIVERSAL_IDENTIFIER } from '../objects/document.object';
 import { DOCUMENTS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from './documents-on-opportunity.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const OPPORTUNITY_ON_DOCUMENT_FIELD_UNIVERSAL_IDENTIFIER = 'cd48450c-3780-4f9c-a26d-cea84cc4caad';
 
@@ -16,6 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'opportunity',
   label: 'Opportunity',
+  description: fieldDescription('document.opportunity'),
   icon: 'IconTargetArrow',
   relationTargetObjectMetadataUniversalIdentifier:
     STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.opportunity.universalIdentifier,

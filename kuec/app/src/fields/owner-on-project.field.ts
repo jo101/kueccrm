@@ -8,6 +8,7 @@ import {
 
 import { PROJECT_UNIVERSAL_IDENTIFIER } from '../objects/project.object';
 import { OWNED_PROJECTS_ON_WORKSPACE_MEMBER_FIELD_UNIVERSAL_IDENTIFIER } from './owned-projects-on-workspace-member.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const OWNER_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER = '379e432a-325b-404d-9701-8d716bfe6146';
 
@@ -17,6 +18,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'owner',
   label: 'Owner',
+  description: fieldDescription('project.owner'),
   icon: 'IconUserCircle',
   relationTargetObjectMetadataUniversalIdentifier:
     STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.workspaceMember.universalIdentifier,

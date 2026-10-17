@@ -1,4 +1,3 @@
-import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 import {
@@ -8,6 +7,7 @@ import {
 } from 'twenty-sdk/define';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import { loadDefaultExports } from 'src/__tests__/utils/load-default-exports';
 import { STATUSES_WITH_DUE_TIMER } from 'src/automation/timers/work-package-timers';
 import { DEPARTMENT } from 'src/constants/taxonomy';
 import {
@@ -493,17 +493,9 @@ describe('Exception views', () => {
   let hygieneViews: ViewDefinition[] = [];
 
   beforeAll(async () => {
-    const modules = await Promise.all(
-      readdirSync(VIEW_DIRECTORY)
-        .filter((fileName) => fileName.endsWith('.view.ts'))
-        .map(
-          (fileName) =>
-            import(join(VIEW_DIRECTORY, fileName)) as Promise<{ default: ViewDefinition }>,
-        ),
-    );
+    const views = await loadDefaultExports<ViewDefinition>(VIEW_DIRECTORY, '.view.ts');
 
-    hygieneViews = modules
-      .map((viewModule) => viewModule.default)
+    hygieneViews = views
       .filter((view) => view.config.name.startsWith(HYGIENE_VIEW_PREFIX));
   });
 

@@ -37,6 +37,32 @@
           "requiresNote": false
         },
         {
+          "value": "CALL",
+          "status": "active",
+          "label": {
+            "en": "Call",
+            "ar": "مكالمة"
+          },
+          "description": {
+            "en": "A phone or video call with no set agenda; pick a meeting type instead when the call had one of the purposes above.",
+            "ar": "مكالمة هاتفية أو مرئية بلا جدول أعمال محدد؛ اختر نوع اجتماع بدلاً منه إذا كان للمكالمة أحد الأغراض أعلاه."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "EMAIL",
+          "status": "active",
+          "label": {
+            "en": "Email thread",
+            "ar": "سلسلة رسائل بريد إلكتروني"
+          },
+          "description": {
+            "en": "An email exchange worth logging, logged once per thread; pick it when no meeting or call took place.",
+            "ar": "تبادل رسائل بالبريد الإلكتروني يستحق التسجيل، يُسجَّل مرة واحدة لكل سلسلة؛ اختره عندما لم يُعقد اجتماع أو مكالمة."
+          },
+          "requiresNote": false
+        },
+        {
           "value": "DISCOVERY_MEETING",
           "status": "active",
           "label": {
@@ -70,8 +96,47 @@
             "ar": "زيارة مختبر أو الحرم الجامعي (يأتون إلينا)"
           },
           "description": {
-            "en": "The counterpart visits a KU lab or campus; pick it whenever they come to us.",
+            "en": "The counterpart visits a Khalifa University lab or campus; pick it whenever they come to us.",
             "ar": "تزور الجهة مختبراً أو حرماً جامعياً لجامعة خليفة؛ اختره كلما جاؤوا إلينا."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "PROPOSAL_PRESENTATION",
+          "status": "active",
+          "label": {
+            "en": "Proposal presentation",
+            "ar": "عرض مقترح"
+          },
+          "description": {
+            "en": "KUEC walks the counterpart through a proposal, quote or offer; pick it when a written offer is presented.",
+            "ar": "تعرض KUEC على الجهة مقترحاً أو عرض سعر أو عرضاً مكتوباً؛ اختره عند تقديم عرض مكتوب."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "NEGOTIATION_SESSION",
+          "status": "active",
+          "label": {
+            "en": "Negotiation session",
+            "ar": "جلسة تفاوض"
+          },
+          "description": {
+            "en": "A session to agree price, scope or terms; pick it once the discussion is about terms rather than fit.",
+            "ar": "جلسة للاتفاق على السعر أو النطاق أو الشروط؛ اختره عندما يدور النقاش حول الشروط لا حول الملاءمة."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "TECHNICAL_ASSESSMENT_SESSION",
+          "status": "active",
+          "label": {
+            "en": "Technical assessment session",
+            "ar": "جلسة تقييم تقني"
+          },
+          "description": {
+            "en": "A session where Khalifa University experts assess a technology, problem or requirement; pick it when the purpose is technical evaluation.",
+            "ar": "جلسة يقيّم فيها خبراء جامعة خليفة تقنية أو مشكلة أو متطلباً؛ اختره عندما يكون الهدف تقييماً تقنياً."
           },
           "requiresNote": false
         },
@@ -115,6 +180,19 @@
           "requiresNote": false
         },
         {
+          "value": "WEBINAR",
+          "status": "active",
+          "label": {
+            "en": "Webinar",
+            "ar": "ندوة عبر الإنترنت"
+          },
+          "description": {
+            "en": "An online seminar KUEC runs or attends with the counterpart taking part; pick it for one-to-many online sessions.",
+            "ar": "ندوة عبر الإنترنت تديرها KUEC أو تحضرها بمشاركة الجهة؛ اختره للجلسات الإلكترونية الموجّهة إلى جمهور."
+          },
+          "requiresNote": false
+        },
+        {
           "value": "CHALLENGE_SPRINT_SESSION",
           "status": "active",
           "label": {
@@ -122,7 +200,7 @@
             "ar": "جلسة Challenge Sprint"
           },
           "description": {
-            "en": "A session of a Challenge Sprint, where an industry challenge is worked on with KU teams; pick it for any sprint session.",
+            "en": "A session of a Challenge Sprint, where an industry challenge is worked on with Khalifa University teams; pick it for any sprint session.",
             "ar": "جلسة ضمن برنامج Challenge Sprint يُعمل فيها على تحدٍّ صناعي مع فرق جامعة خليفة؛ اختره لأي جلسة من جلسات البرنامج."
           },
           "requiresNote": false
@@ -137,45 +215,6 @@
           "description": {
             "en": "A session of a fellowship, such as Technology Fellows, or of a bootcamp; pick it for any cohort session the counterpart joins.",
             "ar": "جلسة ضمن برنامج زمالة مثل Technology Fellows أو ضمن معسكر تدريبي؛ اختره لأي جلسة لدفعة يشارك فيها الطرف الآخر."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "TECHNICAL_ASSESSMENT_SESSION",
-          "status": "active",
-          "label": {
-            "en": "Technical assessment session",
-            "ar": "جلسة تقييم تقني"
-          },
-          "description": {
-            "en": "A session where KU experts assess a technology, problem or requirement; pick it when the purpose is technical evaluation.",
-            "ar": "جلسة يقيّم فيها خبراء جامعة خليفة تقنية أو مشكلة أو متطلباً؛ اختره عندما يكون الهدف تقييماً تقنياً."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "PROPOSAL_PRESENTATION",
-          "status": "active",
-          "label": {
-            "en": "Proposal presentation",
-            "ar": "عرض مقترح"
-          },
-          "description": {
-            "en": "KUEC walks the counterpart through a proposal, quote or offer; pick it when a written offer is presented.",
-            "ar": "تعرض KUEC على الجهة مقترحاً أو عرض سعر أو عرضاً مكتوباً؛ اختره عند تقديم عرض مكتوب."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "NEGOTIATION_SESSION",
-          "status": "active",
-          "label": {
-            "en": "Negotiation session",
-            "ar": "جلسة تفاوض"
-          },
-          "description": {
-            "en": "A session to agree price, scope or terms; pick it once the discussion is about terms rather than fit.",
-            "ar": "جلسة للاتفاق على السعر أو النطاق أو الشروط؛ اختره عندما يدور النقاش حول الشروط لا حول الملاءمة."
           },
           "requiresNote": false
         },
@@ -202,45 +241,6 @@
           "description": {
             "en": "A checkpoint on a running industry pilot; pick it to review pilot progress or results with the counterpart.",
             "ar": "نقطة مراجعة لمشروع تجريبي صناعي قائم؛ اختره لمراجعة تقدّم المشروع التجريبي أو نتائجه مع الجهة."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "CALL",
-          "status": "active",
-          "label": {
-            "en": "Call",
-            "ar": "مكالمة"
-          },
-          "description": {
-            "en": "A phone or video call with no set agenda; pick a meeting type instead when the call had one of the purposes above.",
-            "ar": "مكالمة هاتفية أو مرئية بلا جدول أعمال محدد؛ اختر نوع اجتماع بدلاً منه إذا كان للمكالمة أحد الأغراض أعلاه."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "EMAIL",
-          "status": "active",
-          "label": {
-            "en": "Email thread",
-            "ar": "سلسلة رسائل بريد إلكتروني"
-          },
-          "description": {
-            "en": "An email exchange worth logging, logged once per thread; pick it when no meeting or call took place.",
-            "ar": "تبادل رسائل بالبريد الإلكتروني يستحق التسجيل، يُسجَّل مرة واحدة لكل سلسلة؛ اختره عندما لم يُعقد اجتماع أو مكالمة."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "WEBINAR",
-          "status": "active",
-          "label": {
-            "en": "Webinar",
-            "ar": "ندوة عبر الإنترنت"
-          },
-          "description": {
-            "en": "An online seminar KUEC runs or attends with the counterpart taking part; pick it for one-to-many online sessions.",
-            "ar": "ندوة عبر الإنترنت تديرها KUEC أو تحضرها بمشاركة الجهة؛ اختره للجلسات الإلكترونية الموجّهة إلى جمهور."
           },
           "requiresNote": false
         },
@@ -322,15 +322,15 @@
       ],
       "options": [
         {
-          "value": "OPPORTUNITY_IDENTIFIED",
+          "value": "FOLLOW_UP_AGREED",
           "status": "active",
           "label": {
-            "en": "Opportunity identified",
-            "ar": "تم تحديد فرصة"
+            "en": "Follow-up agreed",
+            "ar": "تم الاتفاق على متابعة"
           },
           "description": {
-            "en": "A concrete commercial opportunity came out of it; pick it when you create or update an opportunity.",
-            "ar": "نتجت عنه فرصة تجارية ملموسة؛ اختره عندما تنشئ فرصة أو تحدّث فرصة قائمة."
+            "en": "Both sides agreed a next step with a date; pick it and write the step in Next step.",
+            "ar": "اتفق الطرفان على خطوة تالية بموعد محدد؛ اختره واكتب الخطوة في حقل «الخطوة التالية»."
           },
           "requiresNote": false
         },
@@ -348,6 +348,19 @@
           "requiresNote": false
         },
         {
+          "value": "OPPORTUNITY_IDENTIFIED",
+          "status": "active",
+          "label": {
+            "en": "Opportunity identified",
+            "ar": "تم تحديد فرصة"
+          },
+          "description": {
+            "en": "A concrete commercial opportunity came out of it; pick it when you create or update an opportunity.",
+            "ar": "نتجت عنه فرصة تجارية ملموسة؛ اختره عندما تنشئ فرصة أو تحدّث فرصة قائمة."
+          },
+          "requiresNote": false
+        },
+        {
           "value": "INFORMATION_ONLY",
           "status": "active",
           "label": {
@@ -361,15 +374,15 @@
           "requiresNote": false
         },
         {
-          "value": "FOLLOW_UP_AGREED",
+          "value": "REFERRAL_RECEIVED",
           "status": "active",
           "label": {
-            "en": "Follow-up agreed",
-            "ar": "تم الاتفاق على متابعة"
+            "en": "Referral received",
+            "ar": "تم تلقي إحالة"
           },
           "description": {
-            "en": "Both sides agreed a next step with a date; pick it and write the step in Next step.",
-            "ar": "اتفق الطرفان على خطوة تالية بموعد محدد؛ اختره واكتب الخطوة في حقل «الخطوة التالية»."
+            "en": "They pointed us to another person or organisation; pick it and log the person or company they referred us to.",
+            "ar": "أحالونا إلى شخص أو جهة أخرى؛ اختره وسجّل الشخص أو الجهة المُحال إليها."
           },
           "requiresNote": false
         },
@@ -383,19 +396,6 @@
           "description": {
             "en": "Their need does not match anything KUEC offers; pick it to close the thread, with the reason in Outcome.",
             "ar": "لا تتوافق حاجتهم مع أي مما تقدمه KUEC؛ اختره لإغلاق الموضوع واذكر السبب في حقل «النتيجة»."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "REFERRAL_RECEIVED",
-          "status": "active",
-          "label": {
-            "en": "Referral received",
-            "ar": "تم تلقي إحالة"
-          },
-          "description": {
-            "en": "They pointed us to another person or organisation; pick it and log the person or company they referred us to.",
-            "ar": "أحالونا إلى شخص أو جهة أخرى؛ اختره وسجّل الشخص أو الجهة المُحال إليها."
           },
           "requiresNote": false
         },
@@ -452,6 +452,84 @@
           "requiresNote": false
         },
         {
+          "value": "EXISTING_CUSTOMER",
+          "status": "active",
+          "label": {
+            "en": "Existing customer",
+            "ar": "عميل حالي"
+          },
+          "description": {
+            "en": "A current or past customer came back with new work; pick it for repeat business.",
+            "ar": "عاد عميل حالي أو سابق بعمل جديد؛ اختره للأعمال المتكررة."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "REFERRAL_COLLEAGUE",
+          "status": "active",
+          "label": {
+            "en": "Referral: colleague",
+            "ar": "إحالة: زميل"
+          },
+          "description": {
+            "en": "A KUEC or Khalifa University colleague outside the faculty and leadership referred them; pick it for introductions from staff.",
+            "ar": "أحالهم زميل في KUEC أو جامعة خليفة من خارج الكادر الأكاديمي والقيادة؛ اختره للتعريفات الواردة من الموظفين."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "FACULTY",
+          "status": "active",
+          "label": {
+            "en": "Referral: faculty",
+            "ar": "إحالة: عضو هيئة تدريس"
+          },
+          "description": {
+            "en": "A Khalifa University faculty member or researcher referred them; pick it when the introduction came from academic staff.",
+            "ar": "أحالهم عضو هيئة تدريس أو باحث في جامعة خليفة؛ اختره عندما جاء التعريف من الكادر الأكاديمي."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "PARTNER",
+          "status": "active",
+          "label": {
+            "en": "Referral: partner",
+            "ar": "إحالة: شريك"
+          },
+          "description": {
+            "en": "An existing partner organisation referred them; pick it when a partner made the introduction.",
+            "ar": "أحالتهم جهة شريكة قائمة؛ اختره عندما قام شريك بالتعريف."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "REFERRAL_KU_LEADERSHIP",
+          "status": "active",
+          "label": {
+            "en": "Referral: Khalifa University leadership",
+            "ar": "إحالة: قيادة جامعة خليفة"
+          },
+          "description": {
+            "en": "Khalifa University senior leadership referred them; pick it for introductions from the university's top management.",
+            "ar": "أحالتهم القيادة العليا في جامعة خليفة؛ اختره للتعريفات الواردة من الإدارة العليا للجامعة."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "REFERRAL_CEO_OR_BOARD",
+          "status": "active",
+          "label": {
+            "en": "Referral: chief executive or board",
+            "ar": "إحالة: الرئيس التنفيذي أو مجلس الإدارة"
+          },
+          "description": {
+            "en": "The KUEC chief executive or a board member referred them; pick it for introductions from KUEC's own top level.",
+            "ar": "أحالهم الرئيس التنفيذي لـ KUEC أو أحد أعضاء مجلس الإدارة؛ اختره للتعريفات الواردة من أعلى مستوى في KUEC."
+          },
+          "requiresNote": false
+        },
+        {
           "value": "WORKSHOP",
           "status": "active",
           "label": {
@@ -481,7 +559,7 @@
           "value": "GALA_QR",
           "status": "active",
           "label": {
-            "en": "Gala QR",
+            "en": "Gala QR code",
             "ar": "رمز QR في الحفل"
           },
           "description": {
@@ -507,11 +585,11 @@
           "value": "TRL_BRIDGING_PROGRAM",
           "status": "active",
           "label": {
-            "en": "TRL Bridging Program",
-            "ar": "برنامج TRL Bridging"
+            "en": "Technology Readiness Level Bridging Program",
+            "ar": "برنامج سدّ فجوة مستوى الجاهزية التقنية"
           },
           "description": {
-            "en": "It came from the TRL Bridging Program for technology readiness; pick it for opportunities that programme produced.",
+            "en": "It came from the Technology Readiness Level Bridging Program; pick it for opportunities that programme produced.",
             "ar": "جاءت من برنامج TRL Bridging لرفع مستوى الجاهزية التقنية؛ اختره للفرص التي أنتجها البرنامج."
           },
           "requiresNote": false
@@ -543,71 +621,6 @@
           "requiresNote": false
         },
         {
-          "value": "FACULTY",
-          "status": "active",
-          "label": {
-            "en": "Referral: faculty",
-            "ar": "إحالة: عضو هيئة تدريس"
-          },
-          "description": {
-            "en": "A KU faculty member or researcher referred them; pick it when the introduction came from academic staff.",
-            "ar": "أحالهم عضو هيئة تدريس أو باحث في جامعة خليفة؛ اختره عندما جاء التعريف من الكادر الأكاديمي."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "REFERRAL_KU_LEADERSHIP",
-          "status": "active",
-          "label": {
-            "en": "Referral: KU leadership",
-            "ar": "إحالة: قيادة جامعة خليفة"
-          },
-          "description": {
-            "en": "KU senior leadership referred them; pick it for introductions from the university's top management.",
-            "ar": "أحالتهم القيادة العليا في جامعة خليفة؛ اختره للتعريفات الواردة من الإدارة العليا للجامعة."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "REFERRAL_CEO_OR_BOARD",
-          "status": "active",
-          "label": {
-            "en": "Referral: CEO or board",
-            "ar": "إحالة: الرئيس التنفيذي أو مجلس الإدارة"
-          },
-          "description": {
-            "en": "The KUEC CEO or a board member referred them; pick it for introductions from KUEC's own top level.",
-            "ar": "أحالهم الرئيس التنفيذي لـ KUEC أو أحد أعضاء مجلس الإدارة؛ اختره للتعريفات الواردة من أعلى مستوى في KUEC."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "PARTNER",
-          "status": "active",
-          "label": {
-            "en": "Referral: partner",
-            "ar": "إحالة: شريك"
-          },
-          "description": {
-            "en": "An existing partner organisation referred them; pick it when a partner made the introduction.",
-            "ar": "أحالتهم جهة شريكة قائمة؛ اختره عندما قام شريك بالتعريف."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "REFERRAL_COLLEAGUE",
-          "status": "active",
-          "label": {
-            "en": "Referral: colleague",
-            "ar": "إحالة: زميل"
-          },
-          "description": {
-            "en": "A KUEC or KU colleague outside the faculty and leadership referred them; pick it for introductions from staff.",
-            "ar": "أحالهم زميل في KUEC أو جامعة خليفة من خارج الكادر الأكاديمي والقيادة؛ اختره للتعريفات الواردة من الموظفين."
-          },
-          "requiresNote": false
-        },
-        {
           "value": "GOVERNMENT_REQUEST",
           "status": "active",
           "label": {
@@ -617,6 +630,45 @@
           "description": {
             "en": "A government entity asked KUEC for support directly; pick it when the request came from a ministry, authority or department.",
             "ar": "طلبت جهة حكومية دعم KUEC مباشرة؛ اختره عندما جاء الطلب من وزارة أو هيئة أو دائرة."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "TENDER",
+          "status": "active",
+          "label": {
+            "en": "Tender or quotation portal",
+            "ar": "منصة المناقصات أو طلبات عروض الأسعار"
+          },
+          "description": {
+            "en": "It came from a tender, a request for quotation or a request for proposal published on a procurement portal; pick it for formal bids.",
+            "ar": "جاءت من مناقصة أو طلب عرض سعر أو طلب مقترح منشور على منصة مشتريات؛ اختره للعطاءات الرسمية."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "OFFSET_MANAGER",
+          "status": "active",
+          "label": {
+            "en": "Offset manager",
+            "ar": "مدير برنامج الأوفست"
+          },
+          "description": {
+            "en": "An offset programme manager or obligor brought it to meet offset or in-country value commitments; pick it for offset-driven work.",
+            "ar": "جلبها مدير برنامج أوفست أو جهة ملتزمة بالأوفست للوفاء بالتزامات الأوفست أو القيمة المحلية المضافة؛ اختره للأعمال المدفوعة بالأوفست."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "STARTUP_PORTFOLIO",
+          "status": "active",
+          "label": {
+            "en": "Startup portfolio",
+            "ar": "محفظة الشركات الناشئة"
+          },
+          "description": {
+            "en": "It came from a startup in the KUEC portfolio; pick it when a portfolio company brought it in.",
+            "ar": "جاءت من شركة ناشئة في محفظة KUEC؛ اختره عندما جلبتها شركة من المحفظة."
           },
           "requiresNote": false
         },
@@ -637,7 +689,7 @@
           "value": "OUTBOUND_SEQUENCE",
           "status": "active",
           "label": {
-            "en": "Outbound sequence",
+            "en": "Outbound email sequence",
             "ar": "حملة تواصل صادرة"
           },
           "description": {
@@ -656,58 +708,6 @@
           "description": {
             "en": "The first contact was on LinkedIn, by message or post; pick it whichever side reached out.",
             "ar": "كان التواصل الأول عبر لينكدإن برسالة أو منشور؛ اختره أياً كان الطرف الذي بادر."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "TENDER",
-          "status": "active",
-          "label": {
-            "en": "Tender or RFQ portal",
-            "ar": "منصة المناقصات أو طلبات عروض الأسعار"
-          },
-          "description": {
-            "en": "It came from a tender, RFQ or RFP published on a procurement portal; pick it for formal bids.",
-            "ar": "جاءت من مناقصة أو طلب عرض سعر أو طلب مقترح منشور على منصة مشتريات؛ اختره للعطاءات الرسمية."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "EXISTING_CUSTOMER",
-          "status": "active",
-          "label": {
-            "en": "Existing customer",
-            "ar": "عميل حالي"
-          },
-          "description": {
-            "en": "A current or past customer came back with new work; pick it for repeat business.",
-            "ar": "عاد عميل حالي أو سابق بعمل جديد؛ اختره للأعمال المتكررة."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "OFFSET_MANAGER",
-          "status": "active",
-          "label": {
-            "en": "Offset manager",
-            "ar": "مدير برنامج الأوفست"
-          },
-          "description": {
-            "en": "An offset programme manager or obligor brought it to meet offset or ICV commitments; pick it for offset-driven work.",
-            "ar": "جلبها مدير برنامج أوفست أو جهة ملتزمة بالأوفست للوفاء بالتزامات الأوفست أو القيمة المحلية المضافة؛ اختره للأعمال المدفوعة بالأوفست."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "STARTUP_PORTFOLIO",
-          "status": "active",
-          "label": {
-            "en": "Startup portfolio",
-            "ar": "محفظة الشركات الناشئة"
-          },
-          "description": {
-            "en": "It came from a startup in the KUEC portfolio; pick it when a portfolio company brought it in.",
-            "ar": "جاءت من شركة ناشئة في محفظة KUEC؛ اختره عندما جلبتها شركة من المحفظة."
           },
           "requiresNote": false
         },
@@ -811,21 +811,8 @@
             "ar": "ترخيص"
           },
           "description": {
-            "en": "A licence or option to use KU intellectual property; pick it when the deal is the right to use a patent, software or know-how.",
+            "en": "A licence or option to use Khalifa University intellectual property; pick it when the deal is the right to use a patent, software or know-how.",
             "ar": "ترخيص أو خيار لاستخدام الملكية الفكرية لجامعة خليفة؛ اختره عندما تكون الصفقة حق استخدام براءة اختراع أو برمجية أو معرفة فنية."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "SPINOUT_OR_STARTUP",
-          "status": "active",
-          "label": {
-            "en": "Spinout or startup",
-            "ar": "شركة منبثقة أو ناشئة"
-          },
-          "description": {
-            "en": "Creating or supporting a company built on KU technology; pick it when the outcome is a new venture.",
-            "ar": "تأسيس شركة قائمة على تقنية من جامعة خليفة أو دعمها؛ اختره عندما تكون النتيجة مشروعاً جديداً."
           },
           "requiresNote": false
         },
@@ -837,7 +824,7 @@
             "ar": "خدمة تقنية (البحث كخدمة)"
           },
           "description": {
-            "en": "KU researchers do defined technical or research work for a fee; pick it for scoped paid work, including RFQ responses.",
+            "en": "Khalifa University researchers do defined technical or research work for a fee; pick it for scoped paid work, including replies to a request for quotation.",
             "ar": "ينفّذ باحثو جامعة خليفة عملاً تقنياً أو بحثياً محدداً مقابل أجر؛ اختره للأعمال المدفوعة محددة النطاق، بما فيها الردود على طلبات عروض الأسعار."
           },
           "requiresNote": false
@@ -850,7 +837,7 @@
             "ar": "اختبارات مخبرية"
           },
           "description": {
-            "en": "Testing or analysis of samples in a KU lab to a set method; pick it when the deliverable is test results.",
+            "en": "Testing or analysis of samples in a Khalifa University lab to a set method; pick it when the deliverable is test results.",
             "ar": "اختبار عينات أو تحليلها في مختبر بجامعة خليفة وفق طريقة محددة؛ اختره عندما يكون المُخرَج نتائج اختبار."
           },
           "requiresNote": false
@@ -863,21 +850,8 @@
             "ar": "الوصول إلى المعدات أو المرافق"
           },
           "description": {
-            "en": "The counterpart books time on KU equipment or facilities and uses them itself; pick it when they operate it, not us.",
+            "en": "The counterpart books time on Khalifa University equipment or facilities and uses them itself; pick it when they operate it, not us.",
             "ar": "يحجز الطرف الآخر وقتاً على معدات أو مرافق جامعة خليفة ويستخدمها بنفسه؛ اختره عندما يشغّلها هو لا نحن."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "LEASING",
-          "status": "active",
-          "label": {
-            "en": "Leasing (space)",
-            "ar": "تأجير (مساحات)"
-          },
-          "description": {
-            "en": "Renting office, lab or industrial space to the counterpart; pick it for any space lease.",
-            "ar": "تأجير مساحات مكتبية أو مخبرية أو صناعية للطرف الآخر؛ اختره لأي عقد تأجير مساحة."
           },
           "requiresNote": false
         },
@@ -885,25 +859,12 @@
           "value": "RESEARCH_COLLABORATION",
           "status": "active",
           "label": {
-            "en": "Research collaboration or JDA",
+            "en": "Research collaboration or joint development",
             "ar": "تعاون بحثي أو اتفاقية تطوير مشترك"
           },
           "description": {
             "en": "Joint research or development where both sides contribute and share results; pick it for joint or co-funded development.",
             "ar": "بحث أو تطوير مشترك يساهم فيه الطرفان ويتقاسمان نتائجه؛ اختره للتطوير المشترك أو الممول بالمشاركة."
-          },
-          "requiresNote": false
-        },
-        {
-          "value": "INDUSTRY_PILOT",
-          "status": "active",
-          "label": {
-            "en": "Industry pilot",
-            "ar": "مشروع تجريبي صناعي"
-          },
-          "description": {
-            "en": "Trialling a KU technology in the counterpart's real operations; pick it for a time-boxed pilot ahead of a larger deal.",
-            "ar": "تجربة تقنية من جامعة خليفة في العمليات الفعلية للطرف الآخر؛ اختره لمشروع تجريبي محدد المدة يسبق صفقة أكبر."
           },
           "requiresNote": false
         },
@@ -915,8 +876,21 @@
             "ar": "استشارات"
           },
           "description": {
-            "en": "Expert advice from KU faculty or KUEC without lab work; pick it when the deliverable is advice or a report.",
+            "en": "Expert advice from Khalifa University faculty or KUEC without lab work; pick it when the deliverable is advice or a report.",
             "ar": "مشورة خبراء من أعضاء هيئة التدريس في جامعة خليفة أو من KUEC دون عمل مخبري؛ اختره عندما يكون المُخرَج مشورة أو تقريراً."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "INDUSTRY_PILOT",
+          "status": "active",
+          "label": {
+            "en": "Industry pilot",
+            "ar": "مشروع تجريبي صناعي"
+          },
+          "description": {
+            "en": "Trialling a Khalifa University technology in the counterpart's real operations; pick it for a time-boxed pilot ahead of a larger deal.",
+            "ar": "تجربة تقنية من جامعة خليفة في العمليات الفعلية للطرف الآخر؛ اختره لمشروع تجريبي محدد المدة يسبق صفقة أكبر."
           },
           "requiresNote": false
         },
@@ -934,6 +908,32 @@
           "requiresNote": false
         },
         {
+          "value": "SPINOUT_OR_STARTUP",
+          "status": "active",
+          "label": {
+            "en": "Spinout or startup",
+            "ar": "شركة منبثقة أو ناشئة"
+          },
+          "description": {
+            "en": "Creating or supporting a company built on Khalifa University technology; pick it when the outcome is a new venture.",
+            "ar": "تأسيس شركة قائمة على تقنية من جامعة خليفة أو دعمها؛ اختره عندما تكون النتيجة مشروعاً جديداً."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "LEASING",
+          "status": "active",
+          "label": {
+            "en": "Leasing (space)",
+            "ar": "تأجير (مساحات)"
+          },
+          "description": {
+            "en": "Renting office, lab or industrial space to the counterpart; pick it for any space lease.",
+            "ar": "تأجير مساحات مكتبية أو مخبرية أو صناعية للطرف الآخر؛ اختره لأي عقد تأجير مساحة."
+          },
+          "requiresNote": false
+        },
+        {
           "value": "SPONSORED_CHAIR",
           "status": "active",
           "label": {
@@ -941,7 +941,7 @@
             "ar": "كرسي بحثي ممول"
           },
           "description": {
-            "en": "The counterpart funds a sponsored professorship or research chair at KU; pick it for chair agreements.",
+            "en": "The counterpart funds a sponsored professorship or research chair at Khalifa University; pick it for chair agreements.",
             "ar": "يموّل الطرف الآخر كرسياً بحثياً أو أستاذية برعاية في جامعة خليفة؛ اختره لاتفاقيات الكراسي البحثية."
           },
           "requiresNote": false
@@ -976,7 +976,7 @@
           "value": "OFFSET_OR_ICV_PROJECT",
           "status": "active",
           "label": {
-            "en": "Offset or ICV project",
+            "en": "Offset or in-country value project",
             "ar": "مشروع أوفست أو قيمة محلية مضافة"
           },
           "description": {
@@ -1002,11 +1002,11 @@
           "value": "PARTNERSHIP_OR_MOU",
           "status": "active",
           "label": {
-            "en": "Partnership or MoU",
+            "en": "Partnership or memorandum of understanding",
             "ar": "شراكة أو مذكرة تفاهم"
           },
           "description": {
-            "en": "A framework partnership or MoU with no committed money yet; pick it when the aim is a relationship that leads to deals later.",
+            "en": "A framework partnership or memorandum of understanding with no committed money yet; pick it when the aim is a relationship that leads to deals later.",
             "ar": "شراكة إطارية أو مذكرة تفاهم دون التزام مالي بعد؛ اختره عندما يكون الهدف علاقة تثمر صفقات لاحقاً."
           },
           "requiresNote": false
@@ -1067,11 +1067,11 @@
           "value": "IP_LICENCE",
           "status": "active",
           "label": {
-            "en": "IP licence",
+            "en": "Intellectual property licence",
             "ar": "ترخيص ملكية فكرية"
           },
           "description": {
-            "en": "Rights to use KU patents, software or know-how; pick it when a licence is part of the deal.",
+            "en": "Rights to use Khalifa University patents, software or know-how; pick it when a licence is part of the deal.",
             "ar": "حقوق استخدام براءات اختراع أو برمجيات أو معرفة فنية لجامعة خليفة؛ اختره عندما يكون الترخيص جزءاً من الصفقة."
           },
           "requiresNote": false
@@ -1084,7 +1084,7 @@
             "ar": "خدمة تقنية"
           },
           "description": {
-            "en": "Defined research or engineering work done by KU staff; pick it when KU people do part of the work.",
+            "en": "Defined research or engineering work done by Khalifa University staff; pick it when Khalifa University people do part of the work.",
             "ar": "عمل بحثي أو هندسي محدد ينفذه موظفو جامعة خليفة؛ اختره عندما ينفّذ موظفو الجامعة جزءاً من العمل."
           },
           "requiresNote": false
@@ -1097,7 +1097,7 @@
             "ar": "اختبارات مخبرية"
           },
           "description": {
-            "en": "Sample testing or analysis in a KU lab; pick it when test results are part of the deliverable.",
+            "en": "Sample testing or analysis in a Khalifa University lab; pick it when test results are part of the deliverable.",
             "ar": "اختبار العينات أو تحليلها في مختبر بجامعة خليفة؛ اختره عندما تكون نتائج الاختبار جزءاً من المُخرَج."
           },
           "requiresNote": false
@@ -1110,7 +1110,7 @@
             "ar": "الوصول إلى المعدات"
           },
           "description": {
-            "en": "Booked time on KU equipment or facilities; pick it when the counterpart uses our equipment.",
+            "en": "Booked time on Khalifa University equipment or facilities; pick it when the counterpart uses our equipment.",
             "ar": "وقت محجوز على معدات أو مرافق جامعة خليفة؛ اختره عندما يستخدم الطرف الآخر معداتنا."
           },
           "requiresNote": false
@@ -1268,11 +1268,11 @@
           "value": "ICV",
           "status": "active",
           "label": {
-            "en": "ICV",
-            "ar": "القيمة المحلية المضافة"
+            "en": "In-country value programme",
+            "ar": "برنامج القيمة المحلية المضافة"
           },
           "description": {
-            "en": "The spend raises the counterpart's in-country value score; pick it when ICV is why they fund the work.",
+            "en": "The spend raises the counterpart's in-country value score; pick it when that score is why they fund the work.",
             "ar": "يرفع الإنفاق درجة القيمة المحلية المضافة للطرف الآخر؛ اختره عندما تكون القيمة المحلية المضافة سبب تمويله للعمل."
           },
           "requiresNote": false
@@ -1298,7 +1298,7 @@
             "ar": "برنامج تمويل مشترك"
           },
           "description": {
-            "en": "The cost is split between the counterpart and a co-funding programme or KU; pick it when more than one party pays.",
+            "en": "The cost is split between the counterpart and a co-funding programme or Khalifa University; pick it when more than one party pays.",
             "ar": "تُقسَّم التكلفة بين الطرف الآخر وبرنامج تمويل مشترك أو جامعة خليفة؛ اختره عندما يدفع أكثر من طرف."
           },
           "requiresNote": false
@@ -1366,7 +1366,7 @@
           "value": "NDA",
           "status": "active",
           "label": {
-            "en": "NDA",
+            "en": "Non-disclosure agreement",
             "ar": "اتفاقية عدم إفصاح"
           },
           "description": {
@@ -1379,7 +1379,7 @@
           "value": "MOU",
           "status": "active",
           "label": {
-            "en": "MoU",
+            "en": "Memorandum of understanding",
             "ar": "مذكرة تفاهم"
           },
           "description": {
@@ -1392,7 +1392,7 @@
           "value": "MSA",
           "status": "active",
           "label": {
-            "en": "MSA",
+            "en": "Master services agreement",
             "ar": "اتفاقية خدمات رئيسية"
           },
           "description": {
@@ -1405,7 +1405,7 @@
           "value": "PROPOSAL_OR_SOW",
           "status": "active",
           "label": {
-            "en": "Proposal or SOW",
+            "en": "Proposal or statement of work",
             "ar": "مقترح أو بيان عمل"
           },
           "description": {
@@ -1431,7 +1431,7 @@
           "value": "RFQ_OR_RFP_RECEIVED",
           "status": "active",
           "label": {
-            "en": "RFQ or RFP received",
+            "en": "Request for quotation or proposal received",
             "ar": "طلب عرض سعر أو مقترح وارد"
           },
           "description": {
@@ -1448,7 +1448,7 @@
             "ar": "تقرير تقييم تقني"
           },
           "description": {
-            "en": "KU experts' written assessment of a technology, problem or requirement; pick it for technical evaluations.",
+            "en": "Khalifa University experts' written assessment of a technology, problem or requirement; pick it for technical evaluations.",
             "ar": "تقييم مكتوب يعدّه خبراء جامعة خليفة لتقنية أو مشكلة أو متطلب؛ اختره للتقييمات التقنية."
           },
           "requiresNote": false
@@ -1474,7 +1474,7 @@
             "ar": "اتفاقية ترخيص"
           },
           "description": {
-            "en": "The agreement granting rights to KU intellectual property; pick it for licence and option contracts.",
+            "en": "The agreement granting rights to Khalifa University intellectual property; pick it for licence and option contracts.",
             "ar": "الاتفاقية التي تمنح حقوقاً في الملكية الفكرية لجامعة خليفة؛ اخترها لعقود الترخيص والخيار."
           },
           "requiresNote": false
@@ -1483,7 +1483,7 @@
           "value": "TSA",
           "status": "active",
           "label": {
-            "en": "TSA",
+            "en": "Technical services agreement",
             "ar": "اتفاقية خدمات تقنية"
           },
           "description": {
@@ -1496,7 +1496,7 @@
           "value": "JDA",
           "status": "active",
           "label": {
-            "en": "JDA",
+            "en": "Joint development agreement",
             "ar": "اتفاقية تطوير مشترك"
           },
           "description": {
@@ -1587,7 +1587,7 @@
           "value": "PO_OR_INVOICE",
           "status": "active",
           "label": {
-            "en": "PO or invoice (finance is the system of record)",
+            "en": "Purchase order or invoice (finance is the system of record)",
             "ar": "أمر شراء أو فاتورة (الإدارة المالية هي نظام السجل)"
           },
           "description": {
@@ -1604,7 +1604,7 @@
             "ar": "وثائق الأوفست"
           },
           "description": {
-            "en": "Evidence and filings for offset or ICV credit; pick it for documents an offset programme asks for.",
+            "en": "Evidence and filings for offset or in-country value credit; pick it for documents an offset programme asks for.",
             "ar": "أدلة ومستندات لرصيد الأوفست أو القيمة المحلية المضافة؛ اختره للوثائق التي يطلبها برنامج الأوفست."
           },
           "requiresNote": false
@@ -1613,8 +1613,8 @@
           "value": "VENDOR_REGISTRATION_OR_KYC",
           "status": "active",
           "label": {
-            "en": "Vendor registration or KYC",
-            "ar": "تسجيل مورّد أو اعرف عميلك"
+            "en": "Vendor registration or know-your-customer check",
+            "ar": "تسجيل مورّد أو تحقق من هوية العميل"
           },
           "description": {
             "en": "Forms that register KUEC as a supplier or verify a counterparty; pick it for onboarding paperwork.",
@@ -1626,11 +1626,11 @@
           "value": "FACULTY_PROFILE_OR_CV",
           "status": "active",
           "label": {
-            "en": "Faculty profile or CV",
+            "en": "Faculty profile or résumé",
             "ar": "ملف عضو هيئة تدريس أو سيرة ذاتية"
           },
           "description": {
-            "en": "A KU faculty member's profile or CV shared with a counterpart; pick it when introducing an expert.",
+            "en": "A Khalifa University faculty member's profile or résumé shared with a counterpart; pick it when introducing an expert.",
             "ar": "ملف أو سيرة ذاتية لعضو هيئة تدريس في جامعة خليفة تُشارك مع الطرف الآخر؛ اختره عند تقديم خبير."
           },
           "requiresNote": false
@@ -1787,7 +1787,7 @@
             "ar": "داخلية"
           },
           "description": {
-            "en": "For KUEC and KU staff, with no harm if seen inside KU; pick it for working material.",
+            "en": "For KUEC and Khalifa University staff, with no harm if seen inside Khalifa University; pick it for working material.",
             "ar": "لموظفي KUEC وجامعة خليفة ولا ضرر من الاطلاع عليها داخل الجامعة؛ اختره لمواد العمل."
           },
           "requiresNote": false
@@ -1800,7 +1800,7 @@
             "ar": "سرية"
           },
           "description": {
-            "en": "Commercially sensitive or received under NDA; pick it for pricing and anything a counterpart gave us in confidence.",
+            "en": "Commercially sensitive or received under a non-disclosure agreement; pick it for pricing and anything a counterpart gave us in confidence.",
             "ar": "حساسة تجارياً أو مُستلمة بموجب اتفاقية عدم إفصاح؛ اختره للأسعار ولكل ما سلّمنا إياه الطرف الآخر بسرية."
           },
           "requiresNote": false
@@ -1813,7 +1813,7 @@
             "ar": "مقيّدة"
           },
           "description": {
-            "en": "For named people only, such as unfiled IP, legal or board material; pick it when access must be limited to a list.",
+            "en": "For named people only, such as unfiled intellectual property, legal or board material; pick it when access must be limited to a list.",
             "ar": "لأشخاص محددين بالاسم فقط، مثل ملكية فكرية لم تُسجَّل أو مواد قانونية أو مواد مجلس الإدارة؛ اختره عندما يجب حصر الاطلاع في قائمة."
           },
           "requiresNote": false
@@ -1854,7 +1854,7 @@
           "value": "NDA",
           "status": "active",
           "label": {
-            "en": "NDA",
+            "en": "Non-disclosure agreement",
             "ar": "اتفاقية عدم إفصاح"
           },
           "description": {
@@ -1867,7 +1867,7 @@
           "value": "MOU",
           "status": "active",
           "label": {
-            "en": "MoU",
+            "en": "Memorandum of understanding",
             "ar": "مذكرة تفاهم"
           },
           "description": {
@@ -1880,7 +1880,7 @@
           "value": "MSA",
           "status": "active",
           "label": {
-            "en": "MSA",
+            "en": "Master services agreement",
             "ar": "اتفاقية خدمات رئيسية"
           },
           "description": {
@@ -1897,7 +1897,7 @@
             "ar": "ترخيص"
           },
           "description": {
-            "en": "A licence of, or option on, KU intellectual property; pick it for any IP rights contract.",
+            "en": "A licence of, or option on, Khalifa University intellectual property; pick it for any intellectual property rights contract.",
             "ar": "ترخيص للملكية الفكرية لجامعة خليفة أو خيار عليها؛ اختره لأي عقد حقوق ملكية فكرية."
           },
           "requiresNote": false
@@ -1906,7 +1906,7 @@
           "value": "TSA",
           "status": "active",
           "label": {
-            "en": "TSA",
+            "en": "Technical services agreement",
             "ar": "اتفاقية خدمات تقنية"
           },
           "description": {
@@ -1919,7 +1919,7 @@
           "value": "JDA",
           "status": "active",
           "label": {
-            "en": "JDA",
+            "en": "Joint development agreement",
             "ar": "اتفاقية تطوير مشترك"
           },
           "description": {
@@ -1975,7 +1975,7 @@
             "ar": "خيار (متوقف)"
           },
           "description": {
-            "en": "Deprecated on 17 October 2026 and kept for existing records; options on KU IP are Licence contracts now.",
+            "en": "Deprecated on 17 October 2026 and kept for existing records; options on Khalifa University intellectual property are Licence contracts now.",
             "ar": "أُوقف في 17 أكتوبر 2026 ويبقى للسجلات القائمة؛ تُصنَّف عقود الخيار على الملكية الفكرية للجامعة الآن ضمن «ترخيص»."
           },
           "requiresNote": false,
@@ -1992,7 +1992,7 @@
             "ar": "خدمة (متوقف)"
           },
           "description": {
-            "en": "Deprecated on 17 October 2026 and kept for existing records; pick TSA, Consulting or MSA instead.",
+            "en": "Deprecated on 17 October 2026 and kept for existing records; pick Technical services agreement, Consulting or Master services agreement instead.",
             "ar": "أُوقف في 17 أكتوبر 2026 ويبقى للسجلات القائمة؛ اختر بدلاً منه اتفاقية خدمات تقنية أو استشارات أو اتفاقية خدمات رئيسية."
           },
           "requiresNote": false,
@@ -2092,7 +2092,7 @@
           "value": "GTM_CAMPAIGN",
           "status": "active",
           "label": {
-            "en": "GTM campaign",
+            "en": "Go-to-market campaign",
             "ar": "حملة دخول السوق"
           },
           "description": {
@@ -2267,8 +2267,8 @@
           "value": "ADMIN",
           "status": "active",
           "label": {
-            "en": "Admin",
-            "ar": "إداري"
+            "en": "Administration",
+            "ar": "أعمال إدارية"
           },
           "description": {
             "en": "Record-keeping or system housekeeping, such as fixing data; pick it for admin chores.",
@@ -2378,7 +2378,7 @@
           "value": "ICT",
           "status": "active",
           "label": {
-            "en": "ICT and digital",
+            "en": "Information technology, telecoms and digital",
             "ar": "الاتصالات وتقنية المعلومات والخدمات الرقمية"
           },
           "description": {
@@ -2571,7 +2571,7 @@
             "ar": "وحدة جامعية"
           },
           "description": {
-            "en": "A KU college, centre or office recorded as a company; pick it for counterparts inside KU.",
+            "en": "A Khalifa University college, centre or office recorded as a company; pick it for counterparts inside Khalifa University.",
             "ar": "كلية أو مركز أو مكتب في جامعة خليفة مسجّل كشركة؛ اختره للأطراف من داخل الجامعة."
           },
           "requiresNote": false
@@ -2780,11 +2780,11 @@
           "value": "BD",
           "status": "active",
           "label": {
-            "en": "BD",
+            "en": "Business development",
             "ar": "تطوير الأعمال"
           },
           "description": {
-            "en": "The business development team; pick it when BD leads the work.",
+            "en": "The business development team; pick it when business development leads the work.",
             "ar": "فريق تطوير الأعمال؛ اختره عندما يقود فريق تطوير الأعمال العمل."
           },
           "requiresNote": false
@@ -2797,7 +2797,7 @@
             "ar": "التسويق التجاري"
           },
           "description": {
-            "en": "The team that takes KU technologies to market; pick it when commercialization leads the work.",
+            "en": "The team that takes Khalifa University technologies to market; pick it when commercialization leads the work.",
             "ar": "الفريق الذي ينقل تقنيات جامعة خليفة إلى السوق؛ اختره عندما يقود فريق التسويق التجاري العمل."
           },
           "requiresNote": false
@@ -2806,11 +2806,11 @@
           "value": "IP_OFFICE",
           "status": "active",
           "label": {
-            "en": "IP office",
+            "en": "Intellectual property office",
             "ar": "مكتب الملكية الفكرية"
           },
           "description": {
-            "en": "The office that handles disclosures, patents and licences; pick it when IP work leads.",
+            "en": "The office that handles disclosures, patents and licences; pick it when intellectual property work leads.",
             "ar": "المكتب الذي يتولى الإفصاحات وبراءات الاختراع والتراخيص؛ اختره عندما يقود عمل الملكية الفكرية."
           },
           "requiresNote": false
@@ -2836,7 +2836,7 @@
             "ar": "الوصول إلى المختبرات"
           },
           "description": {
-            "en": "The team that books KU labs and equipment for outside users; pick it for lab and equipment access.",
+            "en": "The team that books Khalifa University labs and equipment for outside users; pick it for lab and equipment access.",
             "ar": "الفريق الذي يحجز مختبرات جامعة خليفة ومعداتها للمستخدمين من الخارج؛ اختره للوصول إلى المختبرات والمعدات."
           },
           "requiresNote": false

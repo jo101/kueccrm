@@ -292,7 +292,7 @@ Filters do not prefill the owner: a view filtered "Owner is me" leaves Owner emp
 | Work package | Home (with the work package card), Timeline, Tasks, Notes, Files | |
 | Project, Engagement, Milestone | Home, Timeline, Tasks, Notes, Files | |
 
-Timeline, Tasks and Notes are on every record page by default. There is no Duplicates section in 2.48 (section 3). The SharePoint folder cards are `src/page-layout-widgets/opportunity-sharepoint-folder.page-layout-widget.ts` and `contract-sharepoint-folder.page-layout-widget.ts`; the Opportunity field is new (`sharepoint-folder-on-opportunity.field.ts`, label by destination per `kuec/CLAUDE.md` section 4; the brief's "documentsLink"), the Contract field already existed.
+Since 0.10.0 the Home tab of every record page opens with **How this record works**, five lines in English and Arabic above the field list (`20-guidance.md` section 3). Timeline, Tasks and Notes are on every record page by default. There is no Duplicates section in 2.48 (section 3). The SharePoint folder cards are `src/page-layout-widgets/opportunity-sharepoint-folder.page-layout-widget.ts` and `contract-sharepoint-folder.page-layout-widget.ts`; the Opportunity field is new (`sharepoint-folder-on-opportunity.field.ts`, label by destination per `kuec/CLAUDE.md` section 4; the brief's "documentsLink"), the Contract field already existed.
 
 ## 11. Install 0.5.0 and verify
 
@@ -321,6 +321,8 @@ Open items: the Phase B command items (2.2); the stage relabel to Qualify; Perso
 **What search reads.** Companies: English and Arabic name, website, search keywords. People: name, Arabic name, email, phone (with or without +971 or the first 0), job title. Opportunities: name and next action. Work packages: title and objective. Projects, engagements, contracts, milestones: their name. It does not look inside related records: to see everyone at a company, open the company.
 
 **In Arabic**, type the word as it is written, with ال: "البترولية", not "بترولية". Nothing found? Try without ال, then the English name. When you add an important company, fill in its **Search keywords** so it is found either way (section 1.3).
+
+**Help.** **Help**, the last entry in the sidebar, opens the Help page: the cadence guide, what every list and field means, the day-one checklist and a short video per screen. Hover a field's name for what to put in it.
 
 **Your work.** **My work** is everything you own that is still open, earliest due first. **Pipeline** shows every opportunity by stage. **BD Executive** and **BD Team** are the dashboards, **Exceptions** what needs attention. Every reminder the system sends you is also a task under **Tasks**. On any list, the view name at the top switches views (Opportunities > Closing this quarter); **Filter**, **Sort** and **Save as new view** do the rest.
 

@@ -1,4 +1,3 @@
-import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { isObject } from '@sniptt/guards';
@@ -13,6 +12,7 @@ import {
 } from 'twenty-sdk/define';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import { loadDefaultExports } from 'src/__tests__/utils/load-default-exports';
 import { CONTRACT_UNIVERSAL_IDENTIFIER } from 'src/objects/contract.object';
 import { DOCUMENT_UNIVERSAL_IDENTIFIER } from 'src/objects/document.object';
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from 'src/objects/engagement.object';
@@ -199,23 +199,6 @@ const canUpdateField = (
       permission.canUpdateFieldValue === false,
   );
 
-const loadDefaults = async <TDefinition>(
-  directory: string,
-  suffix: string,
-): Promise<TDefinition[]> => {
-  const fileNames = readdirSync(directory).filter((fileName) =>
-    fileName.endsWith(suffix),
-  );
-
-  const modules = await Promise.all(
-    fileNames.map(
-      (fileName) =>
-        import(join(directory, fileName)) as Promise<{ default: TDefinition }>,
-    ),
-  );
-
-  return modules.map((module) => module.default);
-};
 
 describe('roles', () => {
   let roles: RoleConfig[] = [];
@@ -236,13 +219,13 @@ describe('roles', () => {
   };
 
   beforeAll(async () => {
-    roleDefinitions = await loadDefaults<RoleDefinition>(__dirname, '.role.ts');
+    roleDefinitions = await loadDefaultExports<RoleDefinition>(__dirname, '.role.ts');
     roles = roleDefinitions.map((definition) => definition.config);
-    objects = await loadDefaults<ObjectDefinition>(
+    objects = await loadDefaultExports<ObjectDefinition>(
       join(__dirname, '..', 'objects'),
       '.object.ts',
     );
-    fields = await loadDefaults<FieldDefinition>(
+    fields = await loadDefaultExports<FieldDefinition>(
       join(__dirname, '..', 'fields'),
       '.field.ts',
     );

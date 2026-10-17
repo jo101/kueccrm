@@ -5,6 +5,11 @@ import {
   type ViewConfig,
 } from 'twenty-sdk/define';
 
+import {
+  buildGuidanceBody,
+  GUIDANCE_WIDGET_TITLE,
+} from '../../i18n/guidance-widget-body';
+
 type DashboardView = {
   config: Pick<
     ViewConfig,
@@ -89,3 +94,37 @@ export const recordTableWidget = ({
     isUIEditable,
   },
 });
+
+// Ten short lines, five per language, at the full width of the grid.
+export const GUIDANCE_ROW_SPAN = 6;
+const GRID_COLUMNS = 12;
+
+export const guidanceTabWidget = ({
+  universalIdentifier,
+  guidancePageKey,
+}: {
+  universalIdentifier: string;
+  guidancePageKey: string;
+}): PageLayoutWidgetManifest => ({
+  universalIdentifier,
+  title: GUIDANCE_WIDGET_TITLE.DASHBOARD_TAB,
+  type: 'STANDALONE_RICH_TEXT',
+  position: gridPosition(0, 0, GUIDANCE_ROW_SPAN, GRID_COLUMNS),
+  configuration: {
+    configurationType: 'STANDALONE_RICH_TEXT',
+    body: buildGuidanceBody(guidancePageKey),
+  },
+});
+
+// Every tab opens with its guidance; the widgets keep their layout, one guidance height lower.
+export const belowGuidance = (
+  widgets: PageLayoutWidgetManifest[],
+): PageLayoutWidgetManifest[] =>
+  widgets.map((widget) =>
+    widget.position?.layoutMode === PageLayoutTabLayoutMode.GRID
+      ? {
+          ...widget,
+          position: { ...widget.position, row: widget.position.row + GUIDANCE_ROW_SPAN },
+        }
+      : widget,
+  );

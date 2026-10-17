@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const KEYWORDS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER = 'a4d69fb7-5242-4db1-9489-7012a943f0ad';
 
@@ -15,6 +16,7 @@ export default defineField({
   type: FieldType.TEXT,
   name: 'keywords',
   label: 'Search keywords',
+  description: fieldDescription('company.keywords'),
   icon: 'IconTags',
   isSearchable: true,
 });

@@ -8,6 +8,7 @@ import {
 import { MILESTONE_UNIVERSAL_IDENTIFIER } from '../objects/milestone.object';
 import { PROJECT_UNIVERSAL_IDENTIFIER } from '../objects/project.object';
 import { MILESTONES_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from './milestones-on-project.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const PROJECT_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER = 'c6932dd8-89d4-4b7f-a6f4-206f6b6381b8';
 
@@ -17,6 +18,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'project',
   label: 'Project',
+  description: fieldDescription('milestone.project'),
   icon: 'IconBriefcase',
   relationTargetObjectMetadataUniversalIdentifier:
     PROJECT_UNIVERSAL_IDENTIFIER,

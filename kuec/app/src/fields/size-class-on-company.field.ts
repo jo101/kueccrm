@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const SIZE_CLASS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER = 'd652c626-b9bd-4cf6-a481-00bae7c5ddea';
 
@@ -20,7 +21,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'sizeClass',
   label: 'Size class',
-  description: 'The kind of organisation: startup, SME, large enterprise, or government',
+  description: fieldDescription('company.sizeClass'),
   icon: 'IconBuildingSkyscraper',
   options: [
     {
@@ -33,7 +34,7 @@ export default defineField({
     {
       id: '224664f7-eb68-4491-9aea-95af1981ea27',
       value: COMPANY_SIZE_CLASS.SME,
-      label: 'SME',
+      label: 'Small or medium business',
       position: 1,
       color: 'sky',
     },

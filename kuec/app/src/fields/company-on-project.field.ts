@@ -8,6 +8,7 @@ import {
 
 import { PROJECT_UNIVERSAL_IDENTIFIER } from '../objects/project.object';
 import { PROJECTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from './projects-on-company.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const COMPANY_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER = 'ac1bcd60-ac80-428d-bdcc-b6968b321d46';
 
@@ -19,6 +20,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'company',
   label: 'Company',
+  description: fieldDescription('project.company'),
   icon: 'IconBuildingSkyscraper',
   relationTargetObjectMetadataUniversalIdentifier:
     STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.company.universalIdentifier,

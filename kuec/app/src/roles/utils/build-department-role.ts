@@ -3,6 +3,7 @@ import {
   SystemPermissionFlag,
 } from 'twenty-sdk/define';
 
+import { CAMPAIGN_TARGET_UNIVERSAL_IDENTIFIER } from '../../objects/campaign-target.object';
 import { DOCUMENT_UNIVERSAL_IDENTIFIER } from '../../objects/document.object';
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from '../../objects/engagement.object';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../../objects/lead.object';
@@ -30,6 +31,7 @@ export const DEPARTMENT_WRITABLE_OBJECT_UNIVERSAL_IDENTIFIERS = [
   ENGAGEMENT_UNIVERSAL_IDENTIFIER,
   LEAD_UNIVERSAL_IDENTIFIER,
   DOCUMENT_UNIVERSAL_IDENTIFIER,
+  CAMPAIGN_TARGET_UNIVERSAL_IDENTIFIER,
 ];
 
 export const buildDepartmentRoleConfig = ({
@@ -43,7 +45,7 @@ export const buildDepartmentRoleConfig = ({
 }) => ({
   universalIdentifier,
   label,
-  description: `${label} department. Reads everything. Writes leads, opportunities, engagements, documents, tasks and notes. No delete, no import, no settings, no workflows.`,
+  description: `${label} department. Reads everything. Writes leads, opportunities, engagements, documents, campaign targets, tasks and notes. No delete, no import, no settings, no workflows.`,
   icon,
   canReadAllObjectRecords: true,
   canUpdateAllObjectRecords: false,

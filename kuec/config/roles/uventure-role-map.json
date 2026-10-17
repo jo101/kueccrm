@@ -1,0 +1,91 @@
+{
+  "about": "Each person holds the same role in Twenty and in uVENTURE, matched on their KUEC email. One row per Twenty role a person can hold; the uVENTURE administrator confirms the uVENTURE role names and rights before the pilot. Rules and the joiner and leaver procedure: kuec/runbooks/21-uventure-readiness.md section 2. kuec/app/src/roles/uventure-role-map.test.ts fails when a Twenty role is missing here.",
+  "status": "proposed",
+  "confirmedBy": null,
+  "confirmedOn": null,
+  "joinKey": "KUEC work email, lower case, identical in Entra ID, Twenty and uVENTURE",
+  "roles": [
+    {
+      "twentyRole": "ED",
+      "twentyRoleUniversalIdentifier": "b2d2354f-fec7-4e6f-a5ed-ccef69ebed96",
+      "department": null,
+      "uventureRole": "Executive approver",
+      "uventureRights": "Reads everything; approves licences and agreements; no system settings."
+    },
+    {
+      "twentyRole": "Ops coordinator",
+      "twentyRoleUniversalIdentifier": "68ce3927-3689-436e-9170-c297f3fed980",
+      "department": null,
+      "uventureRole": "Portfolio coordinator",
+      "uventureRights": "Reads everything; triages new challenges and sign-ups; no system settings."
+    },
+    {
+      "twentyRole": "BD officer",
+      "twentyRoleUniversalIdentifier": "076a7c33-d5fe-4944-9a31-77eabc22ee18",
+      "department": "BD",
+      "uventureRole": "Business development",
+      "uventureRights": "Reads technologies, equipment, labs and challenges; records the hand-offs the playbooks name; edits nothing it does not own."
+    },
+    {
+      "twentyRole": "Commercialization",
+      "twentyRoleUniversalIdentifier": "d7171bd7-af0c-4aad-8350-6c8354b92841",
+      "department": "COMMERCIALIZATION",
+      "uventureRole": "Commercialization",
+      "uventureRights": "Owns technologies and their marketing status; records licences and option agreements."
+    },
+    {
+      "twentyRole": "IP office",
+      "twentyRoleUniversalIdentifier": "b69517ff-b89d-4c6d-bd66-eaf50cca0661",
+      "department": "IP_OFFICE",
+      "uventureRole": "IP office",
+      "uventureRights": "Owns invention disclosures and patents; reads technologies and licences."
+    },
+    {
+      "twentyRole": "Leasing",
+      "twentyRoleUniversalIdentifier": "dc924d87-981a-4ce0-bafc-ee1a03483f06",
+      "department": "LEASING",
+      "uventureRole": "Leasing",
+      "uventureRights": "Owns space listings and leasing agreements; reads the rest."
+    },
+    {
+      "twentyRole": "Lab access",
+      "twentyRoleUniversalIdentifier": "3c966902-6644-429c-b98e-0f92a1633a95",
+      "department": "LAB_ACCESS",
+      "uventureRole": "Lab access",
+      "uventureRights": "Owns lab and equipment listings and their availability; reads the rest."
+    },
+    {
+      "twentyRole": "Startups and investment",
+      "twentyRoleUniversalIdentifier": "4d069939-dbea-4965-a3eb-b62f7c3d7a06",
+      "department": "STARTUPS_AND_INVESTMENT",
+      "uventureRole": "Startups and investment",
+      "uventureRights": "Owns startup and subsidiary records; reads technologies and licences."
+    },
+    {
+      "twentyRole": "Engineer",
+      "twentyRoleUniversalIdentifier": "6aee78fc-1d03-4428-a948-7fb653d3f5ca",
+      "department": null,
+      "uventureRole": "Read only",
+      "uventureRights": "Reads records to support the integration; no business edits in production."
+    },
+    {
+      "twentyRole": "Leadership viewer",
+      "twentyRoleUniversalIdentifier": "e9cd5e6f-57b3-4df7-b304-866c6d5e80b4",
+      "department": null,
+      "uventureRole": "Leadership viewer",
+      "uventureRights": "Reads dashboards and portfolio summaries only."
+    }
+  ],
+  "serviceAccounts": [
+    {
+      "twentyRole": "uVENTURE reader",
+      "twentyRoleUniversalIdentifier": "23cf7a97-7e47-4866-a0b6-6761539d596d",
+      "usedBy": "uVENTURE's nightly read of Twenty, through the API key uventure-reader-<env>-<yyyy-mm>"
+    },
+    {
+      "twentyRole": "Automation",
+      "twentyRoleUniversalIdentifier": "41f3a443-1174-463a-9586-b9fd5027cc57",
+      "usedBy": "Twenty-side scripts and integrations; no uVENTURE account"
+    }
+  ]
+}

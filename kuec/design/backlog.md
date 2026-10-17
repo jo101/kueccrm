@@ -254,7 +254,7 @@ All additive. App-stamped fields get `writability: APPLICATION`; every field BD 
 | B1 | Work package | `outputLink` | LINKS | SharePoint link | owner |
 | B1 | Work package | `outcome` | SELECT: `BID`, `NO_BID`, `CLIENT_YES`, `CLIENT_NO`, `NO_ANSWER`, `SIGNED`, `NOT_SIGNED`, `ACCEPTED_BY_CLIENT`, `CHANGES_REQUESTED` | Outcome | owner |
 | B1 | Work package | `blockAcknowledgedAt` | DATE_TIME | Block seen by ED at | the ED (locked for every other role) |
-| B4 | Opportunity | `uventureRecord` | LINKS | uVENTURE record | owner |
+| B4 | Opportunity | `uventureRecord` | LINKS | uVENTURE record | owner. Shipped in 0.11.0 (`runbooks/21-uventure-readiness.md`) |
 | B4 | Opportunity | `intakeRequestId` | TEXT | Intake request id | app |
 | B4 | Opportunity | `deadlineRiskFlaggedAt` | DATE_TIME | Deadline risk flagged at | app |
 | B4 | Opportunity | `deadlineRiskAcknowledgedAt` | DATE_TIME | Deadline risk accepted at | the ED |

@@ -15,9 +15,9 @@ export type IntakeForm = (typeof INTAKE_FORM)[keyof typeof INTAKE_FORM];
 export const MAX_SUBMISSIONS_PER_DELIVERY = 100;
 
 const MAX_TEXT_LENGTH = 300;
-const MAX_NEED_LENGTH = 4000;
-const IDENTIFIER_PATTERN = /^[A-Za-z0-9_.-]{1,100}$/;
-const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+export const MAX_NEED_LENGTH = 4000;
+export const IDENTIFIER_PATTERN = /^[A-Za-z0-9_.-]{1,100}$/;
+export const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 export type IntakeSubmission = {
   submissionId: string;
@@ -48,15 +48,15 @@ const FORM_VALUES: string[] = Object.values(INTAKE_FORM);
 export const isValidDeliveryId = (deliveryId: string | null): deliveryId is string =>
   isString(deliveryId) && IDENTIFIER_PATTERN.test(deliveryId);
 
-const isIntakeForm = (value: unknown): value is IntakeForm =>
+export const isIntakeForm = (value: unknown): value is IntakeForm =>
   isString(value) && FORM_VALUES.includes(value);
 
-const readText = (value: unknown, maxLength = MAX_TEXT_LENGTH): string | null =>
+export const readText = (value: unknown, maxLength = MAX_TEXT_LENGTH): string | null =>
   isNonEmptyString(value) && value.trim().length > 0
     ? value.trim().slice(0, maxLength)
     : null;
 
-const parseSubmission = (value: unknown): IntakeSubmission | string => {
+export const parseSubmission = (value: unknown): IntakeSubmission | string => {
   if (!isObject(value) || isArray(value)) {
     return 'submission is not an object';
   }

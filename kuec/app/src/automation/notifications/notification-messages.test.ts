@@ -7,7 +7,7 @@ import {
 import { NOTIFICATION_MESSAGES } from 'src/automation/notifications/notification-messages';
 
 const LINK = buildRecordLink(
-  'https://crm.kuec.example/',
+  'https://crm.uventure.kuec.example/',
   'workPackage',
   '6f3c3a0e-0000-4000-8000-000000000001',
 );
@@ -17,7 +17,7 @@ const LONG_SUBJECT =
 describe('notification messages', () => {
   it('builds record links without a double slash', () => {
     expect(LINK).toBe(
-      'https://crm.kuec.example/object/workPackage/6f3c3a0e-0000-4000-8000-000000000001',
+      'https://crm.uventure.kuec.example/object/workPackage/6f3c3a0e-0000-4000-8000-000000000001',
     );
   });
 

@@ -1,0 +1,31 @@
+{
+  "delivery": {
+    "events": [
+      {
+        "eventId": "stg-u2",
+        "type": "challenge.submitted",
+        "occurredAt": "{{now}}",
+        "data": {
+          "id": "STG-CH-0009",
+          "url": "https://uventure-staging.kuec.example/challenges/STG-CH-0009",
+          "title": "Staging: corrosion monitoring for offshore pipes",
+          "description": "Sensors that survive ten years subsea.",
+          "programme": "CHALLENGE_SPRINT",
+          "company": {
+            "name": "Staging Gulf Pipelines",
+            "website": "https://staging-gulfpipelines.example"
+          },
+          "contact": {
+            "firstName": "Test",
+            "lastName": "Contact",
+            "email": "test.contact@staging-gulfpipelines.example",
+            "jobTitle": "Asset integrity lead"
+          },
+          "offeringInterest": [
+            "RESEARCH_COLLABORATION"
+          ]
+        }
+      }
+    ]
+  }
+}

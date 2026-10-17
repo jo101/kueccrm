@@ -56,7 +56,7 @@ sudo mkdir -p /srv/twenty/prod /srv/twenty/backups/prod
 sudo git clone https://github.com/jo101/kueccrm /srv/twenty/kuec-repo
 cd /srv/twenty/kuec-repo/kuec/config/deploy
 sudo cp .env.example /srv/twenty/prod/.env && sudo chmod 600 /srv/twenty/prod/.env
-# Fill /srv/twenty/prod/.env: SERVER_URL=https://crm.kuec.example, the bucket/endpoint names,
+# Fill /srv/twenty/prod/.env: SERVER_URL=https://crm.uventure.kuec.example, the bucket/endpoint names,
 # and every SECRET line from the secrets manager (or render it with your secrets-manager CLI).
 docker compose --env-file /srv/twenty/prod/.env pull
 docker compose --env-file /srv/twenty/prod/.env up -d
@@ -77,7 +77,7 @@ scripts/verify-config.sh /srv/twenty/prod/.env     # guard rails, https SERVER_U
 
 The first account created on the instance becomes server admin (Admin Panel) and the workspace's **Admin**. That has to be the ED.
 
-1. The ED opens `https://crm.kuec.example` and signs up with their KUEC email and a password. Microsoft is not configured yet.
+1. The ED opens `https://crm.uventure.kuec.example` and signs up with their KUEC email and a password. Microsoft is not configured yet.
 2. Workspace name: `KUEC BD Ops`. KUEC logo only (`.github/TRADEMARK.md`: no Twenty marks altered, no "official Twenty" wording).
 3. Skip the onboarding steps for connecting mail and inviting people. They come later.
 
@@ -137,22 +137,28 @@ Set in `.env` (not the Admin Panel) per `config/deploy/logic-function-type.md`. 
 1. Connect the CLI with an interactive login: the ED for the first install (the only member, on Admin), an engineer afterwards. `app:publish` uploads the build, which needs **Upload files** as well as **Apps**; after the first install only the Engineer role holds both (the ED role can install a published version but not publish one). Never the Automation key, which has neither:
    ```bash
    cd kuec/app
-   npx twenty remote:add --as prod --url https://crm.kuec.example
+   npx twenty remote:add --as prod --url https://crm.uventure.kuec.example
    npx twenty remote:use prod
    npx twenty plan          # read it: any removal or recreation blocks the deploy (CLAUDE.md section 2)
    npx twenty app:publish --private -r prod
    npx twenty app:install -r prod
    ```
-   The app ships the roles of `runbooks/13-roles.md`: ED, Ops coordinator, BD officer, Engineer, Leadership viewer, IP office, Leasing, Lab access, Startups and investment, and Automation (below).
+   The uVENTURE origin of the iFrame widgets and the Open uVENTURE link is read when the manifest is built (`kuec/app/src/constants/uventure.ts`). Production is the default; for staging, plan and publish with the staging origin set, or staging embeds production uVENTURE:
+   ```bash
+   KUEC_UVENTURE_ORIGIN=https://uventure-staging.kuec.example npx twenty plan
+   KUEC_UVENTURE_ORIGIN=https://uventure-staging.kuec.example npx twenty app:publish --private -r staging
+   ```
+   The app ships the roles of `runbooks/13-roles.md`: ED, Ops coordinator, BD officer, Engineer, Leadership viewer, IP office, Leasing, Lab access, Startups and investment, Commercialization (0.11.0), Automation (below) and uVENTURE reader (0.11.0, `runbooks/21-uventure-readiness.md` section 4.3).
 2. `config/dashboards/members-and-roles.md`: the break-glass account takes Admin and moves the ED to the ED role; the default role becomes Leadership viewer; everyone else is invited with exactly one role.
 3. `config/dashboards/connect-bd-ops-mailbox.md`: bd-ops signs in with Microsoft and connects its mailbox and calendar. That mailbox is the sender the automation uses.
 4. Re-run `scripts/verify-crons.sh`. Messaging and calendar jobs now have real work, and the logic-function line shows runs.
+5. `config/dashboards/iframe-embedding.md`: allow the uVENTURE origin of this environment to embed the CRM (0.11.0).
 
 ## 9. Automation role and API key
 
 The Automation role ships in the app: `kuec/app/src/roles/automation.role.ts`, defined in `kuec/config/roles/role-definitions.md`. It reads and writes Opportunity, Company, Person, Task, Note, Task target, Note target, Project, Milestone, Work package, Contract and Engagement, reads workspace members, and deletes nothing. It holds no settings or tools and can be bound only to API keys.
 
-Compared with the first draft of this section: the Capability object is gone (capabilities live in uVENTURE, so there is no such object), and timeline, attachment, synced mail and calendar records are read-only for the key, because Twenty otherwise lets any role destroy them through the API. `taskTarget`, `noteTarget` (write) and `workspaceMember` (read) stay: without them the key cannot link a task or note to its record or resolve an owner.
+Compared with the first draft of this section: the key has no Capability grant. Since 0.11.0 Capability exists as a pointer only the uVENTURE feed writes (`runbooks/21-uventure-readiness.md` section 4), so no key needs it; timeline, attachment, synced mail and calendar records are read-only for the key, because Twenty otherwise lets any role destroy them through the API. `taskTarget`, `noteTarget` (write) and `workspaceMember` (read) stay: without them the key cannot link a task or note to its record or resolve an owner.
 
 Then the key: `config/dashboards/automation-api-key.md`, with its row in the inventory (`runbooks/13-roles.md` section 4.1) first. Expiry is 1 year, role Automation, and the key goes straight into the secrets manager. Its verify step proves read and update work while delete and metadata changes are refused.
 
@@ -191,7 +197,7 @@ sudo mkdir -p /srv/twenty/staging /srv/twenty/backups/staging
 sudo cp .env.example /srv/twenty/staging/.env && sudo chmod 600 /srv/twenty/staging/.env
 # in /srv/twenty/staging/.env:
 #   COMPOSE_PROJECT_NAME=twenty-staging   HOST_PORT=3100
-#   SERVER_URL=https://crm-staging.kuec.example
+#   SERVER_URL=https://crm.uventure-staging.kuec.example
 #   STORAGE_S3_NAME=kuec-twenty-staging (its own key)
 #   own PG_DATABASE_PASSWORD and ENCRYPTION_KEY from twenty/staging/*
 docker compose --env-file /srv/twenty/staging/.env up -d

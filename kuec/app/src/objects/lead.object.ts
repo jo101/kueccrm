@@ -78,6 +78,7 @@ export const LEAD_AUTO_CLOSED_AT_FIELD_UNIVERSAL_IDENTIFIER = '32b006ed-6a52-458
 export const LEAD_LAST_CONVERTED_AT_FIELD_UNIVERSAL_IDENTIFIER = 'bb8866a1-ed5a-45b0-8c22-ec7457fb5243';
 export const LEAD_REFERRAL_CREDITED_AT_FIELD_UNIVERSAL_IDENTIFIER = 'a33f73d8-f917-4b92-aaf5-edf1ea68f537';
 export const LEAD_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER = '2c11332e-527c-46b5-b3b9-7393983fa922';
+export const LEAD_UVENTURE_RECORD_FIELD_UNIVERSAL_IDENTIFIER = '7b8a5f87-89ae-493c-a9d2-c675271ecda5';
 
 // Twenty adds createdAt to every object; its identifier is derived from the
 // app, the object and the name, never declared.
@@ -329,6 +330,15 @@ export default defineObject({
       label: 'Next action date',
       description: fieldDescription('lead.nextActionDate'),
       icon: 'IconCalendarDue',
+    },
+    // The challenge's page when the lead came from a uVENTURE challenge.
+    {
+      universalIdentifier: LEAD_UVENTURE_RECORD_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.LINKS,
+      name: 'uventureRecord',
+      label: 'uVENTURE record',
+      description: fieldDescription('lead.uventureRecord'),
+      icon: 'IconLink',
     },
     // Integration identity (runbooks/16-integration-map.md section 2.2): OPEN
     // so the app and an integration key can write them, locked for people in

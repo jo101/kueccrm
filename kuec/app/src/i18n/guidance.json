@@ -378,6 +378,56 @@
       }
     },
     {
+      "key": "capability",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Capability",
+        "ar": "القدرة"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "A pointer to a technology, invention disclosure, lab or item of equipment whose full record lives in uVENTURE.",
+          "uVENTURE owns it: the uVENTURE feed creates and updates it, and nobody edits it in the CRM.",
+          "Nothing: to change the name, kind or status, change it in uVENTURE through the uVENTURE record link.",
+          "Each night the uVENTURE snapshot refreshes it, a status change to unavailable or withdrawn tells the owners of open cases, and 7 days without a snapshot lists it under Not seen in uVENTURE.",
+          "Help in the sidebar explains the uVENTURE link, and the ops coordinator takes a wrong pointer to the uVENTURE administrator."
+        ],
+        "ar": [
+          "مؤشر إلى تقنية أو إفصاح عن اختراع أو مختبر أو معدات يوجد سجلها الكامل في uVENTURE.",
+          "يملكه uVENTURE: ينشئه ربط uVENTURE الآلي ويحدّثه، ولا يعدّله أحد في نظام إدارة العملاء.",
+          "لا شيء: لتغيير الاسم أو النوع أو الحالة، غيّرها في uVENTURE عبر رابط سجل uVENTURE.",
+          "تحدّثه لقطة uVENTURE كل ليلة، وتغيّر الحالة إلى غير متاحة أو مسحوبة يُبلغ مسؤولي الحالات المفتوحة، ومرور 7 أيام بلا لقطة يدرجه تحت «لم يظهر في uVENTURE».",
+          "في «المساعدة» بالقائمة الجانبية شرح لربط uVENTURE، ومنسق العمليات يحمل أي مؤشر خاطئ إلى مسؤول uVENTURE."
+        ]
+      }
+    },
+    {
+      "key": "campaignTarget",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Campaign target",
+        "ar": "الجهة المستهدفة في الحملة"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "One company on a go-to-market campaign's target list.",
+          "The campaign's owner works the list; anyone on the campaign can update a target.",
+          "Status after each contact: Contacted, Responded, Not interested or Do not contact.",
+          "The app builds the list from the companies in the campaign's target sector and size class, and sets Lead created when a lead from this company is attributed to the campaign.",
+          "Help in the sidebar has the campaign guide, and the campaign owner decides when a company leaves the list."
+        ],
+        "ar": [
+          "شركة واحدة ضمن قائمة استهداف حملة تسويقية.",
+          "يعمل مسؤول الحملة على القائمة، ويمكن لأي عضو في الحملة تحديث أي جهة مستهدفة.",
+          "الحالة بعد كل تواصل: تم التواصل، أو استجابت، أو غير مهتمة، أو لا يُتواصل معها.",
+          "يبني التطبيق القائمة من الشركات في القطاع وفئة الحجم المستهدفين للحملة، ويضبط «أُنشئ عميل محتمل» عندما يُنسب إلى الحملة عميل محتمل من هذه الشركة.",
+          "في «المساعدة» بالقائمة الجانبية دليل الحملات، ومسؤول الحملة يقرر متى تخرج شركة من القائمة."
+        ]
+      }
+    },
+    {
       "key": "home",
       "kind": "dashboardTab",
       "screen": {
@@ -524,6 +574,156 @@
           "أنجز عملك المتأخر، وأعطِ كل فرصة إجراءً تالياً مع تاريخ.",
           "كل عرض في هذا التبويب مصفّى عليك، فيرى كل شخص صفحته هو.",
           "متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "uventureTechnologies",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "uVENTURE: Technologies",
+        "ar": "uVENTURE: التقنيات"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "The uVENTURE technology list, shown inside the CRM so you can look up a technology without leaving it.",
+          "The commercialization team keeps it current in uVENTURE; the CRM only shows it.",
+          "Nothing here: link a technology to a case through the case's Capability field.",
+          "uVENTURE sends every new technology and disclosure to the CRM as a capability, so it can be picked on a case.",
+          "If the page asks you to sign in, sign in to uVENTURE in its own tab once, then come back; Help in the sidebar explains why."
+        ],
+        "ar": [
+          "قائمة التقنيات في uVENTURE معروضة داخل نظام إدارة العملاء لتبحث عن تقنية دون مغادرته.",
+          "يبقيها فريق التسويق التجاري محدَّثة في uVENTURE، والنظام يعرضها فقط.",
+          "لا شيء هنا: اربط التقنية بالحالة عبر حقل «القدرة» في الحالة.",
+          "يرسل uVENTURE كل تقنية وإفصاح جديد إلى نظام إدارة العملاء كقدرة، لتُختار في الحالة.",
+          "إذا طلبت الصفحة تسجيل الدخول فسجّل الدخول إلى uVENTURE في تبويبه مرة واحدة ثم عد؛ وفي «المساعدة» بالقائمة الجانبية شرح السبب."
+        ]
+      }
+    },
+    {
+      "key": "uventureEquipment",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "uVENTURE: Equipment and labs",
+        "ar": "uVENTURE: المعدات والمختبرات"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "The uVENTURE list of labs and equipment with their availability, shown inside the CRM.",
+          "The lab access team keeps the listings and their availability current in uVENTURE.",
+          "Nothing here: before you promise a lab or a machine to a client, check its status on the capability.",
+          "A change of availability in uVENTURE updates the capability's status, and owners of open cases hear when it stops being offered.",
+          "If the page asks you to sign in, sign in to uVENTURE in its own tab once, then come back; Help in the sidebar explains why."
+        ],
+        "ar": [
+          "قائمة المختبرات والمعدات في uVENTURE مع توفرها، معروضة داخل نظام إدارة العملاء.",
+          "يبقي فريق الوصول إلى المختبرات الإدراجات وتوفرها محدَّثة في uVENTURE.",
+          "لا شيء هنا: قبل أن تعد عميلاً بمختبر أو جهاز، تحقق من حالته في القدرة.",
+          "تغيّر التوفر في uVENTURE يحدّث حالة القدرة، ويُبلَّغ مسؤولو الحالات المفتوحة عندما تتوقف عن العرض.",
+          "إذا طلبت الصفحة تسجيل الدخول فسجّل الدخول إلى uVENTURE في تبويبه مرة واحدة ثم عد؛ وفي «المساعدة» بالقائمة الجانبية شرح السبب."
+        ]
+      }
+    },
+    {
+      "key": "uventureChallenges",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "uVENTURE: Challenges",
+        "ar": "uVENTURE: التحديات"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "The industry challenges submitted through uVENTURE, such as Challenge Sprint and Technical committee entries, shown inside the CRM.",
+          "uVENTURE holds the challenge; the ops coordinator owns the lead it becomes in the CRM.",
+          "Nothing here: work the challenge as a lead, from the Lead inbox.",
+          "Each submitted challenge arrives as a new lead with its source and its uVENTURE link, and is triaged like any lead.",
+          "If the page asks you to sign in, sign in to uVENTURE in its own tab once, then come back; Help in the sidebar explains why."
+        ],
+        "ar": [
+          "التحديات الصناعية المقدمة عبر uVENTURE، مثل مشاركات Challenge Sprint واللجنة الفنية، معروضة داخل نظام إدارة العملاء.",
+          "يحتفظ uVENTURE بالتحدي، ويملك منسق العمليات العميل المحتمل الذي يصبحه في النظام.",
+          "لا شيء هنا: اعمل على التحدي كعميل محتمل من صندوق العملاء المحتملين.",
+          "يصل كل تحدٍّ مقدَّم كعميل محتمل جديد بمصدره ورابطه في uVENTURE، ويُفرز مثل أي عميل محتمل.",
+          "إذا طلبت الصفحة تسجيل الدخول فسجّل الدخول إلى uVENTURE في تبويبه مرة واحدة ثم عد؛ وفي «المساعدة» بالقائمة الجانبية شرح السبب."
+        ]
+      }
+    },
+    {
+      "key": "packPipeline",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "BD > Pipeline pack",
+        "ar": "تطوير الأعمال > حزمة مسار المبيعات"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "The CRM pack: leads to opportunities with contact times, stage exit criteria, account tiers and referral credit, in one place.",
+          "Each owner works their own rows; the ED and the ops coordinator read the whole team here.",
+          "Before moving a case on, fill the exit criteria of the stage it leaves, as the pipeline playbook lists them.",
+          "Leads past their contact time are nudged, quiet leads close after 30 days, referrers are credited on signature, and a move with exit criteria missing gives the owner a task.",
+          "Help in the sidebar has the CRM pack playbook, and the ED decides whether the pack is on."
+        ],
+        "ar": [
+          "حزمة إدارة العملاء: من العملاء المحتملين إلى الفرص مع مهل التواصل ومعايير الخروج من كل مرحلة وفئات الحسابات ورصيد الإحالة، في مكان واحد.",
+          "يعمل كل مسؤول على صفوفه، ويقرأ المدير التنفيذي ومنسق العمليات الفريق كله هنا.",
+          "قبل نقل الحالة، املأ معايير الخروج من المرحلة التي تغادرها كما يذكرها دليل مسار المبيعات.",
+          "يُذكَّر من تجاوز مهلة التواصل، وتُغلق العملاء المحتملين الخاملين بعد 30 يوماً، ويُنسب الرصيد للمُحيل عند التوقيع، ونقل الحالة دون معايير الخروج يعطي المسؤول مهمة.",
+          "في «المساعدة» بالقائمة الجانبية دليل حزمة إدارة العملاء، والمدير التنفيذي يقرر تشغيل الحزمة."
+        ]
+      }
+    },
+    {
+      "key": "packProjects",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "BD > Project pack",
+        "ar": "تطوير الأعمال > حزمة المشاريع"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "The PM pack: projects with their health, milestones and blocked work, and the screen for the weekly review.",
+          "Each project owner reviews their projects here every Monday; the ED reads the whole portfolio.",
+          "At the weekly review: health, milestone dates and the project's RAID log note.",
+          "Every active project with an owner gets a RAID log note, health is recalculated daily, and each owner gets a weekly review task on Monday morning.",
+          "Use Request help on a work package when you don't know what to do; Help in the sidebar has the PM pack playbook."
+        ],
+        "ar": [
+          "حزمة إدارة المشاريع: المشاريع مع صحتها ومعالمها والعمل المعطّل، وشاشة المراجعة الأسبوعية.",
+          "يراجع كل مسؤول مشروع مشاريعه هنا كل يوم اثنين، ويقرأ المدير التنفيذي المحفظة كلها.",
+          "في المراجعة الأسبوعية: الصحة ومواعيد المعالم وملاحظة سجل RAID للمشروع.",
+          "يحصل كل مشروع نشط له مسؤول على ملاحظة سجل RAID، وتُعاد حساب الصحة يومياً، ويتلقى كل مسؤول مهمة المراجعة الأسبوعية صباح الاثنين.",
+          "استخدم «طلب مساعدة» على حزمة العمل عندما لا تعرف ما تفعل؛ وفي «المساعدة» بالقائمة الجانبية دليل حزمة إدارة المشاريع."
+        ]
+      }
+    },
+    {
+      "key": "packCampaigns",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "BD > Campaign pack",
+        "ar": "تطوير الأعمال > حزمة الحملات"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "The GTM pack: go-to-market campaigns with their target lists, channel plans and the leads they bring in.",
+          "Each campaign's owner works its target list; the ED reads every campaign here.",
+          "On the campaign project: Type Go-to-market campaign, target sector, size class, offering promoted and channel plan.",
+          "The target list is built from the companies in the target sector and size class, and a target turns Lead created when a lead from it is attributed to the campaign.",
+          "Help in the sidebar has the GTM pack playbook; cost per qualified lead stays blank until finance provides campaign costs."
+        ],
+        "ar": [
+          "حزمة التسويق: الحملات التسويقية مع قوائم استهدافها وخطط قنواتها والعملاء المحتملين الذين تجلبهم.",
+          "يعمل مسؤول كل حملة على قائمة استهدافها، ويقرأ المدير التنفيذي كل الحملات هنا.",
+          "في مشروع الحملة: النوع «حملة تسويقية» والقطاع المستهدف وفئة الحجم وما تروّج له الحملة وخطة القنوات.",
+          "تُبنى قائمة الاستهداف من الشركات في القطاع وفئة الحجم المستهدفين، وتتحول الجهة المستهدفة إلى «أُنشئ عميل محتمل» عندما يُنسب منها عميل محتمل إلى الحملة.",
+          "في «المساعدة» بالقائمة الجانبية دليل حزمة التسويق؛ وتبقى تكلفة العميل المؤهل فارغة حتى توفر المالية تكاليف الحملات."
         ]
       }
     }

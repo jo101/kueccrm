@@ -180,7 +180,23 @@ Each object below has one or more views named **Hygiene: ...** at positions 15 t
 
 ### Capability
 
-No view. There is no Capability object, and technologies and equipment live in uVENTURE (`kuec/CLAUDE.md` section 5). Decision of 2026-10-15.
+Since 0.11.0 (the decision of 2026-10-15 superseded by `21-uventure-readiness.md`): a read-only pointer list the uVENTURE feed keeps. Pointers have no owner, so **Kind** stands in as the second column.
+
+| View | Layout | Filter | Sort | Columns |
+| --- | --- | --- | --- | --- |
+| All capabilities (sidebar default) | Table | | Status changed at, newest first | Name, Kind, Status changed at, Status, uVENTURE record, Last seen in uVENTURE |
+| Not available to offer | Table | Status Limited, Temporarily unavailable or Withdrawn | Status changed at, newest first | As above |
+| Not seen in uVENTURE for 7 days | Table | Stale from in the past | Last seen, oldest first | Name, Kind, Last seen in uVENTURE, Status, uVENTURE record, Stale from |
+| Everything (expert) | Table | | | Every column |
+
+### Campaign target
+
+GTM pack (0.11.0). A target has no owner of its own: **Campaign** stands in as the second column.
+
+| View | Layout | Filter | Sort | Columns |
+| --- | --- | --- | --- | --- |
+| To work | Table | Status To contact, Contacted or Responded | Last update, oldest first | Name, Campaign, Last update, Status, Company |
+| Everything (expert) | Table | | | Every column |
 
 ### Expert views
 

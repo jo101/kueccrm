@@ -14,12 +14,17 @@ import {
 } from 'src/automation/notifications/notify';
 import { type LeadRecord } from 'src/automation/records/record-types';
 import { planReferralThanks } from 'src/automation/rules/lead-referral.rule';
+import { isPackEnabled, PACK, packStandDown } from 'src/packs/pack-switch';
 
 export const L06_LEAD_REFERRAL_THANKS_UNIVERSAL_IDENTIFIER = 'c4749234-ea57-423d-a7ca-fece75c1cb5c';
 
 const handler = async (
   event: DatabaseEventPayload<ObjectRecordUpdateEvent<LeadRecord>>,
 ) => {
+  if (!isPackEnabled(PACK.CRM)) {
+    return packStandDown(PACK.CRM);
+  }
+
   const { before, after } = event.properties;
   const plan = planReferralThanks({
     lead: after,

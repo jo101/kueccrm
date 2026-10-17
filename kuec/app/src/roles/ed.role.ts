@@ -1,5 +1,7 @@
 import { defineRole, SystemPermissionFlag } from 'twenty-sdk/define';
 
+import { CAPABILITY_UNIVERSAL_IDENTIFIER } from '../objects/capability.object';
+import { READ_ONLY, withPreset } from './utils/object-permission-presets';
 import { TEAM_MEMBER_TOOL_FLAGS } from './utils/permission-flags';
 
 export const ED_ROLE_UNIVERSAL_IDENTIFIER = 'b2d2354f-fec7-4e6f-a5ed-ccef69ebed96';
@@ -36,4 +38,7 @@ export default defineRole({
     SystemPermissionFlag.EXPORT_CSV,
     ...TEAM_MEMBER_TOOL_FLAGS,
   ],
+  // Capability pointers belong to the uVENTURE feed; a correction is made in
+  // uVENTURE (runbooks/21-uventure-readiness.md section 4).
+  objectPermissions: withPreset([CAPABILITY_UNIVERSAL_IDENTIFIER], READ_ONLY),
 });

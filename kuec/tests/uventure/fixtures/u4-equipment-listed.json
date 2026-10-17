@@ -1,0 +1,18 @@
+{
+  "delivery": {
+    "events": [
+      {
+        "eventId": "stg-u4a",
+        "type": "listing.changed",
+        "occurredAt": "{{now}}",
+        "data": {
+          "id": "STG-EQ-0003",
+          "kind": "EQUIPMENT",
+          "title": "Staging: scanning electron microscope",
+          "url": "https://uventure-staging.kuec.example/equipment/STG-EQ-0003",
+          "status": "AVAILABLE"
+        }
+      }
+    ]
+  }
+}

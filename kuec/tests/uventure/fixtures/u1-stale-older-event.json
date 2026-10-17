@@ -1,0 +1,17 @@
+{
+  "delivery": {
+    "events": [
+      {
+        "eventId": "stg-u1s",
+        "type": "technology.updated",
+        "occurredAt": "2020-01-01T00:00:00Z",
+        "data": {
+          "id": "STG-TECH-0042",
+          "title": "Staging: an older title that must not win",
+          "url": "https://uventure-staging.kuec.example/technologies/STG-TECH-0042",
+          "status": "AVAILABLE"
+        }
+      }
+    ]
+  }
+}

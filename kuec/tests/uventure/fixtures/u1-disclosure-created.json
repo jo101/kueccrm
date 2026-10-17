@@ -1,0 +1,16 @@
+{
+  "delivery": {
+    "events": [
+      {
+        "eventId": "stg-u1d",
+        "type": "disclosure.created",
+        "occurredAt": "{{now}}",
+        "data": {
+          "id": "STG-DISC-0007",
+          "title": "Staging: corrosion sensing coating",
+          "url": "https://uventure-staging.kuec.example/disclosures/STG-DISC-0007"
+        }
+      }
+    ]
+  }
+}

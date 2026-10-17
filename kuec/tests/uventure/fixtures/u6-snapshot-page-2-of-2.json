@@ -1,0 +1,10 @@
+{
+  "delivery": {
+    "run": {
+      "runId": "{{run}}",
+      "page": 2,
+      "pageCount": 2
+    },
+    "events": []
+  }
+}

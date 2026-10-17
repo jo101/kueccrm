@@ -14,6 +14,16 @@ import { OWNER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-le
 import { OWNER_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-milestone.field';
 import { OWNER_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-project.field';
 import { OWNER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-work-package.field';
+import { CAMPAIGN_ON_CAMPAIGN_TARGET_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/campaign-on-campaign-target.field';
+import {
+  CAMPAIGN_TARGET_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+  CAMPAIGN_TARGET_UNIVERSAL_IDENTIFIER,
+} from 'src/objects/campaign-target.object';
+import {
+  CAPABILITY_KIND_FIELD_UNIVERSAL_IDENTIFIER,
+  CAPABILITY_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+  CAPABILITY_UNIVERSAL_IDENTIFIER,
+} from 'src/objects/capability.object';
 import {
   CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
   CONTRACT_UNIVERSAL_IDENTIFIER,
@@ -72,7 +82,8 @@ const VIEWS_LISTING_RETAINED_STAGES = [
 ];
 
 // People have no owner of their own, so their company stands in as the second
-// column; tasks have an assignee instead.
+// column; tasks have an assignee instead. Capabilities are uVENTURE's, so their
+// kind stands in; a campaign target is worked by its campaign's owner.
 const LEADING_COLUMNS_BY_OBJECT: Record<string, { name: string; owner: string }> = {
   [WORK_PACKAGE_UNIVERSAL_IDENTIFIER]: {
     name: WORK_PACKAGE_NAME_FIELD_UNIVERSAL_IDENTIFIER,
@@ -117,6 +128,14 @@ const LEADING_COLUMNS_BY_OBJECT: Record<string, { name: string; owner: string }>
   [DOCUMENT_UNIVERSAL_IDENTIFIER]: {
     name: DOCUMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
     owner: OWNER_ON_DOCUMENT_FIELD_UNIVERSAL_IDENTIFIER,
+  },
+  [CAPABILITY_UNIVERSAL_IDENTIFIER]: {
+    name: CAPABILITY_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    owner: CAPABILITY_KIND_FIELD_UNIVERSAL_IDENTIFIER,
+  },
+  [CAMPAIGN_TARGET_UNIVERSAL_IDENTIFIER]: {
+    name: CAMPAIGN_TARGET_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    owner: CAMPAIGN_ON_CAMPAIGN_TARGET_FIELD_UNIVERSAL_IDENTIFIER,
   },
 };
 

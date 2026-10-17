@@ -20,7 +20,9 @@ Every person holds exactly one role.
 | Leasing | `leasing.role.ts` | `dc924d87-981a-4ce0-bafc-ee1a03483f06` | people |
 | Lab access | `lab-access.role.ts` | `3c966902-6644-429c-b98e-0f92a1633a95` | people |
 | Startups and investment | `startups-and-investment.role.ts` | `4d069939-dbea-4965-a3eb-b62f7c3d7a06` | people |
+| Commercialization (0.11.0) | `commercialization.role.ts` | `d7171bd7-af0c-4aad-8350-6c8354b92841` | people |
 | Automation | `automation.role.ts` | `41f3a443-1174-463a-9586-b9fd5027cc57` | API keys only |
+| uVENTURE reader (0.11.0) | `uventure-reader.role.ts` | `23cf7a97-7e47-4866-a0b6-6761539d596d` | API keys only |
 | KUEC BD Ops function role | `default-function.role.ts` | `67077129-a376-41fb-817e-d3a9e300a864` | nobody: the app's logic functions and front components run as it |
 
 No role can be assigned to AI agents.
@@ -41,6 +43,8 @@ R read, W create and update, D delete (soft delete and destroy), `-` no access. 
 | Contract | RWD | RWD | R | R | R | R | RW | RW |
 | Lead (0.9.0) | RWD | RWD | RW | R | - | RW | RW | RW |
 | Document (0.9.0) | RWD | RWD | RW | R | - | RW | RW | RW |
+| Capability (0.11.0) | R | R | R | R | R | R | - | RW |
+| Campaign target (0.11.0) | RWD | RWD | RW | R | - | RW | - | RW |
 | Task | RWD | RWD | RW | R | - | RW | RW | RW |
 | Note | RWD | RWD | RW | R | - | RW | RW | RW |
 | Dashboard | RWD | RWD | R | RW | R | R | - | RW |
@@ -82,8 +86,14 @@ canUpdateFieldValue false for **every role except ED, Ops coordinator, Automatio
 | Lead | `sourceSystem` | `77189717-0d49-4273-a843-ecd5e8f70945` |
 | Document | `externalId` | `98ecf6a8-4e8d-42cd-8a43-1ca8359f7ed7` |
 | Document | `sourceSystem` | `f21c2369-118b-40ff-98e8-28ef10b7cf03` |
+| Capability (0.11.0) | `externalId` | `35016cc6-d1e2-4f09-9eb1-ccb26d7636f8` |
+| Capability (0.11.0) | `sourceSystem` | `9706c6de-3f91-40e2-8e00-e6f1e9a868c6` |
+| Contract (0.11.0) | `externalId` | `020f0c68-ea72-42f2-892e-a89df2e804b9` |
+| Contract (0.11.0) | `sourceSystem` | `7938447e-87fe-4bf7-b03c-4445f138bb34` |
 
-Also on the lock list, not in the data model yet: `serviceCaseId`, `version`, and `externalId` and `sourceSystem` on Company and Person (`roles/utils/field-locks.ts`, `LOCKED_FIELD_NAMES`). The first eight fields above and Lead `lastEngagementAt` are also app-stamped (`writability: APPLICATION`), so no person or API key writes them directly. `externalId` and `sourceSystem` on Lead and Document (0.9.0) are `writability: OPEN`: the app and the Automation key write them, the lock keeps everyone else out; see `runbooks/13-roles.md` section 2.
+Also on the lock list, not in the data model yet: `serviceCaseId`, `version`, and `externalId` and `sourceSystem` on Company and Person (`roles/utils/field-locks.ts`, `LOCKED_FIELD_NAMES`). The first eight fields above and Lead `lastEngagementAt` are also app-stamped (`writability: APPLICATION`), so no person or API key writes them directly. `externalId` and `sourceSystem` on Lead and Document (0.9.0), Capability and Contract (0.11.0) are `writability: OPEN`: the app and the Automation key write them, the lock keeps everyone else out; see `runbooks/13-roles.md` section 2. Capability is also read-only as an object for every role but the function role, so no person writes any of its fields (`runbooks/13-roles.md` decision 13).
+
+The **uVENTURE reader** role reads Opportunity, Lead, Engagement, Contract, Capability, Company and Person, and nothing else: task and note links, timeline, attachments and synced mail and calendar are closed (no access), it writes nothing and holds no permission flag. The Dept column covers IP office, Leasing, Lab access, Startups and investment and Commercialization.
 
 ## Settings and tools
 

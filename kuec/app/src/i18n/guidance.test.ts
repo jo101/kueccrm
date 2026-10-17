@@ -110,6 +110,7 @@ describe('guidance widgets (src/i18n/guidance.json)', () => {
         'dataQuality',
         'bdTeam',
         'bdMine',
+        'packProjects',
       ].sort(),
     );
   });

@@ -17,6 +17,7 @@ import { OBJECT_NAMES } from 'src/automation/records/object-names';
 import { type LeadRecord } from 'src/automation/records/record-types';
 import { planAutoDead } from 'src/automation/rules/lead-auto-dead.rule';
 import { LEAD_STATUS } from 'src/objects/lead.object';
+import { isPackEnabled, PACK, packStandDown } from 'src/packs/pack-switch';
 
 export const L03_LEAD_AUTO_DEAD_UNIVERSAL_IDENTIFIER = '160fd77f-9ace-4395-b234-c6aa4d07e813';
 
@@ -24,6 +25,10 @@ export const L03_LEAD_AUTO_DEAD_UNIVERSAL_IDENTIFIER = '160fd77f-9ace-4395-b234-
 // finished the next day under the same key, while a lead already Dead would
 // never be picked up again.
 const handler = async () => {
+  if (!isPackEnabled(PACK.CRM)) {
+    return packStandDown(PACK.CRM);
+  }
+
   const api = createTwentyApi();
   const now = new Date();
   const [leads, context] = await Promise.all([

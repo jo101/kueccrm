@@ -21,7 +21,9 @@ KUEC uses one set of picklists across the company: how an engagement happened, w
 | Company relationship type (`COMPANY_RELATIONSHIP_TYPE`) | Company > **Relationship type** (`relationshipType`) | Select | New field |
 | Department (`DEPARTMENT`) | Lead, Opportunity, Engagement, Project, Contract, Work package, Milestone > **Department** (`department`) | Select | New field on each; Lead and Opportunity since 0.9.0 |
 | Document type, status, confidentiality (`DOCUMENT_*`) | Document > **Type** (`kind`), **Status** (`status`), **Confidentiality** (`confidentiality`) | Select | Since 0.9.0, on the link-only Document object |
-| Capability type (`CAPABILITY_TYPE`) | none | | uVENTURE only |
+| Capability type (`CAPABILITY_TYPE`) | Capability > **Kind** (`kind`) | Select | Since 0.11.0, on the Capability pointer; option Invention disclosure added |
+| Capability status (`CAPABILITY_STATUS`) | Capability > **Status** (`status`) | Select | New list, 0.11.0: whether BD can offer it, as uVENTURE lists it |
+| Campaign channel (`CAMPAIGN_CHANNEL`) | Project > **Channel plan** (`channelPlan`) | Multi-select | New list, 0.11.0, GTM pack. Company sector and Offering also apply to Project > Target sector and Offering promoted |
 
 `type` is a reserved field name in Twenty, so the API names are `kind`, `playbookType` and `taskType`; the labels people see say Kind or Type. Every object above with a Twenty list also has **Other details** (`otherDetails`, text), new in 0.8.0: Opportunity, Company, Task, Engagement, Contract, Project, Work package, Milestone.
 
@@ -29,7 +31,7 @@ What is deliberately not in Twenty:
 
 - **Lead status and Dead reason** (0.9.0) are Twenty's own workflow lists, like Lost reason category on an opportunity: uVENTURE has no leads, so they are not in `lookups.json`. Dead reason ends with Other, which needs Other details like every list here. Their meaning: `19-leads.md` sections 1 and 4. When an engagement's outcome is **Lead created**, create a Lead (until 0.9.0 this meant an opportunity at Qualify); **Opportunity identified** means the need is already defined and an opportunity is opened directly.
 - **The document file.** Since 0.9.0 a Document record carries the type, status, confidentiality, version, expiry and the SharePoint or uVENTURE link, never the file (`kuec/CLAUDE.md` rule 4). Every confidentiality class is link-only, and the label does not restrict who sees the record. A **Purchase order or invoice** is linked for reference only, since finance is the system of record. Document takes its department from the records it is linked to.
-- **Capability.** Capabilities, technologies and equipment live in uVENTURE (rule 5). Twenty has no Capability object and will not get one.
+- **Capability.** Capabilities, technologies and equipment live in uVENTURE (rule 5). Since 0.11.0 Twenty has a Capability pointer (name, kind, status, link) that only the uVENTURE feed writes (`21-uventure-readiness.md` section 4); its Kind and Status follow `CAPABILITY_TYPE` and `CAPABILITY_STATUS`, and uVENTURE sends Other details when either is Other, so the Data quality page does not check it.
 - **Department on configuration records.** Public holiday and Playbook role assignment are configuration, not business records, and carry no department.
 
 ## 2. The rules
@@ -101,7 +103,7 @@ When: the first two weeks of January, April, July and October. Between reviews p
 3. **Approve (ED).** Approve or reject each row in writing (email or Teams), within 5 business days. The written approval is attached to the change.
 4. **Ship (engineer).** Section 7, in the next app release.
 5. **Tidy up (ops coordinator).** Move records whose Other details now match a new option to it and clear their Other details. Reclassify the records of any option deprecated in this review, as in section 5.
-6. **Tell uVENTURE (engineer).** Send the new `version` and the list of changes to the uVENTURE team.
+6. **Tell uVENTURE (engineer).** Run `node kuec/playbooks/diff-lookups.ts <last review's tag or commit>` and send its table and the new `version` to the uVENTURE administrator. uVENTURE reads the file itself from `/s/integrations/uventure/lookups` once the release is deployed and confirms within 5 business days that the `ETag` it holds equals the new `version` (`21-uventure-readiness.md` section 3).
 
 ## 7. Shipping a change (engineer)
 
@@ -119,7 +121,7 @@ A new list, or a new type that should start a playbook or a project template, is
 
 <!-- Generated from kuec/playbooks/lookups.json by kuec/playbooks/render-taxonomy.ts. Edit the JSON and re-run the script; do not edit below this line. -->
 
-lookups.json version 2026-10-17: 16 lists, 189 options, 7 of them deprecated.
+lookups.json version 2026-10-17: 18 lists, 203 options, 7 of them deprecated.
 
 ### 8.1 Engagement type (نوع التواصل)
 
@@ -225,7 +227,7 @@ Licence and Technical service start a playbook (templates.json); every other typ
 
 ### 8.5 Offering (ما تقدمه KUEC)
 
-List key `OFFERING`. Applies to `Lead.offeringInterest`, `Opportunity.offering`. In Twenty: `lead.offeringInterest` (multi-select), `opportunity.offering` (multi-select).
+List key `OFFERING`. Applies to `Lead.offeringInterest`, `Opportunity.offering`, `Project.targetOffering`. In Twenty: `lead.offeringInterest` (multi-select), `opportunity.offering` (multi-select), `project.targetOffering` (multi-select).
 
 Several can apply to one lead or opportunity, so Twenty holds it as a multi-select. A conversion copies the lead's interest into the opportunity's offering.
 
@@ -374,7 +376,7 @@ List key `TASK_TYPE`. Applies to `Task.type`. In Twenty: `task.taskType` (select
 
 ### 8.13 Company sector (قطاع الشركة)
 
-List key `COMPANY_SECTOR`. Applies to `Company.sector`. In Twenty: `company.sector` (select).
+List key `COMPANY_SECTOR`. Applies to `Company.sector`, `Project.targetSector`. In Twenty: `company.sector` (select), `project.targetSector` (select).
 
 Pending: to be replaced by the UAE industrial cluster list. These options are then deprecated, never deleted.
 
@@ -412,9 +414,9 @@ One value per company: pick the main relationship.
 
 ### 8.15 Capability type (نوع القدرة)
 
-List key `CAPABILITY_TYPE`. Applies to `Capability.type`. In Twenty: none.
+List key `CAPABILITY_TYPE`. Applies to `Capability.type`. In Twenty: `capability.kind` (select).
 
-Capabilities live in uVENTURE (kuec/CLAUDE.md rule 5); Twenty has no Capability object and never will.
+uVENTURE owns every capability record. Twenty holds a Capability pointer (name, kind, status, link) written only by the uVENTURE feed (kuec/runbooks/21-uventure-readiness.md section 4).
 
 | Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
 | --- | --- | --- | --- | --- |
@@ -426,9 +428,24 @@ Capabilities live in uVENTURE (kuec/CLAUDE.md rule 5); Twenty has no Capability 
 | `SUBSIDIARY` | Subsidiary | شركة تابعة | A KUEC subsidiary and its services; pick it when a subsidiary delivers the capability. | شركة تابعة لـ KUEC وخدماتها؛ اختره عندما تقدم شركة تابعة القدرة. |
 | `TECHNOLOGY` | Technology | تقنية | A KU invention or technology available to license or develop; pick it for capabilities based on IP. | اختراع أو تقنية من جامعة خليفة متاحة للترخيص أو التطوير؛ اختره للقدرات القائمة على الملكية الفكرية. |
 | `SPACE` | Space | مساحة | Office, lab or industrial space available to lease; pick it for leasable space. | مساحة مكتبية أو مخبرية أو صناعية متاحة للتأجير؛ اختره للمساحات القابلة للتأجير. |
+| `INVENTION_DISCLOSURE` | Invention disclosure | إفصاح عن اختراع | An invention reported to the IP office and not yet assessed or protected; pick it until uVENTURE turns the disclosure into a technology. | اختراع أُبلغ عنه مكتب الملكية الفكرية ولم يُقيَّم أو يُحمَ بعد؛ اختره إلى أن يحوّل uVENTURE الإفصاح إلى تقنية. |
 | `OTHER` | Other | أخرى | Nothing above fits; say what it is in the required note (Other details in Twenty). | لا ينطبق أي خيار أعلاه؛ اذكر ما هو في الملاحظة الإلزامية (حقل «تفاصيل أخرى» في Twenty). |
 
-### 8.16 Department (الإدارة)
+### 8.16 Capability status (حالة القدرة)
+
+List key `CAPABILITY_STATUS`. Applies to `Capability.status`. In Twenty: `capability.status` (select).
+
+Whether BD can offer the capability today, as its uVENTURE listing says. Set by uVENTURE only; the technology's own lifecycle (TRL, patents, licences) stays in uVENTURE.
+
+| Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
+| --- | --- | --- | --- | --- |
+| `AVAILABLE` | Available to offer | متاحة للعرض | Listed in uVENTURE and open to new clients; pick it when BD can offer it now. | مدرجة في uVENTURE ومفتوحة لعملاء جدد؛ اخترها عندما يمكن لفريق تطوير الأعمال عرضها الآن. |
+| `LIMITED` | Limited availability | متاحة بشكل محدود | Listed but booked up, partly licensed or restricted to some uses; pick it when an offer needs a check with the owner first. | مدرجة لكنها محجوزة أو مرخصة جزئياً أو مقيدة ببعض الاستخدامات؛ اخترها عندما يحتاج العرض إلى مراجعة المسؤول أولاً. |
+| `UNAVAILABLE` | Temporarily unavailable | غير متاحة مؤقتاً | Out of service, under maintenance or paused for now; pick it when it will come back. | خارج الخدمة أو قيد الصيانة أو موقوفة حالياً؛ اخترها عندما يُتوقع أن تعود. |
+| `WITHDRAWN` | Withdrawn | مسحوبة | No longer offered, for example exclusively licensed, sold or retired; pick it when it will not come back. | لم تعد معروضة، مثل ترخيصها حصرياً أو بيعها أو إخراجها من الخدمة؛ اخترها عندما لن تعود. |
+| `OTHER` | Other | أخرى | Nothing above fits; say what it is in the required note (Other details in Twenty). | لا ينطبق أي خيار أعلاه؛ اذكر ما هو في الملاحظة الإلزامية (حقل «تفاصيل أخرى» في Twenty). |
+
+### 8.17 Department (الإدارة)
 
 List key `DEPARTMENT`. Applies to `Lead.department`, `Opportunity.department`, `Engagement.department`, `Project.department`, `Contract.department`, `WorkPackage.department`, `Milestone.department`. In Twenty: `lead.department` (select), `opportunity.department` (select), `engagement.department` (select), `project.department` (select), `contract.department` (select), `workPackage.department` (select), `milestone.department` (select).
 
@@ -442,4 +459,21 @@ On every case-carrying business object. Document takes its department from the r
 | `LEASING` | Leasing | التأجير | The team that leases office, lab and industrial space; pick it for space deals. | الفريق الذي يؤجّر المساحات المكتبية والمخبرية والصناعية؛ اختره لصفقات المساحات. |
 | `LAB_ACCESS` | Lab access | الوصول إلى المختبرات | The team that books Khalifa University labs and equipment for outside users; pick it for lab and equipment access. | الفريق الذي يحجز مختبرات جامعة خليفة ومعداتها للمستخدمين من الخارج؛ اختره للوصول إلى المختبرات والمعدات. |
 | `STARTUPS_AND_INVESTMENT` | Startups and investment | الشركات الناشئة والاستثمار | The team that supports and invests in startups; pick it for portfolio and spinout work. | الفريق الذي يدعم الشركات الناشئة ويستثمر فيها؛ اختره لأعمال المحفظة والشركات المنبثقة. |
+| `OTHER` | Other | أخرى | Nothing above fits; say what it is in the required note (Other details in Twenty). | لا ينطبق أي خيار أعلاه؛ اذكر ما هو في الملاحظة الإلزامية (حقل «تفاصيل أخرى» في Twenty). |
+
+### 8.18 Campaign channel (قناة الحملة)
+
+List key `CAMPAIGN_CHANNEL`. Applies to `Project.channelPlan`. In Twenty: `project.channelPlan` (multi-select).
+
+The channels a go-to-market campaign plans to use. Several can apply, so Twenty holds it as a multi-select on the campaign project.
+
+| Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
+| --- | --- | --- | --- | --- |
+| `EMAIL_SEQUENCE` | Email sequence | سلسلة رسائل بريد إلكتروني | Planned emails to the target list, sent from Apollo or Outlook; pick it for outbound email. | رسائل بريد مخططة إلى قائمة الاستهداف تُرسل من Apollo أو Outlook؛ اخترها للبريد الصادر. |
+| `LINKEDIN` | LinkedIn | لينكدإن | Posts, messages or adverts on LinkedIn; pick it when LinkedIn carries part of the campaign. | منشورات أو رسائل أو إعلانات على لينكدإن؛ اخترها عندما يحمل لينكدإن جزءاً من الحملة. |
+| `EVENT_OR_EXHIBITION` | Event or exhibition | فعالية أو معرض | A stand, talk or gala where targets meet KUEC; pick it for events KUEC attends or hosts. | جناح أو كلمة أو حفل يلتقي فيه المستهدفون بـ KUEC؛ اخترها للفعاليات التي تحضرها KUEC أو تستضيفها. |
+| `WORKSHOP` | Workshop | ورشة عمل | A workshop run for the target sector; pick it when the campaign includes a workshop project. | ورشة عمل تُعقد للقطاع المستهدف؛ اخترها عندما تتضمن الحملة مشروع ورشة عمل. |
+| `WEBSITE` | Website | الموقع الإلكتروني | A page or form on the KUEC or uVENTURE website; pick it when sign-ups come through the website. | صفحة أو نموذج على موقع KUEC أو uVENTURE؛ اخترها عندما تصل التسجيلات عبر الموقع. |
+| `DIRECT_VISIT` | Direct visit | زيارة مباشرة | Visits or calls by BD staff to named targets; pick it for account-by-account outreach. | زيارات أو اتصالات يجريها فريق تطوير الأعمال مع جهات مستهدفة بعينها؛ اخترها للتواصل حساباً بحساب. |
+| `PARTNER_REFERRAL` | Partner referral | إحالة من شريك | Partners, offset managers or associations introduce KUEC to targets; pick it when a third party opens the door. | يعرّف شركاء أو مديرو برامج المبادلة أو جمعيات المستهدفين بـ KUEC؛ اخترها عندما يفتح طرف ثالث الباب. |
 | `OTHER` | Other | أخرى | Nothing above fits; say what it is in the required note (Other details in Twenty). | لا ينطبق أي خيار أعلاه؛ اذكر ما هو في الملاحظة الإلزامية (حقل «تفاصيل أخرى» في Twenty). |

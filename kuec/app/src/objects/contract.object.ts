@@ -27,6 +27,10 @@ export const CONTRACT_STATUS = {
   TERMINATED: 'TERMINATED',
 } as const;
 
+export const CONTRACT_SOURCE_SYSTEM = {
+  UVENTURE: 'UVENTURE',
+} as const;
+
 export const CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER = '5a1bd926-3d31-4e7b-bb69-9a67ec830ba6';
 export const CONTRACT_KIND_FIELD_UNIVERSAL_IDENTIFIER = 'b99b5d8f-cea5-4647-a8ae-22fcca037545';
 export const CONTRACT_STATUS_FIELD_UNIVERSAL_IDENTIFIER = '7f4502ab-5493-4b76-b0bc-797792aa49fd';
@@ -36,6 +40,9 @@ export const CONTRACT_VALUE_FIELD_UNIVERSAL_IDENTIFIER = '9378d767-b8f4-4555-a22
 export const CONTRACT_SHAREPOINT_FOLDER_FIELD_UNIVERSAL_IDENTIFIER = '90c8581b-2644-4bdc-9fe2-874b3d334058';
 export const CONTRACT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER = '64b57543-9069-458c-b583-9190619a8d14';
 export const CONTRACT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER = '58e0e677-440d-442e-8115-9e9b938cd461';
+export const CONTRACT_UVENTURE_RECORD_FIELD_UNIVERSAL_IDENTIFIER = '51095540-5f73-4edb-9024-ffa9d9fbbac0';
+export const CONTRACT_EXTERNAL_ID_FIELD_UNIVERSAL_IDENTIFIER = '020f0c68-ea72-42f2-892e-a89df2e804b9';
+export const CONTRACT_SOURCE_SYSTEM_FIELD_UNIVERSAL_IDENTIFIER = '7938447e-87fe-4bf7-b03c-4445f138bb34';
 
 // Metadata only: the executed document lives on SharePoint, never in Twenty.
 export default defineObject({
@@ -154,6 +161,37 @@ export default defineObject({
       label: 'Other details',
       description: fieldDescription('contract.otherDetails'),
       icon: 'IconNotes',
+    },
+    {
+      universalIdentifier: CONTRACT_UVENTURE_RECORD_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.LINKS,
+      name: 'uventureRecord',
+      label: 'uVENTURE record',
+      description: fieldDescription('contract.uventureRecord'),
+      icon: 'IconLink',
+    },
+    // An agreement signed in uVENTURE arrives through the uVENTURE feed keyed on
+    // these (runbooks/21-uventure-readiness.md section 4). OPEN so the app can
+    // write them, locked for people in roles/utils/field-locks.ts.
+    {
+      universalIdentifier: CONTRACT_EXTERNAL_ID_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.TEXT,
+      name: 'externalId',
+      label: 'External id',
+      description: fieldDescription('contract.externalId'),
+      icon: 'IconId',
+      isUnique: true,
+    },
+    {
+      universalIdentifier: CONTRACT_SOURCE_SYSTEM_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.SELECT,
+      name: 'sourceSystem',
+      label: 'Source system',
+      description: fieldDescription('contract.sourceSystem'),
+      icon: 'IconDatabaseImport',
+      options: [
+        { id: 'ed325e3f-ece8-451b-bbf2-66619adbd02a', value: CONTRACT_SOURCE_SYSTEM.UVENTURE, label: 'uVENTURE', position: 0, color: 'purple' },
+      ],
     },
   ],
 });

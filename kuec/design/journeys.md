@@ -1086,7 +1086,7 @@ Define the technical work the client needs.
 Due Thursday 30 Oct. Offered by Sara's case.
 
 Open it:
-https://crm.kuec.example/object/workPackage/3f1c...
+https://crm.uventure.kuec.example/object/workPackage/3f1c...
 ```
 
 - Line 1 is the existing 20-word message, unchanged, so Task, email and Teams still agree word for word. Up to three fact lines follow (objective or reason, due label, who it comes from). The link is alone on the last line so every mail app makes it one tap.

@@ -1129,6 +1129,178 @@
           }
         }
       ]
+    },
+    {
+      "field": "capability.sourceSystem",
+      "name": {
+        "en": "Capability source system",
+        "ar": "النظام المصدر للقدرة"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "UVENTURE",
+          "label": {
+            "en": "uVENTURE",
+            "ar": "uVENTURE"
+          },
+          "description": {
+            "en": "Created and kept current by the uVENTURE feed.",
+            "ar": "أنشأها ربط uVENTURE الآلي ويبقيها محدَّثة."
+          }
+        }
+      ]
+    },
+    {
+      "field": "contract.sourceSystem",
+      "name": {
+        "en": "Contract source system",
+        "ar": "النظام المصدر للعقد"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "UVENTURE",
+          "label": {
+            "en": "uVENTURE",
+            "ar": "uVENTURE"
+          },
+          "description": {
+            "en": "Created or adopted by the uVENTURE feed when the agreement was signed there, so uVENTURE owns its key fields.",
+            "ar": "أنشأه ربط uVENTURE الآلي أو تبنّاه عند توقيع الاتفاقية هناك، لذا يملك uVENTURE حقوله الرئيسية."
+          }
+        }
+      ]
+    },
+    {
+      "field": "project.targetSizeClass",
+      "name": {
+        "en": "Target size class",
+        "ar": "فئة الحجم المستهدفة"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "STARTUP",
+          "label": {
+            "en": "Startup",
+            "ar": "شركة ناشئة"
+          },
+          "description": {
+            "en": "A young company still building its product or its market.",
+            "ar": "شركة حديثة ما زالت تبني منتجها أو سوقها."
+          }
+        },
+        {
+          "value": "SME",
+          "label": {
+            "en": "Small or medium business",
+            "ar": "شركة صغيرة أو متوسطة"
+          },
+          "description": {
+            "en": "An established business that is not a large enterprise.",
+            "ar": "شركة قائمة ليست مؤسسة كبيرة."
+          }
+        },
+        {
+          "value": "LARGE_ENTERPRISE",
+          "label": {
+            "en": "Large enterprise",
+            "ar": "مؤسسة كبيرة"
+          },
+          "description": {
+            "en": "A large company or group, often with its own research and development.",
+            "ar": "شركة أو مجموعة كبيرة، كثيراً ما يكون لديها بحث وتطوير خاص بها."
+          }
+        },
+        {
+          "value": "GOVERNMENT",
+          "label": {
+            "en": "Government or semi-government",
+            "ar": "جهة حكومية أو شبه حكومية"
+          },
+          "description": {
+            "en": "A ministry, an authority or a government-owned company.",
+            "ar": "وزارة أو هيئة أو شركة مملوكة للحكومة."
+          }
+        }
+      ]
+    },
+    {
+      "field": "campaignTarget.status",
+      "name": {
+        "en": "Campaign target status",
+        "ar": "حالة الجهة المستهدفة في الحملة"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "TO_CONTACT",
+          "label": {
+            "en": "To contact",
+            "ar": "للتواصل"
+          },
+          "description": {
+            "en": "On the target list and not yet contacted.",
+            "ar": "ضمن قائمة الاستهداف ولم يُتواصل معها بعد."
+          }
+        },
+        {
+          "value": "CONTACTED",
+          "label": {
+            "en": "Contacted",
+            "ar": "تم التواصل"
+          },
+          "description": {
+            "en": "Reached through at least one campaign channel, with no answer yet.",
+            "ar": "وصلتها الحملة عبر قناة واحدة على الأقل دون رد حتى الآن."
+          }
+        },
+        {
+          "value": "RESPONDED",
+          "label": {
+            "en": "Responded",
+            "ar": "استجابت"
+          },
+          "description": {
+            "en": "Answered or met the team, but no lead yet.",
+            "ar": "ردّت أو التقت الفريق، لكن دون عميل محتمل بعد."
+          }
+        },
+        {
+          "value": "LEAD_CREATED",
+          "label": {
+            "en": "Lead created",
+            "ar": "أُنشئ عميل محتمل"
+          },
+          "description": {
+            "en": "A lead from this company is attributed to the campaign; the app sets it.",
+            "ar": "يوجد عميل محتمل من هذه الشركة منسوب إلى الحملة؛ ويضبطه التطبيق."
+          }
+        },
+        {
+          "value": "NOT_INTERESTED",
+          "label": {
+            "en": "Not interested",
+            "ar": "غير مهتمة"
+          },
+          "description": {
+            "en": "Said no to this campaign; leave it for the next one.",
+            "ar": "رفضت هذه الحملة؛ اتركها للحملة القادمة."
+          }
+        },
+        {
+          "value": "DO_NOT_CONTACT",
+          "label": {
+            "en": "Do not contact",
+            "ar": "لا يُتواصل معها"
+          },
+          "description": {
+            "en": "Must not be contacted, for example at the account owner's request.",
+            "ar": "يجب عدم التواصل معها، مثلاً بطلب من مسؤول الحساب."
+          }
+        }
+      ]
     }
   ]
 }

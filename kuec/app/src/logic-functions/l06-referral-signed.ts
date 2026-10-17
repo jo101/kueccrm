@@ -13,12 +13,17 @@ import {
   type OpportunityRecord,
 } from 'src/automation/records/record-types';
 import { OPPORTUNITY_STAGE } from 'src/constants/opportunity-stage';
+import { isPackEnabled, PACK, packStandDown } from 'src/packs/pack-switch';
 
 export const L06_REFERRAL_SIGNED_UNIVERSAL_IDENTIFIER = '0c4c6cb4-9feb-49ec-9e18-58d83f0e38d8';
 
 const handler = async (
   event: DatabaseEventPayload<ObjectRecordUpdateEvent<OpportunityRecord>>,
 ) => {
+  if (!isPackEnabled(PACK.CRM)) {
+    return packStandDown(PACK.CRM);
+  }
+
   const { before, after } = event.properties;
 
   if (after.stage !== OPPORTUNITY_STAGE.SIGNED || before.stage === OPPORTUNITY_STAGE.SIGNED) {

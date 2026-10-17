@@ -10,6 +10,7 @@ import { beforeAll, describe, expect, it } from 'vitest';
 
 import { loadDefaultExports } from 'src/__tests__/utils/load-default-exports';
 import { CURRENT_WORKSPACE_MEMBER_FILTER_VALUE } from 'src/constants/view-filter-values';
+import { CAMPAIGN_ON_CAMPAIGN_TARGET_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/campaign-on-campaign-target.field';
 import { OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-contract.field';
 import { OWNER_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-engagement.field';
 import { OWNER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-lead.field';
@@ -24,6 +25,9 @@ import executiveTab, {
 } from 'src/page-layout-tabs/bd-executive.page-layout-tab';
 import mineTab from 'src/page-layout-tabs/bd-mine.page-layout-tab';
 import teamTab from 'src/page-layout-tabs/bd-team.page-layout-tab';
+import packCampaignsTab from 'src/page-layout-tabs/pack-campaigns.page-layout-tab';
+import packPipelineTab from 'src/page-layout-tabs/pack-pipeline.page-layout-tab';
+import packProjectsTab from 'src/page-layout-tabs/pack-projects.page-layout-tab';
 import {
   chartFilterFromView,
   GUIDANCE_ROW_SPAN,
@@ -50,9 +54,18 @@ const SECOND_COLUMN_OWNER_FIELDS = [
   OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER,
   OWNER_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.company.fields.accountOwner.universalIdentifier,
+  // a campaign target is worked by its campaign's owner
+  CAMPAIGN_ON_CAMPAIGN_TARGET_FIELD_UNIVERSAL_IDENTIFIER,
 ];
 
-const TABS: TabDefinition[] = [executiveTab, teamTab, mineTab];
+const TABS: TabDefinition[] = [
+  executiveTab,
+  teamTab,
+  mineTab,
+  packPipelineTab,
+  packProjectsTab,
+  packCampaignsTab,
+];
 
 const gridOf = (widget: PageLayoutWidgetManifest) => {
   const position = widget.position;

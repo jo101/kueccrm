@@ -1047,7 +1047,8 @@
       },
       "appliesTo": [
         "Lead.offeringInterest",
-        "Opportunity.offering"
+        "Opportunity.offering",
+        "Project.targetOffering"
       ],
       "twentyFields": [
         {
@@ -1058,6 +1059,11 @@
         {
           "object": "opportunity",
           "field": "offering",
+          "type": "MULTI_SELECT"
+        },
+        {
+          "object": "project",
+          "field": "targetOffering",
           "type": "MULTI_SELECT"
         }
       ],
@@ -2298,12 +2304,18 @@
         "ar": "قطاع الشركة"
       },
       "appliesTo": [
-        "Company.sector"
+        "Company.sector",
+        "Project.targetSector"
       ],
       "twentyFields": [
         {
           "object": "company",
           "field": "sector",
+          "type": "SELECT"
+        },
+        {
+          "object": "project",
+          "field": "targetSector",
           "type": "SELECT"
         }
       ],
@@ -2600,8 +2612,14 @@
       "appliesTo": [
         "Capability.type"
       ],
-      "twentyFields": [],
-      "note": "Capabilities live in uVENTURE (kuec/CLAUDE.md rule 5); Twenty has no Capability object and never will.",
+      "twentyFields": [
+        {
+          "object": "capability",
+          "field": "kind",
+          "type": "SELECT"
+        }
+      ],
+      "note": "uVENTURE owns every capability record. Twenty holds a Capability pointer (name, kind, status, link) written only by the uVENTURE feed (kuec/runbooks/21-uventure-readiness.md section 4).",
       "options": [
         {
           "value": "LAB",
@@ -2704,6 +2722,104 @@
           "description": {
             "en": "Office, lab or industrial space available to lease; pick it for leasable space.",
             "ar": "مساحة مكتبية أو مخبرية أو صناعية متاحة للتأجير؛ اختره للمساحات القابلة للتأجير."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "INVENTION_DISCLOSURE",
+          "status": "active",
+          "label": {
+            "en": "Invention disclosure",
+            "ar": "إفصاح عن اختراع"
+          },
+          "description": {
+            "en": "An invention reported to the IP office and not yet assessed or protected; pick it until uVENTURE turns the disclosure into a technology.",
+            "ar": "اختراع أُبلغ عنه مكتب الملكية الفكرية ولم يُقيَّم أو يُحمَ بعد؛ اختره إلى أن يحوّل uVENTURE الإفصاح إلى تقنية."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "OTHER",
+          "status": "active",
+          "label": {
+            "en": "Other",
+            "ar": "أخرى"
+          },
+          "description": {
+            "en": "Nothing above fits; say what it is in the required note (Other details in Twenty).",
+            "ar": "لا ينطبق أي خيار أعلاه؛ اذكر ما هو في الملاحظة الإلزامية (حقل «تفاصيل أخرى» في Twenty)."
+          },
+          "requiresNote": true
+        }
+      ]
+    },
+    {
+      "key": "CAPABILITY_STATUS",
+      "name": {
+        "en": "Capability status",
+        "ar": "حالة القدرة"
+      },
+      "appliesTo": [
+        "Capability.status"
+      ],
+      "twentyFields": [
+        {
+          "object": "capability",
+          "field": "status",
+          "type": "SELECT"
+        }
+      ],
+      "note": "Whether BD can offer the capability today, as its uVENTURE listing says. Set by uVENTURE only; the technology's own lifecycle (TRL, patents, licences) stays in uVENTURE.",
+      "options": [
+        {
+          "value": "AVAILABLE",
+          "status": "active",
+          "label": {
+            "en": "Available to offer",
+            "ar": "متاحة للعرض"
+          },
+          "description": {
+            "en": "Listed in uVENTURE and open to new clients; pick it when BD can offer it now.",
+            "ar": "مدرجة في uVENTURE ومفتوحة لعملاء جدد؛ اخترها عندما يمكن لفريق تطوير الأعمال عرضها الآن."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "LIMITED",
+          "status": "active",
+          "label": {
+            "en": "Limited availability",
+            "ar": "متاحة بشكل محدود"
+          },
+          "description": {
+            "en": "Listed but booked up, partly licensed or restricted to some uses; pick it when an offer needs a check with the owner first.",
+            "ar": "مدرجة لكنها محجوزة أو مرخصة جزئياً أو مقيدة ببعض الاستخدامات؛ اخترها عندما يحتاج العرض إلى مراجعة المسؤول أولاً."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "UNAVAILABLE",
+          "status": "active",
+          "label": {
+            "en": "Temporarily unavailable",
+            "ar": "غير متاحة مؤقتاً"
+          },
+          "description": {
+            "en": "Out of service, under maintenance or paused for now; pick it when it will come back.",
+            "ar": "خارج الخدمة أو قيد الصيانة أو موقوفة حالياً؛ اخترها عندما يُتوقع أن تعود."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "WITHDRAWN",
+          "status": "active",
+          "label": {
+            "en": "Withdrawn",
+            "ar": "مسحوبة"
+          },
+          "description": {
+            "en": "No longer offered, for example exclusively licensed, sold or retired; pick it when it will not come back.",
+            "ar": "لم تعد معروضة، مثل ترخيصها حصرياً أو بيعها أو إخراجها من الخدمة؛ اخترها عندما لن تعود."
           },
           "requiresNote": false
         },
@@ -2851,6 +2967,130 @@
           "description": {
             "en": "The team that supports and invests in startups; pick it for portfolio and spinout work.",
             "ar": "الفريق الذي يدعم الشركات الناشئة ويستثمر فيها؛ اختره لأعمال المحفظة والشركات المنبثقة."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "OTHER",
+          "status": "active",
+          "label": {
+            "en": "Other",
+            "ar": "أخرى"
+          },
+          "description": {
+            "en": "Nothing above fits; say what it is in the required note (Other details in Twenty).",
+            "ar": "لا ينطبق أي خيار أعلاه؛ اذكر ما هو في الملاحظة الإلزامية (حقل «تفاصيل أخرى» في Twenty)."
+          },
+          "requiresNote": true
+        }
+      ]
+    },
+    {
+      "key": "CAMPAIGN_CHANNEL",
+      "name": {
+        "en": "Campaign channel",
+        "ar": "قناة الحملة"
+      },
+      "appliesTo": [
+        "Project.channelPlan"
+      ],
+      "twentyFields": [
+        {
+          "object": "project",
+          "field": "channelPlan",
+          "type": "MULTI_SELECT"
+        }
+      ],
+      "note": "The channels a go-to-market campaign plans to use. Several can apply, so Twenty holds it as a multi-select on the campaign project.",
+      "options": [
+        {
+          "value": "EMAIL_SEQUENCE",
+          "status": "active",
+          "label": {
+            "en": "Email sequence",
+            "ar": "سلسلة رسائل بريد إلكتروني"
+          },
+          "description": {
+            "en": "Planned emails to the target list, sent from Apollo or Outlook; pick it for outbound email.",
+            "ar": "رسائل بريد مخططة إلى قائمة الاستهداف تُرسل من Apollo أو Outlook؛ اخترها للبريد الصادر."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "LINKEDIN",
+          "status": "active",
+          "label": {
+            "en": "LinkedIn",
+            "ar": "لينكدإن"
+          },
+          "description": {
+            "en": "Posts, messages or adverts on LinkedIn; pick it when LinkedIn carries part of the campaign.",
+            "ar": "منشورات أو رسائل أو إعلانات على لينكدإن؛ اخترها عندما يحمل لينكدإن جزءاً من الحملة."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "EVENT_OR_EXHIBITION",
+          "status": "active",
+          "label": {
+            "en": "Event or exhibition",
+            "ar": "فعالية أو معرض"
+          },
+          "description": {
+            "en": "A stand, talk or gala where targets meet KUEC; pick it for events KUEC attends or hosts.",
+            "ar": "جناح أو كلمة أو حفل يلتقي فيه المستهدفون بـ KUEC؛ اخترها للفعاليات التي تحضرها KUEC أو تستضيفها."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "WORKSHOP",
+          "status": "active",
+          "label": {
+            "en": "Workshop",
+            "ar": "ورشة عمل"
+          },
+          "description": {
+            "en": "A workshop run for the target sector; pick it when the campaign includes a workshop project.",
+            "ar": "ورشة عمل تُعقد للقطاع المستهدف؛ اخترها عندما تتضمن الحملة مشروع ورشة عمل."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "WEBSITE",
+          "status": "active",
+          "label": {
+            "en": "Website",
+            "ar": "الموقع الإلكتروني"
+          },
+          "description": {
+            "en": "A page or form on the KUEC or uVENTURE website; pick it when sign-ups come through the website.",
+            "ar": "صفحة أو نموذج على موقع KUEC أو uVENTURE؛ اخترها عندما تصل التسجيلات عبر الموقع."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "DIRECT_VISIT",
+          "status": "active",
+          "label": {
+            "en": "Direct visit",
+            "ar": "زيارة مباشرة"
+          },
+          "description": {
+            "en": "Visits or calls by BD staff to named targets; pick it for account-by-account outreach.",
+            "ar": "زيارات أو اتصالات يجريها فريق تطوير الأعمال مع جهات مستهدفة بعينها؛ اخترها للتواصل حساباً بحساب."
+          },
+          "requiresNote": false
+        },
+        {
+          "value": "PARTNER_REFERRAL",
+          "status": "active",
+          "label": {
+            "en": "Partner referral",
+            "ar": "إحالة من شريك"
+          },
+          "description": {
+            "en": "Partners, offset managers or associations introduce KUEC to targets; pick it when a third party opens the door.",
+            "ar": "يعرّف شركاء أو مديرو برامج المبادلة أو جمعيات المستهدفين بـ KUEC؛ اخترها عندما يفتح طرف ثالث الباب."
           },
           "requiresNote": false
         },

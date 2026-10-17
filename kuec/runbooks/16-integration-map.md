@@ -2,6 +2,8 @@
 
 Written against Twenty 2.48.0 and `kuec-bd-ops` 0.7.0. Owner: the engineering lead. Decisions: the ED. Readers: engineers, the ops coordinator, the ED, KUEC IT.
 
+**Since 0.11.0 (2026-10-17):** gate G1 is lifted and the uVENTURE contracts are built. The contracts as they run, their field mappings, retry rules and staging tests are in `21-uventure-readiness.md` section 4, which supersedes sections 3.2 to 3.6 here where they differ: the Capability pointer also carries a status, challenges become Leads and signed agreements become Contracts (instead of a Task), and Twenty tells uVENTURE about signed licences, IP licence conversions and technology engagements.
+
 Every system Twenty exchanges data with, in which direction, who owns the exchange, how often, which fields and keyed on what. Sections 3 to 10 specify each one. Section 11 lists what today's configuration would have to change under each future scenario and proposes the changes that are cheap now.
 
 This is a spec. It builds nothing and changes no configuration. Every item marked "proposed" needs the ED's yes and then goes through the normal release: additive manifest change, new UUIDs from `uuidgen`, `npx twenty plan` read (`kuec/CLAUDE.md` section 2), runbooks updated in the same change.
@@ -33,7 +35,7 @@ Contents
 
 | # | This spec | `kuec/CLAUDE.md` today | Until the rule changes |
 | --- | --- | --- | --- |
-| G1 | Section 3: a Capability pointer object and a nightly uVENTURE to Twenty sync | Section 5: "Twenty never has objects for them and never copies their attributes ... No sync, no import of uVENTURE data." Also the decision of 2026-10-15 in `05-views.md` (no Capability object) | Nothing in sections 3.2 to 3.4 is built. The uVENTURE link field (3.1) is allowed now and required by section 5 |
+| G1 | Section 3: a Capability pointer object and a nightly uVENTURE to Twenty sync | **Lifted 2026-10-17.** Section 5 now allows the pointer and the signed feeds | Built in 0.11.0: `21-uventure-readiness.md` |
 | G2 | Section 7: a separate execution service | Section 6: "no separate execution service, in either phase" | Only the reserved names exist (`version`, `serviceCaseId`, in the lock list). No fields, no contract |
 | G3 | Section 9: Twenty's agents and tools | Section 6: "No AI features (agents, AI fields, AI chat)" | Everything AI stays off (9.1) |
 | G4 | Section 8: additional workspaces | Section 3: additional workspaces are an Organization-plan feature; design nothing that depends on them | One workspace; departments are a value on the record |
@@ -114,7 +116,7 @@ Every inbound route in `kuec-bd-ops` follows this contract.
 
 | Item | Rule |
 | --- | --- |
-| URL | `POST https://crm.kuec.example/s/integrations/<system>/<feed>`. 2.48 serves app routes on `/s/` while `PUBLIC_DOMAIN_URL` and `LOGIC_FUNCTION_LEGACY_ROUTE_CUTOFF` are unset, the self-hosting default. Recheck both at every upgrade (`01-deploy.md` section 12) |
+| URL | `POST https://crm.uventure.kuec.example/s/integrations/<system>/<feed>`. 2.48 serves app routes on `/s/` while `PUBLIC_DOMAIN_URL` and `LOGIC_FUNCTION_LEGACY_ROUTE_CUTOFF` are unset, the self-hosting default. Recheck both at every upgrade (`01-deploy.md` section 12) |
 | Trigger | `httpRouteTriggerSettings: { path, httpMethod: 'POST', isAuthRequired: false, forwardedRequestHeaders: ['x-kuec-timestamp', 'x-kuec-signature', 'x-kuec-delivery'] }`. The signature is the authentication. On the workspace host only the listed headers reach the function |
 | Signature | `x-kuec-signature: v1=<hex HMAC-SHA256(secret, timestamp + "." + rawBody)>`, `x-kuec-timestamp` in Unix seconds. Computed over `event.rawBody` (2.48 passes the raw request body to route functions), never over a re-serialised `event.body` |
 | Checks, in order | Both headers present; timestamp within 300 seconds of now; signature compared with `crypto.timingSafeEqual` on equal-length buffers, against the current secret and then the previous one (rotation). Any failure: 401 with no detail, nothing logged but the delivery id and the reason code |
@@ -123,7 +125,7 @@ Every inbound route in `kuec-bd-ops` follows this contract.
 | Secrets | App variables, `isSecret: true`: `<SYSTEM>_SIGNING_SECRET` and `<SYSTEM>_SIGNING_SECRET_PREVIOUS`. In the secrets manager under `twenty/<env>/`. Rotated quarterly with the API key (`13-roles.md` section 6): set the new one, move the old one to PREVIOUS, tell the sender, clear PREVIOUS a week later |
 | Sender duties | Retries on 5xx and network errors with backoff for 24 hours; never on 4xx. Keeps 7 days of deliveries and can replay everything since a given time (used after a restore, section 10) |
 | Logs | Delivery id, feed, counts, outcome. Never the body, never the signature |
-| Network | The sender's address reaches `crm.kuec.example:443`. Inbound is open from the KUEC network and VPN (`it-request.md` item 3); a sender outside it needs its own inbound rule |
+| Network | The sender's address reaches `crm.uventure.kuec.example:443`. Inbound is open from the KUEC network and VPN (`it-request.md` item 3); a sender outside it needs its own inbound rule |
 | Tests | Unit tests for the signature check with a fixed clock: valid, wrong secret, previous secret, stale timestamp, missing header, body changed by one byte |
 
 ### 2.5 Never delete, never pause silently

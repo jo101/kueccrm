@@ -150,6 +150,56 @@ export const notifyMembers = async ({
   return recipientIds;
 };
 
+// For a notice about the system rather than a record, such as a feed that has
+// gone quiet: a Task with no record attached, and the email.
+export const notifyMemberAboutSystem = async ({
+  api,
+  memberId,
+  message,
+  details,
+  taskTitle,
+  dedupeKey,
+  now,
+}: {
+  api: TwentyApi;
+  memberId: string | null;
+  message: string;
+  details?: string;
+  taskTitle: string;
+  dedupeKey: string;
+  now: Date;
+}): Promise<void> => {
+  const body = isDefined(details) ? `${message}\n\n${details}` : message;
+
+  if (!isDefined(memberId)) {
+    console.warn(`notification ${dedupeKey} has no recipient: ${message}`);
+
+    return;
+  }
+
+  await runOnce(`notify:${dedupeKey}:${memberId}:task`, async () => {
+    await createRecord<TaskRecord>(api.asApplication, OBJECT_NAMES.task, {
+      title: taskTitle,
+      assigneeId: memberId,
+      status: 'TODO',
+      dueAt: dueAtOnDate(toDubaiDateString(now)).toISOString(),
+      bodyV2: { markdown: body },
+    });
+  });
+
+  const [member] = await listRecords<WorkspaceMemberRecord>(
+    api.asApplication,
+    OBJECT_NAMES.workspaceMember,
+    `id[eq]:"${memberId}"`,
+  );
+
+  await runOnce(`notify:${dedupeKey}:${memberId}:email`, async () =>
+    isDefined(member?.userEmail) && member.userEmail !== ''
+      ? sendEmail({ to: member.userEmail, subject: taskTitle, text: body })
+      : 'SKIPPED',
+  );
+};
+
 export const postToTeamsOnce = async ({
   dedupeKey,
   line,

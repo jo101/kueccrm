@@ -1,6 +1,34 @@
 {
   "about": "What every custom field of kuec-bd-ops means, in English and Arabic: one sentence on what to put and when. Field files read their English description from here; scripts/sync-locales.mjs writes the Arabic into locales/ar-SA.json. Rules: kuec/runbooks/20-guidance.md.",
   "objects": {
+    "campaignTarget": {
+      "labelSingular": {
+        "en": "Campaign target",
+        "ar": "جهة مستهدفة في حملة"
+      },
+      "labelPlural": {
+        "en": "Campaign targets",
+        "ar": "الجهات المستهدفة في الحملات"
+      },
+      "description": {
+        "en": "One company on a go-to-market campaign's target list, with where the campaign stands with it.",
+        "ar": "شركة واحدة ضمن قائمة استهداف حملة تسويقية، مع موقف الحملة منها."
+      }
+    },
+    "capability": {
+      "labelSingular": {
+        "en": "Capability",
+        "ar": "قدرة"
+      },
+      "labelPlural": {
+        "en": "Capabilities",
+        "ar": "القدرات"
+      },
+      "description": {
+        "en": "A pointer to a technology, invention disclosure, lab or item of equipment whose record lives in uVENTURE, kept current by the uVENTURE feed.",
+        "ar": "مؤشر إلى تقنية أو إفصاح عن اختراع أو مختبر أو معدات يوجد سجلها في uVENTURE، ويبقيه ربط uVENTURE الآلي محدَّثاً."
+      }
+    },
     "contract": {
       "labelSingular": {
         "en": "Contract",
@@ -129,6 +157,176 @@
     }
   },
   "fields": {
+    "campaignTarget.campaign": {
+      "label": {
+        "en": "Campaign",
+        "ar": "الحملة"
+      },
+      "description": {
+        "en": "The go-to-market campaign project whose target list this company is on.",
+        "ar": "مشروع الحملة التسويقية الذي تقع هذه الشركة ضمن قائمة استهدافه."
+      }
+    },
+    "campaignTarget.company": {
+      "label": {
+        "en": "Company",
+        "ar": "الشركة"
+      },
+      "description": {
+        "en": "The company to reach in this campaign.",
+        "ar": "الشركة المطلوب الوصول إليها في هذه الحملة."
+      }
+    },
+    "campaignTarget.name": {
+      "label": {
+        "en": "Name",
+        "ar": "الاسم"
+      },
+      "description": {
+        "en": "The company's name, set by the app when it adds the company to the list.",
+        "ar": "اسم الشركة، يضبطه التطبيق عندما يضيف الشركة إلى القائمة."
+      }
+    },
+    "campaignTarget.status": {
+      "label": {
+        "en": "Status",
+        "ar": "الحالة"
+      },
+      "description": {
+        "en": "Where the campaign stands with this company; move it on after each contact, and the app sets Lead created.",
+        "ar": "موقف الحملة من هذه الشركة؛ حدّثه بعد كل تواصل، ويضبط التطبيق «أُنشئ عميل محتمل»."
+      }
+    },
+    "capability.contracts": {
+      "label": {
+        "en": "Contracts",
+        "ar": "العقود"
+      },
+      "description": {
+        "en": "Every contract, such as a licence, that covers this capability.",
+        "ar": "كل العقود، مثل الترخيص، التي تغطي هذه القدرة."
+      }
+    },
+    "capability.engagements": {
+      "label": {
+        "en": "Engagements",
+        "ar": "التواصلات"
+      },
+      "description": {
+        "en": "Every engagement where this capability was presented or discussed.",
+        "ar": "كل التواصلات التي عُرضت فيها هذه القدرة أو نوقشت."
+      }
+    },
+    "capability.externalId": {
+      "label": {
+        "en": "External id",
+        "ar": "المعرّف الخارجي"
+      },
+      "description": {
+        "en": "Filled by the uVENTURE feed with the record's uVENTURE id, such as uventure:TECH-0042; people never type it.",
+        "ar": "يملؤه ربط uVENTURE الآلي بمعرّف السجل في uVENTURE، مثل uventure:TECH-0042؛ ولا يكتبه أحد بيده."
+      }
+    },
+    "capability.kind": {
+      "label": {
+        "en": "Kind",
+        "ar": "النوع"
+      },
+      "description": {
+        "en": "What the capability is, such as a technology, a lab or an item of equipment, as uVENTURE classifies it.",
+        "ar": "نوع القدرة، مثل تقنية أو مختبر أو معدات، كما يصنفها uVENTURE."
+      }
+    },
+    "capability.lastSeenInUventureAt": {
+      "label": {
+        "en": "Last seen in uVENTURE",
+        "ar": "آخر ظهور في uVENTURE"
+      },
+      "description": {
+        "en": "When the nightly uVENTURE snapshot last listed this record; more than 7 days ago means uVENTURE no longer lists it.",
+        "ar": "آخر مرة أدرجت فيها لقطة uVENTURE الليلية هذا السجل؛ ومرور أكثر من 7 أيام يعني أن uVENTURE لم يعد يدرجه."
+      }
+    },
+    "capability.name": {
+      "label": {
+        "en": "Name",
+        "ar": "الاسم"
+      },
+      "description": {
+        "en": "The title the record has in uVENTURE, copied by the uVENTURE feed; change it in uVENTURE, never here.",
+        "ar": "العنوان الذي يحمله السجل في uVENTURE، ينسخه ربط uVENTURE الآلي؛ غيّره في uVENTURE لا هنا."
+      }
+    },
+    "capability.opportunities": {
+      "label": {
+        "en": "Opportunities",
+        "ar": "الفرص"
+      },
+      "description": {
+        "en": "Every case that offers or licenses this capability.",
+        "ar": "كل الحالات التي تعرض هذه القدرة أو ترخّصها."
+      }
+    },
+    "capability.otherDetails": {
+      "label": {
+        "en": "Other details",
+        "ar": "تفاصيل أخرى"
+      },
+      "description": {
+        "en": "What Other means for this record, sent by uVENTURE when Kind or Status is Other.",
+        "ar": "ما تعنيه «أخرى» لهذا السجل، يرسله uVENTURE عندما يكون النوع أو الحالة «أخرى»."
+      }
+    },
+    "capability.sourceSystem": {
+      "label": {
+        "en": "Source system",
+        "ar": "النظام المصدر"
+      },
+      "description": {
+        "en": "Always uVENTURE: the system that owns this record.",
+        "ar": "دائماً uVENTURE: النظام الذي يملك هذا السجل."
+      }
+    },
+    "capability.staleFrom": {
+      "label": {
+        "en": "Stale from",
+        "ar": "راكدة منذ"
+      },
+      "description": {
+        "en": "Seven days after Last seen in uVENTURE, set by the app; once it is past, uVENTURE no longer lists the record and its cases need a check.",
+        "ar": "بعد سبعة أيام من «آخر ظهور في uVENTURE»، يضبطه التطبيق؛ وبعد مروره لم يعد uVENTURE يدرج السجل وتحتاج حالاته إلى مراجعة."
+      }
+    },
+    "capability.status": {
+      "label": {
+        "en": "Status",
+        "ar": "الحالة"
+      },
+      "description": {
+        "en": "Whether BD can offer it today, from its uVENTURE listing; check it before you promise it to a client.",
+        "ar": "هل يمكن لفريق تطوير الأعمال عرضها اليوم، وفق إدراجها في uVENTURE؛ تحقق منها قبل أن تعد بها عميلاً."
+      }
+    },
+    "capability.statusChangedAt": {
+      "label": {
+        "en": "Status changed at",
+        "ar": "تاريخ تغيّر الحالة"
+      },
+      "description": {
+        "en": "When the uVENTURE feed last changed the status; the app sets it.",
+        "ar": "آخر مرة غيّر فيها ربط uVENTURE الآلي الحالة؛ ويضبطه التطبيق."
+      }
+    },
+    "capability.uventureRecord": {
+      "label": {
+        "en": "uVENTURE record",
+        "ar": "سجل uVENTURE"
+      },
+      "description": {
+        "en": "The record's page in uVENTURE, where its details, owners and documents are.",
+        "ar": "صفحة السجل في uVENTURE، حيث تفاصيله ومسؤولوه ووثائقه."
+      }
+    },
     "company.accountTier": {
       "label": {
         "en": "Account tier",
@@ -137,6 +335,16 @@
       "description": {
         "en": "Pick how much attention this account gets: Tier 1 for the few strategic accounts, Tier 2 for active ones, Tier 3 to watch.",
         "ar": "اختر مقدار الاهتمام الذي يستحقه هذا الحساب: الفئة 1 للحسابات الاستراتيجية القليلة، والفئة 2 للحسابات النشطة، والفئة 3 للمتابعة."
+      }
+    },
+    "company.campaignTargets": {
+      "label": {
+        "en": "Campaign targets",
+        "ar": "الجهات المستهدفة"
+      },
+      "description": {
+        "en": "Every go-to-market campaign that has this company on its target list.",
+        "ar": "كل حملة تسويقية تضع هذه الشركة ضمن قائمة استهدافها."
       }
     },
     "company.contracts": {
@@ -279,6 +487,16 @@
         "ar": "اختر نوع الجهة: شركة ناشئة، أو شركة صغيرة أو متوسطة، أو مؤسسة كبيرة، أو جهة حكومية."
       }
     },
+    "contract.capability": {
+      "label": {
+        "en": "Capability",
+        "ar": "القدرة"
+      },
+      "description": {
+        "en": "The technology or other capability the agreement covers, set by the uVENTURE feed for a licence.",
+        "ar": "التقنية أو القدرة الأخرى التي تغطيها الاتفاقية، ويضبطها ربط uVENTURE الآلي للترخيص."
+      }
+    },
     "contract.counterparty": {
       "label": {
         "en": "Counterparty",
@@ -317,6 +535,16 @@
       "description": {
         "en": "The date the contract ends, taken from the signed copy; the dashboard lists it 90 days before.",
         "ar": "تاريخ انتهاء العقد كما في النسخة الموقَّعة؛ وتعرضه لوحة المتابعة قبل 90 يوماً من حلوله."
+      }
+    },
+    "contract.externalId": {
+      "label": {
+        "en": "External id",
+        "ar": "المعرّف الخارجي"
+      },
+      "description": {
+        "en": "Filled by the uVENTURE feed with the agreement's uVENTURE id, such as uventure:AGR-0042; people never type it.",
+        "ar": "يملؤه ربط uVENTURE الآلي بمعرّف الاتفاقية في uVENTURE، مثل uventure:AGR-0042؛ ولا يكتبه أحد بيده."
       }
     },
     "contract.kind": {
@@ -389,6 +617,16 @@
         "ar": "التاريخ الذي وقّع فيه الطرفان، ويُعبّأ عندما تصبح الحالة Signed."
       }
     },
+    "contract.sourceSystem": {
+      "label": {
+        "en": "Source system",
+        "ar": "النظام المصدر"
+      },
+      "description": {
+        "en": "uVENTURE when the agreement came from uVENTURE, whose feed then owns its kind, status, dates and value; empty when a person or the app made it.",
+        "ar": "uVENTURE عندما جاءت الاتفاقية من uVENTURE، فيملك ربطه الآلي نوعها وحالتها وتواريخها وقيمتها؛ وفارغ عندما أنشأها شخص أو التطبيق."
+      }
+    },
     "contract.status": {
       "label": {
         "en": "Status",
@@ -397,6 +635,16 @@
       "description": {
         "en": "Where the contract stands; set it to Signed, with the signed date, once both sides have signed.",
         "ar": "أين وصل العقد؛ اجعلها Signed مع تاريخ التوقيع بعد أن يوقّع الطرفان."
+      }
+    },
+    "contract.uventureRecord": {
+      "label": {
+        "en": "uVENTURE record",
+        "ar": "سجل uVENTURE"
+      },
+      "description": {
+        "en": "The agreement's page in uVENTURE when it was signed there, such as a licence; the uVENTURE feed fills it.",
+        "ar": "صفحة الاتفاقية في uVENTURE عندما وُقّعت هناك، مثل الترخيص؛ ويملؤه ربط uVENTURE الآلي."
       }
     },
     "contract.value": {
@@ -577,6 +825,16 @@
       "description": {
         "en": "The version as written on the file, such as v3 or Final, updated whenever a new version is saved.",
         "ar": "الإصدار كما هو مكتوب على الملف، مثل v3 أو Final، ويُحدَّث كلما حُفظ إصدار جديد."
+      }
+    },
+    "engagement.capability": {
+      "label": {
+        "en": "Capability",
+        "ar": "القدرة"
+      },
+      "description": {
+        "en": "The technology or other uVENTURE capability presented or discussed, if any; uVENTURE is told about engagements on a technology.",
+        "ar": "التقنية أو القدرة الأخرى من uVENTURE التي عُرضت أو نوقشت، إن وجدت؛ ويُبلَّغ uVENTURE بالتواصلات المتعلقة بتقنية."
       }
     },
     "engagement.company": {
@@ -1109,6 +1367,16 @@
         "ar": "ضع علامة بعد أن يحددوا تاريخاً أو فترة يحتاجونه خلالها."
       }
     },
+    "lead.uventureRecord": {
+      "label": {
+        "en": "uVENTURE record",
+        "ar": "سجل uVENTURE"
+      },
+      "description": {
+        "en": "The challenge's page in uVENTURE when the lead came from a uVENTURE challenge; the uVENTURE feed fills it.",
+        "ar": "صفحة التحدي في uVENTURE عندما يأتي العميل المحتمل من تحدٍّ في uVENTURE؛ ويملؤه ربط uVENTURE الآلي."
+      }
+    },
     "milestone.department": {
       "label": {
         "en": "Department",
@@ -1197,6 +1465,16 @@
       "description": {
         "en": "The work packages that must be done to reach this milestone.",
         "ar": "حزم العمل التي يجب إنجازها لبلوغ هذه المرحلة."
+      }
+    },
+    "opportunity.capability": {
+      "label": {
+        "en": "Capability",
+        "ar": "القدرة"
+      },
+      "description": {
+        "en": "The technology, lab, equipment or other uVENTURE capability this case offers; pick it from the list the uVENTURE feed keeps.",
+        "ar": "التقنية أو المختبر أو المعدات أو القدرة الأخرى من uVENTURE التي تعرضها هذه الحالة؛ اخترها من القائمة التي يبقيها ربط uVENTURE."
       }
     },
     "opportunity.clientDeadline": {
@@ -1449,6 +1727,16 @@
         "ar": "يضبطه النظام على 30 يوماً بعد آخر تغيير للمرحلة؛ وبعدها تُعدّ الفرصة راكدة."
       }
     },
+    "opportunity.uventureRecord": {
+      "label": {
+        "en": "uVENTURE record",
+        "ar": "سجل uVENTURE"
+      },
+      "description": {
+        "en": "Paste the link to the uVENTURE record this case is about, such as the technology or the challenge, when the case opens.",
+        "ar": "الصق رابط سجل uVENTURE الذي تخصه هذه الحالة، مثل التقنية أو التحدي، عند فتح الحالة."
+      }
+    },
     "opportunity.workPackages": {
       "label": {
         "en": "Work packages",
@@ -1567,6 +1855,26 @@
       "description": {
         "en": "The leads that came from this campaign or workshop, which name this project as their campaign.",
         "ar": "العملاء المحتملون الذين جاؤوا من هذه الحملة أو الورشة، ويذكرون هذا المشروع حملةً لهم."
+      }
+    },
+    "project.campaignTargets": {
+      "label": {
+        "en": "Campaign targets",
+        "ar": "الجهات المستهدفة"
+      },
+      "description": {
+        "en": "The companies on this campaign's target list, built by the app from the target sector and size class.",
+        "ar": "الشركات ضمن قائمة استهداف هذه الحملة، يبنيها التطبيق من القطاع وفئة الحجم المستهدفين."
+      }
+    },
+    "project.channelPlan": {
+      "label": {
+        "en": "Channel plan",
+        "ar": "خطة القنوات"
+      },
+      "description": {
+        "en": "For a go-to-market campaign, every channel it plans to use.",
+        "ar": "للحملة التسويقية، كل قناة تخطط لاستخدامها."
       }
     },
     "project.closeTaskCreatedAt": {
@@ -1727,6 +2035,36 @@
       "description": {
         "en": "Where the project stands; set On hold when it pauses and Done when the owner closes it.",
         "ar": "أين وصل المشروع؛ اجعلها On hold عند التوقف و Done عندما يغلقه المسؤول."
+      }
+    },
+    "project.targetOffering": {
+      "label": {
+        "en": "Offering promoted",
+        "ar": "ما تروّج له الحملة"
+      },
+      "description": {
+        "en": "For a go-to-market campaign, what KUEC offers the targets.",
+        "ar": "للحملة التسويقية، ما تعرضه KUEC على الجهات المستهدفة."
+      }
+    },
+    "project.targetSector": {
+      "label": {
+        "en": "Target sector",
+        "ar": "القطاع المستهدف"
+      },
+      "description": {
+        "en": "For a go-to-market campaign, the sector to target; the target list is built from companies in it.",
+        "ar": "للحملة التسويقية، القطاع المستهدف؛ وتُبنى قائمة الاستهداف من الشركات العاملة فيه."
+      }
+    },
+    "project.targetSizeClass": {
+      "label": {
+        "en": "Target size class",
+        "ar": "فئة الحجم المستهدفة"
+      },
+      "description": {
+        "en": "For a go-to-market campaign, the company size to target; empty means every size in the sector.",
+        "ar": "للحملة التسويقية، حجم الشركات المستهدفة؛ والفراغ يعني كل الأحجام في القطاع."
       }
     },
     "project.workPackages": {

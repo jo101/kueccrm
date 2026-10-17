@@ -23,7 +23,7 @@
    - **Ops coordinator**: the ops coordinator.
    - **BD officer**: the BD staff.
    - **Engineer**: the engineers.
-   - **IP office**, **Leasing**, **Lab access**, **Startups and investment**: the members of that department.
+   - **IP office**, **Leasing**, **Lab access**, **Startups and investment**, **Commercialization** (0.11.0): the members of that department. Each person holds the same role in uVENTURE (`config/roles/uventure-role-map.json`).
    - **Leadership viewer**: nobody until the ED decides.
    - The `bd-ops` service member (`connect-bd-ops-mailbox.md`): **BD officer**. It connects its mailbox and is never used to work in the CRM.
 8. The invitee signs up with **Continue with Microsoft** using the invited address. Then follow `runbooks/13-roles.md` section 7.

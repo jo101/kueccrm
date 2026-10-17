@@ -64,7 +64,7 @@ const findCompany = async (
   );
 };
 
-const findOrCreateCompany = async (
+export const findOrCreateCompany = async (
   api: TwentyApi,
   company: IntakeLeadPlan['company'],
 ): Promise<string | null> => {
@@ -155,20 +155,19 @@ export type IntakeOutcome = { leadId: string; created: boolean };
 
 // Keyed on externalId: a submission that already has a lead is left as it is,
 // so a resent delivery or a retried job creates nothing twice.
-export const recordIntakeLead = async ({
+export const recordPlannedLead = async ({
   api,
-  form,
-  submission,
+  plan,
+  campaignId,
   context,
   now,
 }: {
   api: TwentyApi;
-  form: IntakeForm;
-  submission: IntakeSubmission;
+  plan: IntakeLeadPlan;
+  campaignId: string | null;
   context: AutomationContext;
   now: Date;
 }): Promise<IntakeOutcome> => {
-  const plan = planIntakeLead(form, submission);
   const [existing] = await listRecords<LeadRecord>(
     api.asApplication,
     OBJECT_NAMES.lead,
@@ -185,12 +184,11 @@ export const recordIntakeLead = async ({
 
   const companyId = await findOrCreateCompany(api, plan.company);
   const personId = await findOrCreatePerson(api, plan.person, companyId);
-  const campaignId = await findCampaign(api, submission.campaignId);
   const lead = await createRecord<LeadRecord>(api.asApplication, OBJECT_NAMES.lead, {
     ...plan.lead,
     companyId,
     personId,
-    campaignId,
+    campaignId: await findCampaign(api, campaignId),
   });
 
   // Created by the app, so no update event fires L1: triage it here.
@@ -198,3 +196,24 @@ export const recordIntakeLead = async ({
 
   return { leadId: lead.id, created: true };
 };
+
+export const recordIntakeLead = async ({
+  api,
+  form,
+  submission,
+  context,
+  now,
+}: {
+  api: TwentyApi;
+  form: IntakeForm;
+  submission: IntakeSubmission;
+  context: AutomationContext;
+  now: Date;
+}): Promise<IntakeOutcome> =>
+  recordPlannedLead({
+    api,
+    plan: planIntakeLead(form, submission),
+    campaignId: submission.campaignId,
+    context,
+    now,
+  });

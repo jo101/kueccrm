@@ -12,6 +12,13 @@ export const CRM_BASE_URL_VARIABLE = 'CRM_BASE_URL';
 export const LEAD_ED_VALUE_THRESHOLD_VARIABLE = 'LEAD_ED_VALUE_THRESHOLD';
 export const FORMS_SIGNING_SECRET_VARIABLE = 'FORMS_SIGNING_SECRET';
 export const FORMS_SIGNING_SECRET_PREVIOUS_VARIABLE = 'FORMS_SIGNING_SECRET_PREVIOUS';
+export const UVENTURE_SIGNING_SECRET_VARIABLE = 'UVENTURE_SIGNING_SECRET';
+export const UVENTURE_SIGNING_SECRET_PREVIOUS_VARIABLE = 'UVENTURE_SIGNING_SECRET_PREVIOUS';
+export const UVENTURE_WEBHOOK_URL_VARIABLE = 'UVENTURE_WEBHOOK_URL';
+export const UVENTURE_OUTBOUND_SIGNING_SECRET_VARIABLE = 'UVENTURE_OUTBOUND_SIGNING_SECRET';
+export const CRM_PACK_ENABLED_VARIABLE = 'CRM_PACK_ENABLED';
+export const PM_PACK_ENABLED_VARIABLE = 'PM_PACK_ENABLED';
+export const GTM_PACK_ENABLED_VARIABLE = 'GTM_PACK_ENABLED';
 
 export default defineApplication({
   universalIdentifier: APPLICATION_UNIVERSAL_IDENTIFIER,
@@ -23,7 +30,7 @@ export default defineApplication({
       universalIdentifier: '62e4d839-fdf0-4933-a0e8-0793c633a8f1',
       label: 'CRM base URL',
       description:
-        'Public URL of this Twenty instance, used to build record links in notifications, e.g. https://crm.kuec.example',
+        'Public URL of this Twenty instance, used to build record links in notifications, e.g. https://crm.uventure.kuec.example',
       type: FieldType.TEXT,
       isSecret: false,
       isRequired: true,
@@ -103,6 +110,69 @@ export default defineApplication({
       type: FieldType.TEXT,
       isSecret: true,
       isRequired: false,
+    },
+    [UVENTURE_SIGNING_SECRET_VARIABLE]: {
+      universalIdentifier: '53ad5d18-2913-4bb2-a05d-94ee88613cb4',
+      label: 'uVENTURE signing secret',
+      description:
+        'Shared secret uVENTURE signs each delivery to the uVENTURE route with (HMAC-SHA256). Empty: the route answers 503 and nothing comes in.',
+      type: FieldType.TEXT,
+      isSecret: true,
+      isRequired: false,
+    },
+    [UVENTURE_SIGNING_SECRET_PREVIOUS_VARIABLE]: {
+      universalIdentifier: '1dff3502-7ca7-48cd-9867-48ef5f5162f4',
+      label: 'uVENTURE signing secret (previous)',
+      description:
+        'The uVENTURE secret before the last rotation, still accepted for a week so uVENTURE can switch over',
+      type: FieldType.TEXT,
+      isSecret: true,
+      isRequired: false,
+    },
+    [UVENTURE_WEBHOOK_URL_VARIABLE]: {
+      universalIdentifier: 'b8b18a77-63a4-495a-86a6-8594fc1d43ac',
+      label: 'uVENTURE webhook URL',
+      description:
+        'Where Twenty sends signed licence, conversion and engagement events, e.g. https://uventure.kuec.example/integrations/crm/events. Empty: nothing is sent and uVENTURE relies on its nightly read.',
+      type: FieldType.TEXT,
+      isSecret: false,
+      isRequired: false,
+    },
+    [UVENTURE_OUTBOUND_SIGNING_SECRET_VARIABLE]: {
+      universalIdentifier: 'c8be831f-dda1-4548-ae4f-0acfe073c072',
+      label: 'uVENTURE outbound signing secret',
+      description:
+        'Secret Twenty signs each event it sends to uVENTURE with (HMAC-SHA256); a different secret from the inbound one',
+      type: FieldType.TEXT,
+      isSecret: true,
+      isRequired: false,
+    },
+    [CRM_PACK_ENABLED_VARIABLE]: {
+      universalIdentifier: '647f1768-8691-43d1-923e-b84ddd2c774e',
+      label: 'CRM pack on',
+      description:
+        'Lead contact times, auto-closing quiet leads, referral credit and stage exit checks. Off: those automations stand down; views and tabs stay.',
+      type: FieldType.BOOLEAN,
+      isSecret: false,
+      value: true,
+    },
+    [PM_PACK_ENABLED_VARIABLE]: {
+      universalIdentifier: '24b0e64c-db47-4ba7-a0b5-8dd6e2d3e58c',
+      label: 'PM pack on',
+      description:
+        'RAID log note on each new project and the Monday weekly review task. Off: those automations stand down; views and tabs stay.',
+      type: FieldType.BOOLEAN,
+      isSecret: false,
+      value: true,
+    },
+    [GTM_PACK_ENABLED_VARIABLE]: {
+      universalIdentifier: 'c057e6d5-e541-4f07-bad5-888f590b907e',
+      label: 'GTM pack on',
+      description:
+        'Campaign target lists built from the registry and target status kept in step with campaign leads. Off: that automation stands down; views and tabs stay.',
+      type: FieldType.BOOLEAN,
+      isSecret: false,
+      value: true,
     },
   },
 });

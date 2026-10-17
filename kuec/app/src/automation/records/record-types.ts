@@ -12,6 +12,8 @@ import {
   type ProjectHealth,
   type ProjectType,
 } from 'src/objects/project.object';
+import { type CapabilityState } from 'src/automation/uventure/plan-uventure-records';
+import { type CampaignTargetStatus } from 'src/objects/campaign-target.object';
 
 export type WorkPackageRecord = TimerWorkPackage & {
   name: string | null;
@@ -98,6 +100,23 @@ export type ContractRecord = {
   id: string;
   kind: ContractRecordKind | null;
   opportunityId: string | null;
+  externalId?: string | null;
+  counterpartyId?: string | null;
+  capabilityId?: string | null;
+  ownerId?: string | null;
+};
+
+export type CapabilityRecord = CapabilityState & {
+  externalId: string | null;
+  lastSeenInUventureAt: string | null;
+};
+
+export type CampaignTargetRecord = {
+  id: string;
+  name: string | null;
+  status: CampaignTargetStatus;
+  campaignId: string | null;
+  companyId: string | null;
 };
 
 export type WorkspaceMemberRecord = {

@@ -203,9 +203,10 @@ Order (`kuec/app/src/constants/sidebar-positions.ts`, test `src/navigation-menu-
 | 9 | Contracts | Contracts > Expiring | app |
 | 10 | Capabilities | not built: no Capability object | |
 | | Milestones | Milestones > Open | app |
+| | Data quality | Data quality page: one count and one table per exception view (`14-hygiene.md`) | app, since 0.7.0 |
 | | Tasks | Tasks | Twenty (kept: every alert is a Task) |
 
-Home and Exceptions stay above the agreed list: Home is the first entry, and the first entry is everyone's landing page after sign-in. To make Pipeline the landing page instead, move HOME and EXCEPTIONS below MILESTONES in `sidebar-positions.ts` (and update the order test).
+Home and Exceptions stay above the agreed list: Home is the first entry, and the first entry is everyone's landing page after sign-in. To make Pipeline the landing page instead, move HOME and EXCEPTIONS below MILESTONES in `sidebar-positions.ts` (and update the order test). Data quality sits last among the app entries: the ops coordinator runs it on Mondays, and nobody else needs it daily.
 
 Twenty seeds its own entries at positions 0 to 6 and sorts by position only, so every app entry sits below 0. Twenty's entries for Companies, People, Opportunities, Notes, Dashboards and Workflows are removed in Edit navigation (`sidebar.md`). Removing an entry changes nothing else: the objects stay active, searchable and reachable by URL. None is deleted (2.48 cannot delete a standard object) or deactivated (Tasks and Notes are in daily use, and nothing is gained by switching the others off).
 

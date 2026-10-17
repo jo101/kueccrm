@@ -13,6 +13,7 @@ import { LAST_ENGAGEMENT_AT_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fie
 import { NAME_ARABIC_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/name-arabic-on-company.field';
 import { PROJECTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/projects-on-company.field';
 import { SECTOR_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/sector-on-company.field';
+import { SIZE_CLASS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/size-class-on-company.field';
 
 export const COMPANIES_EVERYTHING_VIEW_UNIVERSAL_IDENTIFIER = '342fbf6c-41df-4e98-8346-2589c4560fb1';
 
@@ -44,6 +45,7 @@ export default defineView({
     { universalIdentifier: 'a98015fa-7765-4f1f-9de0-d09b6d133f8a', fieldMetadataUniversalIdentifier: NAME_ARABIC_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, position: 14, isVisible: true, size: 220 },
     { universalIdentifier: '53bd05bb-a985-4d50-9461-c74a0425ad37', fieldMetadataUniversalIdentifier: KEYWORDS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, position: 15, isVisible: true, size: 220 },
     { universalIdentifier: '49c8f620-d3ca-4f30-95d2-cafc590165e9', fieldMetadataUniversalIdentifier: PROJECTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, position: 16, isVisible: true, size: 170 },
+    { universalIdentifier: '57b34af7-064f-4c95-a4d3-622a7ae4d2a0', fieldMetadataUniversalIdentifier: SIZE_CLASS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, position: 17, isVisible: true, size: 160 },
   ],
   sorts: [
     {

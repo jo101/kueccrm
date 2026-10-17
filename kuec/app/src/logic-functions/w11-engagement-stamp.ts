@@ -11,7 +11,11 @@ import {
   updateRecord,
 } from 'src/automation/api/twenty-api';
 import { OBJECT_NAMES } from 'src/automation/records/object-names';
-import { computeEngagementLapsesAt } from 'src/automation/rules/age-thresholds.rule';
+import {
+  computeEngagementLapsesAt,
+  computeOutcomeDueAt,
+  isSameInstant,
+} from 'src/automation/rules/age-thresholds.rule';
 import {
   type CompanyRecord,
   type EngagementRecord,
@@ -35,6 +39,14 @@ const handler = async (
   }
 
   const result: Record<string, string> = {};
+  const outcomeDueAt = computeOutcomeDueAt(engagement.date);
+
+  if (!isSameInstant(engagement.outcomeDueAt, outcomeDueAt)) {
+    await updateRecord(api.asApplication, OBJECT_NAMES.engagement, engagement.id, {
+      outcomeDueAt,
+    });
+    result.outcomeDueAt = outcomeDueAt ?? 'cleared';
+  }
 
   if (isDefined(engagement.date) && isDefined(engagement.companyId)) {
     const company = await getRecord<CompanyRecord>(
@@ -81,7 +93,7 @@ export default defineLogicFunction({
   universalIdentifier: W11_ENGAGEMENT_STAMP_UNIVERSAL_IDENTIFIER,
   name: 'w11-engagement-stamp',
   description:
-    "W11: an engagement's date becomes the company's last engagement; its next step becomes the linked opportunity's next action",
+    "W11: an engagement's date sets its outcomeDueAt and becomes the company's last engagement; its next step becomes the linked opportunity's next action",
   timeoutSeconds: 60,
   handler,
   databaseEventTriggerSettings: {

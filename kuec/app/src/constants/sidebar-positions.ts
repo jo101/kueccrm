@@ -15,4 +15,5 @@ export const SIDEBAR_POSITION = {
   ENGAGEMENTS: -12,
   CONTRACTS: -11,
   MILESTONES: -10,
+  DATA_QUALITY: -9,
 } as const;

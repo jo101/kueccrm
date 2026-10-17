@@ -56,6 +56,7 @@ describe('sidebar', () => {
       'Engagements',
       'Contracts',
       'Milestones',
+      'Data quality',
     ]);
   });
 

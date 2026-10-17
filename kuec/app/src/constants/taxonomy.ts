@@ -9,6 +9,3 @@ export const DEPARTMENT = {
   STARTUPS_AND_INVESTMENT: 'STARTUPS_AND_INVESTMENT',
   OTHER: 'OTHER',
 } as const;
-
-export const OTHER_DETAILS_FIELD_DESCRIPTION =
-  'Required when any list on this record is set to Other: say what it is';

@@ -1,8 +1,6 @@
 import { defineObject, FieldType } from 'twenty-sdk/define';
-import {
-  DEPARTMENT,
-  OTHER_DETAILS_FIELD_DESCRIPTION,
-} from '../constants/taxonomy';
+import { DEPARTMENT } from '../constants/taxonomy';
+import { fieldDescription, objectDescription } from '../i18n/field-guidance';
 
 export const CONTRACT_UNIVERSAL_IDENTIFIER = '2772a608-8b9f-4b96-bf3c-d0e6c963ccff';
 
@@ -46,7 +44,7 @@ export default defineObject({
   namePlural: 'contracts',
   labelSingular: 'Contract',
   labelPlural: 'Contracts',
-  description: 'Contract metadata: counterparty, kind, status, key dates, value, owner',
+  description: objectDescription('contract'),
   icon: 'IconFileCertificate',
   labelIdentifierFieldMetadataUniversalIdentifier:
     CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
@@ -56,6 +54,7 @@ export default defineObject({
       type: FieldType.TEXT,
       name: 'name',
       label: 'Name',
+      description: fieldDescription('contract.name'),
       icon: 'IconAbc',
     },
     {
@@ -63,17 +62,17 @@ export default defineObject({
       type: FieldType.SELECT,
       name: 'kind',
       label: 'Kind',
-      description: 'What sort of agreement it is',
+      description: fieldDescription('contract.kind'),
       icon: 'IconCategory',
       // 2026-10-17: Option and Service deprecated for the KUEC taxonomy
       // (runbooks/18-taxonomy.md); kept so existing contracts keep their value.
       options: [
-        { id: 'd8f29e96-2b84-42b3-957e-c4d98b056a40', value: CONTRACT_KIND.NDA, label: 'NDA', position: 0, color: 'gray' },
-        { id: 'cef7b051-cece-496b-94e8-76ab5ee23904', value: CONTRACT_KIND.MOU, label: 'MoU', position: 1, color: 'orange' },
-        { id: '98a150ad-3e4b-414c-80ba-22c070b5fdce', value: CONTRACT_KIND.MSA, label: 'MSA', position: 2, color: 'turquoise' },
+        { id: 'd8f29e96-2b84-42b3-957e-c4d98b056a40', value: CONTRACT_KIND.NDA, label: 'Non-disclosure agreement', position: 0, color: 'gray' },
+        { id: 'cef7b051-cece-496b-94e8-76ab5ee23904', value: CONTRACT_KIND.MOU, label: 'Memorandum of understanding', position: 1, color: 'orange' },
+        { id: '98a150ad-3e4b-414c-80ba-22c070b5fdce', value: CONTRACT_KIND.MSA, label: 'Master services agreement', position: 2, color: 'turquoise' },
         { id: '99bb4bb4-ae56-4149-a233-5caea773e45c', value: CONTRACT_KIND.LICENCE, label: 'Licence', position: 3, color: 'purple' },
-        { id: 'a3da7347-e123-46f1-9601-ecee3aec9b6f', value: CONTRACT_KIND.TSA, label: 'TSA', position: 4, color: 'pink' },
-        { id: '766fbd67-fc9b-4df1-ba0d-be0005b448a0', value: CONTRACT_KIND.JDA, label: 'JDA', position: 5, color: 'sky' },
+        { id: 'a3da7347-e123-46f1-9601-ecee3aec9b6f', value: CONTRACT_KIND.TSA, label: 'Technical services agreement', position: 4, color: 'pink' },
+        { id: '766fbd67-fc9b-4df1-ba0d-be0005b448a0', value: CONTRACT_KIND.JDA, label: 'Joint development agreement', position: 5, color: 'sky' },
         { id: '60d35cc6-688b-4118-9074-4d5951f5b444', value: CONTRACT_KIND.SPONSORSHIP, label: 'Sponsorship', position: 6, color: 'amber' },
         { id: 'f2fe046f-1c1a-422f-8cab-7a3d950b4c0f', value: CONTRACT_KIND.LEASING, label: 'Leasing', position: 7, color: 'red' },
         { id: 'f0fe67e5-2fad-49e2-9c97-8d8e74af6924', value: CONTRACT_KIND.CONSULTING, label: 'Consulting', position: 8, color: 'violet' },
@@ -87,6 +86,7 @@ export default defineObject({
       type: FieldType.SELECT,
       name: 'status',
       label: 'Status',
+      description: fieldDescription('contract.status'),
       icon: 'IconProgressCheck',
       isNullable: false,
       defaultValue: `'${CONTRACT_STATUS.DRAFT}'`,
@@ -103,6 +103,7 @@ export default defineObject({
       type: FieldType.DATE,
       name: 'signedOn',
       label: 'Signed on',
+      description: fieldDescription('contract.signedOn'),
       icon: 'IconSignature',
     },
     {
@@ -110,6 +111,7 @@ export default defineObject({
       type: FieldType.DATE,
       name: 'expiresOn',
       label: 'Expires on',
+      description: fieldDescription('contract.expiresOn'),
       icon: 'IconCalendarX',
     },
     {
@@ -117,6 +119,7 @@ export default defineObject({
       type: FieldType.CURRENCY,
       name: 'value',
       label: 'Value',
+      description: fieldDescription('contract.value'),
       icon: 'IconCurrencyDollar',
     },
     {
@@ -124,6 +127,7 @@ export default defineObject({
       type: FieldType.LINKS,
       name: 'sharepointFolder',
       label: 'SharePoint folder',
+      description: fieldDescription('contract.sharepointFolder'),
       icon: 'IconFolder',
     },
     {
@@ -131,12 +135,12 @@ export default defineObject({
       type: FieldType.SELECT,
       name: 'department',
       label: 'Department',
-      description: 'The KUEC department that leads this record',
+      description: fieldDescription('contract.department'),
       icon: 'IconBuildingCommunity',
       options: [
-        { id: '44d66470-5ee2-40a6-9ffa-93c26d4b8726', value: DEPARTMENT.BD, label: 'BD', position: 0, color: 'blue' },
+        { id: '44d66470-5ee2-40a6-9ffa-93c26d4b8726', value: DEPARTMENT.BD, label: 'Business development', position: 0, color: 'blue' },
         { id: '5fd5ff71-d76b-4562-a098-6f3557b79c18', value: DEPARTMENT.COMMERCIALIZATION, label: 'Commercialization', position: 1, color: 'green' },
-        { id: 'bdbc889d-c5d4-417e-8778-faba65bca1fb', value: DEPARTMENT.IP_OFFICE, label: 'IP office', position: 2, color: 'purple' },
+        { id: 'bdbc889d-c5d4-417e-8778-faba65bca1fb', value: DEPARTMENT.IP_OFFICE, label: 'Intellectual property office', position: 2, color: 'purple' },
         { id: '1931befd-cd97-49c7-8f1b-cd535810e227', value: DEPARTMENT.LEASING, label: 'Leasing', position: 3, color: 'orange' },
         { id: '7016fb4b-c1b9-436d-b121-0d059b401753', value: DEPARTMENT.LAB_ACCESS, label: 'Lab access', position: 4, color: 'turquoise' },
         { id: 'dc09cf60-802e-4293-afae-13c8d2949ecf', value: DEPARTMENT.STARTUPS_AND_INVESTMENT, label: 'Startups and investment', position: 5, color: 'pink' },
@@ -148,7 +152,7 @@ export default defineObject({
       type: FieldType.TEXT,
       name: 'otherDetails',
       label: 'Other details',
-      description: OTHER_DETAILS_FIELD_DESCRIPTION,
+      description: fieldDescription('contract.otherDetails'),
       icon: 'IconNotes',
     },
   ],

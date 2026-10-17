@@ -1,0 +1,1134 @@
+{
+  "about": "The select lists that are Twenty-only, so not in kuec/playbooks/lookups.json: every option with a plain label and a one-sentence description in English and Arabic. Twenty 2.48 shows neither option descriptions nor translated option labels, so these reach people through the Help page (kuec/runbooks/20-guidance.md) and the work package card. Taxonomy lists: lookups.json.",
+  "lists": [
+    {
+      "field": "workPackage.status",
+      "name": {
+        "en": "Work package status",
+        "ar": "حالة حزمة العمل"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "PLANNED",
+          "label": {
+            "en": "Planned",
+            "ar": "مخطط"
+          },
+          "description": {
+            "en": "Planned but not started; it is offered to its owner when the step before it is done.",
+            "ar": "مخطط ولم يبدأ؛ ويُعرض على مسؤوله عندما تُنجز الخطوة السابقة."
+          }
+        },
+        {
+          "value": "OFFERED",
+          "label": {
+            "en": "Offered",
+            "ar": "معروض"
+          },
+          "description": {
+            "en": "Offered to its owner, who accepts or declines it within 2 working days.",
+            "ar": "معروض على مسؤوله، الذي يقبله أو يرفضه خلال يومي عمل."
+          }
+        },
+        {
+          "value": "ACCEPTED",
+          "label": {
+            "en": "Accepted",
+            "ar": "مقبول"
+          },
+          "description": {
+            "en": "The owner has taken it on and is doing it; the card shows it as In progress.",
+            "ar": "تولّاه المسؤول ويعمل عليه؛ وتعرضه البطاقة على أنه قيد التنفيذ."
+          }
+        },
+        {
+          "value": "SUBMITTED",
+          "label": {
+            "en": "Submitted",
+            "ar": "مُسلَّم"
+          },
+          "description": {
+            "en": "The owner says it meets its done criteria, and it waits for the reviewer.",
+            "ar": "يرى المسؤول أنه يحقق معايير الإنجاز، وهو بانتظار المراجِع."
+          }
+        },
+        {
+          "value": "BLOCKED",
+          "label": {
+            "en": "Blocked",
+            "ar": "متعطّل"
+          },
+          "description": {
+            "en": "Something outside the owner's control stops the work; set it with a Blocked reason and the ED is told at once.",
+            "ar": "شيء خارج سيطرة المسؤول يوقف العمل؛ اختره مع «سبب التعطّل» فيُبلَّغ المدير التنفيذي فوراً."
+          }
+        },
+        {
+          "value": "DONE",
+          "label": {
+            "en": "Done",
+            "ar": "منجَز"
+          },
+          "description": {
+            "en": "The reviewer checked it against the done criteria, and the next step goes to its owner.",
+            "ar": "راجعه المراجِع وفق معايير الإنجاز، وتنتقل الخطوة التالية إلى مسؤولها."
+          }
+        },
+        {
+          "value": "DECLINED",
+          "label": {
+            "en": "Declined",
+            "ar": "مرفوض"
+          },
+          "description": {
+            "en": "The owner could not take it and gave a reason, and the ED gives it to someone else.",
+            "ar": "لم يستطع المسؤول تولّيه وذكر السبب، ويسنده المدير التنفيذي إلى شخص آخر."
+          }
+        },
+        {
+          "value": "CANCELLED",
+          "label": {
+            "en": "Cancelled",
+            "ar": "ملغى"
+          },
+          "description": {
+            "en": "The work is no longer needed; the ED or the ops coordinator sets it instead of deleting the record.",
+            "ar": "لم يعد العمل مطلوباً؛ ويختاره المدير التنفيذي أو منسق العمليات بدلاً من حذف السجل."
+          }
+        }
+      ]
+    },
+    {
+      "field": "lead.status",
+      "name": {
+        "en": "Lead status",
+        "ar": "حالة العميل المحتمل"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "NEW",
+          "label": {
+            "en": "New",
+            "ar": "جديد"
+          },
+          "description": {
+            "en": "Logged, and nobody has spoken to them yet; every lead starts here.",
+            "ar": "مسجَّل ولم يتحدث إليه أحد بعد؛ وكل عميل محتمل يبدأ هنا."
+          }
+        },
+        {
+          "value": "CONTACTED",
+          "label": {
+            "en": "Contacted",
+            "ar": "تم التواصل"
+          },
+          "description": {
+            "en": "We reached out by email, call or message, but there is no conversation yet.",
+            "ar": "تواصلنا معهم بالبريد أو الهاتف أو رسالة، ولكن لم يبدأ حوار بعد."
+          }
+        },
+        {
+          "value": "ENGAGED",
+          "label": {
+            "en": "Engaged",
+            "ar": "في حوار"
+          },
+          "description": {
+            "en": "A real two-way conversation is going on.",
+            "ar": "هناك حوار حقيقي متبادل قائم."
+          }
+        },
+        {
+          "value": "QUALIFIED",
+          "label": {
+            "en": "Qualified",
+            "ar": "مؤهَّل"
+          },
+          "description": {
+            "en": "At least 4 of the 5 checks are true; the app sets it when the fourth is ticked.",
+            "ar": "تحقق 4 على الأقل من الشروط الخمسة؛ ويضبطه النظام عند وضع العلامة الرابعة."
+          }
+        },
+        {
+          "value": "CONVERTED",
+          "label": {
+            "en": "Converted",
+            "ar": "محوَّل"
+          },
+          "description": {
+            "en": "It became an opportunity; set it when the next step is real work, and the app creates the opportunity.",
+            "ar": "أصبح فرصة؛ اختره عندما تكون الخطوة التالية عملاً فعلياً، فينشئ النظام الفرصة."
+          }
+        },
+        {
+          "value": "NURTURE",
+          "label": {
+            "en": "Nurture",
+            "ar": "متابعة لاحقة"
+          },
+          "description": {
+            "en": "The need is real but not now, such as no budget this year, and it comes back on its review date.",
+            "ar": "الحاجة حقيقية ولكن ليس الآن، مثل عدم وجود ميزانية هذا العام، ويعود في تاريخ مراجعته."
+          }
+        },
+        {
+          "value": "DEAD",
+          "label": {
+            "en": "Dead",
+            "ar": "منتهٍ"
+          },
+          "description": {
+            "en": "It is going nowhere; pick a Dead reason when you set it.",
+            "ar": "لن يتقدم؛ اختر «سبب الإغلاق» عندما تختار هذه الحالة."
+          }
+        }
+      ]
+    },
+    {
+      "field": "lead.deadReason",
+      "name": {
+        "en": "Dead reason",
+        "ar": "سبب الإغلاق"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "NO_RESPONSE",
+          "label": {
+            "en": "No response",
+            "ar": "لا رد"
+          },
+          "description": {
+            "en": "They stopped answering, which the app also records after 30 quiet days.",
+            "ar": "توقفوا عن الرد، ويسجّله النظام أيضاً بعد 30 يوماً بلا تواصل."
+          }
+        },
+        {
+          "value": "NO_FIT",
+          "label": {
+            "en": "No fit",
+            "ar": "لا توافق"
+          },
+          "description": {
+            "en": "What they need is not something KUEC can offer.",
+            "ar": "ما يحتاجونه ليس مما تقدمه KUEC."
+          }
+        },
+        {
+          "value": "NO_BUDGET",
+          "label": {
+            "en": "No budget",
+            "ar": "لا ميزانية"
+          },
+          "description": {
+            "en": "They cannot pay for it and no funding path exists.",
+            "ar": "لا يستطيعون الدفع ولا يوجد مسار تمويل."
+          }
+        },
+        {
+          "value": "DUPLICATE",
+          "label": {
+            "en": "Duplicate",
+            "ar": "مكرر"
+          },
+          "description": {
+            "en": "Another lead or an opportunity already covers this contact, so link or merge rather than work both.",
+            "ar": "عميل محتمل آخر أو فرصة تغطي هذا التواصل، فاربط أو ادمج بدلاً من العمل على الاثنين."
+          }
+        },
+        {
+          "value": "COMPETITOR",
+          "label": {
+            "en": "Went to a competitor",
+            "ar": "ذهب إلى منافس"
+          },
+          "description": {
+            "en": "They chose another provider.",
+            "ar": "اختاروا جهة أخرى."
+          }
+        },
+        {
+          "value": "TIMING",
+          "label": {
+            "en": "Wrong timing",
+            "ar": "توقيت غير مناسب"
+          },
+          "description": {
+            "en": "It will not happen in any time frame worth tracking; pick Nurture instead if it may come back.",
+            "ar": "لن يحدث في أي إطار زمني يستحق المتابعة؛ واختر Nurture بدلاً منه إن كان قد يعود."
+          }
+        },
+        {
+          "value": "NOT_DECISION_MAKER",
+          "label": {
+            "en": "Not the decision maker",
+            "ar": "ليس صاحب القرار"
+          },
+          "description": {
+            "en": "Our contact cannot decide, and we could not reach the person who can.",
+            "ar": "من نتواصل معه لا يملك القرار، ولم نصل إلى من يملكه."
+          }
+        },
+        {
+          "value": "OTHER",
+          "label": {
+            "en": "Other",
+            "ar": "أخرى"
+          },
+          "description": {
+            "en": "None of the above; say what it was in Other details.",
+            "ar": "لا شيء مما سبق؛ اذكر السبب في «تفاصيل أخرى»."
+          }
+        }
+      ]
+    },
+    {
+      "field": "lead.sourceSystem",
+      "name": {
+        "en": "Lead source system",
+        "ar": "النظام المصدر للعميل المحتمل"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "WEBSITE_FORM",
+          "label": {
+            "en": "Website form",
+            "ar": "نموذج الموقع"
+          },
+          "description": {
+            "en": "Sent by the form on the KUEC website.",
+            "ar": "أُرسل من النموذج على موقع KUEC."
+          }
+        },
+        {
+          "value": "GALA_QR_FORM",
+          "label": {
+            "en": "Gala QR code form",
+            "ar": "نموذج رمز QR في الحفل"
+          },
+          "description": {
+            "en": "Sent by the form behind the QR code at a gala.",
+            "ar": "أُرسل من النموذج المرتبط برمز QR في حفل."
+          }
+        },
+        {
+          "value": "WORKSHOP_SIGNUP_FORM",
+          "label": {
+            "en": "Workshop sign-up form",
+            "ar": "نموذج التسجيل في الورشة"
+          },
+          "description": {
+            "en": "Sent by a workshop sign-up form.",
+            "ar": "أُرسل من نموذج التسجيل في ورشة عمل."
+          }
+        },
+        {
+          "value": "APOLLO",
+          "label": {
+            "en": "Apollo",
+            "ar": "Apollo"
+          },
+          "description": {
+            "en": "Created from Apollo, the prospecting database.",
+            "ar": "أُنشئ من Apollo، قاعدة بيانات البحث عن العملاء."
+          }
+        },
+        {
+          "value": "UVENTURE",
+          "label": {
+            "en": "uVENTURE",
+            "ar": "uVENTURE"
+          },
+          "description": {
+            "en": "Created from uVENTURE, the system of record for technologies.",
+            "ar": "أُنشئ من uVENTURE، نظام السجل الخاص بالتقنيات."
+          }
+        },
+        {
+          "value": "REGISTRY",
+          "label": {
+            "en": "Industrial registry",
+            "ar": "السجل الصناعي"
+          },
+          "description": {
+            "en": "Created from the UAE industrial registry.",
+            "ar": "أُنشئ من السجل الصناعي في الإمارات."
+          }
+        }
+      ]
+    },
+    {
+      "field": "contract.status",
+      "name": {
+        "en": "Contract status",
+        "ar": "حالة العقد"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "DRAFT",
+          "label": {
+            "en": "Draft",
+            "ar": "مسودة"
+          },
+          "description": {
+            "en": "Being written and not yet sent to the other side.",
+            "ar": "قيد الكتابة ولم يُرسل إلى الطرف الآخر بعد."
+          }
+        },
+        {
+          "value": "IN_NEGOTIATION",
+          "label": {
+            "en": "In negotiation",
+            "ar": "قيد التفاوض"
+          },
+          "description": {
+            "en": "Sent to the other side, and the terms are being agreed.",
+            "ar": "أُرسل إلى الطرف الآخر، والشروط قيد الاتفاق."
+          }
+        },
+        {
+          "value": "SIGNED",
+          "label": {
+            "en": "Signed",
+            "ar": "موقَّع"
+          },
+          "description": {
+            "en": "Both sides have signed, so fill in Signed on and Expires on.",
+            "ar": "وقّع الطرفان، فاملأ «تاريخ التوقيع» و«تاريخ الانتهاء»."
+          }
+        },
+        {
+          "value": "EXPIRED",
+          "label": {
+            "en": "Expired",
+            "ar": "منتهي الصلاحية"
+          },
+          "description": {
+            "en": "Its end date has passed and it was not renewed.",
+            "ar": "انقضى تاريخ انتهائه ولم يُجدَّد."
+          }
+        },
+        {
+          "value": "TERMINATED",
+          "label": {
+            "en": "Terminated",
+            "ar": "منهى"
+          },
+          "description": {
+            "en": "Ended early by either side.",
+            "ar": "أنهاه أحد الطرفين قبل موعده."
+          }
+        }
+      ]
+    },
+    {
+      "field": "milestone.status",
+      "name": {
+        "en": "Milestone status",
+        "ar": "حالة المرحلة الرئيسية"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "OPEN",
+          "label": {
+            "en": "Open",
+            "ar": "مفتوحة"
+          },
+          "description": {
+            "en": "Not reached yet.",
+            "ar": "لم تُبلغ بعد."
+          }
+        },
+        {
+          "value": "DONE",
+          "label": {
+            "en": "Done",
+            "ar": "منجَزة"
+          },
+          "description": {
+            "en": "The checkpoint was reached.",
+            "ar": "بُلغت نقطة المتابعة."
+          }
+        },
+        {
+          "value": "MISSED",
+          "label": {
+            "en": "Missed",
+            "ar": "فائتة"
+          },
+          "description": {
+            "en": "The due date passed without reaching it, which turns the project red.",
+            "ar": "مضى موعدها دون بلوغها، فيصبح المشروع أحمر."
+          }
+        }
+      ]
+    },
+    {
+      "field": "playbookRoleAssignment.playbookRole",
+      "name": {
+        "en": "Playbook role",
+        "ar": "دور دليل العمل"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "BD_OFFICER",
+          "label": {
+            "en": "Business development officer",
+            "ar": "مسؤول تطوير أعمال"
+          },
+          "description": {
+            "en": "Works leads and opportunities and owns most playbook steps.",
+            "ar": "يعمل على العملاء المحتملين والفرص ويتولى معظم خطوات دليل العمل."
+          }
+        },
+        {
+          "value": "RESEARCHER",
+          "label": {
+            "en": "Researcher",
+            "ar": "باحث"
+          },
+          "description": {
+            "en": "A Khalifa University researcher who confirms technical facts and delivers technical work.",
+            "ar": "باحث في جامعة خليفة يؤكد الحقائق التقنية وينجز الأعمال التقنية."
+          }
+        },
+        {
+          "value": "DEVELOPER",
+          "label": {
+            "en": "Developer",
+            "ar": "مطوّر"
+          },
+          "description": {
+            "en": "Builds the software or platform deliverables of a case.",
+            "ar": "يبني مخرجات البرمجيات أو المنصات في الملف."
+          }
+        },
+        {
+          "value": "DATA_ANALYST",
+          "label": {
+            "en": "Data analyst",
+            "ar": "محلل بيانات"
+          },
+          "description": {
+            "en": "Prepares the market data, shortlists and analysis of a case.",
+            "ar": "يُعدّ بيانات السوق والقوائم المختصرة والتحليلات في الملف."
+          }
+        },
+        {
+          "value": "OPS_COORDINATOR",
+          "label": {
+            "en": "Operations coordinator",
+            "ar": "منسق العمليات"
+          },
+          "description": {
+            "en": "Triages leads, answers help requests and takes over unaccepted work, with exactly one active at a time.",
+            "ar": "يفرز العملاء المحتملين ويجيب عن طلبات المساعدة ويتسلم العمل غير المقبول، ويكون نشطاً واحد فقط في كل وقت."
+          }
+        },
+        {
+          "value": "ED",
+          "label": {
+            "en": "Executive director",
+            "ar": "المدير التنفيذي"
+          },
+          "description": {
+            "en": "Approves, decides and receives every escalation, with exactly one active at a time.",
+            "ar": "يوافق ويقرر ويتلقى كل تصعيد، ويكون نشطاً واحد فقط في كل وقت."
+          }
+        },
+        {
+          "value": "LEGAL",
+          "label": {
+            "en": "Legal",
+            "ar": "الشؤون القانونية"
+          },
+          "description": {
+            "en": "Reviews contracts and legal terms.",
+            "ar": "يراجع العقود والشروط القانونية."
+          }
+        },
+        {
+          "value": "FINANCE",
+          "label": {
+            "en": "Finance",
+            "ar": "المالية"
+          },
+          "description": {
+            "en": "Reviews prices and answers invoicing questions.",
+            "ar": "يراجع الأسعار ويجيب عن أسئلة الفواتير."
+          }
+        }
+      ]
+    },
+    {
+      "field": "project.status",
+      "name": {
+        "en": "Project status",
+        "ar": "حالة المشروع"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "ACTIVE",
+          "label": {
+            "en": "Active",
+            "ar": "نشط"
+          },
+          "description": {
+            "en": "Work is under way.",
+            "ar": "العمل جارٍ."
+          }
+        },
+        {
+          "value": "ON_HOLD",
+          "label": {
+            "en": "On hold",
+            "ar": "معلَّق"
+          },
+          "description": {
+            "en": "Paused on purpose, with the reason and a restart date in a note.",
+            "ar": "متوقف عن قصد، مع ذكر السبب وتاريخ الاستئناف في ملاحظة."
+          }
+        },
+        {
+          "value": "DONE",
+          "label": {
+            "en": "Done",
+            "ar": "منجَز"
+          },
+          "description": {
+            "en": "Finished and closed by the owner.",
+            "ar": "انتهى وأغلقه المسؤول."
+          }
+        },
+        {
+          "value": "CANCELLED",
+          "label": {
+            "en": "Cancelled",
+            "ar": "ملغى"
+          },
+          "description": {
+            "en": "Stopped before it finished.",
+            "ar": "توقف قبل أن ينتهي."
+          }
+        }
+      ]
+    },
+    {
+      "field": "project.health",
+      "name": {
+        "en": "Project health",
+        "ar": "سلامة المشروع"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "GREEN",
+          "label": {
+            "en": "Green (on track)",
+            "ar": "أخضر (يسير وفق الخطة)"
+          },
+          "description": {
+            "en": "Set by the app while no milestone is missed or due within 7 days.",
+            "ar": "يضبطه النظام ما دامت لا توجد مرحلة فائتة أو مستحقة خلال 7 أيام."
+          }
+        },
+        {
+          "value": "AMBER",
+          "label": {
+            "en": "Amber (at risk)",
+            "ar": "كهرماني (معرّض للخطر)"
+          },
+          "description": {
+            "en": "Set by the app when an open milestone is due within 7 days.",
+            "ar": "يضبطه النظام عندما تُستحق مرحلة مفتوحة خلال 7 أيام."
+          }
+        },
+        {
+          "value": "RED",
+          "label": {
+            "en": "Red (off track)",
+            "ar": "أحمر (خارج المسار)"
+          },
+          "description": {
+            "en": "Set by the app when a milestone is missed.",
+            "ar": "يضبطه النظام عندما تفوت مرحلة."
+          }
+        }
+      ]
+    },
+    {
+      "field": "company.accountTier",
+      "name": {
+        "en": "Account tier",
+        "ar": "فئة الحساب"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "TIER_1",
+          "label": {
+            "en": "Tier 1 (strategic)",
+            "ar": "الفئة 1 (استراتيجية)"
+          },
+          "description": {
+            "en": "One of the few accounts that matter most to KUEC, engaged at least every 60 days.",
+            "ar": "من الحسابات القليلة الأهم لـ KUEC، ويُتواصل معه مرة كل 60 يوماً على الأقل."
+          }
+        },
+        {
+          "value": "TIER_2",
+          "label": {
+            "en": "Tier 2 (active)",
+            "ar": "الفئة 2 (نشطة)"
+          },
+          "description": {
+            "en": "An account with active or likely work, engaged at least every 60 days.",
+            "ar": "حساب فيه عمل قائم أو محتمل، ويُتواصل معه مرة كل 60 يوماً على الأقل."
+          }
+        },
+        {
+          "value": "TIER_3",
+          "label": {
+            "en": "Tier 3 (watch)",
+            "ar": "الفئة 3 (للمتابعة)"
+          },
+          "description": {
+            "en": "An account to keep an eye on, with no regular contact needed.",
+            "ar": "حساب يُتابَع من بعيد، دون حاجة إلى تواصل منتظم."
+          }
+        }
+      ]
+    },
+    {
+      "field": "company.sizeClass",
+      "name": {
+        "en": "Size class",
+        "ar": "فئة الحجم"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "STARTUP",
+          "label": {
+            "en": "Startup",
+            "ar": "شركة ناشئة"
+          },
+          "description": {
+            "en": "A young company still building its product or its market.",
+            "ar": "شركة حديثة ما زالت تبني منتجها أو سوقها."
+          }
+        },
+        {
+          "value": "SME",
+          "label": {
+            "en": "Small or medium business",
+            "ar": "شركة صغيرة أو متوسطة"
+          },
+          "description": {
+            "en": "An established business that is not a large enterprise.",
+            "ar": "شركة قائمة ليست مؤسسة كبيرة."
+          }
+        },
+        {
+          "value": "LARGE_ENTERPRISE",
+          "label": {
+            "en": "Large enterprise",
+            "ar": "مؤسسة كبيرة"
+          },
+          "description": {
+            "en": "A large company or group, often with its own research and development.",
+            "ar": "شركة أو مجموعة كبيرة، كثيراً ما يكون لديها بحث وتطوير خاص بها."
+          }
+        },
+        {
+          "value": "GOVERNMENT",
+          "label": {
+            "en": "Government or semi-government",
+            "ar": "جهة حكومية أو شبه حكومية"
+          },
+          "description": {
+            "en": "A ministry, an authority or a government-owned company.",
+            "ar": "وزارة أو هيئة أو شركة مملوكة للحكومة."
+          }
+        }
+      ]
+    },
+    {
+      "field": "person.decisionRole",
+      "name": {
+        "en": "Decision role",
+        "ar": "الدور في القرار"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "DECISION_MAKER",
+          "label": {
+            "en": "Decision maker",
+            "ar": "صاحب القرار"
+          },
+          "description": {
+            "en": "Can say yes and sign.",
+            "ar": "يملك الموافقة والتوقيع."
+          }
+        },
+        {
+          "value": "BUDGET_HOLDER",
+          "label": {
+            "en": "Budget holder",
+            "ar": "مالك الميزانية"
+          },
+          "description": {
+            "en": "Controls the money that would pay for it.",
+            "ar": "يتحكم في المال الذي سيُدفع منه."
+          }
+        },
+        {
+          "value": "TECHNICAL_EVALUATOR",
+          "label": {
+            "en": "Technical evaluator",
+            "ar": "المقيِّم التقني"
+          },
+          "description": {
+            "en": "Judges whether our technology or service works for them.",
+            "ar": "يحكم على مدى ملاءمة تقنيتنا أو خدمتنا لهم."
+          }
+        },
+        {
+          "value": "INFLUENCER",
+          "label": {
+            "en": "Influencer",
+            "ar": "المؤثِّر"
+          },
+          "description": {
+            "en": "Shapes the decision without making it.",
+            "ar": "يؤثر في القرار دون أن يتخذه."
+          }
+        },
+        {
+          "value": "END_USER",
+          "label": {
+            "en": "End user",
+            "ar": "المستخدم النهائي"
+          },
+          "description": {
+            "en": "Will use what we deliver day to day.",
+            "ar": "سيستخدم ما نقدمه في عمله اليومي."
+          }
+        },
+        {
+          "value": "GATEKEEPER",
+          "label": {
+            "en": "Gatekeeper",
+            "ar": "حارس البوابة"
+          },
+          "description": {
+            "en": "Controls access to the people who decide, such as an assistant or procurement.",
+            "ar": "يتحكم في الوصول إلى أصحاب القرار، مثل مساعد أو إدارة المشتريات."
+          }
+        }
+      ]
+    },
+    {
+      "field": "opportunity.lostReasonCategory",
+      "name": {
+        "en": "Lost reason category",
+        "ar": "فئة سبب الخسارة"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "NO_RESPONSE",
+          "label": {
+            "en": "No response",
+            "ar": "لا رد"
+          },
+          "description": {
+            "en": "They stopped answering before a decision was made.",
+            "ar": "توقفوا عن الرد قبل اتخاذ القرار."
+          }
+        },
+        {
+          "value": "PRICE",
+          "label": {
+            "en": "Price too high",
+            "ar": "السعر مرتفع"
+          },
+          "description": {
+            "en": "They found our price too high.",
+            "ar": "رأوا أن سعرنا مرتفع."
+          }
+        },
+        {
+          "value": "NO_BUDGET",
+          "label": {
+            "en": "No budget",
+            "ar": "لا ميزانية"
+          },
+          "description": {
+            "en": "They had no money for it.",
+            "ar": "لم يكن لديهم مال لذلك."
+          }
+        },
+        {
+          "value": "TIMING",
+          "label": {
+            "en": "Wrong timing",
+            "ar": "توقيت غير مناسب"
+          },
+          "description": {
+            "en": "They need it at a time we cannot meet, or not at all for now; pick the stage Parked instead if it may come back.",
+            "ar": "يحتاجونه في وقت لا نستطيع الالتزام به، أو لا يحتاجونه الآن؛ واختر المرحلة Parked بدلاً منه إن كان قد يعود."
+          }
+        },
+        {
+          "value": "COMPETITOR",
+          "label": {
+            "en": "Went to a competitor",
+            "ar": "ذهب إلى منافس"
+          },
+          "description": {
+            "en": "They chose another provider.",
+            "ar": "اختاروا جهة أخرى."
+          }
+        },
+        {
+          "value": "TECHNICAL_FIT",
+          "label": {
+            "en": "Not a technical fit",
+            "ar": "لا توافق تقني"
+          },
+          "description": {
+            "en": "What we can offer does not meet their technical need.",
+            "ar": "ما نقدمه لا يلبي حاجتهم التقنية."
+          }
+        },
+        {
+          "value": "CAPACITY",
+          "label": {
+            "en": "No capacity on our side",
+            "ar": "لا قدرة لدينا"
+          },
+          "description": {
+            "en": "KUEC could not staff or deliver it in time.",
+            "ar": "لم تستطع KUEC توفير الفريق أو التنفيذ في الوقت المطلوب."
+          }
+        },
+        {
+          "value": "OTHER",
+          "label": {
+            "en": "Other",
+            "ar": "أخرى"
+          },
+          "description": {
+            "en": "None of the above; write the reason in Lost reason.",
+            "ar": "لا شيء مما سبق؛ اكتب السبب في «سبب الخسارة»."
+          }
+        }
+      ]
+    },
+    {
+      "field": "opportunity.probability",
+      "name": {
+        "en": "Probability",
+        "ar": "الاحتمال"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "PCT_10",
+          "label": {
+            "en": "10%",
+            "ar": "10%"
+          },
+          "description": {
+            "en": "An early conversation with no defined need or budget yet.",
+            "ar": "حديث مبكر بلا حاجة محددة أو ميزانية بعد."
+          }
+        },
+        {
+          "value": "PCT_25",
+          "label": {
+            "en": "25%",
+            "ar": "25%"
+          },
+          "description": {
+            "en": "A defined need and the right contact, but no proposal yet.",
+            "ar": "حاجة محددة وجهة الاتصال المناسبة، ولكن بلا مقترح بعد."
+          }
+        },
+        {
+          "value": "PCT_50",
+          "label": {
+            "en": "50%",
+            "ar": "50%"
+          },
+          "description": {
+            "en": "A proposal or quote is with them and they are engaged.",
+            "ar": "لديهم مقترح أو عرض سعر وهم متفاعلون."
+          }
+        },
+        {
+          "value": "PCT_75",
+          "label": {
+            "en": "75%",
+            "ar": "75%"
+          },
+          "description": {
+            "en": "Terms are being negotiated and the decision maker supports it.",
+            "ar": "الشروط قيد التفاوض وصاحب القرار يؤيد."
+          }
+        },
+        {
+          "value": "PCT_90",
+          "label": {
+            "en": "90%",
+            "ar": "90%"
+          },
+          "description": {
+            "en": "Agreed in principle and waiting for signature.",
+            "ar": "متفق عليه مبدئياً وبانتظار التوقيع."
+          }
+        }
+      ]
+    },
+    {
+      "field": "document.sourceSystem",
+      "name": {
+        "en": "Document source system",
+        "ar": "النظام المصدر للوثيقة"
+      },
+      "inManifest": true,
+      "options": [
+        {
+          "value": "UVENTURE",
+          "label": {
+            "en": "uVENTURE",
+            "ar": "uVENTURE"
+          },
+          "description": {
+            "en": "Created from uVENTURE by an integration.",
+            "ar": "أنشأه الربط الآلي من uVENTURE."
+          }
+        },
+        {
+          "value": "SHAREPOINT",
+          "label": {
+            "en": "SharePoint",
+            "ar": "SharePoint"
+          },
+          "description": {
+            "en": "Created from SharePoint by an integration.",
+            "ar": "أنشأه الربط الآلي من SharePoint."
+          }
+        }
+      ]
+    },
+    {
+      "field": "opportunity.stage",
+      "name": {
+        "en": "Opportunity stage",
+        "ar": "مرحلة الفرصة"
+      },
+      "inManifest": false,
+      "note": "A standard Twenty field: its options are set in Settings (config/dashboards/opportunity-stages.md), so the app only describes them.",
+      "options": [
+        {
+          "value": "NEW",
+          "label": {
+            "en": "New",
+            "ar": "جديد"
+          },
+          "description": {
+            "en": "A case just opened, such as a converted lead or a new request; decide whether KUEC can and should respond.",
+            "ar": "ملف فُتح للتو، مثل عميل محتمل محوَّل أو طلب جديد؛ قرّر هل تستطيع KUEC الاستجابة وهل ينبغي لها ذلك."
+          }
+        },
+        {
+          "value": "SCREENING",
+          "label": {
+            "en": "Screening",
+            "ar": "فرز"
+          },
+          "description": {
+            "en": "Checking the fit: the need, the capability, the decision maker and the budget.",
+            "ar": "التحقق من التوافق: الحاجة والقدرة وصاحب القرار والميزانية."
+          }
+        },
+        {
+          "value": "MEETING",
+          "label": {
+            "en": "Meeting",
+            "ar": "اجتماع"
+          },
+          "description": {
+            "en": "Meeting the client to scope the work and agree what a proposal must cover.",
+            "ar": "الاجتماع بالعميل لتحديد نطاق العمل والاتفاق على ما يجب أن يغطيه المقترح."
+          }
+        },
+        {
+          "value": "PROPOSAL",
+          "label": {
+            "en": "Proposal",
+            "ar": "مقترح"
+          },
+          "description": {
+            "en": "A proposal or quote is with the client and the terms are being agreed.",
+            "ar": "لدى العميل مقترح أو عرض سعر والشروط قيد الاتفاق."
+          }
+        },
+        {
+          "value": "CUSTOMER",
+          "label": {
+            "en": "Customer",
+            "ar": "عميل"
+          },
+          "description": {
+            "en": "Twenty's own stage, not used at KUEC; pick Signed instead.",
+            "ar": "مرحلة خاصة بالنظام لا تُستخدم في KUEC؛ اختر Signed بدلاً منها."
+          }
+        },
+        {
+          "value": "SIGNED",
+          "label": {
+            "en": "Signed",
+            "ar": "موقَّع"
+          },
+          "description": {
+            "en": "The client signed; the ED is told, and a signed licence creates its contract.",
+            "ar": "وقّع العميل؛ فيُبلَّغ المدير التنفيذي، وينشئ الترخيص الموقَّع عقده."
+          }
+        },
+        {
+          "value": "LOST",
+          "label": {
+            "en": "Lost",
+            "ar": "خسرناها"
+          },
+          "description": {
+            "en": "It will not happen; fill in Lost reason category and Lost reason.",
+            "ar": "لن تتم؛ املأ «فئة سبب الخسارة» و«سبب الخسارة»."
+          }
+        },
+        {
+          "value": "PARKED",
+          "label": {
+            "en": "Parked",
+            "ar": "مؤجَّلة"
+          },
+          "description": {
+            "en": "Real but on hold, and it comes up for review after 90 days.",
+            "ar": "حقيقية ولكنها متوقفة، وتُعرض للمراجعة بعد 90 يوماً."
+          }
+        }
+      ]
+    }
+  ]
+}

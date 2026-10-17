@@ -33,13 +33,16 @@ import tasksOtherWithoutDetailsView from '../views/tasks-other-without-details.v
 import workPackagesOtherWithoutDetailsView from '../views/work-packages-other-without-details.view';
 import workPackagesWithoutDoneCriteriaView from '../views/work-packages-without-done-criteria.view';
 import {
+  belowGuidance,
   CHART_DEFAULTS,
   chartFilterFromView,
   gridPosition,
+  guidanceTabWidget,
   recordTableWidget,
 } from './utils/dashboard-widgets';
 
 export const DATA_QUALITY_PAGE_LAYOUT_TAB_UNIVERSAL_IDENTIFIER = '8ed87583-d8ec-468e-ba9c-3ffd28c633ff';
+export const DATA_QUALITY_GUIDANCE_WIDGET_UNIVERSAL_IDENTIFIER = '6698b705-f657-443c-b3be-b92c8aa5dd8c';
 
 type DataQualityCheck = {
   title: string;
@@ -228,5 +231,11 @@ export default definePageLayoutTab({
   position: 0,
   icon: 'IconChecklist',
   layoutMode: PageLayoutTabLayoutMode.GRID,
-  widgets: DATA_QUALITY_CHECKS.flatMap(widgetsFor),
+  widgets: [
+    guidanceTabWidget({
+      universalIdentifier: DATA_QUALITY_GUIDANCE_WIDGET_UNIVERSAL_IDENTIFIER,
+      guidancePageKey: 'dataQuality',
+    }),
+    ...belowGuidance(DATA_QUALITY_CHECKS.flatMap(widgetsFor)),
+  ],
 });

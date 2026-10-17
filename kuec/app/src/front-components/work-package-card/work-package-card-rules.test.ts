@@ -6,7 +6,9 @@ import {
   buildHelpTask,
   buildSubmitUpdate,
   CARD_ACTION,
+  CARD_NEXT_STEP,
   getAvailableCardActions,
+  getCardNextStep,
   isOneLineTextValid,
   toOneLine,
 } from 'src/front-components/work-package-card/work-package-card-rules';
@@ -24,10 +26,11 @@ const actionsFor = (status: WorkPackageStatus, viewerMemberId: string | null) =>
   getAvailableCardActions({ workPackage: { status, owner: SARA }, viewerMemberId });
 
 describe('getAvailableCardActions', () => {
-  it('offers Accept and Decline to the owner of an offered work package', () => {
+  it('offers Accept, Decline and Request help to the owner of an offered work package', () => {
     expect(actionsFor(WORK_PACKAGE_STATUS.OFFERED, SARA.id)).toEqual([
       CARD_ACTION.ACCEPT,
       CARD_ACTION.DECLINE,
+      CARD_ACTION.REQUEST_HELP,
     ]);
   });
 
@@ -38,11 +41,18 @@ describe('getAvailableCardActions', () => {
     ]);
   });
 
-  it('offers nothing on any other status', () => {
+  it('keeps Request help for the owner on planned, submitted and blocked work', () => {
     for (const status of [
       WORK_PACKAGE_STATUS.PLANNED,
       WORK_PACKAGE_STATUS.SUBMITTED,
       WORK_PACKAGE_STATUS.BLOCKED,
+    ]) {
+      expect(actionsFor(status, SARA.id), status).toEqual([CARD_ACTION.REQUEST_HELP]);
+    }
+  });
+
+  it('offers nothing once the work is finished', () => {
+    for (const status of [
       WORK_PACKAGE_STATUS.DONE,
       WORK_PACKAGE_STATUS.DECLINED,
       WORK_PACKAGE_STATUS.CANCELLED,
@@ -60,6 +70,78 @@ describe('getAvailableCardActions', () => {
         viewerMemberId: SARA.id,
       }),
     ).toEqual([]);
+  });
+});
+
+describe('getCardNextStep', () => {
+  const nextStepFor = ({
+    status,
+    viewerMemberId,
+    owner = SARA,
+    reviewer = OMAR,
+    openForm = null,
+  }: {
+    status: WorkPackageStatus;
+    viewerMemberId: string | null;
+    owner?: typeof SARA | null;
+    reviewer?: typeof OMAR | null;
+    openForm?: typeof CARD_ACTION.DECLINE | typeof CARD_ACTION.REQUEST_HELP | null;
+  }) =>
+    getCardNextStep({ workPackage: { status, owner, reviewer }, viewerMemberId, openForm });
+
+  it('tells the owner what to do on every open status', () => {
+    for (const status of [
+      WORK_PACKAGE_STATUS.PLANNED,
+      WORK_PACKAGE_STATUS.OFFERED,
+      WORK_PACKAGE_STATUS.ACCEPTED,
+      WORK_PACKAGE_STATUS.SUBMITTED,
+      WORK_PACKAGE_STATUS.BLOCKED,
+    ]) {
+      expect(nextStepFor({ status, viewerMemberId: SARA.id }), status).toBe(CARD_NEXT_STEP.OWNER);
+    }
+  });
+
+  it('says there is nothing left to do once the work is finished, whoever looks', () => {
+    for (const status of [
+      WORK_PACKAGE_STATUS.DONE,
+      WORK_PACKAGE_STATUS.DECLINED,
+      WORK_PACKAGE_STATUS.CANCELLED,
+    ]) {
+      expect(nextStepFor({ status, viewerMemberId: SARA.id }), status).toBe(CARD_NEXT_STEP.FINISHED);
+      expect(nextStepFor({ status, viewerMemberId: OMAR.id }), status).toBe(CARD_NEXT_STEP.FINISHED);
+    }
+  });
+
+  it('asks the reviewer to review submitted work, and tells anyone else whose work it is', () => {
+    expect(nextStepFor({ status: WORK_PACKAGE_STATUS.SUBMITTED, viewerMemberId: OMAR.id })).toBe(
+      CARD_NEXT_STEP.REVIEWER,
+    );
+    expect(nextStepFor({ status: WORK_PACKAGE_STATUS.ACCEPTED, viewerMemberId: OMAR.id })).toBe(
+      CARD_NEXT_STEP.SOMEONE_ELSE,
+    );
+    expect(
+      nextStepFor({ status: WORK_PACKAGE_STATUS.SUBMITTED, viewerMemberId: OMAR.id, reviewer: null }),
+    ).toBe(CARD_NEXT_STEP.SOMEONE_ELSE);
+    expect(
+      nextStepFor({ status: WORK_PACKAGE_STATUS.OFFERED, viewerMemberId: OMAR.id, owner: null }),
+    ).toBe(CARD_NEXT_STEP.NO_OWNER);
+  });
+
+  it('follows an open form', () => {
+    expect(
+      nextStepFor({
+        status: WORK_PACKAGE_STATUS.OFFERED,
+        viewerMemberId: SARA.id,
+        openForm: CARD_ACTION.DECLINE,
+      }),
+    ).toBe(CARD_NEXT_STEP.DECLINE_FORM);
+    expect(
+      nextStepFor({
+        status: WORK_PACKAGE_STATUS.BLOCKED,
+        viewerMemberId: SARA.id,
+        openForm: CARD_ACTION.REQUEST_HELP,
+      }),
+    ).toBe(CARD_NEXT_STEP.HELP_FORM);
   });
 });
 

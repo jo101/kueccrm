@@ -6,6 +6,7 @@ import {
 import { PROJECT_UNIVERSAL_IDENTIFIER } from '../objects/project.object';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { CAMPAIGN_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from './campaign-on-lead.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const CAMPAIGN_LEADS_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER = '59957b3e-ce5e-4e82-a38c-84333a989404';
 
@@ -15,6 +16,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'campaignLeads',
   label: 'Leads',
+  description: fieldDescription('project.campaignLeads'),
   icon: 'IconUserSearch',
   relationTargetObjectMetadataUniversalIdentifier:
     LEAD_UNIVERSAL_IDENTIFIER,

@@ -69,21 +69,22 @@ Submit only when all three lines are true. Documents go on SharePoint with a lin
 
 ## 5. The Work package card
 
-Open a work package from **My work** and the card is on its first tab. From a list, select the row and run **Open work package card**. Only the owner sees the buttons.
+Open a work package from **My work** and the card is on its first tab. From a list, select the row and run **Open work package card**. Only the owner sees the buttons. Each button has an info icon beside it: hover it, or press Tab, to read what the button does. The last line of the card, **What do I do now?**, names your next step.
 
 | Button | When you see it | What it means | What happens next |
 | --- | --- | --- | --- |
 | **Accept** | The work is offered to you | "This is mine. I will deliver it by the due date." | Reminders stop. If it is not finished by the due date, you are told that day and the ED 2 working days later. |
 | **Decline** | The work is offered to you | "This should not be mine," with a one-line reason. | It leaves your list. The ops coordinator reads the reason and gives it to someone else. |
-| **Request help** | After you accept | "I am stuck or unsure. I need someone to talk it through." | The ops coordinator gets a task, due today at 17:00, linked to your work package. It stays yours and keeps its status. |
+| **Request help** | Whenever the work is yours and not finished: Planned, Offered, Accepted, Submitted or Blocked | "I am stuck or unsure. I need someone to talk it through." | The ops coordinator gets a task, due today at 17:00, linked to your work package. It stays yours and keeps its status. |
 | **Submit** | After you accept | "It is finished and meets its done criteria." | The reviewer is told. They mark it **Done**, which offers the next step to its owner, or send it back to you with what is missing. |
 
 **Blocked** is not on the card. Use **Open full record**, set Status to **Blocked** and fill in **Blocked reason** in the same edit. When the block clears, set the status back to **Accepted**.
 
 ## 6. When you do not know what to do
 
-Press **Request help** on the card. Do it the same day you get stuck. Waiting quietly is the one thing that always costs more time than asking.
+Press **Request help** on the card. Do it the same day you get stuck. Waiting quietly is the one thing that always costs more time than asking. Every page that shows a work package says so in its **How this record works** or **How this tab works** box, and so does **Help** in the sidebar.
 
-- Not accepted yet? If the work is meant for you, accept it, then press **Request help**. If you think it should go to someone else, **Decline** and say why.
+- Not accepted yet? Press **Request help** before you decide, or accept it first if it is meant for you. If you think it should go to someone else, **Decline** and say why.
+- Blocked and not sure how to clear it? **Request help** stays on the card while the work is blocked.
 - Stuck on an opportunity? Set its next action to "Ask for help on ..." with today's date, and raise it at the standup.
 - Someone else needs to act before you can continue? That is not "help", it is a block: set **Blocked** with the reason.

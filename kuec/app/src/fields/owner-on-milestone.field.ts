@@ -7,6 +7,7 @@ import {
 } from 'twenty-sdk/define';
 import { MILESTONE_UNIVERSAL_IDENTIFIER } from '../objects/milestone.object';
 import { OWNED_MILESTONES_ON_WORKSPACE_MEMBER_FIELD_UNIVERSAL_IDENTIFIER } from './owned-milestones-on-workspace-member.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const OWNER_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER = 'df84bcf9-45ae-45c6-b86d-82807db1d2e1';
 
@@ -16,6 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'owner',
   label: 'Owner',
+  description: fieldDescription('milestone.owner'),
   icon: 'IconUserCircle',
   relationTargetObjectMetadataUniversalIdentifier:
     STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.workspaceMember.universalIdentifier,

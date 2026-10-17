@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const IS_OFFSET_OBLIGOR_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER = '3b505cda-f7f0-450f-883a-45aaf720dc76';
 
@@ -13,7 +14,7 @@ export default defineField({
   type: FieldType.BOOLEAN,
   name: 'isOffsetObligor',
   label: 'Offset obligor',
-  description: 'Holds an offset obligation in the UAE',
+  description: fieldDescription('company.isOffsetObligor'),
   icon: 'IconScale',
   isNullable: false,
   defaultValue: false,

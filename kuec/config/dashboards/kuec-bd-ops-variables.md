@@ -18,7 +18,7 @@
    | SMTP username | `bd-ops@kuec.example` | yes |
    | SMTP password | from the secrets manager | yes |
    | Sender address | `bd-ops@kuec.example` | no |
-| Lead value that notifies the ED (0.9.0) | The amount in AED above which a qualified lead notifies the ED, as the ED decides it, digits only, e.g. `500000`. Leave empty until the ED has decided: then only IP licence interest notifies (`runbooks/19-leads.md` section 3) | no |
+| Lead value that notifies the ED (0.9.0) | The amount in AED above which a qualified lead notifies the ED, as the ED decides it, digits only, e.g. `500000`. Leave empty until the ED has decided: then only Intellectual property licence interest notifies (`runbooks/19-leads.md` section 3) | no |
 | Forms signing secret (0.9.0) | from the secrets manager (`twenty/<env>/FORMS_SIGNING_SECRET`), set when the first form is connected (`runbooks/19-leads.md` section 6.2). While it is empty the intake route answers 503 | yes |
 | Forms signing secret (previous) (0.9.0) | empty, except for the week after a rotation: the secret it replaced | yes |
 
@@ -28,7 +28,7 @@
 
 These are records, kept by the ops coordinator with the ED.
 
-1. **Playbook role assignments** (open it from the command menu, Ctrl+K, "Playbook role assignments"): one record per person per playbook role, Active on. Exactly one active **ED** and one active **Ops coordinator**. Add every BD officer, developer, data analyst, and the legal and finance contacts. The Researcher role is external and needs no record. When a role has several people, new work goes to whoever has the fewest open work packages.
+1. **Playbook role assignments** (open it from the command menu, Ctrl+K, "Playbook role assignments"): one record per person per playbook role, Active on. Exactly one active **Executive director** and one active **Operations coordinator** (the playbook role options, called ED and Ops coordinator until 0.10.0). Add every BD officer, developer, data analyst, and the legal and finance contacts. The Researcher role is external and needs no record. When a role has several people, new work goes to whoever has the fewest open work packages.
 2. **UAE public holidays**: one record per holiday date for the coming year, entered when the dates are announced. Moon-sighting changes: edit the date.
 
 ## Expected result
@@ -43,4 +43,4 @@ The app's settings page shows no missing-configuration banner. Role assignments 
 
 ## Undo
 
-Clear a variable to stop that channel: the functions log `email skipped` or `teams post skipped` and carry on with tasks. Deactivate a role assignment (Active off) rather than deleting it, so history stays readable. Rotate the SMTP password, the webhook and the forms signing secret with the quarterly key rotation. Clearing the forms secret stops the intake route (503, the forms retry for 24 hours); clearing the lead value threshold leaves only IP licence interest notifying the ED.
+Clear a variable to stop that channel: the functions log `email skipped` or `teams post skipped` and carry on with tasks. Deactivate a role assignment (Active off) rather than deleting it, so history stays readable. Rotate the SMTP password, the webhook and the forms signing secret with the quarterly key rotation. Clearing the forms secret stops the intake route (503, the forms retry for 24 hours); clearing the lead value threshold leaves only Intellectual property licence interest notifying the ED.

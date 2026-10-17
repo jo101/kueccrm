@@ -7,6 +7,7 @@ import {
 
 import { WORK_PACKAGE_UNIVERSAL_IDENTIFIER } from '../objects/work-package.object';
 import { REVIEWER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from './reviewer-on-work-package.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const REVIEWED_WORK_PACKAGES_ON_WORKSPACE_MEMBER_FIELD_UNIVERSAL_IDENTIFIER = '4ccf4080-c181-42d0-b127-ebbcc39ebbc7';
 
@@ -16,6 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'reviewedWorkPackages',
   label: 'Work packages to review',
+  description: fieldDescription('workspaceMember.reviewedWorkPackages'),
   icon: 'IconEyeCheck',
   relationTargetObjectMetadataUniversalIdentifier:
     WORK_PACKAGE_UNIVERSAL_IDENTIFIER,

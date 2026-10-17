@@ -6,6 +6,7 @@ import {
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { DOCUMENT_UNIVERSAL_IDENTIFIER } from '../objects/document.object';
 import { LEAD_ON_DOCUMENT_FIELD_UNIVERSAL_IDENTIFIER } from './lead-on-document.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const DOCUMENTS_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER = '0298bd0c-d690-4273-87c4-13bcbd135346';
 
@@ -15,6 +16,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'documents',
   label: 'Documents',
+  description: fieldDescription('lead.documents'),
   icon: 'IconFileText',
   relationTargetObjectMetadataUniversalIdentifier:
     DOCUMENT_UNIVERSAL_IDENTIFIER,

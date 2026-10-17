@@ -1,4 +1,3 @@
-import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 import {
@@ -9,6 +8,7 @@ import {
 } from 'twenty-sdk/define';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import { loadDefaultExports } from 'src/__tests__/utils/load-default-exports';
 import {
   OPPORTUNITY_PLAYBOOK_TYPE,
   OPPORTUNITY_TYPE,
@@ -49,16 +49,6 @@ const LISTS = lookupsJson.lists as LookupList[];
 const DEPRECATED_SUFFIX = ' (deprecated)';
 const OTHER = 'OTHER';
 
-const loadDefaults = async <TDefinition>(directory: string, suffix: string) => {
-  const fileNames = readdirSync(directory).filter((fileName) => fileName.endsWith(suffix));
-  const modules = await Promise.all(
-    fileNames.map(
-      (fileName) => import(join(directory, fileName)) as Promise<{ default: TDefinition }>,
-    ),
-  );
-
-  return modules.map((module) => module.default);
-};
 
 const standardObjectNameByUniversalIdentifier = new Map<string, string>(
   Object.entries(STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS).map(([name, object]) => [
@@ -74,11 +64,11 @@ describe('lookups.json', () => {
   const fieldsByKey = new Map<string, ManifestField>();
 
   beforeAll(async () => {
-    const objects = await loadDefaults<ObjectDefinition>(
+    const objects = await loadDefaultExports<ObjectDefinition>(
       join(__dirname, '..', 'objects'),
       '.object.ts',
     );
-    const fields = await loadDefaults<FieldDefinition>(
+    const fields = await loadDefaultExports<FieldDefinition>(
       join(__dirname, '..', 'fields'),
       '.field.ts',
     );

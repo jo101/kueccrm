@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const TASK_TYPE_ON_TASK_FIELD_UNIVERSAL_IDENTIFIER = 'f3605b73-cf05-485a-9529-571a03f55ef5';
 
@@ -26,7 +27,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'taskType',
   label: 'Type',
-  description: 'What sort of task it is',
+  description: fieldDescription('task.taskType'),
   icon: 'IconCategory',
   options: [
     {
@@ -81,7 +82,7 @@ export default defineField({
     {
       id: '740d746e-817e-48c2-a78b-65376156d5f0',
       value: TASK_TYPE.ADMIN,
-      label: 'Admin',
+      label: 'Administration',
       position: 7,
       color: 'amber',
     },

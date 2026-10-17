@@ -6,6 +6,7 @@ import {
 } from 'twenty-sdk/define';
 import { DOCUMENT_UNIVERSAL_IDENTIFIER } from '../objects/document.object';
 import { PERSON_ON_DOCUMENT_FIELD_UNIVERSAL_IDENTIFIER } from './person-on-document.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const DOCUMENTS_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER = 'e7cd84c4-ca92-4ed9-b1fc-43e93dab7113';
 
@@ -15,6 +16,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'documents',
   label: 'Documents',
+  description: fieldDescription('person.documents'),
   icon: 'IconFileText',
   relationTargetObjectMetadataUniversalIdentifier:
     DOCUMENT_UNIVERSAL_IDENTIFIER,

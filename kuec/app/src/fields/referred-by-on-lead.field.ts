@@ -7,6 +7,7 @@ import {
 } from 'twenty-sdk/define';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { REFERRED_LEADS_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER } from './referred-leads-on-person.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const REFERRED_BY_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER = 'a299edca-e776-4cc0-9a2f-f657b40f6132';
 
@@ -16,7 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'referredBy',
   label: 'Referred by',
-  description: 'Who outside the team referred this contact',
+  description: fieldDescription('lead.referredBy'),
   icon: 'IconUserShare',
   relationTargetObjectMetadataUniversalIdentifier:
     STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.person.universalIdentifier,

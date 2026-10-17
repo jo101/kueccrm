@@ -7,6 +7,7 @@ import {
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from '../objects/engagement.object';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { ENGAGEMENTS_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from './engagements-on-lead.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const LEAD_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER = '283ae3ca-a147-4db2-a06f-55413618515a';
 
@@ -16,7 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'lead',
   label: 'Lead',
-  description: 'The lead this contact was about; its date becomes the lead\'s last engagement',
+  description: fieldDescription('engagement.lead'),
   icon: 'IconUserSearch',
   relationTargetObjectMetadataUniversalIdentifier:
     LEAD_UNIVERSAL_IDENTIFIER,

@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const PROBABILITY_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = '0134c688-ab9f-4b96-a567-244589473208';
 
@@ -21,7 +22,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'probability',
   label: 'Probability',
-  description: 'Owner estimate that it signs',
+  description: fieldDescription('opportunity.probability'),
   icon: 'IconPercentage',
   options: [
     {

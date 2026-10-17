@@ -7,6 +7,7 @@ import {
 } from 'twenty-sdk/define';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { REFERRED_LEADS_ON_WORKSPACE_MEMBER_FIELD_UNIVERSAL_IDENTIFIER } from './referred-leads-on-workspace-member.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const REFERRED_BY_MEMBER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER = '72aa4bb8-3ad4-4331-8410-9c044f66048b';
 
@@ -16,7 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'referredByMember',
   label: 'Referred by (colleague)',
-  description: 'The colleague who referred or logged this contact; they hold the referral credit',
+  description: fieldDescription('lead.referredByMember'),
   icon: 'IconUserShare',
   relationTargetObjectMetadataUniversalIdentifier:
     STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.workspaceMember.universalIdentifier,

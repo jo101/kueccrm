@@ -3,10 +3,8 @@ import {
   FieldType,
   MetadataWritability,
 } from 'twenty-sdk/define';
-import {
-  DEPARTMENT,
-  OTHER_DETAILS_FIELD_DESCRIPTION,
-} from '../constants/taxonomy';
+import { DEPARTMENT } from '../constants/taxonomy';
+import { fieldDescription, objectDescription } from '../i18n/field-guidance';
 
 export const MILESTONE_UNIVERSAL_IDENTIFIER = '73630005-f4b3-420f-b36b-194de27c0561';
 
@@ -32,7 +30,7 @@ export default defineObject({
   namePlural: 'milestones',
   labelSingular: 'Milestone',
   labelPlural: 'Milestones',
-  description: 'A dated checkpoint in a project',
+  description: objectDescription('milestone'),
   icon: 'IconFlag',
   labelIdentifierFieldMetadataUniversalIdentifier:
     MILESTONE_NAME_FIELD_UNIVERSAL_IDENTIFIER,
@@ -42,6 +40,7 @@ export default defineObject({
       type: FieldType.TEXT,
       name: 'name',
       label: 'Name',
+      description: fieldDescription('milestone.name'),
       icon: 'IconAbc',
     },
     {
@@ -49,6 +48,7 @@ export default defineObject({
       type: FieldType.SELECT,
       name: 'status',
       label: 'Status',
+      description: fieldDescription('milestone.status'),
       icon: 'IconProgressCheck',
       isNullable: false,
       defaultValue: `'${MILESTONE_STATUS.OPEN}'`,
@@ -63,6 +63,7 @@ export default defineObject({
       type: FieldType.DATE_TIME,
       name: 'dueAt',
       label: 'Due',
+      description: fieldDescription('milestone.dueAt'),
       icon: 'IconCalendarDue',
     },
     {
@@ -70,6 +71,7 @@ export default defineObject({
       type: FieldType.TEXT,
       name: 'playbookStep',
       label: 'Playbook step',
+      description: fieldDescription('milestone.playbookStep'),
       icon: 'IconRoute',
       writability: MetadataWritability.APPLICATION,
     },
@@ -78,12 +80,12 @@ export default defineObject({
       type: FieldType.SELECT,
       name: 'department',
       label: 'Department',
-      description: 'The KUEC department that leads this record',
+      description: fieldDescription('milestone.department'),
       icon: 'IconBuildingCommunity',
       options: [
-        { id: 'ec60dfcc-a4eb-4e15-aaca-2847cc02b7cb', value: DEPARTMENT.BD, label: 'BD', position: 0, color: 'blue' },
+        { id: 'ec60dfcc-a4eb-4e15-aaca-2847cc02b7cb', value: DEPARTMENT.BD, label: 'Business development', position: 0, color: 'blue' },
         { id: '9316742d-8a11-441f-9f6e-6ab9069f47f0', value: DEPARTMENT.COMMERCIALIZATION, label: 'Commercialization', position: 1, color: 'green' },
-        { id: 'efaa53e2-6c59-4d08-82a2-3c401fd40057', value: DEPARTMENT.IP_OFFICE, label: 'IP office', position: 2, color: 'purple' },
+        { id: 'efaa53e2-6c59-4d08-82a2-3c401fd40057', value: DEPARTMENT.IP_OFFICE, label: 'Intellectual property office', position: 2, color: 'purple' },
         { id: '1bc70508-d4cd-43b2-b944-c93ebe57a0fe', value: DEPARTMENT.LEASING, label: 'Leasing', position: 3, color: 'orange' },
         { id: '157a5d65-b300-433a-bf80-5a2b696e0082', value: DEPARTMENT.LAB_ACCESS, label: 'Lab access', position: 4, color: 'turquoise' },
         { id: '3194ff82-2522-4098-b4dd-d32acd78d26b', value: DEPARTMENT.STARTUPS_AND_INVESTMENT, label: 'Startups and investment', position: 5, color: 'pink' },
@@ -95,7 +97,7 @@ export default defineObject({
       type: FieldType.TEXT,
       name: 'otherDetails',
       label: 'Other details',
-      description: OTHER_DETAILS_FIELD_DESCRIPTION,
+      description: fieldDescription('milestone.otherDetails'),
       icon: 'IconNotes',
     },
   ],

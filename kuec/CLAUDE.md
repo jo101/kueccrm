@@ -100,6 +100,7 @@ Definitions to apply consistently:
 - Package name `kuec-bd-ops`. One file per entity, named like real-estate: `work-package.object.ts`, `owner-on-work-package.field.ts`, `open-opportunities.view.ts`, `bd-staff.role.ts`.
 - Export each `universalIdentifier` as a SCREAMING_SNAKE_CASE constant from the file that defines it, and import it everywhere else.
 - Select values: `as const` objects of string literals, stored in the field file and imported by logic.
+- Field and object descriptions come from `app/src/i18n/fields.json` through `fieldDescription()` and `objectDescription()`, never a string literal in the field file. The Arabic of every catalog string lives in `app/src/i18n` and reaches `locales/ar-SA.json` through `yarn i18n:sync`.
 - Business rules are pure functions (input: record state and "now"; output: actions) in their own module. Handlers and sweeps only load data, call the rule, and apply the actions. Tests target the pure functions with a fixed clock.
 - Install hooks seed reference data only (holiday list, config records). Never demo data, never personal data.
 - Roles: at minimum ED, BD staff, engineer, ops coordinator, and the automation role behind the API key. Least privilege; no BD role gets workflow, data model, or API key settings.
@@ -107,6 +108,16 @@ Definitions to apply consistently:
 ## Click-runbooks
 
 One Markdown file per Settings-UI change in `config/dashboards/`. Each states: why the manifest cannot do it, the Twenty version it was written against, prerequisites and role needed, numbered click steps with exact labels, expected result, how to verify, and how to undo. Update the runbook in the same change that relies on it.
+
+## Definition of done
+
+The people using this CRM have never used one, so the system explains itself. Every change ships with its field descriptions, its widget text and its tooltip, or it does not ship. Rules and steps: `runbooks/20-guidance.md` sections 1 to 8.
+
+- [ ] **Field descriptions.** Every field added or changed has a one-sentence description in English and Arabic (what to put, and when) in `app/src/i18n/fields.json`, and its definition reads it with `fieldDescription('object.field')`. Every select option added or changed has a label in plain words with no abbreviations and a one-sentence description in English and Arabic, in `playbooks/lookups.json` for a KUEC-wide list or `app/src/i18n/options.json` for a Twenty-only list; Other stays last, and a list without a natural order starts with its most common case.
+- [ ] **Widget text.** Every record page or dashboard tab added or changed opens with its five lines (what it is, who owns it, what must be filled, what happens automatically, where to get help) in English and Arabic in `app/src/i18n/guidance.json`, and section 10 of `runbooks/20-guidance.md` is re-rendered (`yarn guidance:render`). A page that shows work packages says that Request help is the way out when you don't know what to do.
+- [ ] **Tooltip.** Every front-component control added or changed has an info icon with a one-sentence tooltip (twenty-ui `Tooltip`, `WithInfo` or `InfoTooltip` in `app/src/front-components/shared/info-tooltip.tsx`), and every screen ends with a "What do I do now?" line naming the next action. The texts are `msg()` or `t()` calls in the front component's own file, with their Arabic in `app/src/i18n/interface.json`.
+- [ ] **Catalog.** `yarn twenty dev:translations-extract`, `yarn i18n:sync` and `yarn test:unit` run clean in `app/`; `locales/ar-SA.json` is never edited by hand.
+- [ ] **Outside the app.** The Help page sections and the screencast list that the change makes out of date are updated (`runbooks/20-guidance.md` sections 5 and 7).
 
 ## Before every task
 
@@ -116,3 +127,4 @@ One Markdown file per Settings-UI change in `config/dashboards/`. Each states: w
 4. If it adds automation: event fast path plus sweep, idempotent, Asia/Dubai business-day math, tested with a fixed clock.
 5. If it needs the Settings UI: write or update the click-runbook.
 6. Commits carry no AI attribution.
+7. Before calling it done, tick every box of the Definition of done.

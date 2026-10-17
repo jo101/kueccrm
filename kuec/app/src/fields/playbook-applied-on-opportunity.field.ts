@@ -4,6 +4,7 @@ import {
   MetadataWritability,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const PLAYBOOK_APPLIED_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = '060d46de-608f-4155-92c6-281bea94d263';
 
@@ -14,6 +15,7 @@ export default defineField({
   type: FieldType.BOOLEAN,
   name: 'playbookApplied',
   label: 'Playbook applied',
+  description: fieldDescription('opportunity.playbookApplied'),
   icon: 'IconRoute',
   isNullable: false,
   defaultValue: false,

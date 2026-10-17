@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const ACCOUNT_TIER_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER = '0b25b187-8759-4b96-9860-6aabc395dc61';
 
@@ -19,6 +20,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'accountTier',
   label: 'Account tier',
+  description: fieldDescription('company.accountTier'),
   icon: 'IconStairs',
   options: [
     {

@@ -6,6 +6,7 @@ import {
 } from 'twenty-sdk/define';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { PERSON_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from './person-on-lead.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const LEADS_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER = '09371f39-2c7f-4976-8c7f-7584cc01739f';
 
@@ -15,6 +16,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'leads',
   label: 'Leads',
+  description: fieldDescription('person.leads'),
   icon: 'IconUserSearch',
   relationTargetObjectMetadataUniversalIdentifier:
     LEAD_UNIVERSAL_IDENTIFIER,

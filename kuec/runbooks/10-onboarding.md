@@ -21,7 +21,7 @@ Tick each one when you can answer yes.
 
 ## Then connect your mailbox
 
-With the ops coordinator, connect your Microsoft mail and calendar (Settings > Accounts > Emails > **Connect with Microsoft**) with the team's settings: email visibility **Subject and metadata**, contact auto-creation **None**, calendar visibility **Everything**, calendar auto-creation off (`config/dashboards/email-calendar-sync.md`). Then read "How to find anything" in `runbooks/12-global-features.md`.
+With the ops coordinator, connect your Microsoft mail and calendar (Settings > Accounts > Emails > **Connect with Microsoft**) with the team's settings: email visibility **Subject and metadata**, contact auto-creation **None**, calendar visibility **Everything**, calendar auto-creation off (`config/dashboards/email-calendar-sync.md`). Then read "How to find anything" in `runbooks/12-global-features.md`, and open **Help** at the bottom of the sidebar: it has this checklist, the cadence guide, what every list and field means and a short video for each screen. Not sure what to do with a work package? Press **Request help** on its card.
 
 ## Sign-off
 

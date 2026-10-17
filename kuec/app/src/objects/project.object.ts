@@ -3,10 +3,8 @@ import {
   FieldType,
   MetadataWritability,
 } from 'twenty-sdk/define';
-import {
-  DEPARTMENT,
-  OTHER_DETAILS_FIELD_DESCRIPTION,
-} from '../constants/taxonomy';
+import { DEPARTMENT } from '../constants/taxonomy';
+import { fieldDescription, objectDescription } from '../i18n/field-guidance';
 
 export const PROJECT_UNIVERSAL_IDENTIFIER = 'd172d5bb-e4cf-4518-b874-13fbd4c4ae65';
 
@@ -65,7 +63,7 @@ export default defineObject({
   namePlural: 'projects',
   labelSingular: 'Project',
   labelPlural: 'Projects',
-  description: 'A workshop, proposal or delivery run as milestones and work packages',
+  description: objectDescription('project'),
   icon: 'IconBriefcase',
   labelIdentifierFieldMetadataUniversalIdentifier:
     PROJECT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
@@ -75,6 +73,7 @@ export default defineObject({
       type: FieldType.TEXT,
       name: 'name',
       label: 'Name',
+      description: fieldDescription('project.name'),
       icon: 'IconAbc',
     },
     {
@@ -82,14 +81,14 @@ export default defineObject({
       type: FieldType.SELECT,
       name: 'playbookType',
       label: 'Type',
-      description: 'What sort of project it is; Workshop, Proposal and Delivery start a template',
+      description: fieldDescription('project.playbookType'),
       icon: 'IconCategory',
       options: [
         { id: 'cf88a3a0-9e7f-48bb-8188-a9774356d9d4', value: PROJECT_TYPE.DELIVERY, label: 'Delivery', position: 0, color: 'green' },
         { id: '541fa162-9513-44ea-85be-54996c37bda2', value: PROJECT_TYPE.INITIATIVE, label: 'Initiative', position: 1, color: 'orange' },
         { id: '4a6834fb-fcd1-4f04-9e1e-2a7d6985e084', value: PROJECT_TYPE.WORKSHOP, label: 'Workshop', position: 2, color: 'purple' },
         { id: '468e18e9-d786-4e18-9a1f-9aef5eabfbba', value: PROJECT_TYPE.PROPOSAL, label: 'Proposal', position: 3, color: 'blue' },
-        { id: '7251c568-7482-4060-84a2-ef047193bf2f', value: PROJECT_TYPE.GTM_CAMPAIGN, label: 'GTM campaign', position: 4, color: 'turquoise' },
+        { id: '7251c568-7482-4060-84a2-ef047193bf2f', value: PROJECT_TYPE.GTM_CAMPAIGN, label: 'Go-to-market campaign', position: 4, color: 'turquoise' },
         { id: '75fe3608-2b2c-4cf0-a8d3-0f98a70d895b', value: PROJECT_TYPE.ACCOUNT_PLAN, label: 'Account plan', position: 5, color: 'pink' },
         { id: 'cf8fcf3c-0246-4f82-8655-932d1bd66702', value: PROJECT_TYPE.PROGRAMME_COHORT, label: 'Programme cohort', position: 6, color: 'sky' },
         { id: '5d5d3e17-b7c4-48b1-bfb1-27dd955d0547', value: PROJECT_TYPE.INTERNAL, label: 'Internal', position: 7, color: 'amber' },
@@ -101,6 +100,7 @@ export default defineObject({
       type: FieldType.SELECT,
       name: 'status',
       label: 'Status',
+      description: fieldDescription('project.status'),
       icon: 'IconProgressCheck',
       isNullable: false,
       defaultValue: `'${PROJECT_STATUS.ACTIVE}'`,
@@ -116,14 +116,15 @@ export default defineObject({
       type: FieldType.SELECT,
       name: 'health',
       label: 'Health',
+      description: fieldDescription('project.health'),
       icon: 'IconHeartbeat',
       isNullable: false,
       defaultValue: `'${PROJECT_HEALTH.GREEN}'`,
       writability: MetadataWritability.APPLICATION,
       options: [
-        { id: '5bc341cf-f2a6-4994-9906-52f53c06a570', value: PROJECT_HEALTH.GREEN, label: 'Green', position: 0, color: 'green' },
-        { id: 'c7ae26c4-a918-4cc3-87ab-35b42ec7f55b', value: PROJECT_HEALTH.AMBER, label: 'Amber', position: 1, color: 'amber' },
-        { id: '9e458a1b-408c-4804-8f0c-2b46049fbe71', value: PROJECT_HEALTH.RED, label: 'Red', position: 2, color: 'red' },
+        { id: '5bc341cf-f2a6-4994-9906-52f53c06a570', value: PROJECT_HEALTH.GREEN, label: 'Green (on track)', position: 0, color: 'green' },
+        { id: 'c7ae26c4-a918-4cc3-87ab-35b42ec7f55b', value: PROJECT_HEALTH.AMBER, label: 'Amber (at risk)', position: 1, color: 'amber' },
+        { id: '9e458a1b-408c-4804-8f0c-2b46049fbe71', value: PROJECT_HEALTH.RED, label: 'Red (off track)', position: 2, color: 'red' },
       ],
     },
     {
@@ -131,6 +132,7 @@ export default defineObject({
       type: FieldType.NUMBER,
       name: 'percentComplete',
       label: 'Percent complete',
+      description: fieldDescription('project.percentComplete'),
       icon: 'IconPercentage',
       writability: MetadataWritability.APPLICATION,
     },
@@ -139,7 +141,7 @@ export default defineObject({
       type: FieldType.DATE,
       name: 'eventDate',
       label: 'Event date',
-      description: 'Workshop date; the invitation, logistics and run steps are planned back from it',
+      description: fieldDescription('project.eventDate'),
       icon: 'IconCalendarEvent',
     },
     {
@@ -147,7 +149,7 @@ export default defineObject({
       type: FieldType.DATE,
       name: 'endDate',
       label: 'End date',
-      description: 'Planned finish of the project',
+      description: fieldDescription('project.endDate'),
       icon: 'IconCalendarCheck',
     },
     {
@@ -155,6 +157,7 @@ export default defineObject({
       type: FieldType.BOOLEAN,
       name: 'playbookApplied',
       label: 'Playbook applied',
+      description: fieldDescription('project.playbookApplied'),
       icon: 'IconRoute',
       isNullable: false,
       defaultValue: false,
@@ -165,6 +168,7 @@ export default defineObject({
       type: FieldType.DATE_TIME,
       name: 'closeTaskCreatedAt',
       label: 'Close task created at',
+      description: fieldDescription('project.closeTaskCreatedAt'),
       icon: 'IconChecklist',
       writability: MetadataWritability.APPLICATION,
       isAuditLogged: false,
@@ -174,12 +178,12 @@ export default defineObject({
       type: FieldType.SELECT,
       name: 'department',
       label: 'Department',
-      description: 'The KUEC department that leads this record',
+      description: fieldDescription('project.department'),
       icon: 'IconBuildingCommunity',
       options: [
-        { id: '6f16a1d8-c411-4d6b-b912-f91406ec30f9', value: DEPARTMENT.BD, label: 'BD', position: 0, color: 'blue' },
+        { id: '6f16a1d8-c411-4d6b-b912-f91406ec30f9', value: DEPARTMENT.BD, label: 'Business development', position: 0, color: 'blue' },
         { id: '29fb9bff-1fe4-4d91-99cf-ed4c0121f4ca', value: DEPARTMENT.COMMERCIALIZATION, label: 'Commercialization', position: 1, color: 'green' },
-        { id: '9e1dcd3b-896a-4aa7-8b52-177b22fe8dd2', value: DEPARTMENT.IP_OFFICE, label: 'IP office', position: 2, color: 'purple' },
+        { id: '9e1dcd3b-896a-4aa7-8b52-177b22fe8dd2', value: DEPARTMENT.IP_OFFICE, label: 'Intellectual property office', position: 2, color: 'purple' },
         { id: '3fafa17f-bb74-47b7-a4b4-a08d7373b17b', value: DEPARTMENT.LEASING, label: 'Leasing', position: 3, color: 'orange' },
         { id: 'fad80e02-a938-43fb-be0f-e5f2af7b35c5', value: DEPARTMENT.LAB_ACCESS, label: 'Lab access', position: 4, color: 'turquoise' },
         { id: '65979abb-d261-48df-a372-5c2998a0b48c', value: DEPARTMENT.STARTUPS_AND_INVESTMENT, label: 'Startups and investment', position: 5, color: 'pink' },
@@ -191,7 +195,7 @@ export default defineObject({
       type: FieldType.TEXT,
       name: 'otherDetails',
       label: 'Other details',
-      description: OTHER_DETAILS_FIELD_DESCRIPTION,
+      description: fieldDescription('project.otherDetails'),
       icon: 'IconNotes',
     },
   ],

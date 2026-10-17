@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const FUNDING_PATH_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = '56083bf8-56b8-48bb-9444-f4533f3d3781';
 
@@ -24,7 +25,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'fundingPath',
   label: 'Funding path',
-  description: 'Who pays for the work',
+  description: fieldDescription('opportunity.fundingPath'),
   icon: 'IconCoins',
   options: [
     {
@@ -44,7 +45,7 @@ export default defineField({
     {
       id: 'f700741f-b5f8-4dcf-9f24-6dd655ddd7d2',
       value: OPPORTUNITY_FUNDING_PATH.ICV,
-      label: 'ICV',
+      label: 'In-country value programme',
       position: 2,
       color: 'purple',
     },

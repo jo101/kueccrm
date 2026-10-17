@@ -3,6 +3,7 @@ import {
   FieldType,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const NAME_ARABIC_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER = '7a93c061-e67b-4fec-927d-ecf9b857d5d9';
 
@@ -14,6 +15,7 @@ export default defineField({
   type: FieldType.TEXT,
   name: 'nameArabic',
   label: 'Name (Arabic)',
+  description: fieldDescription('person.nameArabic'),
   icon: 'IconLanguage',
   isSearchable: true,
 });

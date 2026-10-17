@@ -4,6 +4,7 @@ import {
   MetadataWritability,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const NEXT_ACTION_FLAGGED_ON_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = 'b7506a3b-c19c-4346-8a28-1bc23bd22f34';
 
@@ -14,7 +15,7 @@ export default defineField({
   type: FieldType.DATE,
   name: 'nextActionFlaggedOn',
   label: 'Next action flagged on',
-  description: 'Last day the next-action guard flagged this opportunity, in Asia/Dubai',
+  description: fieldDescription('opportunity.nextActionFlaggedOn'),
   icon: 'IconFlag',
   isAuditLogged: false,
   writability: MetadataWritability.APPLICATION,

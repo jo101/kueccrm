@@ -8,6 +8,7 @@ import {
 
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from '../objects/engagement.object';
 import { ENGAGEMENTS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from './engagements-on-opportunity.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const OPPORTUNITY_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER = 'd302b3e7-952a-4b6c-a037-45c884b5ba7b';
 
@@ -17,6 +18,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'opportunity',
   label: 'Opportunity',
+  description: fieldDescription('engagement.opportunity'),
   icon: 'IconTargetArrow',
   relationTargetObjectMetadataUniversalIdentifier:
     STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.opportunity.universalIdentifier,

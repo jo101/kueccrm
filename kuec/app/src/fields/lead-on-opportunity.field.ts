@@ -7,6 +7,7 @@ import {
 } from 'twenty-sdk/define';
 import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { OPPORTUNITIES_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from './opportunities-on-lead.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const LEAD_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER = '38dd5fa7-2faf-4157-a5a8-6075ead8b1c6';
 
@@ -16,7 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'lead',
   label: 'Lead',
-  description: 'The lead this opportunity was converted from, set by the app',
+  description: fieldDescription('opportunity.lead'),
   icon: 'IconUserSearch',
   relationTargetObjectMetadataUniversalIdentifier:
     LEAD_UNIVERSAL_IDENTIFIER,

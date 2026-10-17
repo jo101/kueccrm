@@ -1,0 +1,531 @@
+{
+  "about": "The five lines that open every record page Home tab (\"How this record works\") and every dashboard tab (\"How this tab works\"), in English and Arabic. The app builds the rich-text widgets from these lines and scripts/render-guidance.mjs renders them into kuec/runbooks/20-guidance.md.",
+  "titles": {
+    "recordPage": {
+      "en": "How this record works",
+      "ar": "كيف يعمل هذا السجل"
+    },
+    "dashboardTab": {
+      "en": "How this tab works",
+      "ar": "كيف يعمل هذا التبويب"
+    }
+  },
+  "lineLabels": {
+    "en": [
+      "What it is",
+      "Who owns it",
+      "What must be filled",
+      "What happens automatically",
+      "Where to get help"
+    ],
+    "ar": [
+      "ما هذا",
+      "من المسؤول",
+      "ما يجب ملؤه",
+      "ما يحدث تلقائياً",
+      "أين تجد المساعدة"
+    ]
+  },
+  "pages": [
+    {
+      "key": "company",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Company",
+        "ar": "الشركة"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "A company or public body KUEC works with or wants to, and everything about that relationship hangs off this page.",
+          "The account owner keeps it current, and anyone can add people, engagements, leads and documents to it.",
+          "Name, Sector, Relationship type and Account owner, plus Account tier and Search keywords for Tier 1 and Tier 2 accounts.",
+          "Each logged engagement moves Last engagement forward, and 60 days without one lists a Tier 1 or Tier 2 account on the dashboard as not engaged.",
+          "Help in the sidebar has the guide for this page, and the ops coordinator merges any duplicate company you spot."
+        ],
+        "ar": [
+          "شركة أو جهة عامة تعمل معها KUEC أو تريد العمل معها، وكل ما يخص هذه العلاقة مرتبط بهذه الصفحة.",
+          "يُبقيها مسؤول الحساب محدَّثة، ويمكن لأي شخص أن يضيف إليها أشخاصاً وتواصلات وعملاء محتملين ووثائق.",
+          "الاسم والقطاع ونوع العلاقة ومسؤول الحساب، إضافة إلى فئة الحساب وكلمات البحث لحسابات Tier 1 و Tier 2.",
+          "كل تواصل مسجَّل يحدّث «آخر تواصل»، ومرور 60 يوماً بلا تواصل يُظهر حساب Tier 1 أو Tier 2 في لوحة المتابعة على أنه بلا تواصل.",
+          "في «المساعدة» بالقائمة الجانبية دليل هذه الصفحة، ومنسق العمليات يدمج أي شركة مكررة تلاحظها."
+        ]
+      }
+    },
+    {
+      "key": "person",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Person",
+        "ar": "الشخص"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "One contact person at a company, with the part they play in the buying decision.",
+          "Whoever met them keeps the details right, and the ops coordinator merges duplicates.",
+          "Name, Email, Company and Decision role, plus the Arabic name when they write it in Arabic.",
+          "Emails and meetings with them appear on the Emails and Calendar tabs once your mailbox is connected.",
+          "Help in the sidebar has the guide for this page, or ask the ops coordinator."
+        ],
+        "ar": [
+          "شخص واحد نتواصل معه في شركة، مع الدور الذي يؤديه في قرار الشراء.",
+          "من التقاه يُبقي بياناته صحيحة، ومنسق العمليات يدمج المكرر.",
+          "الاسم والبريد الإلكتروني والشركة والدور في القرار، إضافة إلى الاسم بالعربية عندما يكتبه بالعربية.",
+          "تظهر الرسائل والاجتماعات معه في تبويبَي Emails و Calendar بعد ربط بريدك.",
+          "في «المساعدة» بالقائمة الجانبية دليل هذه الصفحة، أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "opportunity",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Opportunity",
+        "ar": "الفرصة"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "One case KUEC is working to sign, from the first scoping to Signed, Lost or Parked.",
+          "The owner, who keeps an owner, a next action and a next-action date on it at all times.",
+          "Name, Owner, Type, Source, Next action, Next action date and the SharePoint folder link.",
+          "Setting Type to Licence or Technical service creates its work packages, a missing or past next action gives the owner a task at 08:00, and Signed tells the ED.",
+          "Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator."
+        ],
+        "ar": [
+          "ملف واحد تعمل KUEC على توقيعه، من تحديد النطاق الأول حتى Signed أو Lost أو Parked.",
+          "المسؤول، الذي يُبقي عليه دائماً مسؤولاً وإجراءً تالياً وتاريخاً للإجراء التالي.",
+          "الاسم والمسؤول والنوع والمصدر والإجراء التالي وتاريخ الإجراء التالي ورابط مجلد SharePoint.",
+          "اختيار النوع Licence أو Technical service ينشئ حزم عمله، والإجراء التالي الناقص أو الفائت يرسل إلى المسؤول مهمة في الساعة 08:00، و Signed يُبلغ المدير التنفيذي.",
+          "متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "note",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Note",
+        "ar": "الملاحظة"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "A written note on a record, such as meeting notes, that everyone who can see that record can read.",
+          "Whoever wrote it.",
+          "A title, the text and the record it belongs to, and never a contract or a confidential document pasted in.",
+          "The app writes notes too, such as referral credits, and every note appears on its record's timeline.",
+          "Help in the sidebar has the guide for this page, or ask the ops coordinator."
+        ],
+        "ar": [
+          "ملاحظة مكتوبة على سجل، مثل محضر اجتماع، يقرؤها كل من يستطيع رؤية ذلك السجل.",
+          "من كتبها.",
+          "عنوان ونص والسجل الذي تتبعه، ولا يُلصق فيها عقد أو وثيقة سرية أبداً.",
+          "يكتب النظام ملاحظات أيضاً، مثل رصيد الإحالة، وتظهر كل ملاحظة في السجل الزمني لسجلها.",
+          "في «المساعدة» بالقائمة الجانبية دليل هذه الصفحة، أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "task",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Task",
+        "ar": "المهمة"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "One thing a person must do by a date, and every reminder the CRM sends you is a task.",
+          "The assignee does it and marks it Done.",
+          "Title, Assignee, Due date and Type, linked to the record it is about.",
+          "The app creates tasks for reminders and escalations, such as Set next action, and emails each one to its assignee.",
+          "A task about a work package? Open the work package and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator."
+        ],
+        "ar": [
+          "شيء واحد يجب على شخص أن يفعله قبل تاريخ محدد، وكل تذكير يرسله النظام إليك هو مهمة.",
+          "المكلَّف بها ينفذها ويجعلها Done.",
+          "العنوان والمكلَّف وتاريخ الاستحقاق والنوع، مع ربطها بالسجل الذي تخصه.",
+          "ينشئ النظام مهام للتذكير والتصعيد، مثل Set next action، ويرسل كل مهمة بالبريد إلى المكلَّف بها.",
+          "مهمة تخص حزمة عمل؟ افتح حزمة العمل واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "lead",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Lead",
+        "ar": "العميل المحتمل"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "A contact with a possible need before it becomes a case, because a contact that is not a lead did not happen.",
+          "The ops coordinator triages it by the next working day and hands it to the colleague who works it.",
+          "Name, Source, Company, Person and Need on the first day, then the five checks as the answers come in, and always a next action with a date.",
+          "After 3 and 7 working days in New the owner and then the ED are reminded, 4 ticked checks make it Qualified, Converted creates the opportunity, and 30 quiet days set it to Dead.",
+          "Help in the sidebar explains the five checks, or ask the ops coordinator."
+        ],
+        "ar": [
+          "جهة اتصال لديها حاجة محتملة قبل أن تصبح ملفاً، لأن التواصل غير المسجَّل عميلاً محتملاً لم يحدث.",
+          "يفرزه منسق العمليات بحلول يوم العمل التالي ويسنده إلى الزميل الذي يعمل عليه.",
+          "الاسم والمصدر والشركة والشخص والحاجة في اليوم الأول، ثم الشروط الخمسة كلما وصلت الإجابات، ودائماً إجراء تالٍ مع تاريخ.",
+          "بعد 3 ثم 7 أيام عمل في New يُذكَّر المسؤول ثم المدير التنفيذي، و4 شروط محققة تجعله Qualified، و Converted ينشئ الفرصة، و30 يوماً بلا تواصل تجعله Dead.",
+          "في «المساعدة» بالقائمة الجانبية شرح الشروط الخمسة، أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "engagement",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Engagement",
+        "ar": "التواصل"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "One logged contact: a meeting, a call, an email thread, a visit or an event.",
+          "The colleague who held the contact.",
+          "Subject, Kind, Date, Company, the lead or opportunity it was about, and the Outcome within 2 days.",
+          "Next step is copied to the opportunity as its next action, and the company's and the lead's last engagement dates move forward.",
+          "Help in the sidebar has the guide for this page, or ask the ops coordinator."
+        ],
+        "ar": [
+          "تواصل واحد مسجَّل: اجتماع أو مكالمة أو سلسلة رسائل أو زيارة أو فعالية.",
+          "الزميل الذي أجرى التواصل.",
+          "الموضوع والنوع والتاريخ والشركة والعميل المحتمل أو الفرصة التي كان بشأنها، والنتيجة خلال يومين.",
+          "تُنسخ «الخطوة التالية» إلى الفرصة بصفتها إجراءها التالي، ويتحدّث تاريخ آخر تواصل للشركة وللعميل المحتمل.",
+          "في «المساعدة» بالقائمة الجانبية دليل هذه الصفحة، أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "project",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Project",
+        "ar": "المشروع"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "A workshop, proposal, delivery or campaign run as dated milestones and work packages.",
+          "The owner runs it and closes it when every milestone is done.",
+          "Name, Owner, Type, Company and End date, and the Event date before you pick Workshop.",
+          "Picking Workshop, Proposal or Delivery creates its milestones and work packages, Health turns amber or red from the milestones, and the owner gets a task to close it at the end.",
+          "Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator."
+        ],
+        "ar": [
+          "ورشة عمل أو مقترح أو تنفيذ أو حملة تُدار على شكل مراحل مؤرخة وحزم عمل.",
+          "يديره المسؤول ويغلقه بعد إنجاز كل المراحل.",
+          "الاسم والمسؤول والنوع والشركة وتاريخ الانتهاء المخطط، وتاريخ الفعالية قبل اختيار Workshop.",
+          "اختيار Workshop أو Proposal أو Delivery ينشئ مراحله وحزم عمله، وتصبح «سلامة المشروع» كهرمانية أو حمراء بحسب المراحل، وتصل المسؤول مهمة لإغلاقه في النهاية.",
+          "متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "milestone",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Milestone",
+        "ar": "المرحلة الرئيسية"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "A dated checkpoint in a project, such as Invitations sent.",
+          "The milestone owner.",
+          "Name, Project, Owner, Due and Status.",
+          "Done updates the project's percent complete, Missed turns the project red, and an open milestone due within 7 days turns it amber.",
+          "Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator."
+        ],
+        "ar": [
+          "نقطة متابعة مؤرخة في مشروع، مثل: أُرسلت الدعوات.",
+          "مسؤول المرحلة.",
+          "الاسم والمشروع والمسؤول وموعد التسليم والحالة.",
+          "Done يحدّث نسبة إنجاز المشروع، و Missed يجعل المشروع أحمر، والمرحلة المفتوحة المستحقة خلال 7 أيام تجعله كهرمانياً.",
+          "متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "workPackage",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Work package",
+        "ar": "حزمة العمل"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "One piece of work with one owner, a due date and done criteria, and the card below says what to do now.",
+          "The owner delivers it, the reviewer checks it, and the ED or the ops coordinator plans it.",
+          "Title, Owner, Due, Objective, Expected output and Done criteria before it is offered, and a Blocked reason whenever it is blocked.",
+          "Not accepted after 2 working days reminds the owner and the ED, after 5 it moves to the ops coordinator, late work is flagged on the day and to the ED 2 working days later, and Done offers the next step.",
+          "Do not know what to do? Press Request help on the card, and the ops coordinator gets a task while the work stays yours."
+        ],
+        "ar": [
+          "جزء واحد من العمل له مسؤول واحد وموعد تسليم ومعايير إنجاز، والبطاقة أدناه تخبرك بما تفعله الآن.",
+          "ينجزه المسؤول، ويراجعه المراجِع، ويخطط له المدير التنفيذي أو منسق العمليات.",
+          "العنوان والمسؤول وموعد التسليم والهدف والمُخرَج المتوقع ومعايير الإنجاز قبل عرضه، و«سبب التعطّل» كلما تعطّل.",
+          "عدم القبول بعد يومي عمل يُذكّر المسؤول والمدير التنفيذي، وبعد 5 أيام ينتقل إلى منسق العمليات، والتأخير يُنبَّه إليه في يومه ثم يُبلَّغ المدير التنفيذي بعد يومي عمل، و Done يعرض الخطوة التالية.",
+          "لا تعرف ماذا تفعل؟ اضغط «طلب مساعدة» في البطاقة، فتصل منسق العمليات مهمة ويبقى العمل لديك."
+        ]
+      }
+    },
+    {
+      "key": "contract",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Contract",
+        "ar": "العقد"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "The details of one agreement, its kind, status, dates, value and owner, while the signed file stays on SharePoint.",
+          "The contract owner, while the ops coordinator or the ED keeps the record, because business development officers can only read it.",
+          "Name, Kind, Status, Counterparty, Owner and SharePoint folder, plus Signed on and Expires on once it is signed.",
+          "A signed licence opportunity creates its licence contract, and the dashboard lists every contract in the 90 days before it expires.",
+          "Help in the sidebar has the guide for this page, or ask the ops coordinator."
+        ],
+        "ar": [
+          "تفاصيل اتفاقية واحدة، نوعها وحالتها وتواريخها وقيمتها ومسؤولها، بينما يبقى الملف الموقَّع على SharePoint.",
+          "مسؤول العقد، ويتولى منسق العمليات أو المدير التنفيذي تحديث السجل لأن مسؤولي تطوير الأعمال يستطيعون قراءته فقط.",
+          "الاسم والنوع والحالة والطرف المقابل والمسؤول ومجلد SharePoint، إضافة إلى تاريخ التوقيع وتاريخ الانتهاء بعد التوقيع.",
+          "فرصة الترخيص الموقَّعة تنشئ عقد الترخيص الخاص بها، وتعرض لوحة المتابعة كل عقد في الأيام التسعين السابقة لانتهائه.",
+          "في «المساعدة» بالقائمة الجانبية دليل هذه الصفحة، أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "document",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Document",
+        "ar": "الوثيقة"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "A link to one file on SharePoint or in uVENTURE, with its type, status and confidentiality, because the file itself never comes into the CRM.",
+          "The document owner keeps its status, version and expiry current.",
+          "Name, Type, Status, Confidentiality, the link, and every record it belongs to.",
+          "A document that expires within 60 days is listed under Documents expiring in 60 days.",
+          "Help in the sidebar has the guide for this page, or ask the ops coordinator."
+        ],
+        "ar": [
+          "رابط إلى ملف واحد على SharePoint أو في uVENTURE، مع نوعه وحالته ودرجة سريته، لأن الملف نفسه لا يدخل النظام أبداً.",
+          "مسؤول الوثيقة يُبقي حالتها وإصدارها وتاريخ انتهائها محدَّثة.",
+          "الاسم والنوع والحالة والسرية والرابط، وكل سجل تتبعه الوثيقة.",
+          "الوثيقة التي تنتهي خلال 60 يوماً تظهر في Documents expiring in 60 days.",
+          "في «المساعدة» بالقائمة الجانبية دليل هذه الصفحة، أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "playbookRoleAssignment",
+      "kind": "recordPage",
+      "screen": {
+        "en": "Playbook role assignment",
+        "ar": "إسناد دور دليل العمل"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "Who fills each playbook role, so that new work packages go to the least-loaded active member of the role.",
+          "The ED and the ops coordinator.",
+          "Member, Playbook role and Active, with exactly one active Executive director and one active Operations coordinator.",
+          "The app reads these records to give out work, to find the ED for escalations and to find the ops coordinator for help requests.",
+          "Ask the ED before you change one, because it changes who receives work."
+        ],
+        "ar": [
+          "من يشغل كل دور في دليل العمل، حتى تذهب حزم العمل الجديدة إلى أقل أعضاء الدور النشطين انشغالاً.",
+          "المدير التنفيذي ومنسق العمليات.",
+          "العضو ودور دليل العمل و«نشط»، على أن يكون هناك Executive director نشط واحد و Operations coordinator نشط واحد بالضبط.",
+          "يقرأ النظام هذه السجلات ليوزع العمل، ويعرف منها المدير التنفيذي للتصعيد ومنسق العمليات لطلبات المساعدة.",
+          "اسأل المدير التنفيذي قبل أن تغيّر أي سجل، لأن ذلك يغيّر من يتلقى العمل."
+        ]
+      }
+    },
+    {
+      "key": "publicHoliday",
+      "kind": "recordPage",
+      "screen": {
+        "en": "UAE public holiday",
+        "ar": "العطلة الرسمية"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "One UAE public holiday, which does not count as a working day.",
+          "The ops coordinator enters each year's holidays when they are announced.",
+          "Name and Date.",
+          "Every working-day count in the app, such as the 2-day acceptance and the lead reminders, skips these dates.",
+          "Ask the engineering lead if a reminder seems to have counted a holiday."
+        ],
+        "ar": [
+          "عطلة رسمية واحدة في الإمارات، لا تُحسب يوم عمل.",
+          "يُدخل منسق العمليات عطلات كل سنة عند إعلانها.",
+          "الاسم والتاريخ.",
+          "كل عدّ لأيام العمل في النظام، مثل مهلة القبول البالغة يومين وتذكيرات العملاء المحتملين، يتخطى هذه التواريخ.",
+          "اسأل قائد الفريق الهندسي إذا بدا أن تذكيراً احتسب يوم عطلة."
+        ]
+      }
+    },
+    {
+      "key": "home",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "Home",
+        "ar": "الصفحة الرئيسية"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "Your landing page: what needs your decision, your next actions this week, and the rest of your open work.",
+          "You, because every table lists only your own records.",
+          "Nothing here, so open a row to act on it.",
+          "Rows appear when work is offered or submitted to you or falls due within 7 days, and leave once you act.",
+          "Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator."
+        ],
+        "ar": [
+          "صفحتك الأولى: ما يحتاج قرارك، وإجراءاتك التالية هذا الأسبوع، وبقية عملك المفتوح.",
+          "أنت، لأن كل جدول يعرض سجلاتك أنت فقط.",
+          "لا شيء هنا، فافتح أي صف لتعمل عليه.",
+          "تظهر الصفوف عندما يُعرض عليك عمل أو يُقدَّم إليك أو يحل موعده خلال 7 أيام، وتختفي بعد أن تتصرف.",
+          "متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "exceptions",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "Exceptions",
+        "ar": "الاستثناءات"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "What needs attention across the team: blocked and overdue work packages, and opportunities with no next action.",
+          "The ED works it at the Thursday review, and each owner fixes their own rows.",
+          "Every row needs a person and a day: a new due date, a next action, or a decision.",
+          "Rows come and go as records change, and the ED has already been told about each block.",
+          "Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator."
+        ],
+        "ar": [
+          "ما يحتاج انتباه الفريق كله: حزم العمل المتعطلة والمتأخرة، والفرص التي بلا إجراء تالٍ.",
+          "يعمل عليها المدير التنفيذي في مراجعة الخميس، ويصحح كل مسؤول صفوفه.",
+          "كل صف يحتاج شخصاً ويوماً: موعد تسليم جديد، أو إجراء تالياً، أو قراراً.",
+          "تظهر الصفوف وتختفي مع تغيّر السجلات، وقد أُبلغ المدير التنفيذي مسبقاً بكل تعطّل.",
+          "متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "dataQuality",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "Data quality",
+        "ar": "جودة البيانات"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "Counts of records with missing or inconsistent data, each beside the list of records behind it.",
+          "The ops coordinator runs it every Monday, and each owner fixes their own rows.",
+          "Open a list and fill in what it names, such as Other details when Other was picked.",
+          "A record leaves its list as soon as it is fixed.",
+          "Stuck on a work package listed here? Open it and press Request help on its card, and Help in the sidebar explains every field and option."
+        ],
+        "ar": [
+          "أعداد السجلات التي تنقصها بيانات أو فيها بيانات غير متسقة، وبجانب كل عدد قائمة السجلات التي يمثلها.",
+          "يراجعها منسق العمليات كل يوم اثنين، ويصحح كل مسؤول صفوفه.",
+          "افتح القائمة واملأ ما تذكره، مثل «تفاصيل أخرى» عند اختيار Other.",
+          "يخرج السجل من قائمته بمجرد تصحيحه.",
+          "متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها، وفي «المساعدة» بالقائمة الجانبية شرح كل حقل وكل خيار."
+        ]
+      }
+    },
+    {
+      "key": "bdExecutive",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "BD dashboard, Executive tab",
+        "ar": "لوحة تطوير الأعمال، تبويب Executive"
+      },
+      "showsWorkPackages": false,
+      "lines": {
+        "en": [
+          "The team's results: signed work, the open pipeline, stale and lost opportunities, contracts, projects and leads.",
+          "The ED, who reads it from top to bottom for the Thursday update.",
+          "Only the Thursday update below it, written by the ED, because every number comes from the records.",
+          "Each chart counts exactly the records in the table beside it and changes as soon as the records do.",
+          "Help in the sidebar explains each chart, and the ED answers questions about a number."
+        ],
+        "ar": [
+          "نتائج الفريق: الأعمال الموقَّعة، والفرص المفتوحة، والفرص الراكدة والخاسرة، والعقود، والمشاريع، والعملاء المحتملون.",
+          "المدير التنفيذي، الذي يقرؤها من أعلى إلى أسفل لتحديث يوم الخميس.",
+          "تحديث يوم الخميس أدناه فقط، ويكتبه المدير التنفيذي، لأن كل رقم يأتي من السجلات.",
+          "كل رسم بياني يعدّ بالضبط السجلات الموجودة في الجدول بجانبه، ويتغير بمجرد تغيّرها.",
+          "في «المساعدة» بالقائمة الجانبية شرح كل رسم بياني، والمدير التنفيذي يجيب عن الأسئلة حول أي رقم."
+        ]
+      }
+    },
+    {
+      "key": "bdTeam",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "BD dashboard, Team tab",
+        "ar": "لوحة تطوير الأعمال، تبويب Team"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "Who carries what: open work per owner, what is overdue, blocked or waiting to be accepted or reviewed, and the work package board.",
+          "The whole team, who read it together at the Monday standup.",
+          "For every row with your name, a new date, a plan to clear the block, or an accept or decline.",
+          "The board and the charts move as statuses change, and dragging a card to another column changes its status.",
+          "Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator."
+        ],
+        "ar": [
+          "من يحمل ماذا: العمل المفتوح لكل مسؤول، والمتأخر والمتعطل وما ينتظر القبول أو المراجعة، ولوحة حزم العمل.",
+          "الفريق كله، ويقرؤها معاً في الاجتماع القصير يوم الاثنين.",
+          "لكل صف يحمل اسمك: موعد جديد، أو خطة لرفع العائق، أو قبول أو رفض.",
+          "تتحرك اللوحة والرسوم البيانية مع تغيّر الحالات، وسحب البطاقة إلى عمود آخر يغيّر حالتها.",
+          "متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات."
+        ]
+      }
+    },
+    {
+      "key": "bdMine",
+      "kind": "dashboardTab",
+      "screen": {
+        "en": "BD dashboard, Mine tab",
+        "ar": "لوحة تطوير الأعمال، تبويب Mine"
+      },
+      "showsWorkPackages": true,
+      "lines": {
+        "en": [
+          "Your own numbers: open, overdue and submitted work packages, opportunities without a next action, this week's engagements and what closes this quarter.",
+          "You, because every list on this tab shows only your records.",
+          "Clear your overdue work and give every opportunity a next action with a date.",
+          "Every view behind this tab filters to you, so each person sees their own page.",
+          "Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator."
+        ],
+        "ar": [
+          "أرقامك أنت: حزم العمل المفتوحة والمتأخرة والمُسلَّمة، والفرص التي بلا إجراء تالٍ، وتواصلات هذا الأسبوع، وما يُغلق هذا الربع.",
+          "أنت، لأن كل قائمة في هذا التبويب تعرض سجلاتك فقط.",
+          "أنجز عملك المتأخر، وأعطِ كل فرصة إجراءً تالياً مع تاريخ.",
+          "كل عرض في هذا التبويب مصفّى عليك، فيرى كل شخص صفحته هو.",
+          "متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات."
+        ]
+      }
+    }
+  ]
+}

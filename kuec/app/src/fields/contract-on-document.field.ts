@@ -7,6 +7,7 @@ import {
 import { DOCUMENT_UNIVERSAL_IDENTIFIER } from '../objects/document.object';
 import { CONTRACT_UNIVERSAL_IDENTIFIER } from '../objects/contract.object';
 import { DOCUMENTS_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from './documents-on-contract.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const CONTRACT_ON_DOCUMENT_FIELD_UNIVERSAL_IDENTIFIER = '1f74ec7d-4e07-4c1d-bed2-07ab814c1c04';
 
@@ -16,6 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'contract',
   label: 'Contract',
+  description: fieldDescription('document.contract'),
   icon: 'IconFileCertificate',
   relationTargetObjectMetadataUniversalIdentifier:
     CONTRACT_UNIVERSAL_IDENTIFIER,

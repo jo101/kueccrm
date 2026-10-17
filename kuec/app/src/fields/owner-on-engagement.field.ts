@@ -7,6 +7,7 @@ import {
 } from 'twenty-sdk/define';
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from '../objects/engagement.object';
 import { OWNED_ENGAGEMENTS_ON_WORKSPACE_MEMBER_FIELD_UNIVERSAL_IDENTIFIER } from './owned-engagements-on-workspace-member.field';
+import { fieldDescription } from '../i18n/field-guidance';
 
 export const OWNER_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER = '675ec2c9-70e5-4399-9a2b-c47695724b9a';
 
@@ -16,6 +17,7 @@ export default defineField({
   type: FieldType.RELATION,
   name: 'owner',
   label: 'Owner',
+  description: fieldDescription('engagement.owner'),
   icon: 'IconUserCircle',
   relationTargetObjectMetadataUniversalIdentifier:
     STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.workspaceMember.universalIdentifier,

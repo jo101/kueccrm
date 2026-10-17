@@ -1,0 +1,19 @@
+# Written by the rehearsal scripts; credentials and run output never go in the repository.
+.env
+admin.apikey
+admin.token
+secrets.json
+members.json
+ca-bundle.crt
+sinks.log
+sinks.out
+node_modules/
+package*.json
+*.id
+ui-ids.json
+views.tsv
+journey-*.json
+journeys-*.json
+permissions-result.json
+load-result.json
+function-logs.txt

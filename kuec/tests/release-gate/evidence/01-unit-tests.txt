@@ -1,0 +1,38 @@
+
+ RUN  v4.0.16 /home/user/kueccrm/kuec/app
+
+ ✓ src/automation/uventure/uventure.test.ts (18 tests) 41ms
+ ✓ src/automation/rules/lead-rules.test.ts (21 tests) 15ms
+ ✓ src/roles/roles.test.ts (17 tests) 838ms
+ ✓ src/page-layout-tabs/data-quality.test.ts (7 tests) 918ms
+ ✓ src/views/views.test.ts (7 tests) 395ms
+ ✓ src/page-layout-tabs/home-and-exceptions.test.ts (9 tests) 15ms
+ ✓ src/page-layout-tabs/bd-dashboard.test.ts (9 tests) 80ms
+ ✓ src/front-components/work-package-card/work-package-card-api.test.ts (10 tests) 8ms
+ ✓ src/automation/intake/lead-intake.test.ts (9 tests) 11ms
+ ✓ src/i18n/i18n.test.ts (8 tests) 286ms
+ ✓ src/automation/rules/pack-rules.test.ts (11 tests) 16ms
+ ✓ src/front-components/work-package-card/work-package-card-rules.test.ts (15 tests) 13ms
+ ✓ src/playbooks/lookups.test.ts (7 tests) 259ms
+ ✓ src/automation/timers/work-package-timers.test.ts (13 tests) 8ms
+ ✓ src/automation/playbooks/plan-case-work-packages.test.ts (7 tests) 6ms
+ ✓ src/automation/rules/rules.test.ts (7 tests) 11ms
+ ✓ src/i18n/guidance.test.ts (6 tests) 1462ms
+ ✓ src/import/import-target-values.test.ts (3 tests) 11ms
+ ✓ src/roles/uventure-role-map.test.ts (3 tests) 257ms
+ ✓ src/packs/packs.test.ts (5 tests) 806ms
+ ✓ src/front-components/work-package-card/work-package-card-surfaces.test.ts (4 tests) 11ms
+ ✓ src/navigation-menu-items/sidebar.test.ts (4 tests) 410ms
+ ✓ src/automation/playbooks/playbook-templates.test.ts (3 tests) 10ms
+ ✓ src/__tests__/utils/manifest-identities.test.ts (2 tests) 9ms
+ ✓ src/page-layout-widgets/documents-widgets.test.ts (1 test) 1264ms
+ ✓ src/automation/rules/age-thresholds.test.ts (7 tests) 5ms
+ ✓ src/automation/dates/business-days.test.ts (6 tests) 4ms
+ ✓ src/automation/notifications/notification-messages.test.ts (27 tests) 9ms
+ ✓ src/automation/rules/default-owner.test.ts (5 tests) 9ms
+
+ Test Files  29 passed (29)
+      Tests  251 passed (251)
+   Start at  19:08:26
+   Duration  8.44s (transform 4.79s, setup 0ms, import 13.00s, tests 7.19s, environment 4ms)
+

@@ -1,0 +1,12 @@
+# Rehearsal after seeding 500 companies, 2,000 people, 200 opportunities, 1,000 work packages and running the journeys (docker stats, 2026-10-17 ~20:30 UTC)
+twenty-rehearsal-worker-1 cpu=62.83% mem=1.618GiB
+twenty-rehearsal-server-1 cpu=2.62%  mem=1.237GiB
+twenty-rehearsal-db-1     cpu=30.99% mem=172.6MiB
+twenty-rehearsal-redis-1  cpu=5.44%  mem=35.46MiB
+# One stack: about 3.1 GB. Database 45 MB. Images 2.7 GB, volumes 341 MB.
+# runbook 01 section 1 sizes one host at 8 GB RAM / 60 GB disk for production plus staging: two stacks need about 6.2 GB before the OS.
+
+# Timer sweep over the load volume, run by hand as the ED:
+sweep 1: Status SUCCESS Duration 3155ms  "sweep checked 754 open work packages, 161 timers due within 7 days, repaired 153"
+sweep 2: Status SUCCESS Duration 988ms   "sweep checked 754 open work packages, 161 timers due within 7 days, repaired 0"
+derived-dates-sweep 751ms, lead-sweep 722ms. No 429 in any run.

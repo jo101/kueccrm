@@ -1,0 +1,15 @@
+PASS (b) bd1 creates the RFQ opportunity :: 201 032ff62b-dcc0-4c0e-aa9a-2f7d38f86147
+PASS (b) bd1 sets Type Technical service :: 200
+PASS (b) W1: seven RFQ work packages, capped before the client deadline :: ["Bid or no-bid|OFFERED|bd1|2026-10-20","Scoping|PLANNED|dev|2026-10-23","Quote or proposal|PLANNED|bd1|2026-10-28","Internal approval|PLANNED|ed|2026-10-30","Submission|PLANNED|bd1|2026-11-02","Follow-up|PLANNED|bd1|2026-11-09","Delivery hand-off|PLANNED|bd1|2026-11-12"]
+FAIL (b) W1: playbookApplied true (guard set last) :: {"playbookApplied":false}
+PASS (c) ops creates the workshop project :: 201 3accddf9-0101-4ccd-b269-aa7c1a238aa1
+PASS (c) ops sets Type Workshop :: 200 
+PASS (c) W9: milestones created :: ["Outcomes logged as opportunities|OPEN|2026-12-22","Workshop held|OPEN|2026-12-15","Invitations sent|OPEN|2026-11-04","Objective approved|OPEN|2026-10-21","Logistics confirmed|OPEN|2026-11-18"]
+PASS (c) W9: work packages created, planned back from the event date :: ["Outcomes into opportunities|PLANNED|bd2|2026-12-22","Logistics|PLANNED|ops|2026-11-18","Objective|OFFERED|bd2|2026-10-21","Invitations|PLANNED|bd2|2026-11-04","Run|PLANNED|bd2|2026-12-15","Audience and target roles|PLANNED|analyst|2026-10-28"]
+PASS (c) W9: playbookApplied true :: {"playbookApplied":true}
+PASS (c) ops marks a milestone Missed :: 200
+PASS (c) W10: project health Red and percent complete updated :: {"health":"RED","percentComplete":0}
+PASS (f) invalid signature rejected :: 401 {"error":"unauthorized"}
+PASS (f) valid signature accepted :: 202 {"deliveryId":"bcf1-uv-good","accepted":1}
+PASS (f) U1: one Capability pointer created from the valid delivery :: [{"id":"e71aae45-4c6b-4921-a3dd-b054ab310f7e","name":"Staging: low-cost desalination membrane","kind":"TECHNOLOGY","status":"AVAILABLE","sourceSystem":"UVENTURE"}]
+RESULT 1 failed of 14

@@ -1,0 +1,53 @@
+{
+  "counts": {
+    "companies": 500,
+    "people": 2000,
+    "opportunities": 200,
+    "workPackages": 1000
+  },
+  "seedMs": 2044,
+  "timings": [
+    {
+      "label": "GET one company with depth 1",
+      "n": 20,
+      "p50": 62,
+      "p95": 94,
+      "max": 94
+    },
+    {
+      "label": "GET one person with depth 1",
+      "n": 20,
+      "p50": 47,
+      "p95": 71,
+      "max": 71
+    },
+    {
+      "label": "GET one opportunity with depth 1",
+      "n": 20,
+      "p50": 55,
+      "p95": 86,
+      "max": 86
+    },
+    {
+      "label": "GET one work package with depth 1",
+      "n": 20,
+      "p50": 36,
+      "p95": 55,
+      "max": 55
+    },
+    {
+      "label": "List 60 open work packages sorted by due (My work shape)",
+      "n": 10,
+      "p50": 26,
+      "p95": 47,
+      "max": 47
+    },
+    {
+      "label": "List 60 open opportunities (Pipeline shape)",
+      "n": 10,
+      "p50": 24,
+      "p95": 46,
+      "max": 46
+    }
+  ]
+}

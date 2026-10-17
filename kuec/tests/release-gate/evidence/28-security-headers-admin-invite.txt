@@ -1,0 +1,19 @@
+# Rehearsal, 2026-10-17
+== frame headers on a page (no iframe origin configured yet)
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: frame-ancestors 'self'; object-src 'none'; base-uri 'self'
+== CORS preflight from https://evil.example
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+# 2.48 answers * for bearer (non-credentialed) requests; credentialed origins come from AUTH_COOKIE_ALLOWED_ORIGINS (empty by default; not mentioned in any runbook).
+== server-level flags (core.user)
+deploy.engineer@kuec.test | canAccessFullAdminPanel t | canImpersonate t      (the first sign-up; in production the ED)
+every other member        | f | f
+# updateServerAdminAccess (Admin Panel) can change both flags per user; no runbook does.
+== public invite link
+currentWorkspace { isPublicInviteLinkEnabled: true, inviteHash: "098b13db-..." }
+# 10 members joined through signUpInWorkspace(email, password, workspaceInviteHash) with arbitrary @kuec.test addresses and landed on the default role (Member here).
+== guard rails in the containers
+TELEMETRY_ENABLED=false SIGN_IN_PREFILLED=false IS_MULTIWORKSPACE_ENABLED=false CODE_INTERPRETER_TYPE=DISABLED MARKETPLACE_CATALOG_SYNC_CRON_ENABLED=false LOGIC_FUNCTION_TYPE=LOCAL
+== third-party requests from the browser
+404 https://twenty-icons.com/load-146.test   (one request per company domain on screen; also the server: "Failed to fetch image from https://twenty-icons.com/kuec.test")

@@ -1,0 +1,11 @@
+# Rehearsal only. Trust the sandbox's TLS-intercepting egress proxy so the LOCAL driver can fetch npm packages,
+# and share one local-storage volume between server and worker (production uses S3 instead).
+services:
+  server:
+    volumes: ["./ca-bundle.crt:/etc/ssl/rehearsal-ca.crt:ro", "local-storage:/app/packages/twenty-server/.local-storage"]
+    environment: { NODE_EXTRA_CA_CERTS: /etc/ssl/rehearsal-ca.crt, YARN_HTTPS_CA_FILE_PATH: /etc/ssl/rehearsal-ca.crt }
+  worker:
+    volumes: ["./ca-bundle.crt:/etc/ssl/rehearsal-ca.crt:ro", "local-storage:/app/packages/twenty-server/.local-storage"]
+    environment: { NODE_EXTRA_CA_CERTS: /etc/ssl/rehearsal-ca.crt, YARN_HTTPS_CA_FILE_PATH: /etc/ssl/rehearsal-ca.crt }
+volumes:
+  local-storage:

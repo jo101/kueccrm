@@ -1,0 +1,650 @@
+[
+ {
+  "plural": "campaignTargets",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 7,
+  "opened": true,
+  "ms": 1854
+ },
+ {
+  "plural": "campaignTargets",
+  "name": "To work",
+  "type": "TABLE",
+  "cols": 5,
+  "opened": true,
+  "ms": 1076
+ },
+ {
+  "plural": "capabilities",
+  "name": "All capabilities",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1074
+ },
+ {
+  "plural": "capabilities",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 10,
+  "opened": true,
+  "ms": 1199
+ },
+ {
+  "plural": "capabilities",
+  "name": "Not available to offer",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1042
+ },
+ {
+  "plural": "capabilities",
+  "name": "Not seen in uVENTURE for 7 days",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1137
+ },
+ {
+  "plural": "companies",
+  "name": "Added in the last 7 days",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1337
+ },
+ {
+  "plural": "companies",
+  "name": "By sector",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1561
+ },
+ {
+  "plural": "companies",
+  "name": "By tier",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1506
+ },
+ {
+  "plural": "companies",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 20,
+  "opened": true,
+  "ms": 1965
+ },
+ {
+  "plural": "companies",
+  "name": "Hygiene: missing key fields",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1560
+ },
+ {
+  "plural": "companies",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 5,
+  "opened": true,
+  "ms": 1194
+ },
+ {
+  "plural": "companies",
+  "name": "Least recently engaged",
+  "type": "TABLE",
+  "cols": 5,
+  "opened": true,
+  "ms": 1855
+ },
+ {
+  "plural": "companies",
+  "name": "Offset obligors",
+  "type": "TABLE",
+  "cols": 5,
+  "opened": true,
+  "ms": 1426
+ },
+ {
+  "plural": "contracts",
+  "name": "By status",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1326
+ },
+ {
+  "plural": "contracts",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 12,
+  "opened": true,
+  "ms": 1228
+ },
+ {
+  "plural": "contracts",
+  "name": "Expiring",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 807
+ },
+ {
+  "plural": "contracts",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 5,
+  "opened": true,
+  "ms": 1078
+ },
+ {
+  "plural": "contracts",
+  "name": "Hygiene: past expiry, still Signed",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1159
+ },
+ {
+  "plural": "documents",
+  "name": "Documents by type",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1309
+ },
+ {
+  "plural": "documents",
+  "name": "Documents expiring in 60 days",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1460
+ },
+ {
+  "plural": "documents",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 17,
+  "opened": true,
+  "ms": 1172
+ },
+ {
+  "plural": "documents",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1274
+ },
+ {
+  "plural": "engagements",
+  "name": "Calendar",
+  "type": "CALENDAR",
+  "cols": 5,
+  "opened": true,
+  "ms": 1017
+ },
+ {
+  "plural": "engagements",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 11,
+  "opened": true,
+  "ms": 1084
+ },
+ {
+  "plural": "engagements",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1096
+ },
+ {
+  "plural": "engagements",
+  "name": "Hygiene: outcome overdue",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1101
+ },
+ {
+  "plural": "engagements",
+  "name": "This month",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 799
+ },
+ {
+  "plural": "engagements",
+  "name": "Without outcome",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1569
+ },
+ {
+  "plural": "leads",
+  "name": "By campaign",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1106
+ },
+ {
+  "plural": "leads",
+  "name": "By source",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1210
+ },
+ {
+  "plural": "leads",
+  "name": "Dead this month by reason",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1415
+ },
+ {
+  "plural": "leads",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 31,
+  "opened": true,
+  "ms": 1149
+ },
+ {
+  "plural": "leads",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1141
+ },
+ {
+  "plural": "leads",
+  "name": "Lead inbox",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 798
+ },
+ {
+  "plural": "leads",
+  "name": "My leads",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1092
+ },
+ {
+  "plural": "leads",
+  "name": "Nurture review due",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1123
+ },
+ {
+  "plural": "leads",
+  "name": "Qualified not converted",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1126
+ },
+ {
+  "plural": "milestones",
+  "name": "Calendar",
+  "type": "CALENDAR",
+  "cols": 5,
+  "opened": true,
+  "ms": 980
+ },
+ {
+  "plural": "milestones",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 9,
+  "opened": true,
+  "ms": 1147
+ },
+ {
+  "plural": "milestones",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 4,
+  "opened": true,
+  "ms": 1039
+ },
+ {
+  "plural": "milestones",
+  "name": "Missed",
+  "type": "TABLE",
+  "cols": 5,
+  "opened": true,
+  "ms": 1100
+ },
+ {
+  "plural": "milestones",
+  "name": "Open",
+  "type": "TABLE",
+  "cols": 4,
+  "opened": true,
+  "ms": 814
+ },
+ {
+  "plural": "opportunities",
+  "name": "By probability",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1081
+ },
+ {
+  "plural": "opportunities",
+  "name": "By source",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1697
+ },
+ {
+  "plural": "opportunities",
+  "name": "By type",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1882
+ },
+ {
+  "plural": "opportunities",
+  "name": "Closing this quarter",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1566
+ },
+ {
+  "plural": "opportunities",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 26,
+  "opened": true,
+  "ms": 1991
+ },
+ {
+  "plural": "opportunities",
+  "name": "Hygiene: in Qualify over 30 days",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1398
+ },
+ {
+  "plural": "opportunities",
+  "name": "Hygiene: missing key fields",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1217
+ },
+ {
+  "plural": "opportunities",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1227
+ },
+ {
+  "plural": "opportunities",
+  "name": "Hygiene: Parked over 90 days",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1078
+ },
+ {
+  "plural": "opportunities",
+  "name": "Licence pipeline",
+  "type": "KANBAN",
+  "cols": 6,
+  "opened": true,
+  "ms": 1178
+ },
+ {
+  "plural": "opportunities",
+  "name": "Lost with reasons",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1170
+ },
+ {
+  "plural": "opportunities",
+  "name": "No next action",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1086
+ },
+ {
+  "plural": "opportunities",
+  "name": "Parked",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1152
+ },
+ {
+  "plural": "opportunities",
+  "name": "Pipeline",
+  "type": "KANBAN",
+  "cols": 6,
+  "opened": true,
+  "ms": 1042
+ },
+ {
+  "plural": "opportunities",
+  "name": "Proposals out",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1418
+ },
+ {
+  "plural": "people",
+  "name": "Added in the last 7 days",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1521
+ },
+ {
+  "plural": "people",
+  "name": "Champions",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1329
+ },
+ {
+  "plural": "people",
+  "name": "Decision makers",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1086
+ },
+ {
+  "plural": "people",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 10,
+  "opened": true,
+  "ms": 1254
+ },
+ {
+  "plural": "people",
+  "name": "Hygiene: missing email or decision role",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1475
+ },
+ {
+  "plural": "people",
+  "name": "Missing email",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1253
+ },
+ {
+  "plural": "projects",
+  "name": "At risk",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1089
+ },
+ {
+  "plural": "projects",
+  "name": "By health",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1131
+ },
+ {
+  "plural": "projects",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 16,
+  "opened": true,
+  "ms": 1098
+ },
+ {
+  "plural": "projects",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 5,
+  "opened": true,
+  "ms": 1017
+ },
+ {
+  "plural": "projects",
+  "name": "Portfolio",
+  "type": "TABLE",
+  "cols": 5,
+  "opened": true,
+  "ms": 809
+ },
+ {
+  "plural": "tasks",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 4,
+  "opened": true,
+  "ms": 1016
+ },
+ {
+  "plural": "workPackages",
+  "name": "Blocked",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1104
+ },
+ {
+  "plural": "workPackages",
+  "name": "By status",
+  "type": "KANBAN",
+  "cols": 5,
+  "opened": true,
+  "ms": 1321
+ },
+ {
+  "plural": "workPackages",
+  "name": "Due this week",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1471
+ },
+ {
+  "plural": "workPackages",
+  "name": "Everything (expert)",
+  "type": "TABLE",
+  "cols": 27,
+  "opened": true,
+  "ms": 1437
+ },
+ {
+  "plural": "workPackages",
+  "name": "Hygiene: no done criteria",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1596
+ },
+ {
+  "plural": "workPackages",
+  "name": "Hygiene: Other without details",
+  "type": "TABLE",
+  "cols": 4,
+  "opened": true,
+  "ms": 1074
+ },
+ {
+  "plural": "workPackages",
+  "name": "My work",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 797
+ },
+ {
+  "plural": "workPackages",
+  "name": "Offered to me",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1070
+ },
+ {
+  "plural": "workPackages",
+  "name": "Overdue",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1057
+ },
+ {
+  "plural": "workPackages",
+  "name": "Planned",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1251
+ },
+ {
+  "plural": "workPackages",
+  "name": "Submitted for my review",
+  "type": "TABLE",
+  "cols": 6,
+  "opened": true,
+  "ms": 1749
+ }
+]

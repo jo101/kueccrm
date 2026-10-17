@@ -1,0 +1,18 @@
+MISMATCH Leadership viewer capabilities {"got":{"R":true,"W":false,"D":false},"want":{"R":false,"W":false,"D":false},"read":200,"create":400,"del":400,"msg":"{\"statusCode\":400,\"error\":\"Error\",\"messages\":[\"Entity performing the request does not have permission\"],\"code\":\"PERMISSION_DENIED\"}"}
+matrix: 111/112 cells as runbook 13 says
+locked fields: [{"principal":"ED","appStampOfferedAt":400,"openLockedExternalId":200},{"principal":"Ops coordinator","appStampOfferedAt":400,"openLockedExternalId":200},{"principal":"BD officer","appStampOfferedAt":400,"openLockedExternalId":400},{"principal":"Engineer","appStampOfferedAt":400,"openLockedExternalId":400},{"principal":"Leadership viewer","appStampOfferedAt":400,"openLockedExternalId":400},{"principal":"IP office (department)","appStampOfferedAt":400,"openLockedExternalId":400},{"principal":"Automation (API key)","appStampOfferedAt":400,"openLockedExternalId":200},{"principal":"uVENTURE reader (API key)","appStampOfferedAt":400,"openLockedExternalId":400}]
+flags Admin (all settings) 
+flags Member  
+flags BD officer  CONNECTED_ACCOUNTS DOWNLOAD_FILE EXPORT_CSV PROFILE_INFORMATION
+flags uVENTURE reader  
+flags Lab access  CONNECTED_ACCOUNTS DOWNLOAD_FILE EXPORT_CSV PROFILE_INFORMATION
+flags Automation  
+flags Startups and investment  CONNECTED_ACCOUNTS DOWNLOAD_FILE EXPORT_CSV PROFILE_INFORMATION
+flags KUEC BD Ops function role  
+flags Ops coordinator  CONNECTED_ACCOUNTS DOWNLOAD_FILE EXPORT_CSV IMPORT_CSV PROFILE_INFORMATION
+flags Engineer  APPLICATIONS CONNECTED_ACCOUNTS DATA_MODEL DOWNLOAD_FILE LAYOUTS PROFILE_INFORMATION UPLOAD_FILE VIEWS WORKFLOWS WORKSPACE
+flags ED  API_KEYS_AND_WEBHOOKS APPLICATIONS CONNECTED_ACCOUNTS DATA_MODEL DOWNLOAD_FILE EXPORT_CSV LAYOUTS PROFILE_INFORMATION ROLES SECURITY VIEWS WORKFLOWS WORKSPACE WORKSPACE_MEMBERS
+flags IP office  CONNECTED_ACCOUNTS DOWNLOAD_FILE EXPORT_CSV PROFILE_INFORMATION
+flags Commercialization  CONNECTED_ACCOUNTS DOWNLOAD_FILE EXPORT_CSV PROFILE_INFORMATION
+flags Leasing  CONNECTED_ACCOUNTS DOWNLOAD_FILE EXPORT_CSV PROFILE_INFORMATION
+flags Leadership viewer  PROFILE_INFORMATION

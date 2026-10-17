@@ -1,0 +1,20 @@
+# timelineActivity rows for work package 2e5b6a39-facb-4a4d-8bc3-d7370e8b3f88 and its opportunity 6d5930e3-a8e7-4c45-9123-44f75d891e12
+# WP1 went Offered (20:08:17) -> Accepted (20:11:19) -> Submitted (20:11:22) -> Done (20:11:25)
+         happensAt          |      type       | on_wp | on_opp
+ 2026-10-17 20:08:16.362+00 | recordCreated   | f     | t
+ 2026-10-17 20:08:16.419+00 | recordUpdated   | f     | t
+ 2026-10-17 20:08:16.448+00 | recordUpdated   | f     | t
+ 2026-10-17 20:08:17.437+00 | recordCreated   | t     | f
+ 2026-10-17 20:08:17.478+00 | recordUpdated   | t     | f
+ 2026-10-17 20:11:19.753+00 | recordUpdated   | t     | f
+ 2026-10-17 20:11:21.311+00 | recordUpdated   | t     | f
+ 2026-10-17 20:11:23.742+00 | recordUpdated   | t     | f
+ 2026-10-17 20:11:24.05+00  | taskLinked      | t     | f
+ 2026-10-17 20:11:25.982+00 | workPackageDone | t     | f
+ 2026-10-17 20:11:25.982+00 | recordUpdated   | t     | f
+ 2026-10-17 20:11:27.201+00 | recordUpdated   | t     | f
+ 2026-10-17 20:11:30.348+00 | recordUpdated   | f     | t
+ 2026-10-17 20:11:30.414+00 | noteLinked      | f     | t
+ 2026-10-17 20:11:30.501+00 | taskLinked      | f     | t
+ 2026-10-17 20:11:30.537+00 | taskLinked      | f     | t
+# No workPackageOffered / Accepted / Submitted row on the work package; no workPackage* row on the opportunity (the case audit trail).

@@ -1,0 +1,5 @@
+# Rehearsal restore (the commands of backup.sh and restore-test.sh without compose and rclone), 2026-10-17 21:05 UTC
+pg_dump -Fc --no-owner: 2,976,973 bytes, 1 s; sha256sum -c: OK
+fresh postgres:16 container; pg_restore --no-owner --exit-on-error: exit 0, 7 s
+row counts, 124 tables in core and the workspace schema: 0 differ (18-restore-*.txt)
+# Not last night's production backup: none exists. Twenty was not booted against the copy in this run.

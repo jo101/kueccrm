@@ -1,0 +1,13 @@
+# 1. First execution of any function under LOGIC_FUNCTION_TYPE=LOCAL (forms route, 2026-10-17 19:51 UTC):
+server-1  | ERROR [LogicFunctionExecutorService] Logic function execution failed: functionId=ce50ae54-4d32-4ea2-99a9-ea85249754ec, driver=LocalDriver, mode=LIVE: ➤ YN0000: · Yarn 4.9.2
+server-1  | ➤ YN0085: │ - @alcalzone/ansi-tokenize@npm:0.2.5, @aws-sdk/client-sesv2@npm:3.1152.0, @aws-sdk/core@npm:3.978.3, ... and 342 more.
+server-1  | ➤ YN0001: │ RequestError: self-signed certificate in certificate chain   (this sandbox's egress proxy; in production the request would go to the npm registry)
+# The route answered: 500 {"messages":["Logic function execution failed for ce50ae54-..."],"code":"ROUTE_TRIGGER_PLATFORM_ERROR"}
+# Source: LocalLayerManagerService.ensureDepsLayer -> copyYarnEngineAndBuildDependencies (yarn install of the app's package.json + yarn.lock).
+# config/deploy/it-request.md section 5 allows no npm registry host ("Only these. Everything else ... stays blocked").
+
+# 2. Functions call the Twenty API at SERVER_URL (logic-function-executor.service.ts:428, cleanServerUrl(SERVER_URL)).
+# With SERVER_URL not reachable from inside the worker container, the intake job retried and gave up:
+completed lead-intake-a1-6d6ad58d attempts 4 failed: list playbookRoleAssignments failed transiently: fetch failed
+# Worker log: processing at 20:02:31, 20:02:34, 20:02:36, 20:02:40; "processed" at 20:02:41. The sender had received 202 {"deliveryId":"a1-6d6ad58d","accepted":1}. No lead was written.
+# In production SERVER_URL is https://crm.uventure.<domain>: the worker must reach its own public name on 443, which it-request.md section 5 does not list.

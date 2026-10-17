@@ -232,7 +232,7 @@ Every call, meeting or email that matters becomes an Engagement. Today that mean
 | Who | The ED decides; a BD officer (or the ED) opens the case |
 | Sees | Home's primary field "What would you like to get done?" |
 | Does | Opens Intake, pastes the ED's note ("Market the low-cost desalination membrane"), picks tile 4 "License one of our technologies", pastes the uVENTURE link or keeps "I'll add it later", Confirm. When the ED opens it: "Who will own this case?" (people on the BD officer role with their open counts, the suggested person preselected) **[new: B4]** |
-| System does | `intake-preview` shows six steps with owners and dates (step 1 due in 10 working days, the rest "Around"). `intake-confirm` creates the opportunity (stage Qualify, source "Faculty or researcher" for tile 4 **[new: B4]**, `uventureRecord` **[new: B4]**), the "Original request" note, then sets Type. W01 creates the six work packages, offers step 1 to the least-loaded Developer, fills next action from step 1, and creates "Confirm plan" for the ED |
+| System does | `intake-preview` shows six steps with owners and dates (step 1 due in 10 working days, the rest "Around"). `intake-confirm` creates the opportunity (stage Qualify, source "Referral: faculty" for tile 4 **[new: B4]**, `uventureRecord` **[new: B4]**), the "Original request" note, then sets Type. W01 creates the six work packages, offers step 1 to the least-loaded Developer, fills next action from step 1, and creates "Confirm plan" for the ED |
 | Record changes | Opportunity, Note, 6 work packages, 2 Tasks |
 | Notified | Developer (offer), the ED ("Confirm plan"), Teams channel ("Playbook started") |
 | Can stall | (a) The decision never becomes a case: nothing in Twenty knows. Only the Thursday review's "Decisions needed" catches it; the ED opening it directly with an owner removes the hand-over. (b) No uVENTURE link: the card's Context on step 1 shows "uVENTURE record: not linked yet. Add it" to the case owner **[new: B12]**. (c) W01 stops before finishing (`tests/report.md`, blocker 2, backlog P2): Intake shows "Your case is saved. The work list is still being prepared" and the retry path completes it |
@@ -322,7 +322,7 @@ Every call, meeting or email that matters becomes an Engagement. Today that mean
 | Who | BD officer |
 | Sees | Outlook (the request); then Intake |
 | Does | Pastes the email, picks tile 1 "A company needs a test or service" (or tile 3 for lab or equipment; same playbook), checks "From: ADNOC (in Twenty)" and "Client deadline: Thu 30 Oct", Confirm |
-| System does | Company matched by email domain, else by name. Plan preview with step 1 capped by the deadline. If the plan does not fit: the amber line, and on Confirm `deadlineRiskFlaggedAt` **[new: B4]**. The opportunity is created (source Inbound enquiry, `clientDeadline`), W01 instantiates; step 1 is the case owner's |
+| System does | Company matched by email domain, else by name. Plan preview with step 1 capped by the deadline. If the plan does not fit: the amber line, and on Confirm `deadlineRiskFlaggedAt` **[new: B4]**. The opportunity is created (source Inbound (web, email, phone), `clientDeadline`), W01 instantiates; step 1 is the case owner's |
 | Record changes | Company (if added), Opportunity, Note "Original request", 7 work packages |
 | Notified | The ED, if the deadline is tight ("Tight deadline, decision needed") **[new: B4]**; Teams channel |
 | Can stall | (a) The request stays in Outlook: Twenty cannot see it (the bd-ops mailbox syncs metadata only, and personal mailboxes subject and metadata). Not caught by the system; the standup's "yesterday I..." round is the net. (b) A new company typed in Intake has no sector or size class: "Hygiene: missing key fields" for companies, Monday |
@@ -496,7 +496,7 @@ Every call, meeting or email that matters becomes an Engagement. Today that mean
 | Who | BD officer (owner), the ED (reviewer) |
 | Sees | Project room primary action **Turn interest into opportunities** (Debrief, **[new: B9]**), listing every Interested attendee with their note |
 | Does | For each row: picks a tile and confirms the line, or marks "No fit" with a reason. Industry challenges (tile 2) take the uVENTURE challenge link **[new: B8]** |
-| System does | One opportunity per row, each with its playbook, `originProject` = the workshop, source "Event or workshop", the attendee's company **[new: B9]**. No fit: target status No fit with the note. Lead and opportunity counts are derived from these rows and shown on the Project room, zero included, so nobody types them |
+| System does | One opportunity per row, each with its playbook, `originProject` = the workshop, source "Workshop" (`runbooks/18-taxonomy.md`), the attendee's company **[new: B9]**. No fit: target status No fit with the note. Lead and opportunity counts are derived from these rows and shown on the Project room, zero included, so nobody types them |
 | Record changes | Opportunities and their work packages; Targets; work package |
 | Notified | Owners of each opportunity's step 1; the ED on submit |
 | Can stall | The classic workshop failure: interest never converted. The step is due 5 working days after the event; the Project room shows "6 interested, 2 opportunities, 4 to go" until done |

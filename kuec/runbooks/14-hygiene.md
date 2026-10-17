@@ -20,6 +20,7 @@ One view per gap. Each one is a normal table view, named **Hygiene: ...**, in it
 | 6 | Opportunities | Hygiene: in Qualify over 30 days | Stage Qualify (API value `NEW`, still labelled New until the stage relabel) entered more than 30 days ago | The owner decides: advance, park or lose |
 | 7 | Opportunities | Hygiene: Parked over 90 days | Stage Parked, entered more than 90 days ago | The ops coordinator proposes Lost (section 4, step 4) |
 | 8 | Contracts | Hygiene: past expiry, still Signed | Status Signed, **Expires on** before today | The ops coordinator, after asking the owner: BD officers can only read contracts |
+| 9 to 16 | Opportunities, Companies, Engagements, Contracts, Projects, Work packages, Milestones, Tasks | Hygiene: Other without details (0.8.0, position 19) | Any taxonomy list set to **Other** and **Other details** empty | See `18-taxonomy.md` section 4 |
 
 Field names from the brief, mapped to the data model:
 
@@ -75,7 +76,7 @@ Playbook work packages take their titles from `kuec/playbooks/templates.json`, a
 
 ## 4. Monday: the 15-minute hygiene run
 
-The ops coordinator, every Monday before the daily standup, so any task it creates is on My work by the standup. Open **Data quality** in the sidebar. The page lists the eight exception views top to bottom, each count beside its table. A count of 0 means skip to the next.
+The ops coordinator, every Monday before the daily standup, so any task it creates is on My work by the standup. Open **Data quality** in the sidebar. The page lists the sixteen exception views top to bottom, each count beside its table. A count of 0 means skip to the next.
 
 "Fix" means set the missing value yourself when the record or a quick look (the company website, the email signature, the proposal folder) gives the answer in under a minute. "Assign" means one Twenty task per owner per view, not per row: Ctrl+K > **Create record** > **Task**, title `Hygiene: <view name>`, assignee the owner, due Wednesday, with every record of theirs in that view under **Relations**. A row with no owner gets an owner first: the creator, or the account owner of its company, or the owner of its opportunity. If none of these is right, add it to the ED's list for the standup.
 
@@ -88,6 +89,7 @@ The ops coordinator, every Monday before the daily standup, so any task it creat
    6. *Opportunities in Qualify over 30 days.* Assign to the owner, who decides this week: advance (next stage, with a next action and date), park (Parked, with the revisit date as Next action date) or lose (Lost, with a reason).
    7. *Parked over 90 days.* Propose Lost: for each new row, put this in the owner's hygiene task: "Parked since <date>. It moves to Lost next Monday unless you revive it. Which lost reason category fits?" Step 4 closes the ones nobody revives.
    8. *Contracts past expiry, still Signed.* Ask the owner and update the record: renewed or extended means a new **Expires on**; ended means status **Expired**.
+   9. *Other and no details* (eight rows, one per object). Assign to whoever picked Other; fix contracts and work packages yourself. Either Other details says what it is, or the record gets the option that fits after all (`18-taxonomy.md` section 4). Recurring Other details texts are evidence for the quarterly taxonomy review (`18-taxonomy.md` section 6).
 2. **Look for patterns (in the same pass).** Several rows from one person, or the same gap every week, goes on the ED's list for the standup. A gap that keeps coming back is a training or playbook question for the monthly review (section 6), not a weekly chase.
 3. **Duplicate sweep on Company and Person (4 minutes).** Open Companies > **Added in the last 7 days**. For each row, press Ctrl+K and search for the first word of its name, its acronym and its website's domain. Then do the same for People > **Added in the last 7 days**, by last name and by email domain. Twenty itself only refuses an exact domain or email match (`12-global-features.md` section 3.1), so near-duplicates ("Gulf Drilling" and "Gulf Drilling Services LLC") are found here. Merge each one found, older record surviving, by the procedure in `12-global-features.md` section 3.3. Rename any new record that breaks section 3.
 4. **Archive Parked over 90 days: Parked to Lost (2 minutes).** For each row whose owner was told last Monday (step 1.7) and has not revived it:
@@ -101,7 +103,7 @@ Done when every row is fixed, assigned, or on the ED's list. If the 15 minutes r
 
 ## 5. The Data quality page
 
-**Data quality** in the sidebar, last of the app entries (`12-global-features.md` section 5). One standalone page, eight rows, in the order of section 4 step 1. Each row is a count on the left and the exception view itself on the right. The count reads the view's filters (`chartFilterFromView`), so the number and the table cannot disagree. The tables are editable, so rows are fixed in place; record permissions still decide who can change what. The sidebar entry shows for every member: 2.48 cannot limit a page or a sidebar entry to some roles.
+**Data quality** in the sidebar, last of the app entries (`12-global-features.md` section 5). One standalone page, sixteen rows, in the order of section 4 step 1. Each row is a count on the left and the exception view itself on the right. The count reads the view's filters (`chartFilterFromView`), so the number and the table cannot disagree. The tables are editable, so rows are fixed in place; record permissions still decide who can change what. The sidebar entry shows for every member: 2.48 cannot limit a page or a sidebar entry to some roles.
 
 It is a page and not an entry under Dashboards: an app cannot create a Dashboard record, and a hand-built dashboard would need every filter typed in twice and would drift from the views. Built the same way as BD and Home (`06-weekly-update.md` section 5). Files: `src/page-layouts/data-quality.page-layout.ts`, `src/page-layout-tabs/data-quality.page-layout-tab.ts` (the ordered list `DATA_QUALITY_CHECKS`), `src/navigation-menu-items/data-quality.navigation-menu-item.ts`.
 

@@ -8,15 +8,25 @@ import {
 } from 'twenty-sdk/define';
 import { CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/contract.object';
 import { ENGAGEMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/engagement.object';
+import { MILESTONE_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/milestone.object';
+import { PROJECT_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/project.object';
 import { WORK_PACKAGE_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/work-package.object';
 import { DATA_QUALITY_PAGE_LAYOUT_UNIVERSAL_IDENTIFIER } from '../page-layouts/data-quality.page-layout';
 import companiesMissingKeyFieldsView from '../views/companies-missing-key-fields.view';
+import companiesOtherWithoutDetailsView from '../views/companies-other-without-details.view';
+import contractsOtherWithoutDetailsView from '../views/contracts-other-without-details.view';
 import contractsPastExpiryStillSignedView from '../views/contracts-past-expiry-still-signed.view';
+import engagementsOtherWithoutDetailsView from '../views/engagements-other-without-details.view';
 import engagementsOutcomeOverdueView from '../views/engagements-outcome-overdue.view';
+import milestonesOtherWithoutDetailsView from '../views/milestones-other-without-details.view';
 import opportunitiesInQualifyOver30DaysView from '../views/opportunities-in-qualify-over-30-days.view';
 import opportunitiesMissingKeyFieldsView from '../views/opportunities-missing-key-fields.view';
+import opportunitiesOtherWithoutDetailsView from '../views/opportunities-other-without-details.view';
 import opportunitiesParkedOver90DaysView from '../views/opportunities-parked-over-90-days.view';
 import peopleMissingEmailOrDecisionRoleView from '../views/people-missing-email-or-decision-role.view';
+import projectsOtherWithoutDetailsView from '../views/projects-other-without-details.view';
+import tasksOtherWithoutDetailsView from '../views/tasks-other-without-details.view';
+import workPackagesOtherWithoutDetailsView from '../views/work-packages-other-without-details.view';
 import workPackagesWithoutDoneCriteriaView from '../views/work-packages-without-done-criteria.view';
 import {
   CHART_DEFAULTS,
@@ -40,9 +50,10 @@ type DataQualityCheck = {
   tableWidgetUniversalIdentifier: string;
 };
 
-const { opportunity, company, person } = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS;
+const { opportunity, company, person, task } = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS;
 
-// The order of the Monday hygiene run (runbooks/14-hygiene.md section 4).
+// The order of the Monday hygiene run (runbooks/14-hygiene.md section 4); the
+// Other checks come last (runbooks/18-taxonomy.md).
 export const DATA_QUALITY_CHECKS: DataQualityCheck[] = [
   {
     title: 'Opportunities missing type, owner, amount or close date',
@@ -99,6 +110,61 @@ export const DATA_QUALITY_CHECKS: DataQualityCheck[] = [
     countFieldMetadataUniversalIdentifier: CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
     countWidgetUniversalIdentifier: '08b39bae-54d6-438c-9c81-2aa5ccfe082a',
     tableWidgetUniversalIdentifier: '580e05f4-e20f-45be-8ec4-24fd06879969',
+  },  {
+    title: 'Opportunities with Other and no details',
+    view: opportunitiesOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: opportunity.fields.id.universalIdentifier,
+    countWidgetUniversalIdentifier: '2d686d4e-cfa1-4f51-bc95-cb3f69060910',
+    tableWidgetUniversalIdentifier: '7f4a8c8d-15cc-4cd0-ac19-90522bc7a009',
+  },
+  {
+    title: 'Companies with Other and no details',
+    view: companiesOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: company.fields.id.universalIdentifier,
+    countWidgetUniversalIdentifier: '627e8d2b-271b-402d-9bc8-1ff077030a8b',
+    tableWidgetUniversalIdentifier: '2f499946-77d5-40a1-ac0b-887abeae1ce2',
+  },
+  {
+    title: 'Engagements with Other and no details',
+    view: engagementsOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: ENGAGEMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    countWidgetUniversalIdentifier: '4771178a-6c47-4a3f-a8fc-5a6cc2545a0c',
+    tableWidgetUniversalIdentifier: '1e36049b-4ddc-440b-90f7-80f0f2184ae1',
+  },
+  {
+    title: 'Contracts with Other and no details',
+    view: contractsOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    countWidgetUniversalIdentifier: 'd5010c88-f3d2-40be-82ae-718b6546a70a',
+    tableWidgetUniversalIdentifier: 'fd7eed54-81b1-47cd-9ee2-1cab0da674ab',
+  },
+  {
+    title: 'Projects with Other and no details',
+    view: projectsOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: PROJECT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    countWidgetUniversalIdentifier: 'e902bcbf-d66c-4d54-8979-815d5e559e63',
+    tableWidgetUniversalIdentifier: '7dd4f4db-a8ec-4011-92f1-c8478060afe6',
+  },
+  {
+    title: 'Work packages with Other and no details',
+    view: workPackagesOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: WORK_PACKAGE_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    countWidgetUniversalIdentifier: '3e19746a-ffb7-43e6-a983-b7509a8a4140',
+    tableWidgetUniversalIdentifier: '3c32221f-4f99-4fca-a13f-38a70bd2777e',
+  },
+  {
+    title: 'Milestones with Other and no details',
+    view: milestonesOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: MILESTONE_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    countWidgetUniversalIdentifier: '3dafacbd-f3a2-493b-b60e-a626a3abb41a',
+    tableWidgetUniversalIdentifier: 'f7685be3-6796-4673-8b7e-3fbb92933d4b',
+  },
+  {
+    title: 'Tasks with Other and no details',
+    view: tasksOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: task.fields.id.universalIdentifier,
+    countWidgetUniversalIdentifier: 'cd4a0670-47f6-4973-8dc4-2ac94554dfd2',
+    tableWidgetUniversalIdentifier: 'c9a8f114-917e-430c-adb1-f380395c6f79',
   },
 ];
 

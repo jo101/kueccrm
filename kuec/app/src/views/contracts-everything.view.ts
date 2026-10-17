@@ -7,9 +7,11 @@ import { COUNTERPARTY_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/c
 import { OPPORTUNITY_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/opportunity-on-contract.field';
 import { OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/owner-on-contract.field';
 import {
+  CONTRACT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
   CONTRACT_EXPIRES_ON_FIELD_UNIVERSAL_IDENTIFIER,
   CONTRACT_KIND_FIELD_UNIVERSAL_IDENTIFIER,
   CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+  CONTRACT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
   CONTRACT_SHAREPOINT_FOLDER_FIELD_UNIVERSAL_IDENTIFIER,
   CONTRACT_SIGNED_ON_FIELD_UNIVERSAL_IDENTIFIER,
   CONTRACT_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
@@ -38,6 +40,8 @@ export default defineView({
     { universalIdentifier: 'd8c5b4f3-9b9c-4556-9ee5-db779c9ebed0', fieldMetadataUniversalIdentifier: CONTRACT_SIGNED_ON_FIELD_UNIVERSAL_IDENTIFIER, position: 7, isVisible: true, size: 140 },
     { universalIdentifier: '3c4a7691-c126-48eb-8df2-c1869ddebb67', fieldMetadataUniversalIdentifier: CONTRACT_VALUE_FIELD_UNIVERSAL_IDENTIFIER, position: 8, isVisible: true, size: 130 },
     { universalIdentifier: 'ae23d20a-b0eb-4989-be1b-1085fc85ada8', fieldMetadataUniversalIdentifier: CONTRACT_SHAREPOINT_FOLDER_FIELD_UNIVERSAL_IDENTIFIER, position: 9, isVisible: true, size: 220 },
+    { universalIdentifier: 'ad381af2-13f5-4e54-858b-3407c121b071', fieldMetadataUniversalIdentifier: CONTRACT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER, position: 10, isVisible: true, size: 140 },
+    { universalIdentifier: 'fc2a0b3f-6650-4794-9167-3591b66e11f8', fieldMetadataUniversalIdentifier: CONTRACT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, position: 11, isVisible: true, size: 220 },
   ],
   sorts: [
     {

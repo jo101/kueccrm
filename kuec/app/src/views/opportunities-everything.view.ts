@@ -7,11 +7,14 @@ import {
 import { CLIENT_DEADLINE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/client-deadline-on-opportunity.field';
 import { CONTRACTS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/contracts-on-opportunity.field';
 import { ENGAGEMENTS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/engagements-on-opportunity.field';
+import { FUNDING_PATH_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/funding-path-on-opportunity.field';
 import { LOST_REASON_CATEGORY_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/lost-reason-category-on-opportunity.field';
 import { LOST_REASON_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/lost-reason-on-opportunity.field';
 import { NEXT_ACTION_DATE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/next-action-date-on-opportunity.field';
 import { NEXT_ACTION_FLAGGED_ON_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/next-action-flagged-on-on-opportunity.field';
 import { NEXT_ACTION_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/next-action-on-opportunity.field';
+import { OFFERING_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/offering-on-opportunity.field';
+import { OTHER_DETAILS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/other-details-on-opportunity.field';
 import { PLAYBOOK_APPLIED_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/playbook-applied-on-opportunity.field';
 import { PLAYBOOK_TYPE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/playbook-type-on-opportunity.field';
 import { PROBABILITY_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/probability-on-opportunity.field';
@@ -57,6 +60,9 @@ export default defineView({
     { universalIdentifier: '30f6ae50-b19a-44a7-b3cb-f070ac2db07b', fieldMetadataUniversalIdentifier: ENGAGEMENTS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 20, isVisible: true, size: 170 },
     { universalIdentifier: 'f54b04d1-7367-4b94-9678-6a47355a9c9e', fieldMetadataUniversalIdentifier: CONTRACTS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 21, isVisible: true, size: 170 },
     { universalIdentifier: '0181669c-096a-45eb-9c6d-0ce75c07bb71', fieldMetadataUniversalIdentifier: SHAREPOINT_FOLDER_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 22, isVisible: true, size: 220 },
+    { universalIdentifier: '45efd396-0f96-4ca7-913b-036204ddf48f', fieldMetadataUniversalIdentifier: OFFERING_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 23, isVisible: true, size: 170 },
+    { universalIdentifier: '2faeb47f-8eb3-4176-9f85-d8d782831114', fieldMetadataUniversalIdentifier: FUNDING_PATH_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 24, isVisible: true, size: 140 },
+    { universalIdentifier: '812930ef-b3c1-44aa-87d1-2045dde82d44', fieldMetadataUniversalIdentifier: OTHER_DETAILS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 25, isVisible: true, size: 220 },
   ],
   sorts: [
     {

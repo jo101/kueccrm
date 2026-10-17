@@ -7,8 +7,10 @@ import { OWNER_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/owner-o
 import { PROJECT_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/project-on-milestone.field';
 import { WORK_PACKAGES_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/work-packages-on-milestone.field';
 import {
+  MILESTONE_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
   MILESTONE_DUE_AT_FIELD_UNIVERSAL_IDENTIFIER,
   MILESTONE_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+  MILESTONE_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
   MILESTONE_PLAYBOOK_STEP_FIELD_UNIVERSAL_IDENTIFIER,
   MILESTONE_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
   MILESTONE_UNIVERSAL_IDENTIFIER,
@@ -32,6 +34,8 @@ export default defineView({
     { universalIdentifier: '1ecc1fce-9e6a-4ade-bad6-5508c80cc7f6', fieldMetadataUniversalIdentifier: PROJECT_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER, position: 4, isVisible: true, size: 170 },
     { universalIdentifier: '077cf329-ea9e-4cff-a272-d8563081b2a7', fieldMetadataUniversalIdentifier: WORK_PACKAGES_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER, position: 5, isVisible: true, size: 170 },
     { universalIdentifier: 'beba6fac-ecd8-4dd0-9f4e-162f2baf3895', fieldMetadataUniversalIdentifier: MILESTONE_PLAYBOOK_STEP_FIELD_UNIVERSAL_IDENTIFIER, position: 6, isVisible: true, size: 220 },
+    { universalIdentifier: 'd801f894-c4a9-4a38-ac62-1f028cb3a2eb', fieldMetadataUniversalIdentifier: MILESTONE_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER, position: 7, isVisible: true, size: 140 },
+    { universalIdentifier: '1c288ff3-7ef6-482e-a01c-47e30a746898', fieldMetadataUniversalIdentifier: MILESTONE_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, position: 8, isVisible: true, size: 220 },
   ],
   sorts: [
     {

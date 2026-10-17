@@ -3,6 +3,10 @@ import {
   FieldType,
   MetadataWritability,
 } from 'twenty-sdk/define';
+import {
+  DEPARTMENT,
+  OTHER_DETAILS_FIELD_DESCRIPTION,
+} from '../constants/taxonomy';
 
 export const WORK_PACKAGE_UNIVERSAL_IDENTIFIER = '8455b49c-d156-4855-8cf9-04f6966c92eb';
 
@@ -39,6 +43,8 @@ export const WORK_PACKAGE_OVERDUE_OWNER_NOTIFIED_AT_FIELD_UNIVERSAL_IDENTIFIER =
 export const WORK_PACKAGE_OVERDUE_ED_NOTIFIED_AT_FIELD_UNIVERSAL_IDENTIFIER = '3535b5db-0174-4121-9ac9-ce8be2926ae2';
 export const WORK_PACKAGE_STATUS_FIELD_UNIVERSAL_IDENTIFIER = '87062c11-2f25-46f1-b31e-2a71a545d558';
 export const WORK_PACKAGE_DUE_AT_FIELD_UNIVERSAL_IDENTIFIER = 'd28399c6-e6f2-43ce-b2b0-6ca33c959429';
+export const WORK_PACKAGE_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER = '960a3489-4b93-4db5-96b1-0c581235d3b4';
+export const WORK_PACKAGE_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER = 'e123706b-3c10-4b8f-9041-daaede6f4d5b';
 
 export default defineObject({
   universalIdentifier: WORK_PACKAGE_UNIVERSAL_IDENTIFIER,
@@ -217,6 +223,31 @@ export default defineObject({
       icon: 'IconAlarm',
       writability: MetadataWritability.APPLICATION,
       isAuditLogged: false,
+    },
+    {
+      universalIdentifier: WORK_PACKAGE_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.SELECT,
+      name: 'department',
+      label: 'Department',
+      description: 'The KUEC department that leads this record',
+      icon: 'IconBuildingCommunity',
+      options: [
+        { id: '4481830c-e09a-427c-9885-50ad41f6d6f0', value: DEPARTMENT.BD, label: 'BD', position: 0, color: 'blue' },
+        { id: '9b9ed82d-f635-4cff-9a1f-51b72dbd7c1c', value: DEPARTMENT.COMMERCIALIZATION, label: 'Commercialization', position: 1, color: 'green' },
+        { id: 'c5797e2a-56d1-4573-9119-864fad021759', value: DEPARTMENT.IP_OFFICE, label: 'IP office', position: 2, color: 'purple' },
+        { id: 'c9ae527c-45c0-4149-9996-34a4abb48592', value: DEPARTMENT.LEASING, label: 'Leasing', position: 3, color: 'orange' },
+        { id: '9e4aafe7-fbf8-4aa0-9773-25dc901a424c', value: DEPARTMENT.LAB_ACCESS, label: 'Lab access', position: 4, color: 'turquoise' },
+        { id: 'b464dcae-f40c-4b43-ba5c-c0db0d34daa0', value: DEPARTMENT.STARTUPS_AND_INVESTMENT, label: 'Startups and investment', position: 5, color: 'pink' },
+        { id: '39e5d12f-5d9c-46d5-85ff-6030053e90bf', value: DEPARTMENT.OTHER, label: 'Other', position: 6, color: 'gray' },
+      ],
+    },
+    {
+      universalIdentifier: WORK_PACKAGE_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.TEXT,
+      name: 'otherDetails',
+      label: 'Other details',
+      description: OTHER_DETAILS_FIELD_DESCRIPTION,
+      icon: 'IconNotes',
     },
   ],
 });

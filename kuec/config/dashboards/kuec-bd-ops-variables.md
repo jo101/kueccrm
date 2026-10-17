@@ -34,7 +34,7 @@ The app's settings page shows no missing-configuration banner. Role assignments 
 
 ## Verify
 
-1. Set an opportunity's Type to RFQ / technical service on a test opportunity owned by you. Within a minute: seven work packages, the first Offered to the right person, a Teams post in the BD channel, and an email from bd-ops to the step 1 owner.
+1. Set an opportunity's Type to Technical service (research as a service) (labelled RFQ / technical service before 0.8.0) on a test opportunity owned by you. Within a minute: seven work packages, the first Offered to the right person, a Teams post in the BD channel, and an email from bd-ops to the step 1 owner.
 2. `yarn twenty dev:function:logs -n w01-instantiate-opportunity-playbook` (see `runbooks/04-automation.md` section 4) shows no `skipped` line for email or Teams.
 3. Delete the test opportunity (its work packages go with it).
 

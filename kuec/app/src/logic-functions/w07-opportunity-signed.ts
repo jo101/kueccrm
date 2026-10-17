@@ -81,8 +81,9 @@ const handler = async (
     return { contract: licences[0]?.id };
   }
 
+  // Created as the app: BD officers and department roles cannot write contracts.
   const contract = await createRecord<ContractRecord>(
-    api.asPerson,
+    api.asApplication,
     OBJECT_NAMES.contract,
     {
       name: `Licence: ${after.name ?? ''}`,

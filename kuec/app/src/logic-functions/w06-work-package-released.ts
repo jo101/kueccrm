@@ -103,8 +103,10 @@ const releaseDependents = async (
       offeredAt: now.toISOString(),
     });
     // The status change triggers W2, which notifies the new owner and starts
-    // the acceptance timer; notifying here as well would race it.
-    await updateRecord(api.asPerson, OBJECT_NAMES.workPackage, dependent.id, {
+    // the acceptance timer; notifying here as well would race it. Written as
+    // the app because the person who finished the predecessor may not be
+    // allowed to set due dates.
+    await updateRecord(api.asApplication, OBJECT_NAMES.workPackage, dependent.id, {
       status: WORK_PACKAGE_STATUS.OFFERED,
       ...(isDefined(dueAt) ? { dueAt: dueAt.toISOString() } : {}),
     });

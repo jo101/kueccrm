@@ -128,10 +128,12 @@ export const instantiateCase = async ({
       : [];
   const milestoneIdByKey = new Map<string, string>();
 
+  // Created as the app: the person who set the type may hold a role that
+  // cannot write milestones or every work package field (runbooks/13-roles.md).
   for (const plannedMilestone of plan.milestones) {
     const milestone =
       findExisting(existingMilestones, plannedMilestone.playbookStep, plannedMilestone.name) ??
-      (await createRecord<MilestoneRecord>(api.asPerson, OBJECT_NAMES.milestone, {
+      (await createRecord<MilestoneRecord>(api.asApplication, OBJECT_NAMES.milestone, {
         name: plannedMilestone.name,
         dueAt: plannedMilestone.dueAt,
         ...caseForeignKey(caseReference),
@@ -159,7 +161,7 @@ export const instantiateCase = async ({
     );
     const workPackage =
       existing ??
-      (await createRecord<WorkPackageRecord>(api.asPerson, OBJECT_NAMES.workPackage, {
+      (await createRecord<WorkPackageRecord>(api.asApplication, OBJECT_NAMES.workPackage, {
         name: planned.name,
         objective: planned.objective,
         expectedOutput: planned.expectedOutput,

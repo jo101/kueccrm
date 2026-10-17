@@ -2,7 +2,7 @@
 
 - **Why not the manifest:** the manifest declares the variables (`kuec/app/src/application.config.ts`) but secret values are entered per instance, never committed. Role assignments and holidays are workspace data, not metadata.
 - **Written against:** Twenty 2.48.0, `kuec-bd-ops` 0.1.0.
-- **Prerequisites:** the ED's Admin account (Applications permission). `kuec-bd-ops` installed. From the secrets manager: the Teams incoming webhook URL (`twenty/<env>/TEAMS_WEBHOOK_URL`) and the bd-ops mailbox SMTP credentials (`twenty/<env>/BD_OPS_SMTP_*`). IT has enabled authenticated SMTP for the bd-ops mailbox (Exchange Online: SMTP AUTH on for that mailbox only).
+- **Prerequisites:** the ED's or an engineer's account (the **Apps** permission, `runbooks/13-roles.md`). `kuec-bd-ops` installed. From the secrets manager: the Teams incoming webhook URL (`twenty/<env>/TEAMS_WEBHOOK_URL`) and the bd-ops mailbox SMTP credentials (`twenty/<env>/BD_OPS_SMTP_*`). IT has enabled authenticated SMTP for the bd-ops mailbox (Exchange Online: SMTP AUTH on for that mailbox only).
 
 ## Steps: variables
 

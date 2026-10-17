@@ -27,10 +27,10 @@ Everything the manifest can express is in `kuec/app` (0.5.0). Everything else is
 | 3 | Person duplicates by email | Native | Email is unique: a second person with the same email is refused | |
 | 3 | Person duplicates by name + company | No | 2.48 matches first name + last name alone (or LinkedIn, or email), not name + company, and the rule cannot be changed. Monthly check by name + company (section 3.2) | SQL check |
 | 3 | Duplicates shown on the record page | No | 2.48 has no Duplicates section or widget. Same monthly check | SQL check |
-| 3 | Merge, and who may merge | Partly | **Merge** for Companies and People, 2 to 9 records, cannot be undone. It needs Update and Destroy on the object, so only roles holding Destroy can merge: ED and ops coordinator (pending the roles, section 3.4) | roles |
+| 3 | Merge, and who may merge | Partly | **Merge** for Companies and People, 2 to 9 records, cannot be undone. It needs Update and Destroy on the object, so only roles holding Destroy can merge: ED and ops coordinator (section 3.4) | roles |
 | 4 | CSV import per object | Native | **Import** on every object's list, app objects included | |
 | 4 | CSV export per view | Native | **Export View**, or **Export** on a selection; the view's visible columns, filters and sort | |
-| 4 | Export restricted by role | Native, pending the roles | Role permission **Export CSV**. It hides the commands; it does not limit what the role can read through the API | roles |
+| 4 | Export restricted by role | Native | Role permission **Export CSV**: ED, ops coordinator, BD officer and the department roles. It hides the commands; it does not limit what the role can read through the API, and it cannot be limited to the user's own views (`13-roles.md` section 10) | roles |
 | 5 | Sidebar in the agreed order | Native | App sidebar entries with positions below Twenty's own (**tested**) | manifest |
 | 5 | BD Executive and BD Team as separate entries | Partly | Both are tabs of one BD page. BD Executive is the app entry; BD Team is a link to the Team tab added in the UI, because a tab link carries per-install ids | `sidebar.md` |
 | 5 | Hide unused standard objects, never delete one | Native | Remove their entries in Edit navigation. 2.48 cannot delete a standard object at all | `sidebar.md` |
@@ -44,7 +44,7 @@ Everything the manifest can express is in `kuec/app` (0.5.0). Everything else is
 | 7 | In-app notification | No | No notification centre in 2.48. Every alert is a Task, an email from bd-ops, or a Teams post (section 7) | app logic |
 | 7 | Email from the shared bd-ops mailbox, one recipient, no CC | Native in the app | The app sends one plain-text message per recipient, To only, through the bd-ops SMTP account | app logic |
 | 8 | Multi-select edit, export, delete | Native | **Update** (2 or more records), **Export**, **Delete** on a selection | |
-| 8 | Delete limited to ED and ops coordinator | Native, pending the roles | Object permission "delete records" off for every other role | roles |
+| 8 | Delete limited to ED and ops coordinator | Native | Object permission "delete records" off for every other role (`13-roles.md`) | roles |
 | 9 | Keyboard shortcuts | Native | Section 9.1 | |
 | 9 | Quick-create default stage Qualify | Native | Stage defaults to `NEW`. It reads "New" until the stage relabel (Phase B build list) renames it "Qualify" | |
 | 9 | Quick-create default source Inbound | Native | Source default **Inbound enquiry** on the app's field, 0.5.0 (**tested**) | manifest |
@@ -172,7 +172,7 @@ Also sort Companies by name in the Everything (expert) view and look for near-id
 
 ### 3.4 Who may merge
 
-The ED and the ops coordinator. 2.48 has no merge permission of its own: Merge needs **Update** and **Destroy** records on the object, so Destroy on Companies and People is given to those two roles only. Until the app ships its roles (`01-deploy.md` G9, "roles per Prompt 13"), everyone is a Member and can merge: the rule is then a team rule, not a control.
+The ED and the ops coordinator. 2.48 has no merge permission of its own: Merge needs **Update** and **Destroy** records on the object, so Destroy on Companies and People is given to those two roles only (`13-roles.md`).
 
 ## 4. Import and export
 
@@ -182,7 +182,7 @@ The ED and the ops coordinator. 2.48 has no merge permission of its own: Merge n
 | Export a view | Ctrl+K or the view's options > **Export View**: visible columns, filters and sort | role permission **Export CSV** | the commands are hidden without it; the data stays readable through the API for anyone with Read |
 | Export a selection | select rows > **Export** | **Export CSV** | same |
 
-Import follows `09-import.md` (automation paused, prepared files, upsert by ID). Which roles hold Import CSV and Export CSV is set by the roles per Prompt 13; until they ship, every Member can import and export. The per-view export check is `05-views.md` section 5.
+Import follows `09-import.md` (automation paused, prepared files, upsert by ID). Import CSV is the ops coordinator's only; Export CSV is held by the ED, the ops coordinator, BD officers and the department roles (`13-roles.md`). The per-view export check is `05-views.md` section 5.
 
 ## 5. Sidebar
 
@@ -253,7 +253,7 @@ Select rows with their checkboxes (or **x** on a focused row, **Shift+x** for a 
 | **Export** | Export CSV | As section 4 |
 | **Delete** | delete records on the object | Moves to Deleted (**See deleted** to restore); **Permanently destroy** from there needs Destroy |
 
-Delete is for the ED and the ops coordinator only: in the roles per Prompt 13, "delete records" and "destroy records" are off on every object for BD staff and engineers. Until the roles ship, any Member can delete; a wrong delete is restored from **See deleted** by the ops coordinator.
+Delete is for the ED and the ops coordinator only: "delete records" and "destroy records" are off on every object for every other role (`13-roles.md`). A wrong delete is restored from **See deleted** by the ops coordinator.
 
 ## 9. Shortcuts and quick create
 
@@ -300,7 +300,7 @@ Timeline, Tasks and Notes are on every record page by default. There is no Dupli
 3. Click-runbooks, in order: `sidebar.md`, `record-page-files-tab.md`, `email-calendar-sync.md` (workspace part).
 4. Verify:
    - `node kuec/tests/search/arabic-search.mjs` against staging: all cases pass.
-   - Sidebar order as in section 5, signed in as BD staff.
+   - Sidebar order as in section 5, signed in as a BD officer.
    - Create an opportunity from Pipeline > + New, type a name: within a minute Owner is you and Source is Inbound enquiry.
    - An opportunity and a contract show the SharePoint folder card and no Files tab.
    - The mail settings query in `email-calendar-sync.md`.
@@ -311,7 +311,7 @@ Timeline, Tasks and Notes are on every record page by default. There is no Dupli
    WHERE "deletedAt" IS NULL AND "accountTier" IN ('TIER_1', 'TIER_2') AND coalesce(trim(keywords), '') = '';
    ```
 
-Open items: the roles (export, delete, merge controls in sections 3.4, 4 and 8 are team rules until they ship); the Phase B command items (2.2); the stage relabel to Qualify; Person keywords, if section 1.2's people cases matter in practice.
+Open items: the Phase B command items (2.2); the stage relabel to Qualify; Person keywords, if section 1.2's people cases matter in practice.
 
 ## 12. How to find anything (for the team)
 

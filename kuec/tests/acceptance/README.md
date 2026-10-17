@@ -13,6 +13,7 @@ export TWENTY_API_URL=http://localhost:3000
 export TWENTY_API_KEY=<admin API key of the disposable workspace>
 export TWENTY_CLI_ACCESS_TOKEN=<access token of a signed-in member>   # manual function runs
 export T6_ADMIN_TOKEN=<access token of a member holding Admin>        # T6 role changes
+export T10_ADMIN_TOKEN=<access token of a member holding Admin>       # T10 role assignments and keys
 export TWENTY_SERVER_DIR=<checkout>/packages/twenty-server WORKER_LOG=<worker log file>   # T4
 ```
 
@@ -29,3 +30,4 @@ Run the files one at a time: every file's global setup reinstalls the app, so tw
 | T7 | `kuec/tests/acceptance/t7-backup-restore.sh` (variables at the top of the script; needs Docker and `pg_dump` 16) | 3 min |
 | T8 | `src/__tests__/upgrade.integration-test.ts`, then `kuec/tests/acceptance/t8-field-removal-and-restore.sh` after restoring the T7 dump | 6 min |
 | T9 | `runbooks/01-deploy.md` §12, once a release after 2.48.0 exists | |
+| T10 | `… acceptance/t10-roles.integration-test.ts` with `T10_ADMIN_TOKEN=<access token of a member holding Admin>`. Needs six members on the Member role and seeded passwords (`T10_MEMBER_PASSWORD`, default `tim@apple.dev`); every member gets its role back at the end | 3 min |

@@ -146,3 +146,21 @@ Before the harness fix: 8 passed, 7 failed (2 on W1, 5 on manual-execution auth)
 - Not committed: the `tsconfig.json` workaround from blocker 1, which is a decision for the app owner.
 
 How to rerun: `kuec/tests/acceptance/README.md`.
+
+## Addendum 2026-10-17: T10 roles (PASS)
+
+Run on `kuec-bd-ops` 0.6.0, same kind of instance (Twenty 2.48.0 built from this checkout, seeded workspace, `LOGIC_FUNCTION_TYPE=LOCAL`). Spec `acceptance/t10-roles.integration-test.ts`, roles in `runbooks/13-roles.md`. Evidence: `evidence/logs/t10.txt`.
+
+| Check | Result |
+| --- | --- |
+| The app installs with all 11 roles, their object and field permissions | pass |
+| BD officer: accepts and blocks own work package; refused on Due and Owner of a work package, on editing a project, on deleting an opportunity, on destroying a timeline row; allowed on opportunities, companies, tasks and task links | pass |
+| IP office (department roles): edits opportunities; refused on companies and on work package status | pass |
+| Engineer: reads people; refused on writing companies and notes and on creating an API key | pass |
+| Leadership viewer: reads opportunities, projects, contracts, dashboards; refused on people, engagements, the timeline and any edit | pass |
+| Ops coordinator moves a due date and deletes; the ED creates an Automation key; the key edits an opportunity and is refused on deletes | pass |
+| A BD officer sets a licence Type, marks step 1 Done and signs: W1 creates the work packages, W6 offers step 2, W7 creates the licence contract, `stageEnteredAt` is stamped | pass |
+| Same playbook check against the previous code, where W1, W2, W6 and W7 wrote as the person | **fail**: no work package created (`evidence/logs/t10-before-app-scoped-writes.txt`); fixed in 0.6.0 |
+| Uninstalling the app leaves a member on an app role with no role at all (requests fail with "has no role assigned") | confirmed; `runbooks/13-roles.md` forbids uninstalling in production |
+
+Blocker 3 above is resolved. T6's conclusion still holds: a BD officer can change the status of a work package someone else owns, because 2.48 cannot limit edits to the owner without row-level permissions.

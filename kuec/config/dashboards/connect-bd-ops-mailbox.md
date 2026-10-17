@@ -6,7 +6,7 @@
 
 ## Steps
 
-1. The ED invites `bd-ops@kuec.example` (Settings > Members > Invite) and assigns it **BD staff** (`members-and-roles.md`).
+1. The ED invites `bd-ops@kuec.example` (Settings > Members > Invite) and assigns it **BD officer** (`members-and-roles.md`).
 2. In a private window, accept the invitation and sign in with **Continue with Microsoft** as bd-ops.
 3. As bd-ops: Settings > **Accounts** > **Emails** > **Connect with Microsoft**. Admin consent is already granted, so no consent prompt should appear.
 4. Emails > the bd-ops account: under **Visibility**, choose **Metadata** (participants and dates only) unless the ED decides otherwise. Under **Contact auto-creation**, choose **None**, so mail from unknown senders does not create people. Team members' own accounts use different settings (`email-calendar-sync.md`).

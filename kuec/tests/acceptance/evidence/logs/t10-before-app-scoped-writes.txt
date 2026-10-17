@@ -1,0 +1,9 @@
+# T10 playbook check against the previous code (person-scoped W1, W2, W6, W7 writes), 2026-10-17
+# Same roles; the BD officer sets the playbook type and no work package is created
+[t10] bd sets the playbook type: ALLOWED (200) {"data":{"updateOpportunity":{"id":"8871bb65-02f7-4c8c-bcaf-1a45100518fb","createdAt":"2026-10-17T09:32:24.251Z","updatedAt":"2026-10-17T09:32:24.521Z","deletedAt":null,"name":"t10-1792229542231 Licen
+     × a BD officer starts the licence playbook, completes a step and signs; the app writes what the role cannot 91030ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+Error: Timed out waiting for W1 work packages: []
+     82|       throw new Error(`Timed out waiting for ${description}: ${JSON.st…
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 skipped (7)

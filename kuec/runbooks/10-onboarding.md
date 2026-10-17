@@ -2,9 +2,8 @@
 
 Complete this on your first day, with the ops coordinator nearby. It takes about 30 minutes. Read `10-cadence-en.md` (or `10-cadence-ar.md`) first.
 
-**Before the new person starts, the ops coordinator:**
+**Before the new person starts, the ED** invites their work address with the **BD officer** role (`runbooks/13-roles.md` section 7; the ops coordinator has no Members permission). **Then the ops coordinator:**
 
-- invites their work address and gives them the **BD staff** role (`config/dashboards/members-and-roles.md`);
 - creates a work package titled `TEST - <first name>`, owned by the new person, with a due date 3 working days away, any short done criteria, and status **Offered**;
 - creates an opportunity titled `TEST - <first name>`, owned by the new person, with **Type** left empty (setting a type starts a real playbook and creates real work).
 

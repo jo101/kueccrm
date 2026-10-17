@@ -2,7 +2,7 @@
 
 - **Why not the manifest:** Twenty seeds its own sidebar entries (Companies, People, Opportunities, Tasks, Notes, Dashboards, Workflows) as workspace rows owned by the standard app; an app cannot remove them. The BD Team entry opens one tab of the BD page, and a tab link carries the page's and the tab's workspace ids, which differ per install, so it cannot be written in the manifest.
 - **Written against:** Twenty 2.48.0, `kuec-bd-ops` 0.5.0.
-- **Prerequisites:** the ED's Admin account (the **Layouts** permission; Edit navigation is desktop only). `kuec-bd-ops` 0.5.0 or later installed, so the app's entries exist at positions below 0 (`kuec/app/src/constants/sidebar-positions.ts`).
+- **Prerequisites:** the ED's or an engineer's account (the **Layouts** permission, `runbooks/13-roles.md`; Edit navigation is desktop only). `kuec-bd-ops` 0.5.0 or later installed, so the app's entries exist at positions below 0 (`kuec/app/src/constants/sidebar-positions.ts`).
 
 ## Steps
 
@@ -36,7 +36,7 @@ The Workspace section reads, top to bottom: Home, Exceptions, Pipeline, My work,
 
 ## Verify
 
-1. Sign in as a BD staff member: the same list, no second Companies or People entry, and the first page after sign-in is Home.
+1. Sign in as a BD officer: the same list, no second Companies or People entry, and the first page after sign-in is Home.
 2. Click **BD Team**: the BD page opens on the Team tab.
 3. After the next `app:install`, check the order again. The app re-applies its own positions and leaves the BD Team link alone.
 

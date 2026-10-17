@@ -29,7 +29,7 @@ On the board, drag cards between Offered, Accepted and Submitted. To set Blocked
 
 ## 3. The Thursday update text
 
-- **Who can edit it:** anyone whose role has the **Layouts** permission. Only the ED's Admin role has it. BD staff see the text but cannot change it.
+- **Who can edit it:** anyone whose role has the **Layouts** permission: the ED and engineers (`runbooks/13-roles.md`). BD officers see the text but cannot change it.
 - **How:** follow step 1 of section 1. **Save** keeps the text until the next edit.
 - **App upgrades:** the widget belongs to the app. Each `app:install` of `kuec-bd-ops` resets it to the three empty lines, because an app install re-applies the widget's configuration. Upgrade the app after Thursday's update has gone out, never before.
 

@@ -1,3 +1,4 @@
+import { type CreatedByActor } from 'src/automation/rules/default-owner.rule';
 import { type TimerWorkPackage } from 'src/automation/timers/work-package-timers';
 import { type ContractRecordKind } from 'src/automation/records/object-names';
 import { type MilestoneStatus } from 'src/objects/milestone.object';
@@ -40,6 +41,8 @@ export type OpportunityRecord = {
   staleFrom: string | null;
   lostReason: string | null;
   clientDeadline: string | null;
+  createdAt: string;
+  createdBy: CreatedByActor | null;
   updatedAt: string;
 };
 

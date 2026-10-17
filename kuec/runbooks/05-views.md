@@ -80,7 +80,7 @@ Column order follows one rule: name, owner, the date that matters, then at most 
 | Closing this quarter | Table | Open; Close date this quarter (Asia/Dubai) | | Close date | Name, Owner, Close date, Stage, Probability, Amount |
 | Lost with reasons | Table | Stage is Lost | Lost reason category | Stage entered at, newest first (exception: a post-mortem list, not a work list) | Name, Owner, Stage entered at, Lost reason category, Lost reason, Amount |
 | Parked | Table | Stage is Parked | | Next action date (the revisit date) | Name, Owner, Next action date, Stage entered at, Next action, Company |
-| Everything (expert) | Table | | | Close date | all 22 fields |
+| Everything (expert) | Table | | | Close date | all 23 fields (0.5.0 adds SharePoint folder) |
 
 "Proposals out" uses the standard stage `PROPOSAL` (label Proposal). If the workspace relabels it, the view follows; if a new option replaces it, update the filter in `proposals-out.view.ts`.
 
@@ -91,7 +91,7 @@ Column order follows one rule: name, owner, the date that matters, then at most 
 | Portfolio (sidebar default) | Table | Status Active | | End date | Name, Owner, End date, Health, Percent complete |
 | By health | Table | Status Active | Health | End date | Name, Owner, End date, Health, Percent complete, Type |
 | At risk | Table | Status Active; Health Amber or Red | | End date | Name, Owner, End date, Health, Percent complete, Opportunity |
-| Everything (expert) | Table | | | End date | all 13 fields |
+| Everything (expert) | Table | | | End date | all 14 fields (0.5.0 adds Company) |
 
 The brief listed Portfolio's columns as name, owner, health, percentComplete, endDate. They are reordered so the date is third, per the column rule.
 
@@ -123,7 +123,7 @@ Missed includes Open milestones past their due date as well as those set to Miss
 | By sector | Table | | Sector | Last engagement | Name, Account owner, Last engagement, Sector, Account tier, Domain |
 | Offset obligors | Table | Offset obligor is true | | Last engagement | Name, Account owner, Last engagement, Account tier, Sector |
 | Least recently engaged | Table | | | Last engagement, oldest first | as Offset obligors |
-| Everything (expert) | Table | | | Last engagement | all 14 fields |
+| Everything (expert) | Table | | | Last engagement | all 17 fields (0.5.0 adds Name (Arabic), Search keywords, Projects) |
 
 ### People
 
@@ -134,7 +134,7 @@ People have no owner and no date of their own. The company is the second column 
 | Decision makers | Table | Decision role is not empty | Decision role | Name, Company, Job title, Decision role, Champion, Emails |
 | Champions | Table | Champion is true | | Name, Company, Job title, Decision role, Emails, Phones |
 | Missing email | Table | Emails is empty | | Name, Company, Job title, Decision role, Phones, Linkedin |
-| Everything (expert) | Table | | | all 9 fields |
+| Everything (expert) | Table | | | all 10 fields (0.5.0 adds Name (Arabic)) |
 
 ### Contracts
 
@@ -154,16 +154,18 @@ Each object has one **Everything (expert)** view with every business field, posi
 
 ## 4. Sidebar
 
-| Position | Entry | Opens |
-| --- | --- | --- |
-| 0 | My work | Work packages > My work |
-| 1 | Pipeline | Opportunities > Pipeline |
-| 2 | Portfolio | Projects > Portfolio |
-| 3 | Milestones | Milestones > Open |
-| 4 | Engagements | Engagements > This month |
-| 5 | Contracts | Contracts > Expiring |
+Since 0.5.0 the order and the reasons for it are in `runbooks/12-global-features.md` section 5; positions are in `kuec/app/src/constants/sidebar-positions.ts`. The entries that open a view:
 
-Companies and People keep their standard sidebar entries. Every other view is reached from the view picker at the top of the object page.
+| Entry | Opens |
+| --- | --- |
+| Pipeline | Opportunities > Pipeline |
+| My work | Work packages > My work |
+| Projects (was Portfolio) | Projects > Portfolio |
+| Engagements | Engagements > This month |
+| Contracts | Contracts > Expiring |
+| Milestones | Milestones > Open |
+
+Companies and People are app entries that open the object (the last view each person used). Twenty's own Companies and People entries are removed in the UI (`config/dashboards/sidebar.md`). Every other view is reached from the view picker at the top of the object page.
 
 ## 5. Install, upgrade and verify
 
@@ -177,7 +179,7 @@ Companies and People keep their standard sidebar entries. Every other view is re
 
 Signed in as a BD staff member with at least one open work package:
 
-1. The sidebar shows the six entries of section 4 in that order, and each opens the listed view.
+1. The sidebar shows the entries of `runbooks/12-global-features.md` section 5 in that order, and each opens the listed view.
 2. My work lists only your open work packages, earliest due first.
 3. Opportunities > Pipeline: columns New to Signed, Lost and Parked hidden, each header shows a sum of Amount.
 4. Work packages > Due this week: a work package due next Monday is absent and one due this Friday is present (Asia/Dubai week).

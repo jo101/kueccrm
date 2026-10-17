@@ -24,7 +24,7 @@ Everyone on the team, with the ED. Fix records in the CRM during the meeting, so
 
 | Time | Item | Where | Leave with |
 | --- | --- | --- | --- |
-| 5 min | Weekly dashboard | **BD**, **Executive** tab | What closed this week, what moved, what is stuck |
+| 5 min | Weekly dashboard | **BD Executive** in the sidebar | What closed this week, what moved, what is stuck |
 | 5 min | No next action | **Exceptions** page | Every row has a next action and a date |
 | 5 min | Overdue | **Exceptions** page | Every row has a new due date or is finished |
 | 5 min | Blocked | **Exceptions** page | Each block has a person and a day to clear it |

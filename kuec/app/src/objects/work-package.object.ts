@@ -91,6 +91,7 @@ export default defineObject({
       name: 'objective',
       label: 'Objective',
       icon: 'IconTarget',
+      isSearchable: true,
     },
     {
       universalIdentifier: WORK_PACKAGE_EXPECTED_OUTPUT_FIELD_UNIVERSAL_IDENTIFIER,

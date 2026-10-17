@@ -14,4 +14,5 @@ export default defineField({
   name: 'nextAction',
   label: 'Next action',
   icon: 'IconArrowRight',
+  isSearchable: true,
 });

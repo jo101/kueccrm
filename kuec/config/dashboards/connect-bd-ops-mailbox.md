@@ -9,7 +9,7 @@
 1. The ED invites `bd-ops@kuec.example` (Settings > Members > Invite) and assigns it **BD staff** (`members-and-roles.md`).
 2. In a private window, accept the invitation and sign in with **Continue with Microsoft** as bd-ops.
 3. As bd-ops: Settings > **Accounts** > **Emails** > **Connect with Microsoft**. Admin consent is already granted, so no consent prompt should appear.
-4. Emails > the bd-ops account: under **Visibility**, choose the most restrictive option (participants and metadata only) unless the ED decides otherwise. Turn **Contact auto-creation** off, so mail from unknown senders does not create people.
+4. Emails > the bd-ops account: under **Visibility**, choose **Metadata** (participants and dates only) unless the ED decides otherwise. Under **Contact auto-creation**, choose **None**, so mail from unknown senders does not create people. Team members' own accounts use different settings (`email-calendar-sync.md`).
 5. Calendars > the same account: sync on.
 6. Record the workspace-member name of bd-ops in the app's config record as the automation sender. The app reads it from configuration, never from a hardcoded id.
 

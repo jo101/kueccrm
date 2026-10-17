@@ -25,6 +25,7 @@ export default defineField({
   label: 'Source',
   description: 'Where the opportunity came from',
   icon: 'IconArrowFork',
+  defaultValue: `'${OPPORTUNITY_SOURCE.INBOUND}'`,
   options: [
     {
       id: 'f2847582-721b-42a0-867f-7a44fed82449',

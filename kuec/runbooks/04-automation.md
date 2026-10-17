@@ -39,7 +39,8 @@ Times are Asia/Dubai. Business days are Monday to Friday minus the holiday list.
 | `w11-engagement-stamp` | `engagement.updated` on `date`, `nextStep` | Company `lastEngagementAt` = the engagement date (never moved backwards), and `engagementLapsesAt` 60 days after it (the dashboard's accounts not engaged in 60 days). A next step is copied into the linked opportunity's next action. | stamp as app; next action as person |
 | `work-package-transition-log` | `workPackage.updated` on `status` | Stamps `acceptedAt`, `submittedAt`, `blockedAt`. Writes the transition (Offered, Accepted, Declined, Submitted, Done, Blocked) to the work package's timeline and, linked to it, to the case's timeline. | app |
 | `timer-sweep` | cron `0 * * * *` (hourly) | Re-derives every acceptance and overdue timer due within 7 days from work-package state, reads the queue (`getJobs`), and enqueues what is missing. Logs each repair. | app |
-| `derived-dates-sweep` | cron `30 * * * *` (hourly) | Recomputes `staleFrom` from `stageEnteredAt` and `engagementLapsesAt` from `lastEngagementAt` and writes any that differ: repairs a lost W8 or W11 event and backfills records from before 0.3.0. | app |
+| `default-opportunity-owner` | `opportunity.updated` on `name`, `ownerId` | An opportunity created in the UI (`createdBy` source Manual) with no owner, less than 24 hours old: owner = the member who created it. Twenty 2.48 has no "current user" default for a relation; this is the quick-create default (`runbooks/12-global-features.md` section 9). Imported, API and app-created records are left alone. | app |
+| `derived-dates-sweep` | cron `30 * * * *` (hourly) | Recomputes `staleFrom` from `stageEnteredAt` and `engagementLapsesAt` from `lastEngagementAt` and writes any that differ: repairs a lost W8 or W11 event and backfills records from before 0.3.0. Since 0.5.0 also gives each ownerless opportunity created in the UI in the last 24 hours to its creator (the sweep for `default-opportunity-owner`). | app |
 
 W12 (Teams channel) is not a function: W1, W2 (reassignment), W5 and W7 post one line with the record link to the incoming webhook.
 
@@ -64,7 +65,7 @@ The commands use the `twenty` CLI from `kuec/app` with a remote pointing at the 
 | To | Run |
 | --- | --- |
 | Repair all timers now (after a restart, a restore, or resuming automation after an import) | `yarn twenty dev:function:exec -n timer-sweep` |
-| Backfill or repair the dashboard's Stale and Engagement lapses dates now (first install of 0.3.0, after an import) | `yarn twenty dev:function:exec -n derived-dates-sweep` |
+| Backfill or repair the dashboard's Stale and Engagement lapses dates now (first install of 0.3.0, after an import), or fill a missing default owner | `yarn twenty dev:function:exec -n derived-dates-sweep` |
 | Re-run the next-action guard or project health today | `yarn twenty dev:function:exec -n w04-next-action-guard` / `-n w10-project-health-daily` |
 | Re-run one timer (for example after fixing an owner) | `yarn twenty dev:function:exec -n w03-overdue-timer -p '{"workPackageId":"<id>","kind":"DUE","level":1,"anchorAt":"<dueAt ISO>"}'` (level 2 for the ED; `w02-acceptance-timer` with `"kind":"ACCEPT"` and the `offeredAt`) |
 | Instantiate a playbook for an opportunity that was created with its type | Clear Type on the record, save, set it again. Or `yarn twenty dev:function:exec -n w01-instantiate-opportunity-playbook -p '{"recordId":"<opportunity id>"}'` |

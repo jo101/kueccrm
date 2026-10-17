@@ -2,7 +2,7 @@
 
 Written against Twenty 2.48.0 and `kuec-bd-ops` 0.3.0. Owner: the ED. Readers: the ED (Thursday), the whole team (Monday), engineers (sections 4 to 7).
 
-The dashboard is **BD** in the sidebar. It has three tabs: **Executive**, **Team** and **Mine**. Every chart has a table beside it, and the table lists exactly the records the chart counts. Read the chart, then read the table to see the records behind it. All periods are Asia/Dubai, and weeks start on Monday.
+The dashboard is **BD Executive** in the sidebar (called **BD** before 0.5.0). It has three tabs: **Executive**, **Team** and **Mine**; the sidebar's **BD Team** opens the same page on Team. Every chart has a table beside it, and the table lists exactly the records the chart counts. Read the chart, then read the table to see the records behind it. All periods are Asia/Dubai, and weeks start on Monday.
 
 ## 1. Thursday: the update, read from Executive top to bottom
 
@@ -123,7 +123,7 @@ The new hourly `derived-dates-sweep` (minute 30) recomputes both fields from the
 
 ### Verify (ED, after every install)
 
-1. The sidebar shows **BD** after Contracts. It opens on Executive, with Team and Mine as tabs.
+1. The sidebar shows **BD Executive** after My work (since 0.5.0, `runbooks/12-global-features.md` section 5). It opens on Executive, with Team and Mine as tabs.
 2. Executive: **Thursday update** is the first widget. Every chart has a table to its right, and each count chart's number equals that table's row count.
 3. Change one test opportunity's stage. Within a minute, its Stale from is 30 days after its Stage entered at.
 4. Team: the bars are labelled with member names. On the board, drag a test work package from Offered to Accepted: the card moves, and the record shows Accepted at.

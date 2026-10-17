@@ -5,6 +5,7 @@ import {
 } from 'twenty-sdk/define';
 import { DECISION_ROLE_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/decision-role-on-person.field';
 import { IS_CHAMPION_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/is-champion-on-person.field';
+import { NAME_ARABIC_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/name-arabic-on-person.field';
 
 export const PEOPLE_EVERYTHING_VIEW_UNIVERSAL_IDENTIFIER = '963e9dff-c030-4ba6-a5a3-4c0f8e937dc6';
 
@@ -28,5 +29,6 @@ export default defineView({
     { universalIdentifier: '904af53c-4460-4263-80b2-8bf60281f000', fieldMetadataUniversalIdentifier: personFields.phones.universalIdentifier, position: 6, isVisible: true, size: 220 },
     { universalIdentifier: '3dd831c5-0a87-48aa-8cfb-0f8bf564e107', fieldMetadataUniversalIdentifier: personFields.linkedinLink.universalIdentifier, position: 7, isVisible: true, size: 220 },
     { universalIdentifier: '51faac9e-bc1f-4c45-ae49-24a0fd7d74d1', fieldMetadataUniversalIdentifier: personFields.pointOfContactForOpportunities.universalIdentifier, position: 8, isVisible: true, size: 170 },
+    { universalIdentifier: 'b0509077-77da-49dc-9373-7ced8067d79d', fieldMetadataUniversalIdentifier: NAME_ARABIC_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER, position: 9, isVisible: true, size: 220 },
   ],
 });

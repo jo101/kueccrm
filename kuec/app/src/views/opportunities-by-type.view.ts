@@ -8,7 +8,7 @@ import {
 } from 'twenty-sdk/define';
 import { CLOSED_OPPORTUNITY_STAGES } from '../constants/opportunity-stage';
 import {
-  OPPORTUNITY_PLAYBOOK_TYPE,
+  OPPORTUNITY_TYPE,
   PLAYBOOK_TYPE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER,
 } from '../fields/playbook-type-on-opportunity.field';
 
@@ -33,8 +33,24 @@ export default defineView({
     { universalIdentifier: '1b01cc96-1e29-474f-b795-3bed1e879bb8', fieldMetadataUniversalIdentifier: opportunityFields.amount.universalIdentifier, position: 5, isVisible: true, size: 130, aggregateOperation: AggregateOperations.SUM },
   ],
   groups: [
-    { universalIdentifier: '3ab2f1b0-c25b-469a-9e79-5006ccdfea00', fieldValue: OPPORTUNITY_PLAYBOOK_TYPE.TECHNOLOGY_LICENSING, position: 0, isVisible: true },
-    { universalIdentifier: '1b707192-cff3-4b8f-969e-cd4dc328bc46', fieldValue: OPPORTUNITY_PLAYBOOK_TYPE.RFQ_TECHNICAL_SERVICE, position: 1, isVisible: true },
+    { universalIdentifier: '3ab2f1b0-c25b-469a-9e79-5006ccdfea00', fieldValue: OPPORTUNITY_TYPE.TECHNOLOGY_LICENSING, position: 0, isVisible: true },
+    { universalIdentifier: '596369ec-3efe-416c-a216-763b1c8553c4', fieldValue: OPPORTUNITY_TYPE.SPINOUT_OR_STARTUP, position: 1, isVisible: true },
+    { universalIdentifier: '1b707192-cff3-4b8f-969e-cd4dc328bc46', fieldValue: OPPORTUNITY_TYPE.RFQ_TECHNICAL_SERVICE, position: 2, isVisible: true },
+    { universalIdentifier: '239bb6b3-e898-49e9-be81-cf05b6b8a0a0', fieldValue: OPPORTUNITY_TYPE.LAB_TESTING, position: 3, isVisible: true },
+    { universalIdentifier: '6d4faf59-3e84-4934-adb6-323da747b31c', fieldValue: OPPORTUNITY_TYPE.EQUIPMENT_OR_FACILITY_ACCESS, position: 4, isVisible: true },
+    { universalIdentifier: '7b3092d7-e434-4af0-a189-4dbc25f9d892', fieldValue: OPPORTUNITY_TYPE.LEASING, position: 5, isVisible: true },
+    { universalIdentifier: '6c3fa0bd-37a1-4250-a9df-ae707a8bcda9', fieldValue: OPPORTUNITY_TYPE.RESEARCH_COLLABORATION, position: 6, isVisible: true },
+    { universalIdentifier: '0fc3a8ba-4ab2-48bf-a159-ad3aacd1e4a0', fieldValue: OPPORTUNITY_TYPE.INDUSTRY_PILOT, position: 7, isVisible: true },
+    { universalIdentifier: '8c328dc0-e70b-4517-98eb-85a0e3db99e3', fieldValue: OPPORTUNITY_TYPE.CONSULTING_OR_ADVISORY, position: 8, isVisible: true },
+    { universalIdentifier: '8d8cc785-1f8c-447c-9f7b-74bd18e172d2', fieldValue: OPPORTUNITY_TYPE.TRAINING_OR_BOOTCAMP, position: 9, isVisible: true },
+    { universalIdentifier: '41188d47-8dce-4290-a710-5e304ce2d380', fieldValue: OPPORTUNITY_TYPE.SPONSORED_CHAIR, position: 10, isVisible: true },
+    { universalIdentifier: 'a8486023-9bd4-4c51-a500-58a47b95ded1', fieldValue: OPPORTUNITY_TYPE.PROGRAMME_SPONSORSHIP, position: 11, isVisible: true },
+    { universalIdentifier: '63ee70a5-0def-4164-8562-d1215b313352', fieldValue: OPPORTUNITY_TYPE.GOVERNMENT_PROPOSAL_OR_GRANT, position: 12, isVisible: true },
+    { universalIdentifier: 'df3c4fd3-8443-4332-9889-b46d2b49fa94', fieldValue: OPPORTUNITY_TYPE.OFFSET_OR_ICV_PROJECT, position: 13, isVisible: true },
+    { universalIdentifier: 'b6e0a6fb-2c28-4fd3-a7c5-fc471053199a', fieldValue: OPPORTUNITY_TYPE.PLATFORM_OR_PRODUCT_DELIVERY, position: 14, isVisible: true },
+    { universalIdentifier: '67f1a0f2-81fe-416a-99f3-8a82e76261d0', fieldValue: OPPORTUNITY_TYPE.PARTNERSHIP_OR_MOU, position: 15, isVisible: true },
+    { universalIdentifier: '72b50e33-ea61-47e7-a001-6d45dc7b491f', fieldValue: OPPORTUNITY_TYPE.INVESTMENT, position: 16, isVisible: true },
+    { universalIdentifier: '78fd0e43-8567-40f3-9c2b-0d2d02c001db', fieldValue: OPPORTUNITY_TYPE.OTHER, position: 17, isVisible: true },
   ],
   filters: [
     {

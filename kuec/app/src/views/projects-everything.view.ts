@@ -10,10 +10,12 @@ import { OWNER_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/owner-on-
 import { WORK_PACKAGES_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/work-packages-on-project.field';
 import {
   PROJECT_CLOSE_TASK_CREATED_AT_FIELD_UNIVERSAL_IDENTIFIER,
+  PROJECT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
   PROJECT_END_DATE_FIELD_UNIVERSAL_IDENTIFIER,
   PROJECT_EVENT_DATE_FIELD_UNIVERSAL_IDENTIFIER,
   PROJECT_HEALTH_FIELD_UNIVERSAL_IDENTIFIER,
   PROJECT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+  PROJECT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
   PROJECT_PERCENT_COMPLETE_FIELD_UNIVERSAL_IDENTIFIER,
   PROJECT_PLAYBOOK_APPLIED_FIELD_UNIVERSAL_IDENTIFIER,
   PROJECT_PLAYBOOK_TYPE_FIELD_UNIVERSAL_IDENTIFIER,
@@ -46,6 +48,8 @@ export default defineView({
     { universalIdentifier: '7a538edb-6be3-4db9-b9d5-65dd53acac7c', fieldMetadataUniversalIdentifier: PROJECT_PLAYBOOK_APPLIED_FIELD_UNIVERSAL_IDENTIFIER, position: 11, isVisible: true, size: 130 },
     { universalIdentifier: '0e37f68d-246c-4a87-b1c2-84c0fcdc157b', fieldMetadataUniversalIdentifier: PROJECT_CLOSE_TASK_CREATED_AT_FIELD_UNIVERSAL_IDENTIFIER, position: 12, isVisible: true, size: 140 },
     { universalIdentifier: '67fe7577-cbd6-4471-8acc-0f62374c96c2', fieldMetadataUniversalIdentifier: COMPANY_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER, position: 13, isVisible: true, size: 170 },
+    { universalIdentifier: 'd02f9aac-97c1-42c2-a254-63ced8257ab4', fieldMetadataUniversalIdentifier: PROJECT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER, position: 14, isVisible: true, size: 140 },
+    { universalIdentifier: 'b10d14f4-98d8-4cc6-ae4f-e72f2f329a4b', fieldMetadataUniversalIdentifier: PROJECT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, position: 15, isVisible: true, size: 220 },
   ],
   sorts: [
     {

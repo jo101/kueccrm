@@ -5,7 +5,7 @@ import {
   OPPORTUNITY_STAGE,
 } from 'src/constants/opportunity-stage';
 import { DECISION_ROLE } from 'src/fields/decision-role-on-person.field';
-import { OPPORTUNITY_PLAYBOOK_TYPE } from 'src/fields/playbook-type-on-opportunity.field';
+import { OPPORTUNITY_TYPE } from 'src/fields/playbook-type-on-opportunity.field';
 import { OPPORTUNITY_PROBABILITY } from 'src/fields/probability-on-opportunity.field';
 import { COMPANY_SECTOR } from 'src/fields/sector-on-company.field';
 import { OPPORTUNITY_SOURCE } from 'src/fields/source-on-opportunity.field';
@@ -18,6 +18,13 @@ import {
   VALUE_SYNONYMS,
 } from '~/scripts/import/target-values';
 
+const DEPRECATED_SOURCES: string[] = [
+  OPPORTUNITY_SOURCE.REFERRAL,
+  OPPORTUNITY_SOURCE.OUTREACH,
+  OPPORTUNITY_SOURCE.EVENT,
+];
+const DEPRECATED_CONTRACT_KINDS: string[] = [CONTRACT_KIND.OPTION, CONTRACT_KIND.SERVICE];
+
 // scripts/import runs without the app's dependencies, so it carries its own
 // copy of the select values. This keeps the copy equal to the manifest.
 describe('import target values', () => {
@@ -28,13 +35,17 @@ describe('import target values', () => {
       stage: Object.values(OPPORTUNITY_STAGE).filter(
         (stage) => stage !== OPPORTUNITY_STAGE.CUSTOMER,
       ),
-      opportunityType: Object.values(OPPORTUNITY_PLAYBOOK_TYPE),
-      opportunitySource: Object.values(OPPORTUNITY_SOURCE),
+      opportunityType: Object.values(OPPORTUNITY_TYPE),
+      opportunitySource: Object.values(OPPORTUNITY_SOURCE).filter(
+        (source) => !DEPRECATED_SOURCES.includes(source),
+      ),
       probability: Object.values(OPPORTUNITY_PROBABILITY),
       projectType: Object.values(PROJECT_TYPE),
       projectStatus: Object.values(PROJECT_STATUS),
       milestoneStatus: Object.values(MILESTONE_STATUS),
-      contractKind: Object.values(CONTRACT_KIND),
+      contractKind: Object.values(CONTRACT_KIND).filter(
+        (kind) => !DEPRECATED_CONTRACT_KINDS.includes(kind),
+      ),
       contractStatus: Object.values(CONTRACT_STATUS),
     });
   });

@@ -8,7 +8,7 @@ import {
   findProjectTemplate,
   listCaseTemplateKeys,
 } from 'src/automation/playbooks/playbook-templates';
-import { PROJECT_TYPE } from 'src/objects/project.object';
+import { PROJECT_TEMPLATE_TYPE } from 'src/objects/project.object';
 import { PLAYBOOK_ROLE } from 'src/objects/playbook-role-assignment.object';
 import { OPPORTUNITY_PLAYBOOK_TYPE } from 'src/fields/playbook-type-on-opportunity.field';
 
@@ -30,12 +30,12 @@ describe('bundled playbooks', () => {
     }
   });
 
-  it('have a template for every opportunity and project type', () => {
+  it('have a template for every type that starts one', () => {
     for (const key of Object.values(OPPORTUNITY_PLAYBOOK_TYPE)) {
       expect(findOpportunityPlaybook(key)).not.toBeNull();
     }
 
-    for (const key of Object.values(PROJECT_TYPE)) {
+    for (const key of Object.values(PROJECT_TEMPLATE_TYPE)) {
       expect(findProjectTemplate(key)?.workPackages.length).toBeGreaterThan(0);
     }
   });

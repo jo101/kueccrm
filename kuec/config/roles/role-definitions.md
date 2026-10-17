@@ -57,7 +57,7 @@ R read, W create and update, D delete (soft delete and destroy), `-` no access. 
 
 Writable: **Status**, **Accepted at** (the work package card writes it with Accepted), **Blocked reason**, **Declined reason** (the card's Decline writes it with the status). Notes are attached through Notes and Note target.
 
-Locked (canUpdateFieldValue false): Title, Due, Objective, Expected output, Done criteria, Due offset (business days), Submitted at, Blocked at, Acceptance reminder sent at, Reassigned at, Overdue owner notified at, Overdue ED notified at, Owner, Reviewer, Opportunity, Project, Milestone, Depends on, plus the field locks below (Offered at, Completed at, Playbook step).
+Locked (canUpdateFieldValue false): Title, Due, Objective, Expected output, Done criteria, Due offset (business days), Submitted at, Blocked at, Acceptance reminder sent at, Reassigned at, Overdue owner notified at, Overdue ED notified at, Owner, Reviewer, Opportunity, Project, Milestone, Depends on, Department and Other details (0.8.0), plus the field locks below (Offered at, Completed at, Playbook step).
 
 A BD officer therefore cannot create work packages; the playbooks and the ops coordinator do.
 

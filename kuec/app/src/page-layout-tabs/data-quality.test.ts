@@ -9,28 +9,80 @@ import {
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import { STATUSES_WITH_DUE_TIMER } from 'src/automation/timers/work-package-timers';
+import { DEPARTMENT } from 'src/constants/taxonomy';
 import {
   CLOSED_OPPORTUNITY_STAGES,
   OPPORTUNITY_STAGE,
 } from 'src/constants/opportunity-stage';
 import { DECISION_ROLE_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/decision-role-on-person.field';
+import {
+  FUNDING_PATH_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER,
+  OPPORTUNITY_FUNDING_PATH,
+} from 'src/fields/funding-path-on-opportunity.field';
+import {
+  OFFERING_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER,
+  OPPORTUNITY_OFFERING,
+} from 'src/fields/offering-on-opportunity.field';
+import { OTHER_DETAILS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/other-details-on-company.field';
+import { OTHER_DETAILS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/other-details-on-opportunity.field';
+import { OTHER_DETAILS_ON_TASK_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/other-details-on-task.field';
 import { PARKED_LAPSES_AT_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/parked-lapses-at-on-opportunity.field';
-import { PLAYBOOK_TYPE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/playbook-type-on-opportunity.field';
-import { SECTOR_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/sector-on-company.field';
+import {
+  OPPORTUNITY_TYPE,
+  PLAYBOOK_TYPE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER,
+} from 'src/fields/playbook-type-on-opportunity.field';
+import {
+  COMPANY_RELATIONSHIP_TYPE,
+  RELATIONSHIP_TYPE_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER,
+} from 'src/fields/relationship-type-on-company.field';
+import {
+  COMPANY_SECTOR,
+  SECTOR_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER,
+} from 'src/fields/sector-on-company.field';
 import { SIZE_CLASS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/size-class-on-company.field';
+import {
+  OPPORTUNITY_SOURCE,
+  SOURCE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER,
+} from 'src/fields/source-on-opportunity.field';
 import { STALE_FROM_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/stale-from-on-opportunity.field';
+import {
+  TASK_TYPE,
+  TASK_TYPE_ON_TASK_FIELD_UNIVERSAL_IDENTIFIER,
+} from 'src/fields/task-type-on-task.field';
 import dataQualityNavigationMenuItem from 'src/navigation-menu-items/data-quality.navigation-menu-item';
 import {
+  CONTRACT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
   CONTRACT_EXPIRES_ON_FIELD_UNIVERSAL_IDENTIFIER,
+  CONTRACT_KIND,
+  CONTRACT_KIND_FIELD_UNIVERSAL_IDENTIFIER,
+  CONTRACT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
   CONTRACT_STATUS,
   CONTRACT_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
 } from 'src/objects/contract.object';
 import {
+  ENGAGEMENT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
+  ENGAGEMENT_KIND,
+  ENGAGEMENT_KIND_FIELD_UNIVERSAL_IDENTIFIER,
+  ENGAGEMENT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
   ENGAGEMENT_OUTCOME_DUE_AT_FIELD_UNIVERSAL_IDENTIFIER,
   ENGAGEMENT_OUTCOME_FIELD_UNIVERSAL_IDENTIFIER,
+  ENGAGEMENT_OUTCOME_TYPE,
+  ENGAGEMENT_OUTCOME_TYPE_FIELD_UNIVERSAL_IDENTIFIER,
 } from 'src/objects/engagement.object';
 import {
+  MILESTONE_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
+  MILESTONE_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
+} from 'src/objects/milestone.object';
+import {
+  PROJECT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
+  PROJECT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
+  PROJECT_PLAYBOOK_TYPE_FIELD_UNIVERSAL_IDENTIFIER,
+  PROJECT_TYPE,
+} from 'src/objects/project.object';
+import {
+  WORK_PACKAGE_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
   WORK_PACKAGE_DONE_CRITERIA_FIELD_UNIVERSAL_IDENTIFIER,
+  WORK_PACKAGE_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
   WORK_PACKAGE_STATUS,
   WORK_PACKAGE_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
 } from 'src/objects/work-package.object';
@@ -40,12 +92,20 @@ import dataQualityTab, {
 import { chartFilterFromView } from 'src/page-layout-tabs/utils/dashboard-widgets';
 import dataQualityPageLayout from 'src/page-layouts/data-quality.page-layout';
 import companiesMissingKeyFieldsView from 'src/views/companies-missing-key-fields.view';
+import companiesOtherWithoutDetailsView from 'src/views/companies-other-without-details.view';
+import contractsOtherWithoutDetailsView from 'src/views/contracts-other-without-details.view';
 import contractsPastExpiryStillSignedView from 'src/views/contracts-past-expiry-still-signed.view';
+import engagementsOtherWithoutDetailsView from 'src/views/engagements-other-without-details.view';
 import engagementsOutcomeOverdueView from 'src/views/engagements-outcome-overdue.view';
+import milestonesOtherWithoutDetailsView from 'src/views/milestones-other-without-details.view';
 import opportunitiesInQualifyOver30DaysView from 'src/views/opportunities-in-qualify-over-30-days.view';
 import opportunitiesMissingKeyFieldsView from 'src/views/opportunities-missing-key-fields.view';
+import opportunitiesOtherWithoutDetailsView from 'src/views/opportunities-other-without-details.view';
 import opportunitiesParkedOver90DaysView from 'src/views/opportunities-parked-over-90-days.view';
 import peopleMissingEmailOrDecisionRoleView from 'src/views/people-missing-email-or-decision-role.view';
+import projectsOtherWithoutDetailsView from 'src/views/projects-other-without-details.view';
+import tasksOtherWithoutDetailsView from 'src/views/tasks-other-without-details.view';
+import workPackagesOtherWithoutDetailsView from 'src/views/work-packages-other-without-details.view';
 import workPackagesWithoutDoneCriteriaView from 'src/views/work-packages-without-done-criteria.view';
 
 type ViewDefinition = ReturnType<typeof defineView>;
@@ -57,7 +117,8 @@ const VIEW_DIRECTORY = join(__dirname, '..', 'views');
 
 const { opportunity, company, person } = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS;
 
-// The brief's gaps, in the order the ops coordinator runs them on Monday.
+// The brief's gaps, in the order the ops coordinator runs them on Monday, then
+// the Other checks of runbooks/18-taxonomy.md.
 const EXCEPTION_VIEWS_IN_ORDER: ViewDefinition[] = [
   opportunitiesMissingKeyFieldsView,
   companiesMissingKeyFieldsView,
@@ -67,6 +128,14 @@ const EXCEPTION_VIEWS_IN_ORDER: ViewDefinition[] = [
   opportunitiesInQualifyOver30DaysView,
   opportunitiesParkedOver90DaysView,
   contractsPastExpiryStillSignedView,
+  opportunitiesOtherWithoutDetailsView,
+  companiesOtherWithoutDetailsView,
+  engagementsOtherWithoutDetailsView,
+  contractsOtherWithoutDetailsView,
+  projectsOtherWithoutDetailsView,
+  workPackagesOtherWithoutDetailsView,
+  milestonesOtherWithoutDetailsView,
+  tasksOtherWithoutDetailsView,
 ];
 
 type FilterKey = [string, string, unknown];
@@ -156,6 +225,92 @@ const EXPECTED_FILTERS: [ViewDefinition, { all: FilterKey[]; anyOf: FilterKey[] 
       all: [
         [CONTRACT_STATUS_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [CONTRACT_STATUS.SIGNED]],
         [CONTRACT_EXPIRES_ON_FIELD_UNIVERSAL_IDENTIFIER, 'IS_IN_PAST', ''],
+      ],
+      anyOf: [],
+    },
+  ],
+  [
+    opportunitiesOtherWithoutDetailsView,
+    {
+      all: [
+        [OTHER_DETAILS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', ''],
+        [opportunity.fields.stage.universalIdentifier, 'IS_NOT', [OPPORTUNITY_STAGE.LOST, OPPORTUNITY_STAGE.PARKED]],
+      ],
+      anyOf: [
+        [SOURCE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [OPPORTUNITY_SOURCE.OTHER]],
+        [PLAYBOOK_TYPE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [OPPORTUNITY_TYPE.OTHER]],
+        [OFFERING_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, 'CONTAINS', [OPPORTUNITY_OFFERING.OTHER]],
+        [FUNDING_PATH_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [OPPORTUNITY_FUNDING_PATH.OTHER]],
+      ],
+    },
+  ],
+  [
+    companiesOtherWithoutDetailsView,
+    {
+      all: [[OTHER_DETAILS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', '']],
+      anyOf: [
+        [SECTOR_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [COMPANY_SECTOR.OTHER]],
+        [RELATIONSHIP_TYPE_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [COMPANY_RELATIONSHIP_TYPE.OTHER]],
+      ],
+    },
+  ],
+  [
+    engagementsOtherWithoutDetailsView,
+    {
+      all: [[ENGAGEMENT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', '']],
+      anyOf: [
+        [ENGAGEMENT_KIND_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [ENGAGEMENT_KIND.OTHER]],
+        [ENGAGEMENT_OUTCOME_TYPE_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [ENGAGEMENT_OUTCOME_TYPE.OTHER]],
+        [ENGAGEMENT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DEPARTMENT.OTHER]],
+      ],
+    },
+  ],
+  [
+    contractsOtherWithoutDetailsView,
+    {
+      all: [[CONTRACT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', '']],
+      anyOf: [
+        [CONTRACT_KIND_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [CONTRACT_KIND.OTHER]],
+        [CONTRACT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DEPARTMENT.OTHER]],
+      ],
+    },
+  ],
+  [
+    projectsOtherWithoutDetailsView,
+    {
+      all: [[PROJECT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', '']],
+      anyOf: [
+        [PROJECT_PLAYBOOK_TYPE_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [PROJECT_TYPE.OTHER]],
+        [PROJECT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DEPARTMENT.OTHER]],
+      ],
+    },
+  ],
+  [
+    workPackagesOtherWithoutDetailsView,
+    {
+      all: [
+        [WORK_PACKAGE_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', ''],
+        [WORK_PACKAGE_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DEPARTMENT.OTHER]],
+      ],
+      anyOf: [],
+    },
+  ],
+  [
+    milestonesOtherWithoutDetailsView,
+    {
+      all: [
+        [MILESTONE_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', ''],
+        [MILESTONE_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DEPARTMENT.OTHER]],
+      ],
+      anyOf: [],
+    },
+  ],
+  [
+    tasksOtherWithoutDetailsView,
+    {
+      all: [
+        [OTHER_DETAILS_ON_TASK_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', ''],
+        [TASK_TYPE_ON_TASK_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [TASK_TYPE.OTHER]],
       ],
       anyOf: [],
     },

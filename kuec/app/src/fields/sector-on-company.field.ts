@@ -26,6 +26,7 @@ export default defineField({
   type: FieldType.SELECT,
   name: 'sector',
   label: 'Sector',
+  description: 'The company\'s main industry',
   icon: 'IconBuildingFactory2',
   options: [
     {

@@ -34,11 +34,11 @@ All are additive. Option ids are permanent; labels can be relabelled later. Neve
 
 | Object | Field (API name) | Type | Options |
 | --- | --- | --- | --- |
-| Opportunity | Source (`source`) | Select | Inbound enquiry, Referral, Outreach, Event or workshop, Tender or RFQ portal, Faculty or researcher, Partner |
+| Opportunity | Source (`source`) | Select | Replaced in 0.8.0 by the KUEC taxonomy: `18-taxonomy.md` |
 | Opportunity | Probability (`probability`) | Select | 10%, 25%, 50%, 75%, 90% |
 | Opportunity | Lost reason category (`lostReasonCategory`) | Select | Price, Timing, No budget, Went to a competitor, Technical fit, No response, Our capacity, Other. The existing text **Lost reason** keeps the detail. |
 | Company | Account tier (`accountTier`) | Select | Tier 1 (strategic), Tier 2 (active), Tier 3 (watch) |
-| Company | Sector (`sector`) | Select | Oil and gas, Energy and utilities, Defence and security, Aerospace, Healthcare and life sciences, ICT and digital, Advanced manufacturing, Transport and logistics, Government, Other |
+| Company | Sector (`sector`) | Select | Oil and gas, Energy and utilities, Defence and security, Aerospace, Healthcare and life sciences, ICT and digital, Advanced manufacturing, Transport and logistics, Government, Other (to be replaced by the UAE industrial cluster list, `18-taxonomy.md`) |
 | Company | Offset obligor (`isOffsetObligor`) | Boolean, default false | |
 | Person | Decision role (`decisionRole`) | Select | Decision maker, Budget holder, Technical evaluator, Influencer, End user, Gatekeeper |
 | Person | Champion (`isChampion`) | Boolean, default false | |
@@ -48,6 +48,8 @@ All are additive. Option ids are permanent; labels can be relabelled later. Neve
 | Project | End date (`endDate`) | Date | |
 
 The option lists are a first cut by engineering. The ED should confirm them before go-live; a relabel needs no data change.
+
+0.8.0 replaces the options of Engagement Kind, Opportunity Source and Type, Contract Kind and Project Type with the KUEC taxonomy, and adds Engagement **Outcome type**, Opportunity **Offering** and **Funding path**, Task **Type**, Company **Relationship type**, **Department** on Engagement, Project, Contract, Work package and Milestone, and **Other details** on each object with an Other option. Every list, option and description: `18-taxonomy.md`.
 
 0.7.0 adds Company **Size class** (`sizeClass`, select: Startup, SME, Large enterprise, Government or semi-government) and two dates the app writes, Opportunity **Parked lapses at** and Engagement **Outcome due at**, for the hygiene views (`14-hygiene.md` section 2).
 
@@ -75,15 +77,15 @@ Column order follows one rule: name, owner, the date that matters, then at most 
 | --- | --- | --- | --- | --- | --- |
 | Pipeline (sidebar default) | Kanban | | Stage; Lost and Parked hidden | Close date | Name, Owner, Close date, Amount, Company, Next action date. Column header: sum of Amount |
 | Licence pipeline | Kanban | Type is Licence | Stage; Lost and Parked hidden | Close date | as Pipeline |
-| By type | Table | Open | Type | Close date | Name, Owner, Close date, Type, Stage, Amount; count and sum per group |
-| By source | Table | Open | Source | Close date | Name, Owner, Close date, Source, Stage, Amount; count and sum |
+| By type | Table | Open | Type; deprecated options hidden (none yet) | Close date | Name, Owner, Close date, Type, Stage, Amount; count and sum per group |
+| By source | Table | Open | Source; deprecated options (Referral, Outreach, Event or workshop) hidden | Close date | Name, Owner, Close date, Source, Stage, Amount; count and sum |
 | By probability | Table | Open | Probability | Close date | Name, Owner, Close date, Probability, Stage, Amount; count and sum |
 | No next action | Table | Open; Next action date is empty | | Stage entered at, oldest first | Name, Owner, Stage entered at, Stage, Next action, Company |
 | Proposals out | Table | Stage is Proposal | | Next action date | Name, Owner, Next action date, Next action, Amount, Company |
 | Closing this quarter | Table | Open; Close date this quarter (Asia/Dubai) | | Close date | Name, Owner, Close date, Stage, Probability, Amount |
 | Lost with reasons | Table | Stage is Lost | Lost reason category | Stage entered at, newest first (exception: a post-mortem list, not a work list) | Name, Owner, Stage entered at, Lost reason category, Lost reason, Amount |
 | Parked | Table | Stage is Parked | | Next action date (the revisit date) | Name, Owner, Next action date, Stage entered at, Next action, Company |
-| Everything (expert) | Table | | | Close date | all 23 fields (0.5.0 adds SharePoint folder) |
+| Everything (expert) | Table | | | Close date | all 26 fields (0.5.0 adds SharePoint folder; 0.8.0 adds Offering, Funding path, Other details) |
 
 "Proposals out" uses the standard stage `PROPOSAL` (label Proposal). If the workspace relabels it, the view follows; if a new option replaces it, update the filter in `proposals-out.view.ts`.
 
@@ -149,7 +151,7 @@ People have no owner and no date of their own. The company is the second column 
 
 ### Hygiene views (0.7.0)
 
-Each object below has one or more views named **Hygiene: ...** at positions 15 to 17, after its working views and before Everything (expert): Opportunities (missing key fields, in Qualify over 30 days, Parked over 90 days), Companies (missing key fields), People (missing email or decision role), Engagements (outcome overdue), Work packages (no done criteria), Contracts (past expiry, still Signed). Companies and People also have **Added in the last 7 days** (position 18) for the weekly duplicate sweep. Filters, columns and how each is worked: `14-hygiene.md` sections 1 and 4. The Data quality page shows each Hygiene view as a count beside the view itself.
+Each object below has one or more views named **Hygiene: ...** at positions 15 to 17, after its working views and before Everything (expert): Opportunities (missing key fields, in Qualify over 30 days, Parked over 90 days), Companies (missing key fields), People (missing email or decision role), Engagements (outcome overdue), Work packages (no done criteria), Contracts (past expiry, still Signed). Companies and People also have **Added in the last 7 days** (position 18) for the weekly duplicate sweep. Filters, columns and how each is worked: `14-hygiene.md` sections 1 and 4. 0.8.0 adds **Hygiene: Other without details** at position 19 on Opportunities, Companies, Engagements, Contracts, Projects, Work packages, Milestones and Tasks (`18-taxonomy.md` section 4); the Tasks one is the app's only task view, so Tasks has no expert view. The Data quality page shows each Hygiene view as a count beside the view itself.
 
 ### Capability
 

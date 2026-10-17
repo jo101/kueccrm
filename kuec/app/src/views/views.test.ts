@@ -48,6 +48,10 @@ const ALLOWED_VIEW_TYPES: (ViewType | undefined)[] = [
 const opportunity = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.opportunity;
 const company = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.company;
 const person = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.person;
+const task = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.task;
+
+// Twenty's own Tasks page lists tasks; the app adds only a hygiene view.
+const OBJECTS_WITHOUT_EXPERT_VIEW: string[] = [task.universalIdentifier];
 
 // Lost and Parked opportunities are kept, never deleted, and stay out of every
 // opportunity view except the ones that exist to list them (runbooks/14-hygiene.md).
@@ -59,7 +63,8 @@ const VIEWS_LISTING_RETAINED_STAGES = [
   EXPERT_VIEW_NAME,
 ];
 
-// People have no owner of their own, so their company stands in as the second column.
+// People have no owner of their own, so their company stands in as the second
+// column; tasks have an assignee instead.
 const LEADING_COLUMNS_BY_OBJECT: Record<string, { name: string; owner: string }> = {
   [WORK_PACKAGE_UNIVERSAL_IDENTIFIER]: {
     name: WORK_PACKAGE_NAME_FIELD_UNIVERSAL_IDENTIFIER,
@@ -92,6 +97,10 @@ const LEADING_COLUMNS_BY_OBJECT: Record<string, { name: string; owner: string }>
   [CONTRACT_UNIVERSAL_IDENTIFIER]: {
     name: CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
     owner: OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER,
+  },
+  [task.universalIdentifier]: {
+    name: task.fields.title.universalIdentifier,
+    owner: task.fields.assignee.universalIdentifier,
   },
 };
 
@@ -176,7 +185,7 @@ describe('views', () => {
   it('give every object exactly one expert view, wider than the cap', () => {
     for (const objectUniversalIdentifier of Object.keys(
       LEADING_COLUMNS_BY_OBJECT,
-    )) {
+    ).filter((key) => !OBJECTS_WITHOUT_EXPERT_VIEW.includes(key))) {
       const expertViews = views.filter(
         (view) =>
           view.config.objectUniversalIdentifier === objectUniversalIdentifier &&

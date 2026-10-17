@@ -20,6 +20,7 @@ import {
 } from 'src/automation/notifications/send-email';
 import { OBJECT_NAMES } from 'src/automation/records/object-names';
 import {
+  type NoteRecord,
   type TaskRecord,
   type WorkspaceMemberRecord,
 } from 'src/automation/records/record-types';
@@ -57,6 +58,10 @@ const runOnce = async (
   await kv.set(key, result ?? 'SENT');
 };
 
+const targetFieldName = ({ objectNameSingular }: NotificationTarget): string =>
+  `target${capitalize(objectNameSingular)}Id`;
+
+// Due today at 17:00 Asia/Dubai unless the rule gives its own due date.
 const createTargetedTask = async ({
   api,
   assigneeId,
@@ -64,6 +69,7 @@ const createTargetedTask = async ({
   body,
   target,
   now,
+  dueAt,
 }: {
   api: TwentyApi;
   assigneeId: string | null;
@@ -71,18 +77,19 @@ const createTargetedTask = async ({
   body: string;
   target: NotificationTarget;
   now: Date;
+  dueAt?: string;
 }): Promise<void> => {
   const task = await createRecord<TaskRecord>(api.asPerson, OBJECT_NAMES.task, {
     title,
     assigneeId,
     status: 'TODO',
-    dueAt: dueAtOnDate(toDubaiDateString(now)).toISOString(),
+    dueAt: dueAt ?? dueAtOnDate(toDubaiDateString(now)).toISOString(),
     bodyV2: { markdown: body },
   });
 
   await createRecord(api.asPerson, OBJECT_NAMES.taskTarget, {
     taskId: task.id,
-    [`target${capitalize(target.objectNameSingular)}Id`]: target.recordId,
+    [targetFieldName(target)]: target.recordId,
   });
 };
 
@@ -158,3 +165,32 @@ export const createTaskOnce = async ({
 }: Parameters<typeof createTargetedTask>[0] & {
   dedupeKey: string;
 }): Promise<void> => runOnce(`task:${dedupeKey}`, () => createTargetedTask(task));
+
+// Written as the app: a note is the app's record of what happened, and not
+// every role that can trigger one writes notes on every target.
+export const createNoteOnce = async ({
+  api,
+  title,
+  body,
+  targets,
+  dedupeKey,
+}: {
+  api: TwentyApi;
+  title: string;
+  body: string;
+  targets: NotificationTarget[];
+  dedupeKey: string;
+}): Promise<void> =>
+  runOnce(`note:${dedupeKey}`, async () => {
+    const note = await createRecord<NoteRecord>(api.asApplication, OBJECT_NAMES.note, {
+      title,
+      bodyV2: { markdown: body },
+    });
+
+    for (const target of targets) {
+      await createRecord(api.asApplication, OBJECT_NAMES.noteTarget, {
+        noteId: note.id,
+        [targetFieldName(target)]: target.recordId,
+      });
+    }
+  });

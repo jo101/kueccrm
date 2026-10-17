@@ -5,14 +5,21 @@ import {
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS,
 } from 'twenty-sdk/define';
 import { OWNER_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/owner-on-engagement.field';
+import { OWNER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/owner-on-lead.field';
 import { OWNER_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/owner-on-project.field';
 import { OWNER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/owner-on-work-package.field';
+import { REFERRED_BY_MEMBER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/referred-by-member-on-lead.field';
 import { REVIEWER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/reviewer-on-work-package.field';
 import {
   ENGAGEMENT_KIND_FIELD_UNIVERSAL_IDENTIFIER,
   ENGAGEMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
   ENGAGEMENT_UNIVERSAL_IDENTIFIER,
 } from '../objects/engagement.object';
+import {
+  LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_UNIVERSAL_IDENTIFIER,
+} from '../objects/lead.object';
 import {
   PROJECT_HEALTH_FIELD_UNIVERSAL_IDENTIFIER,
   PROJECT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
@@ -28,10 +35,12 @@ import teamActiveProjectsView from '../views/dashboard/bd-team-active-projects.v
 import teamBlockedWorkPackagesView from '../views/dashboard/bd-team-blocked-work-packages.view';
 import teamEngagementsThisMonthView from '../views/dashboard/bd-team-engagements-this-month.view';
 import teamOfferedWorkPackagesView from '../views/dashboard/bd-team-offered-work-packages.view';
+import teamOpenLeadsView from '../views/dashboard/bd-team-open-leads.view';
 import teamOpenOpportunitiesView from '../views/dashboard/bd-team-open-opportunities.view';
 import teamOpenWorkPackagesView from '../views/dashboard/bd-team-open-work-packages.view';
 import teamOpportunitiesWithoutNextActionView from '../views/dashboard/bd-team-opportunities-without-next-action.view';
 import teamOverdueWorkPackagesView from '../views/dashboard/bd-team-overdue-work-packages.view';
+import teamReferralCreditsView from '../views/dashboard/bd-team-referral-credits.view';
 import teamSubmittedForReviewView from '../views/dashboard/bd-team-submitted-for-review.view';
 import teamWorkPackageBoardView from '../views/dashboard/bd-team-work-package-board.view';
 import {
@@ -275,6 +284,53 @@ export default definePageLayoutTab({
       view: teamWorkPackageBoardView,
       position: gridPosition(49, 0, 14, 12),
       isUIEditable: true,
+    }),
+    {
+      universalIdentifier: '0b39de01-036d-41b6-ab02-61229531eb6c',
+      title: 'Open leads per owner, by status',
+      type: 'GRAPH',
+      objectUniversalIdentifier: LEAD_UNIVERSAL_IDENTIFIER,
+      position: gridPosition(63, CHART_COLUMN, 6, CHART_WIDTH),
+      configuration: {
+        configurationType: 'BAR_CHART',
+        aggregateFieldMetadataUniversalIdentifier: LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+        aggregateOperation: AggregateOperations.COUNT,
+        primaryAxisGroupByFieldMetadataUniversalIdentifier: OWNER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER,
+        secondaryAxisGroupByFieldMetadataUniversalIdentifier: LEAD_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
+        filter: chartFilterFromView(teamOpenLeadsView),
+        ...PER_PERSON,
+        ...STACKED_BY_SELECT,
+      },
+    },
+    recordTableWidget({
+      universalIdentifier: '71959d68-7a6d-4068-b949-7f3cdd1411d3',
+      title: 'Open leads',
+      view: teamOpenLeadsView,
+      position: gridPosition(63, TABLE_COLUMN, 6, TABLE_WIDTH),
+    }),
+    // One line per referral credit (L6): a lead whose opportunity reached
+    // Signed, counted for the colleague who referred or logged it.
+    {
+      universalIdentifier: '352c8451-ee07-4b9d-85a9-50b54331f0fb',
+      title: 'Leads by referrer',
+      type: 'GRAPH',
+      objectUniversalIdentifier: LEAD_UNIVERSAL_IDENTIFIER,
+      position: gridPosition(69, CHART_COLUMN, 5, CHART_WIDTH),
+      configuration: {
+        configurationType: 'BAR_CHART',
+        aggregateFieldMetadataUniversalIdentifier: LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+        aggregateOperation: AggregateOperations.COUNT,
+        primaryAxisGroupByFieldMetadataUniversalIdentifier: REFERRED_BY_MEMBER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER,
+        description: 'Referred leads whose opportunity reached Signed, per colleague',
+        filter: chartFilterFromView(teamReferralCreditsView),
+        ...PER_PERSON,
+      },
+    },
+    recordTableWidget({
+      universalIdentifier: '0bc11ad7-b7c7-47cf-8b27-2a78c26402ad',
+      title: 'Referral credits',
+      view: teamReferralCreditsView,
+      position: gridPosition(69, TABLE_COLUMN, 5, TABLE_WIDTH),
     }),
   ],
 });

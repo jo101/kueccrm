@@ -12,9 +12,11 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { CURRENT_WORKSPACE_MEMBER_FILTER_VALUE } from 'src/constants/view-filter-values';
 import { OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-contract.field';
 import { OWNER_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-engagement.field';
+import { OWNER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-lead.field';
 import { OWNER_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-milestone.field';
 import { OWNER_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-project.field';
 import { OWNER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-work-package.field';
+import { REFERRED_BY_MEMBER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/referred-by-member-on-lead.field';
 import { REVIEWER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/reviewer-on-work-package.field';
 import executiveTab, {
   BD_THURSDAY_UPDATE_WIDGET_UNIVERSAL_IDENTIFIER,
@@ -35,6 +37,7 @@ const OWNER_FIELDS = [
   OWNER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER,
   OWNER_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER,
   OWNER_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER,
+  OWNER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER,
   STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.opportunity.fields.owner.universalIdentifier,
 ];
 
@@ -181,7 +184,7 @@ describe('BD dashboard', () => {
     expect(gridOf(firstWidget)).toMatchObject({ row: 0, column: 0, columnSpan: GRID_COLUMNS });
   });
 
-  it('puts the owner, or the reviewer, on the X axis of every Team chart', () => {
+  it('puts the owner, the reviewer or the referrer on the X axis of every Team chart', () => {
     for (const chart of widgetsOf(teamTab).filter((widget) => widget.type === 'GRAPH')) {
       const configuration = chart.configuration;
 
@@ -189,7 +192,11 @@ describe('BD dashboard', () => {
 
       if (configuration.configurationType === 'BAR_CHART') {
         expect(
-          [...OWNER_FIELDS, REVIEWER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER],
+          [
+            ...OWNER_FIELDS,
+            REVIEWER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER,
+            REFERRED_BY_MEMBER_ON_LEAD_FIELD_UNIVERSAL_IDENTIFIER,
+          ],
           chart.title,
         ).toContain(configuration.primaryAxisGroupByFieldMetadataUniversalIdentifier);
       }

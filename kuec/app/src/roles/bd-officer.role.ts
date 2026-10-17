@@ -10,7 +10,9 @@ import { OPPORTUNITY_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from '../field
 import { OWNER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/owner-on-work-package.field';
 import { PROJECT_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/project-on-work-package.field';
 import { REVIEWER_ON_WORK_PACKAGE_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/reviewer-on-work-package.field';
+import { DOCUMENT_UNIVERSAL_IDENTIFIER } from '../objects/document.object';
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from '../objects/engagement.object';
+import { LEAD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import {
   WORK_PACKAGE_ACCEPT_REMINDER_SENT_AT_FIELD_UNIVERSAL_IDENTIFIER,
   WORK_PACKAGE_BLOCKED_AT_FIELD_UNIVERSAL_IDENTIFIER,
@@ -77,7 +79,7 @@ export default defineRole({
   universalIdentifier: BD_OFFICER_ROLE_UNIVERSAL_IDENTIFIER,
   label: 'BD officer',
   description:
-    'Reads everything. Writes opportunities, engagements, companies, people, tasks, notes, and the status of work packages. No delete, no merge, no import, no settings, no workflows.',
+    'Reads everything. Writes leads, opportunities, engagements, companies, people, documents, tasks, notes, and the status of work packages. No delete, no merge, no import, no settings, no workflows.',
   icon: 'IconBriefcase',
   canReadAllObjectRecords: true,
   canUpdateAllObjectRecords: false,
@@ -102,6 +104,8 @@ export default defineRole({
         note.universalIdentifier,
         ENGAGEMENT_UNIVERSAL_IDENTIFIER,
         WORK_PACKAGE_UNIVERSAL_IDENTIFIER,
+        LEAD_UNIVERSAL_IDENTIFIER,
+        DOCUMENT_UNIVERSAL_IDENTIFIER,
       ],
       READ_WRITE_NO_DELETE,
     ),

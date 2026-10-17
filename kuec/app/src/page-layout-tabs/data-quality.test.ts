@@ -15,6 +15,7 @@ import {
   OPPORTUNITY_STAGE,
 } from 'src/constants/opportunity-stage';
 import { DECISION_ROLE_ON_PERSON_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/decision-role-on-person.field';
+import { DEPARTMENT_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/department-on-opportunity.field';
 import {
   FUNDING_PATH_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER,
   OPPORTUNITY_FUNDING_PATH,
@@ -60,6 +61,15 @@ import {
   CONTRACT_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
 } from 'src/objects/contract.object';
 import {
+  DOCUMENT_CONFIDENTIALITY,
+  DOCUMENT_CONFIDENTIALITY_FIELD_UNIVERSAL_IDENTIFIER,
+  DOCUMENT_KIND_FIELD_UNIVERSAL_IDENTIFIER,
+  DOCUMENT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
+  DOCUMENT_STATUS,
+  DOCUMENT_STATUS_FIELD_UNIVERSAL_IDENTIFIER,
+  DOCUMENT_TYPE,
+} from 'src/objects/document.object';
+import {
   ENGAGEMENT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
   ENGAGEMENT_KIND,
   ENGAGEMENT_KIND_FIELD_UNIVERSAL_IDENTIFIER,
@@ -69,6 +79,14 @@ import {
   ENGAGEMENT_OUTCOME_TYPE,
   ENGAGEMENT_OUTCOME_TYPE_FIELD_UNIVERSAL_IDENTIFIER,
 } from 'src/objects/engagement.object';
+import {
+  LEAD_DEAD_REASON,
+  LEAD_DEAD_REASON_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_OFFERING_INTEREST_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_SOURCE_FIELD_UNIVERSAL_IDENTIFIER,
+} from 'src/objects/lead.object';
 import {
   MILESTONE_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER,
   MILESTONE_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER,
@@ -95,8 +113,10 @@ import companiesMissingKeyFieldsView from 'src/views/companies-missing-key-field
 import companiesOtherWithoutDetailsView from 'src/views/companies-other-without-details.view';
 import contractsOtherWithoutDetailsView from 'src/views/contracts-other-without-details.view';
 import contractsPastExpiryStillSignedView from 'src/views/contracts-past-expiry-still-signed.view';
+import documentsOtherWithoutDetailsView from 'src/views/documents-other-without-details.view';
 import engagementsOtherWithoutDetailsView from 'src/views/engagements-other-without-details.view';
 import engagementsOutcomeOverdueView from 'src/views/engagements-outcome-overdue.view';
+import leadsOtherWithoutDetailsView from 'src/views/leads-other-without-details.view';
 import milestonesOtherWithoutDetailsView from 'src/views/milestones-other-without-details.view';
 import opportunitiesInQualifyOver30DaysView from 'src/views/opportunities-in-qualify-over-30-days.view';
 import opportunitiesMissingKeyFieldsView from 'src/views/opportunities-missing-key-fields.view';
@@ -136,6 +156,8 @@ const EXCEPTION_VIEWS_IN_ORDER: ViewDefinition[] = [
   workPackagesOtherWithoutDetailsView,
   milestonesOtherWithoutDetailsView,
   tasksOtherWithoutDetailsView,
+  leadsOtherWithoutDetailsView,
+  documentsOtherWithoutDetailsView,
 ];
 
 type FilterKey = [string, string, unknown];
@@ -241,6 +263,7 @@ const EXPECTED_FILTERS: [ViewDefinition, { all: FilterKey[]; anyOf: FilterKey[] 
         [PLAYBOOK_TYPE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [OPPORTUNITY_TYPE.OTHER]],
         [OFFERING_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, 'CONTAINS', [OPPORTUNITY_OFFERING.OTHER]],
         [FUNDING_PATH_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [OPPORTUNITY_FUNDING_PATH.OTHER]],
+        [DEPARTMENT_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DEPARTMENT.OTHER]],
       ],
     },
   ],
@@ -313,6 +336,29 @@ const EXPECTED_FILTERS: [ViewDefinition, { all: FilterKey[]; anyOf: FilterKey[] 
         [TASK_TYPE_ON_TASK_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [TASK_TYPE.OTHER]],
       ],
       anyOf: [],
+    },
+  ],
+  [
+    leadsOtherWithoutDetailsView,
+    {
+      all: [[LEAD_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', '']],
+      anyOf: [
+        [LEAD_SOURCE_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [OPPORTUNITY_SOURCE.OTHER]],
+        [LEAD_OFFERING_INTEREST_FIELD_UNIVERSAL_IDENTIFIER, 'CONTAINS', [OPPORTUNITY_OFFERING.OTHER]],
+        [LEAD_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DEPARTMENT.OTHER]],
+        [LEAD_DEAD_REASON_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [LEAD_DEAD_REASON.OTHER]],
+      ],
+    },
+  ],
+  [
+    documentsOtherWithoutDetailsView,
+    {
+      all: [[DOCUMENT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER, 'IS_EMPTY', '']],
+      anyOf: [
+        [DOCUMENT_KIND_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DOCUMENT_TYPE.OTHER]],
+        [DOCUMENT_STATUS_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DOCUMENT_STATUS.OTHER]],
+        [DOCUMENT_CONFIDENTIALITY_FIELD_UNIVERSAL_IDENTIFIER, 'IS', [DOCUMENT_CONFIDENTIALITY.OTHER]],
+      ],
     },
   ],
 ];

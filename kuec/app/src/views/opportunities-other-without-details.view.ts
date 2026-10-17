@@ -6,6 +6,8 @@ import {
   ViewType,
 } from 'twenty-sdk/define';
 import { OPPORTUNITY_STAGE } from '../constants/opportunity-stage';
+import { DEPARTMENT } from '../constants/taxonomy';
+import { DEPARTMENT_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/department-on-opportunity.field';
 import {
   FUNDING_PATH_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER,
   OPPORTUNITY_FUNDING_PATH,
@@ -29,9 +31,9 @@ const OPPORTUNITIES_OTHER_WITHOUT_DETAILS_OR_GROUP_UNIVERSAL_IDENTIFIER = 'c61ee
 
 const opportunityFields = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.opportunity.fields;
 
-// Open or Signed opportunities with any of Source, Type, Offering or Funding path
-// set to Other and Other details empty. Funding path is the hidden seventh
-// column, under the six-column cap.
+// Open or Signed opportunities with any of Source, Type, Offering, Funding path
+// or Department set to Other and Other details empty. Funding path is the
+// hidden seventh column, under the six-column cap.
 export default defineView({
   universalIdentifier: OPPORTUNITIES_OTHER_WITHOUT_DETAILS_VIEW_UNIVERSAL_IDENTIFIER,
   name: 'Hygiene: Other without details',
@@ -92,6 +94,14 @@ export default defineView({
       value: [OPPORTUNITY_FUNDING_PATH.OTHER],
       viewFilterGroupUniversalIdentifier: OPPORTUNITIES_OTHER_WITHOUT_DETAILS_OR_GROUP_UNIVERSAL_IDENTIFIER,
       positionInViewFilterGroup: 3,
+    },
+    {
+      universalIdentifier: '2972e441-c06f-48c9-96a0-f122005ead74',
+      fieldMetadataUniversalIdentifier: DEPARTMENT_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER,
+      operand: ViewFilterOperand.IS,
+      value: [DEPARTMENT.OTHER],
+      viewFilterGroupUniversalIdentifier: OPPORTUNITIES_OTHER_WITHOUT_DETAILS_OR_GROUP_UNIVERSAL_IDENTIFIER,
+      positionInViewFilterGroup: 4,
     },
   ],
   filterGroups: [

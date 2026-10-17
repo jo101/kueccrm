@@ -47,6 +47,7 @@ describe('sidebar', () => {
     expect(namesInOrder).toEqual([
       'Home',
       'Exceptions',
+      'Leads',
       'Pipeline',
       'My work',
       'BD Executive',
@@ -55,6 +56,7 @@ describe('sidebar', () => {
       'People',
       'Engagements',
       'Contracts',
+      'Documents',
       'Milestones',
       'Data quality',
     ]);

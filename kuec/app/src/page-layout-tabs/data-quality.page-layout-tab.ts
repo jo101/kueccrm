@@ -7,7 +7,9 @@ import {
   type ViewConfig,
 } from 'twenty-sdk/define';
 import { CONTRACT_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/contract.object';
+import { DOCUMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/document.object';
 import { ENGAGEMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/engagement.object';
+import { LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/lead.object';
 import { MILESTONE_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/milestone.object';
 import { PROJECT_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/project.object';
 import { WORK_PACKAGE_NAME_FIELD_UNIVERSAL_IDENTIFIER } from '../objects/work-package.object';
@@ -16,8 +18,10 @@ import companiesMissingKeyFieldsView from '../views/companies-missing-key-fields
 import companiesOtherWithoutDetailsView from '../views/companies-other-without-details.view';
 import contractsOtherWithoutDetailsView from '../views/contracts-other-without-details.view';
 import contractsPastExpiryStillSignedView from '../views/contracts-past-expiry-still-signed.view';
+import documentsOtherWithoutDetailsView from '../views/documents-other-without-details.view';
 import engagementsOtherWithoutDetailsView from '../views/engagements-other-without-details.view';
 import engagementsOutcomeOverdueView from '../views/engagements-outcome-overdue.view';
+import leadsOtherWithoutDetailsView from '../views/leads-other-without-details.view';
 import milestonesOtherWithoutDetailsView from '../views/milestones-other-without-details.view';
 import opportunitiesInQualifyOver30DaysView from '../views/opportunities-in-qualify-over-30-days.view';
 import opportunitiesMissingKeyFieldsView from '../views/opportunities-missing-key-fields.view';
@@ -165,6 +169,20 @@ export const DATA_QUALITY_CHECKS: DataQualityCheck[] = [
     countFieldMetadataUniversalIdentifier: task.fields.id.universalIdentifier,
     countWidgetUniversalIdentifier: 'cd4a0670-47f6-4973-8dc4-2ac94554dfd2',
     tableWidgetUniversalIdentifier: 'c9a8f114-917e-430c-adb1-f380395c6f79',
+  },
+  {
+    title: 'Leads with Other and no details',
+    view: leadsOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: LEAD_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    countWidgetUniversalIdentifier: '89a322b7-76d2-4434-927e-4ef87cf357ba',
+    tableWidgetUniversalIdentifier: '934dbb7d-854b-4111-a44d-f05d1592ccc4',
+  },
+  {
+    title: 'Documents with Other and no details',
+    view: documentsOtherWithoutDetailsView,
+    countFieldMetadataUniversalIdentifier: DOCUMENT_NAME_FIELD_UNIVERSAL_IDENTIFIER,
+    countWidgetUniversalIdentifier: 'c40659af-2018-45dc-95c4-e1ef21035f53',
+    tableWidgetUniversalIdentifier: 'ba36a377-b7a2-4ac4-8b19-b13f962ba997',
   },
 ];
 

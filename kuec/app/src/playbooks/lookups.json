@@ -426,12 +426,17 @@
       ],
       "twentyFields": [
         {
+          "object": "lead",
+          "field": "source",
+          "type": "SELECT"
+        },
+        {
           "object": "opportunity",
           "field": "source",
           "type": "SELECT"
         }
       ],
-      "note": "Twenty has no Lead object; leads are opportunities at stage Qualify, so Opportunity.source carries this list in Twenty.",
+      "note": "Lead.source and Opportunity.source hold the same options; a conversion copies the value.",
       "options": [
         {
           "value": "INBOUND",
@@ -1041,16 +1046,22 @@
         "ar": "ما تقدمه KUEC"
       },
       "appliesTo": [
+        "Lead.offeringInterest",
         "Opportunity.offering"
       ],
       "twentyFields": [
+        {
+          "object": "lead",
+          "field": "offeringInterest",
+          "type": "MULTI_SELECT"
+        },
         {
           "object": "opportunity",
           "field": "offering",
           "type": "MULTI_SELECT"
         }
       ],
-      "note": "Several can apply to one opportunity, so Twenty holds it as a multi-select.",
+      "note": "Several can apply to one lead or opportunity, so Twenty holds it as a multi-select. A conversion copies the lead's interest into the opportunity's offering.",
       "options": [
         {
           "value": "IP_LICENCE",
@@ -1342,8 +1353,14 @@
       "appliesTo": [
         "Document.type"
       ],
-      "twentyFields": [],
-      "note": "Twenty has no Document object (kuec/CLAUDE.md rule 4): documents live on SharePoint or in uVENTURE and records carry a link.",
+      "twentyFields": [
+        {
+          "object": "document",
+          "field": "kind",
+          "type": "SELECT"
+        }
+      ],
+      "note": "Twenty holds the link and these metadata only; the file stays on SharePoint or in uVENTURE and is never uploaded (kuec/CLAUDE.md rule 4).",
       "options": [
         {
           "value": "NDA",
@@ -1642,8 +1659,14 @@
       "appliesTo": [
         "Document.status"
       ],
-      "twentyFields": [],
-      "note": "Twenty has no Document object (kuec/CLAUDE.md rule 4): documents live on SharePoint or in uVENTURE and records carry a link.",
+      "twentyFields": [
+        {
+          "object": "document",
+          "field": "status",
+          "type": "SELECT"
+        }
+      ],
+      "note": "Twenty holds the link and these metadata only; the file stays on SharePoint or in uVENTURE and is never uploaded (kuec/CLAUDE.md rule 4).",
       "options": [
         {
           "value": "DRAFT",
@@ -1747,8 +1770,14 @@
       "appliesTo": [
         "Document.confidentiality"
       ],
-      "twentyFields": [],
-      "note": "Twenty has no Document object (kuec/CLAUDE.md rule 4): documents live on SharePoint or in uVENTURE and records carry a link. Every class is link-only: no system uploads the file.",
+      "twentyFields": [
+        {
+          "object": "document",
+          "field": "confidentiality",
+          "type": "SELECT"
+        }
+      ],
+      "note": "Twenty holds the link and these metadata only; the file stays on SharePoint or in uVENTURE and is never uploaded (kuec/CLAUDE.md rule 4). Every class is link-only, and the label does not restrict who sees the record: SharePoint and uVENTURE permissions protect the file.",
       "options": [
         {
           "value": "INTERNAL",
@@ -2700,6 +2729,8 @@
         "ar": "الإدارة"
       },
       "appliesTo": [
+        "Lead.department",
+        "Opportunity.department",
         "Engagement.department",
         "Project.department",
         "Contract.department",
@@ -2707,6 +2738,16 @@
         "Milestone.department"
       ],
       "twentyFields": [
+        {
+          "object": "lead",
+          "field": "department",
+          "type": "SELECT"
+        },
+        {
+          "object": "opportunity",
+          "field": "department",
+          "type": "SELECT"
+        },
         {
           "object": "engagement",
           "field": "department",
@@ -2733,7 +2774,7 @@
           "type": "SELECT"
         }
       ],
-      "note": "On every custom business object. Public holiday and Playbook role assignment are configuration records and carry no department.",
+      "note": "On every case-carrying business object. Document takes its department from the record it is linked to; Public holiday and Playbook role assignment are configuration records and carry no department.",
       "options": [
         {
           "value": "BD",

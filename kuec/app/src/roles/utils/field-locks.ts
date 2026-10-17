@@ -3,6 +3,17 @@ import { STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS } from 'twenty-sdk/define';
 import { LAST_ENGAGEMENT_AT_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../../fields/last-engagement-at-on-company.field';
 import { STAGE_ENTERED_AT_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../../fields/stage-entered-at-on-opportunity.field';
 import {
+  DOCUMENT_EXTERNAL_ID_FIELD_UNIVERSAL_IDENTIFIER,
+  DOCUMENT_SOURCE_SYSTEM_FIELD_UNIVERSAL_IDENTIFIER,
+  DOCUMENT_UNIVERSAL_IDENTIFIER,
+} from '../../objects/document.object';
+import {
+  LEAD_EXTERNAL_ID_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_LAST_ENGAGEMENT_AT_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_SOURCE_SYSTEM_FIELD_UNIVERSAL_IDENTIFIER,
+  LEAD_UNIVERSAL_IDENTIFIER,
+} from '../../objects/lead.object';
+import {
   MILESTONE_PLAYBOOK_STEP_FIELD_UNIVERSAL_IDENTIFIER,
   MILESTONE_UNIVERSAL_IDENTIFIER,
 } from '../../objects/milestone.object';
@@ -74,6 +85,26 @@ export const LOCKED_FIELDS: FieldReference[] = [
   {
     objectUniversalIdentifier: PROJECT_UNIVERSAL_IDENTIFIER,
     fieldUniversalIdentifier: PROJECT_HEALTH_FIELD_UNIVERSAL_IDENTIFIER,
+  },
+  {
+    objectUniversalIdentifier: LEAD_UNIVERSAL_IDENTIFIER,
+    fieldUniversalIdentifier: LEAD_LAST_ENGAGEMENT_AT_FIELD_UNIVERSAL_IDENTIFIER,
+  },
+  {
+    objectUniversalIdentifier: LEAD_UNIVERSAL_IDENTIFIER,
+    fieldUniversalIdentifier: LEAD_EXTERNAL_ID_FIELD_UNIVERSAL_IDENTIFIER,
+  },
+  {
+    objectUniversalIdentifier: LEAD_UNIVERSAL_IDENTIFIER,
+    fieldUniversalIdentifier: LEAD_SOURCE_SYSTEM_FIELD_UNIVERSAL_IDENTIFIER,
+  },
+  {
+    objectUniversalIdentifier: DOCUMENT_UNIVERSAL_IDENTIFIER,
+    fieldUniversalIdentifier: DOCUMENT_EXTERNAL_ID_FIELD_UNIVERSAL_IDENTIFIER,
+  },
+  {
+    objectUniversalIdentifier: DOCUMENT_UNIVERSAL_IDENTIFIER,
+    fieldUniversalIdentifier: DOCUMENT_SOURCE_SYSTEM_FIELD_UNIVERSAL_IDENTIFIER,
   },
 ];
 

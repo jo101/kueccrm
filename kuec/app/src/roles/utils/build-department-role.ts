@@ -3,7 +3,9 @@ import {
   SystemPermissionFlag,
 } from 'twenty-sdk/define';
 
+import { DOCUMENT_UNIVERSAL_IDENTIFIER } from '../../objects/document.object';
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from '../../objects/engagement.object';
+import { LEAD_UNIVERSAL_IDENTIFIER } from '../../objects/lead.object';
 import { LOCKED_FIELDS, toUpdateLocks } from './field-locks';
 import {
   READ_ONLY,
@@ -20,13 +22,14 @@ import {
 const { opportunity, task, note } = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS;
 
 // The commercialization departments share one permission set and keep a role
-// each, so they can diverge without moving anyone. Lead and Document are not
-// objects yet; add them here when they are (runbooks/13-roles.md section 4).
+// each, so they can diverge without moving anyone (runbooks/13-roles.md, decision 5).
 export const DEPARTMENT_WRITABLE_OBJECT_UNIVERSAL_IDENTIFIERS = [
   opportunity.universalIdentifier,
   task.universalIdentifier,
   note.universalIdentifier,
   ENGAGEMENT_UNIVERSAL_IDENTIFIER,
+  LEAD_UNIVERSAL_IDENTIFIER,
+  DOCUMENT_UNIVERSAL_IDENTIFIER,
 ];
 
 export const buildDepartmentRoleConfig = ({
@@ -40,7 +43,7 @@ export const buildDepartmentRoleConfig = ({
 }) => ({
   universalIdentifier,
   label,
-  description: `${label} department. Reads everything. Writes opportunities, engagements, tasks and notes. No delete, no import, no settings, no workflows.`,
+  description: `${label} department. Reads everything. Writes leads, opportunities, engagements, documents, tasks and notes. No delete, no import, no settings, no workflows.`,
   icon,
   canReadAllObjectRecords: true,
   canUpdateAllObjectRecords: false,

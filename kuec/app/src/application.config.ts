@@ -9,6 +9,9 @@ export const SMTP_USERNAME_VARIABLE = 'SMTP_USERNAME';
 export const SMTP_PASSWORD_VARIABLE = 'SMTP_PASSWORD';
 export const SMTP_FROM_VARIABLE = 'SMTP_FROM';
 export const CRM_BASE_URL_VARIABLE = 'CRM_BASE_URL';
+export const LEAD_ED_VALUE_THRESHOLD_VARIABLE = 'LEAD_ED_VALUE_THRESHOLD';
+export const FORMS_SIGNING_SECRET_VARIABLE = 'FORMS_SIGNING_SECRET';
+export const FORMS_SIGNING_SECRET_PREVIOUS_VARIABLE = 'FORMS_SIGNING_SECRET_PREVIOUS';
 
 export default defineApplication({
   universalIdentifier: APPLICATION_UNIVERSAL_IDENTIFIER,
@@ -72,6 +75,33 @@ export default defineApplication({
       description: 'From address of automation emails, e.g. bd-ops@kuec.example',
       type: FieldType.TEXT,
       isSecret: false,
+      isRequired: false,
+    },
+    [LEAD_ED_VALUE_THRESHOLD_VARIABLE]: {
+      universalIdentifier: '771a44aa-70b1-43d1-bc6a-d43a4f50c61f',
+      label: 'Lead value that notifies the ED',
+      description:
+        'A qualified lead whose estimated value is above this amount (AED) notifies the ED (L4). Empty: only IP licence interest does.',
+      type: FieldType.NUMBER,
+      isSecret: false,
+      isRequired: false,
+    },
+    [FORMS_SIGNING_SECRET_VARIABLE]: {
+      universalIdentifier: '7b2adce0-14cc-494c-ba3b-ee4c534c9317',
+      label: 'Forms signing secret',
+      description:
+        'Shared secret the website, gala QR and workshop sign-up forms sign each delivery to the lead intake route with (HMAC-SHA256)',
+      type: FieldType.TEXT,
+      isSecret: true,
+      isRequired: false,
+    },
+    [FORMS_SIGNING_SECRET_PREVIOUS_VARIABLE]: {
+      universalIdentifier: '8ccb0f9b-b3c1-4e85-8662-59866e633ecc',
+      label: 'Forms signing secret (previous)',
+      description:
+        'The secret before the last rotation, still accepted for a week so the forms can switch over',
+      type: FieldType.TEXT,
+      isSecret: true,
       isRequired: false,
     },
   },

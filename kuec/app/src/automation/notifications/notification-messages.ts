@@ -30,4 +30,20 @@ export const NOTIFICATION_MESSAGES = {
     composeNotificationMessage({ lead: 'Playbook started, work packages created:', subject, link }),
   closeProject: ({ subject, link }: MessageInput) =>
     composeNotificationMessage({ lead: 'All milestones done, please close the project:', subject, link }),
+  leadTriage: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'New lead, triage it by the next business day:', subject, link }),
+  leadContactNudge: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'Lead still New after 3 business days, contact them:', subject, link }),
+  leadContactEd: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'Lead still New after 7 business days:', subject, link }),
+  leadAutoDead: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'Closed after 30 quiet days, confirm or revive within 5 days:', subject, link }),
+  leadQualified: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'Lead qualified, convert or park it:', subject, link }),
+  leadQualifiedForEd: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'Licence-grade lead qualified:', subject, link }),
+  thankReferrer: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'Thank the referrer of:', subject, link }),
+  recordDeadReason: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'Record why this lead is dead:', subject, link }),
 } as const;

@@ -17,4 +17,5 @@ export const PAST_11_MONTHS_FILTER_VALUE = 'PAST_11_MONTH;;Asia/Dubai;;MONDAY;;'
 export const PAST_7_DAYS_FILTER_VALUE = 'PAST_7_DAY;;Asia/Dubai;;MONDAY;;';
 export const NEXT_7_DAYS_FILTER_VALUE = 'NEXT_7_DAY;;Asia/Dubai;;MONDAY;;';
 export const NEXT_30_DAYS_FILTER_VALUE = 'NEXT_30_DAY;;Asia/Dubai;;MONDAY;;';
+export const NEXT_60_DAYS_FILTER_VALUE = 'NEXT_60_DAY;;Asia/Dubai;;MONDAY;;';
 export const NEXT_90_DAYS_FILTER_VALUE = 'NEXT_90_DAY;;Asia/Dubai;;MONDAY;;';

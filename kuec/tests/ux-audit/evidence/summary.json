@@ -1,0 +1,44 @@
+{
+ "Record pages": {
+  "screens": 16,
+  "pass": 76,
+  "fail": 54,
+  "notApplicable": 14
+ },
+ "Dashboard tabs": {
+  "screens": 12,
+  "pass": 38,
+  "fail": 24,
+  "notApplicable": 22
+ },
+ "Views": {
+  "screens": 140,
+  "pass": 397,
+  "fail": 102,
+  "notApplicable": 11
+ },
+ "Lists and options": {
+  "screens": 49,
+  "pass": 122,
+  "fail": 6,
+  "notApplicable": 19
+ },
+ "Default views": {
+  "screens": 16,
+  "pass": 11,
+  "fail": 5,
+  "notApplicable": 0
+ },
+ "Front components": {
+  "screens": 4,
+  "pass": 8,
+  "fail": 9,
+  "notApplicable": 0
+ },
+ "Sidebar and global": {
+  "screens": 3,
+  "pass": 0,
+  "fail": 7,
+  "notApplicable": 0
+ }
+}

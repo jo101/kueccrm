@@ -1,0 +1,23 @@
+{
+ "opportunity: Next action (app field)": [
+  "Next action\nThe one thing the owner does next, starting with a verb, such as Send the quote; every open opportunity needs one.",
+  "Next action\nThe one thing the owner does next, starting with a verb, such as Send the quote; every open opportunity needs one."
+ ],
+ "opportunity: Stage (Twenty field)": [
+  "Stage\nOpportunity stage",
+  "Stage\nOpportunity stage"
+ ],
+ "opportunity: Source (app field)": [
+  "Source\nPick where the opportunity came from when you create it; a converted lead fills it for you.",
+  "Source\nPick where the opportunity came from when you create it; a converted lead fills it for you."
+ ],
+ "lead: Need": [
+  "Need\nWhat they want, in their own words, written as soon as you know it; it becomes the opportunity description.",
+  "Need\nWhat they want, in their own words, written as soon as you know it; it becomes the opportunity description."
+ ],
+ "lead: Need identified": [
+  "Need identified\nTick it once they have named a concrete problem or request KUEC could answer.",
+  "Need identified\nTick it once they have named a concrete problem or request KUEC could answer."
+ ],
+ "My work table header: Due": []
+}

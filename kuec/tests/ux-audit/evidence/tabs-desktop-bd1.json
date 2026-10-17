@@ -1,0 +1,158 @@
+{
+ "bd-executive": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": false,
+  "noData": 3,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "bd-team": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": true,
+  "noData": 4,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "bd-mine": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": true,
+  "noData": 0,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "bd-pipeline-pack": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": false,
+  "noData": 1,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "bd-project-pack": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": true,
+  "noData": 1,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "bd-campaign-pack": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": false,
+  "noData": 2,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "uventure-technologies": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": false,
+  "noData": 1,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "uventure-equipment-and-labs": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": false,
+  "noData": 1,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "uventure-challenges": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": false,
+  "noData": 1,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "data-quality-data-quality": {
+  "guidanceBody": false,
+  "guidanceArabic": false,
+  "requestHelp": false,
+  "noData": 0,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "exceptions-exceptions": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": true,
+  "noData": 0,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ },
+ "home-home": {
+  "guidanceBody": true,
+  "guidanceArabic": true,
+  "requestHelp": true,
+  "noData": 1,
+  "errors": 0,
+  "horizontalOverflow": false,
+  "widths": [
+   1440,
+   1440
+  ],
+  "skeletons": 0
+ }
+}

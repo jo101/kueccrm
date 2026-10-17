@@ -1,0 +1,31 @@
+{
+ "cardTopPx": 534,
+ "focusOrderFromCard": [
+  "BUTTON:Open full record [outline solid 2px]",
+  "SPAN:Opens the full work package page, with e [outline solid 2px]",
+  "svg: [outline auto 5px]",
+  "path: [outline auto 5px]",
+  "path: [outline auto 5px]",
+  "path: [outline auto 5px]",
+  "SPAN:Status Offered: the owner accepts or dec [outline solid 2px]",
+  "svg: [outline auto 5px]",
+  "path: [outline auto 5px]",
+  "path: [outline auto 5px]"
+ ],
+ "helpFormFocus": "BODY#",
+ "afterEnterModalOpen": 0,
+ "afterEnterFormOpen": 1,
+ "buttonsDuringAccept": [
+  "Accept:enabled, Decline:enabled, Request help:enabled",
+  "Accept:disabled, Decline:disabled, Request help:disabled",
+  "Accept:disabled, Decline:disabled, Request help:disabled",
+  "Accept:disabled, Decline:disabled, Request help:disabled",
+  "Accept:disabled, Decline:disabled, Request help:disabled",
+  "Accept:disabled, Decline:disabled, Request help:disabled",
+  "Accept:disabled, Decline:disabled, Request help:disabled",
+  "Accept:disabled, Decline:disabled, Request help:disabled",
+  "Accept:disabled, Decline:disabled, Request help:disabled",
+  "Accept:disabled, Decline:disabled, Request help:disabled"
+ ],
+ "toastText": []
+}

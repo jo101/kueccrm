@@ -1,0 +1,7 @@
+# Written by the audit scripts; session cookies, the API key path and the raw model dump never go in the repository.
+state-*.json
+node_modules/
+package*.json
+evidence/model.json
+evidence/ux-ids.json
+evidence/ipo-wp.id

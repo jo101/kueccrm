@@ -1,0 +1,56 @@
+{
+ "my-work": {
+  "Submitted": 5.38,
+  "Accepted": 5.34,
+  "Offered": 4.72,
+  "Blocked": 4.55
+ },
+ "work-packages-by-status-kanban": {
+  "Planned": 5.45,
+  "Offered": 4.72,
+  "Accepted": 5.34,
+  "Submitted": 5.38,
+  "Blocked": 4.55,
+  "Done": 4.44,
+  "New": 12.63
+ },
+ "pipeline-kanban": {
+  "New": 4.55,
+  "Screening": 5.38,
+  "Meeting": 4.72,
+  "Proposal": 4.46,
+  "Customer": 4.17,
+  "Signed": 4.44
+ },
+ "card-accepted": {
+  "Accepted": 5.34,
+  "In progress": 5.34,
+  ".kuec-card__muted": 2.78,
+  ".kuec-card__eyebrow": 2.78,
+  ".kuec-card__meta": 5.59,
+  ".kuec-info": 2.78
+ },
+ "card-blocked": {
+  "Blocked": 4.55,
+  ".kuec-card__muted": 2.78,
+  ".kuec-card__eyebrow": 2.78,
+  ".kuec-card__meta": 5.59,
+  ".kuec-info": 2.78
+ },
+ "card-submitted": {
+  "Submitted": 5.38,
+  "Waiting for review": 5.38,
+  ".kuec-card__muted": 2.78,
+  ".kuec-card__eyebrow": 2.78,
+  ".kuec-card__meta": 5.59,
+  ".kuec-info": 2.78
+ },
+ "card-planned": {
+  "Planned": 5.45,
+  "Not started": 5.45,
+  ".kuec-card__muted": 2.78,
+  ".kuec-card__eyebrow": 2.78,
+  ".kuec-card__meta": 5.59,
+  ".kuec-info": 2.78
+ }
+}

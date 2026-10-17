@@ -1,0 +1,5474 @@
+[
+ {
+  "object": "capability",
+  "name": "All capabilities",
+  "key": "",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Kind",
+   "Status changed at",
+   "Status",
+   "uVENTURE record",
+   "Last seen in uVENTURE"
+  ],
+  "sorts": [
+   "Status changed at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Work package Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 31,
+  "columns": [
+   "Status",
+   "Due",
+   "Objective",
+   "Expected output",
+   "Done criteria",
+   "Blocked reason",
+   "Declined reason",
+   "Playbook step",
+   "Due offset (business days)",
+   "Offered at",
+   "Accepted at",
+   "Submitted at",
+   "Blocked at",
+   "Completed at",
+   "Acceptance reminder sent at",
+   "Reassigned at",
+   "Overdue owner notified at",
+   "Overdue ED notified at",
+   "Department",
+   "Other details",
+   "Depends on",
+   "Owner",
+   "Opportunity",
+   "Reviewer",
+   "Dependents",
+   "Project",
+   "Milestone",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "contract",
+  "name": "All Contracts",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 21,
+  "columns": [
+   "Name",
+   "Kind",
+   "Status",
+   "Signed on",
+   "Expires on",
+   "Value",
+   "SharePoint folder",
+   "Department",
+   "Other details",
+   "uVENTURE record",
+   "External id",
+   "Source system",
+   "Capability",
+   "Owner",
+   "Documents",
+   "Counterparty",
+   "Opportunity",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "milestone",
+  "name": "Milestone Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 12,
+  "columns": [
+   "Status",
+   "Due",
+   "Playbook step",
+   "Department",
+   "Other details",
+   "Work packages",
+   "Project",
+   "Owner",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "campaignTarget",
+  "name": "Campaign pack: campaign targets",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Campaign",
+   "Last update",
+   "Status",
+   "Company"
+  ],
+  "sorts": [
+   "Last update DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "document",
+  "name": "Document Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 20,
+  "columns": [
+   "Type",
+   "Status",
+   "Confidentiality",
+   "SharePoint or uVENTURE link",
+   "Version",
+   "Expires on",
+   "External id",
+   "Source system",
+   "Other details",
+   "Lead",
+   "Contract",
+   "Project",
+   "Owner",
+   "Person",
+   "Company",
+   "Opportunity",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "person",
+  "name": "All People",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 14,
+  "columns": [
+   "Name",
+   "Emails",
+   "Created by",
+   "Company",
+   "Phones",
+   "Creation date",
+   "Job Title",
+   "Linkedin",
+   "Leads",
+   "Champion",
+   "Name (Arabic)",
+   "Decision role",
+   "Referred leads",
+   "Documents"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Open pipeline by type and sector",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Type",
+   "Company",
+   "Amount"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Stale opportunities",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Stage",
+   "Next action",
+   "Amount"
+  ],
+  "sorts": [
+   "Stage entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Opportunities created, past 12 months",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Creation date",
+   "Source",
+   "Stage",
+   "Amount"
+  ],
+  "sorts": [
+   "Creation date DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "project",
+  "name": "BD: Team active projects",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "End date",
+   "Health",
+   "Percent complete",
+   "Opportunity"
+  ],
+  "sorts": [
+   "End date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "All Leads",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 45,
+  "columns": [
+   "Name",
+   "Status",
+   "Source",
+   "Need",
+   "Offering interest",
+   "Department",
+   "Dead reason",
+   "Nurture review date",
+   "Referral note",
+   "Need identified",
+   "Decision maker reached",
+   "Capability matched",
+   "Funding path identified",
+   "Timing known",
+   "Qualification score",
+   "Estimated value",
+   "Next action",
+   "Next action date",
+   "uVENTURE record",
+   "External id",
+   "Source system",
+   "Triaged",
+   "Status entered at",
+   "Last engagement",
+   "Contact nudge sent at",
+   "Contact ED notified at",
+   "Qualified at",
+   "Closed for no response at",
+   "Last converted at",
+   "Referral credited at",
+   "Other details",
+   "Documents",
+   "Owner",
+   "Converted opportunity",
+   "Referred by (colleague)",
+   "Company",
+   "Person",
+   "Engagements",
+   "Referred by",
+   "Campaign",
+   "Opportunities",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Pipeline pack: leads past their contact time",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Contact nudge sent at",
+   "Source",
+   "Next action date"
+  ],
+  "sorts": [
+   "Status entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "My work",
+  "key": "",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Pipeline pack: exit criteria missing",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Amount",
+   "Close date",
+   "Probability"
+  ],
+  "sorts": [
+   "Stage entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Lost this quarter",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Lost reason category",
+   "Lost reason",
+   "Amount"
+  ],
+  "sorts": [
+   "Stage entered at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: My closing this quarter",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Stage",
+   "Probability",
+   "Amount"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "All Work packages",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 32,
+  "columns": [
+   "Title",
+   "Status",
+   "Due",
+   "Objective",
+   "Expected output",
+   "Done criteria",
+   "Blocked reason",
+   "Declined reason",
+   "Playbook step",
+   "Due offset (business days)",
+   "Offered at",
+   "Accepted at",
+   "Submitted at",
+   "Blocked at",
+   "Completed at",
+   "Acceptance reminder sent at",
+   "Reassigned at",
+   "Overdue owner notified at",
+   "Overdue ED notified at",
+   "Department",
+   "Other details",
+   "Depends on",
+   "Owner",
+   "Opportunity",
+   "Reviewer",
+   "Dependents",
+   "Project",
+   "Milestone",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "BD: My submitted work packages",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Submitted at",
+   "Reviewer",
+   "Due",
+   "Opportunity"
+  ],
+  "sorts": [
+   "Submitted at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Home: Needs your decision",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Reviewer",
+   "Opportunity"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "project",
+  "name": "BD: Active projects",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "End date",
+   "Health",
+   "Percent complete",
+   "Type"
+  ],
+  "sorts": [
+   "End date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "capability",
+  "name": "Capability Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 16,
+  "columns": [
+   "Kind",
+   "Status",
+   "uVENTURE record",
+   "External id",
+   "Source system",
+   "Status changed at",
+   "Last seen in uVENTURE",
+   "Stale from",
+   "Other details",
+   "Contracts",
+   "Engagements",
+   "Opportunities",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "BD: Team offered, not accepted",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Offered at",
+   "Due",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Offered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "document",
+  "name": "All Documents",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 21,
+  "columns": [
+   "Name",
+   "Type",
+   "Status",
+   "Confidentiality",
+   "SharePoint or uVENTURE link",
+   "Version",
+   "Expires on",
+   "External id",
+   "Source system",
+   "Other details",
+   "Lead",
+   "Contract",
+   "Project",
+   "Owner",
+   "Person",
+   "Company",
+   "Opportunity",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "BD: Team work package board",
+  "key": "",
+  "type": "KANBAN_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 5,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "Status",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Open pipeline by stage",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Stage",
+   "Probability",
+   "Amount"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Pipeline",
+  "key": "",
+  "type": "KANBAN",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Amount",
+   "Company",
+   "Next action date"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "Stage",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "project",
+  "name": "Project Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 26,
+  "columns": [
+   "Type",
+   "Status",
+   "Health",
+   "Percent complete",
+   "Event date",
+   "End date",
+   "Playbook applied",
+   "Close task created at",
+   "Department",
+   "Other details",
+   "Target sector",
+   "Target size class",
+   "Offering promoted",
+   "Channel plan",
+   "Milestones",
+   "Campaign targets",
+   "Owner",
+   "Documents",
+   "Leads",
+   "Opportunity",
+   "Work packages",
+   "Company",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "document",
+  "name": "Documents by type",
+  "key": "",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status",
+   "Confidentiality",
+   "SharePoint or uVENTURE link",
+   "Company"
+  ],
+  "sorts": [],
+  "group": "Type",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "milestone",
+  "name": "BD: Milestones due in 30 days",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Owner",
+   "Due",
+   "Status",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Closing this quarter",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Stage",
+   "Probability",
+   "Amount"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "project",
+  "name": "Project pack: active projects",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "End date",
+   "Health",
+   "Percent complete",
+   "Type"
+  ],
+  "sorts": [
+   "End date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "contract",
+  "name": "BD: Contracts expiring in 90 days",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Expires on",
+   "Counterparty",
+   "Kind",
+   "Value"
+  ],
+  "sorts": [
+   "Expires on ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "BD: Team overdue work packages",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "campaignTarget",
+  "name": "Campaign target Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 7,
+  "columns": [
+   "Status",
+   "Campaign",
+   "Company",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Campaign pack: campaign leads",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Campaign",
+   "Status",
+   "Source"
+  ],
+  "sorts": [
+   "Status entered at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Pipeline pack: referral credits",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Referral credited at",
+   "Referred by (colleague)",
+   "Referred by",
+   "Source"
+  ],
+  "sorts": [
+   "Referral credited at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "BD: Team submitted, awaiting review",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Submitted at",
+   "Reviewer",
+   "Due",
+   "Opportunity"
+  ],
+  "sorts": [
+   "Submitted at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Opportunity Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 36,
+  "columns": [
+   "Amount",
+   "Company",
+   "Creation date",
+   "Stage",
+   "Point of Contact",
+   "Created by",
+   "Close date",
+   "Owner",
+   "Probability",
+   "Playbook applied",
+   "Lost reason",
+   "Projects",
+   "Department",
+   "Work packages",
+   "Client deadline",
+   "Next action",
+   "Lead",
+   "Contracts",
+   "Parked lapses at",
+   "Documents",
+   "Capability",
+   "Funding path",
+   "Offering",
+   "uVENTURE record",
+   "Stale from",
+   "Lost reason category",
+   "Next action date",
+   "Type",
+   "Next action flagged on",
+   "Other details",
+   "Source",
+   "Engagements",
+   "Description",
+   "SharePoint folder",
+   "Stage entered at",
+   "Latest conversion of"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Lead Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 44,
+  "columns": [
+   "Status",
+   "Source",
+   "Need",
+   "Offering interest",
+   "Department",
+   "Dead reason",
+   "Nurture review date",
+   "Referral note",
+   "Need identified",
+   "Decision maker reached",
+   "Capability matched",
+   "Funding path identified",
+   "Timing known",
+   "Qualification score",
+   "Estimated value",
+   "Next action",
+   "Next action date",
+   "uVENTURE record",
+   "External id",
+   "Source system",
+   "Triaged",
+   "Status entered at",
+   "Last engagement",
+   "Contact nudge sent at",
+   "Contact ED notified at",
+   "Qualified at",
+   "Closed for no response at",
+   "Last converted at",
+   "Referral credited at",
+   "Other details",
+   "Documents",
+   "Owner",
+   "Converted opportunity",
+   "Referred by (colleague)",
+   "Company",
+   "Person",
+   "Engagements",
+   "Referred by",
+   "Campaign",
+   "Opportunities",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Pipeline pack: open opportunities",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Stage",
+   "Next action date",
+   "Amount"
+  ],
+  "sorts": [
+   "Stage entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Project pack: blocked work packages",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Blocked at",
+   "Blocked reason",
+   "Project",
+   "Due"
+  ],
+  "sorts": [
+   "Blocked at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Won and lost this quarter",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Stage",
+   "Lost reason category",
+   "Amount"
+  ],
+  "sorts": [
+   "Stage entered at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Team open opportunities",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Stage",
+   "Amount",
+   "Company"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Home: Other work by status",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "Status",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "capability",
+  "name": "All Capabilities",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 17,
+  "columns": [
+   "Name",
+   "Kind",
+   "Status",
+   "uVENTURE record",
+   "External id",
+   "Source system",
+   "Status changed at",
+   "Last seen in uVENTURE",
+   "Stale from",
+   "Other details",
+   "Contracts",
+   "Engagements",
+   "Opportunities",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "BD: Team blocked work packages",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Blocked at",
+   "Blocked reason",
+   "Due",
+   "Opportunity"
+  ],
+  "sorts": [
+   "Blocked at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "BD: My engagements this week",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Subject",
+   "Owner",
+   "Date",
+   "Kind",
+   "Company",
+   "Opportunity"
+  ],
+  "sorts": [
+   "Date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "milestone",
+  "name": "All Milestones",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 13,
+  "columns": [
+   "Name",
+   "Status",
+   "Due",
+   "Playbook step",
+   "Department",
+   "Other details",
+   "Work packages",
+   "Project",
+   "Owner",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "contract",
+  "name": "BD: Contracts signed this year",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Signed on",
+   "Counterparty",
+   "Kind",
+   "Value"
+  ],
+  "sorts": [
+   "Signed on DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "All Opportunities",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 34,
+  "columns": [
+   "Name",
+   "Amount",
+   "Created by",
+   "Close date",
+   "Company",
+   "Point of Contact",
+   "Probability",
+   "Playbook applied",
+   "Lost reason",
+   "Projects",
+   "Department",
+   "Work packages",
+   "Client deadline",
+   "Next action",
+   "Lead",
+   "Contracts",
+   "Parked lapses at",
+   "Documents",
+   "Capability",
+   "Funding path",
+   "Offering",
+   "uVENTURE record",
+   "Stale from",
+   "Lost reason category",
+   "Next action date",
+   "Type",
+   "Next action flagged on",
+   "Other details",
+   "Source",
+   "Engagements",
+   "Description",
+   "SharePoint folder",
+   "Stage entered at",
+   "Latest conversion of"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "All Engagements",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 18,
+  "columns": [
+   "Subject",
+   "Kind",
+   "Date",
+   "Next step",
+   "Outcome",
+   "Outcome due at",
+   "Outcome type",
+   "Department",
+   "Other details",
+   "Capability",
+   "Lead",
+   "Owner",
+   "Company",
+   "Opportunity",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "campaignTarget",
+  "name": "All Campaign targets",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 8,
+  "columns": [
+   "Name",
+   "Status",
+   "Campaign",
+   "Company",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "task",
+  "name": "All Tasks",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 10,
+  "columns": [
+   "Title",
+   "Status",
+   "Relations",
+   "Created by",
+   "Due Date",
+   "Assignee",
+   "Body",
+   "Creation date",
+   "Other details",
+   "Type"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "contract",
+  "name": "Contract Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 20,
+  "columns": [
+   "Kind",
+   "Status",
+   "Signed on",
+   "Expires on",
+   "Value",
+   "SharePoint folder",
+   "Department",
+   "Other details",
+   "uVENTURE record",
+   "External id",
+   "Source system",
+   "Capability",
+   "Owner",
+   "Documents",
+   "Counterparty",
+   "Opportunity",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "campaignTarget",
+  "name": "To work",
+  "key": "",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Campaign",
+   "Last update",
+   "Status",
+   "Company"
+  ],
+  "sorts": [
+   "Last update ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Home: My work due within 7 days",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "person",
+  "name": "Decision makers",
+  "key": "",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Company",
+   "Job Title",
+   "Decision role",
+   "Champion",
+   "Emails"
+  ],
+  "sorts": [],
+  "group": "Decision role",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "publicHoliday",
+  "name": "All UAE public holidays",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Date",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "company",
+  "name": "BD: Key accounts not engaged in 60 days",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Last engagement",
+   "Account tier",
+   "Sector"
+  ],
+  "sorts": [
+   "Last engagement ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "project",
+  "name": "Campaign pack: active campaigns",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "End date",
+   "Target sector",
+   "Target size class",
+   "Channel plan"
+  ],
+  "sorts": [
+   "End date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "milestone",
+  "name": "Calendar",
+  "key": "",
+  "type": "CALENDAR",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Owner",
+   "Due",
+   "Status",
+   "Project"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "Calendar",
+  "key": "",
+  "type": "CALENDAR",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Subject",
+   "Owner",
+   "Date",
+   "Kind",
+   "Company"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "lead",
+  "name": "BD Team: Referral credits",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Referral credited at",
+   "Referred by (colleague)",
+   "Referred by",
+   "Converted opportunity"
+  ],
+  "sorts": [
+   "Referral credited at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "milestone",
+  "name": "Project pack: open milestones",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Owner",
+   "Due",
+   "Status",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "company",
+  "name": "Company Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 23,
+  "columns": [
+   "Domain Name",
+   "Annual Revenue",
+   "Address",
+   "Creation date",
+   "Account Owner",
+   "Linkedin",
+   "Created by",
+   "Account tier",
+   "Name (Arabic)",
+   "Engagement lapses at",
+   "Offset obligor",
+   "Campaign targets",
+   "Other details",
+   "Sector",
+   "Contracts",
+   "Relationship type",
+   "Leads",
+   "Projects",
+   "Documents",
+   "Search keywords",
+   "Last engagement",
+   "Size class",
+   "Engagements"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "company",
+  "name": "Pipeline pack: tiered accounts",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Last engagement",
+   "Account tier",
+   "Sector",
+   "Engagement lapses at"
+  ],
+  "sorts": [
+   "Last engagement ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "contract",
+  "name": "By status",
+  "key": "",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Expires on",
+   "Status",
+   "Kind",
+   "Counterparty"
+  ],
+  "sorts": [
+   "Expires on ASC"
+  ],
+  "group": "Status",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "BD: Team engagements this month",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Subject",
+   "Owner",
+   "Date",
+   "Kind",
+   "Company",
+   "Opportunity"
+  ],
+  "sorts": [
+   "Date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "BD: Leads created, past 12 months",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Creation date",
+   "Source",
+   "Status",
+   "Campaign"
+  ],
+  "sorts": [
+   "Creation date DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "project",
+  "name": "Portfolio",
+  "key": "",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Owner",
+   "End date",
+   "Health",
+   "Percent complete"
+  ],
+  "sorts": [
+   "End date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Signed licences this year",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Company",
+   "Amount"
+  ],
+  "sorts": [
+   "Stage entered at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "BD: My overdue work packages",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "BD: Team open work packages",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "company",
+  "name": "By tier",
+  "key": "",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Last engagement",
+   "Account tier",
+   "Sector",
+   "Offset obligor"
+  ],
+  "sorts": [
+   "Last engagement ASC"
+  ],
+  "group": "Account tier",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "BD: My open work packages",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "contract",
+  "name": "BD: Contracts in negotiation",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Counterparty",
+   "Kind",
+   "Value",
+   "Opportunity"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "task",
+  "name": "Task Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Due Date",
+   "Status",
+   "Assignee",
+   "Relations",
+   "Other details",
+   "Type"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Lead inbox",
+  "key": "",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Source",
+   "Company",
+   "Campaign"
+  ],
+  "sorts": [
+   "Status entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: Team opportunities without next action",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Stage",
+   "Next action",
+   "Company"
+  ],
+  "sorts": [
+   "Stage entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "BD: My opportunities without next action",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Stage",
+   "Next action",
+   "Company"
+  ],
+  "sorts": [
+   "Stage entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "note",
+  "name": "Note Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 1,
+  "columns": [
+   "Relations"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "Engagement Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 17,
+  "columns": [
+   "Kind",
+   "Date",
+   "Next step",
+   "Outcome",
+   "Outcome due at",
+   "Outcome type",
+   "Department",
+   "Other details",
+   "Capability",
+   "Lead",
+   "Owner",
+   "Company",
+   "Opportunity",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "lead",
+  "name": "BD Team: Open leads",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Status",
+   "Next action date",
+   "Source"
+  ],
+  "sorts": [
+   "Status entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "person",
+  "name": "Person Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 13,
+  "columns": [
+   "Emails",
+   "Company",
+   "Linkedin",
+   "Creation date",
+   "Phones",
+   "Job Title",
+   "Created by",
+   "Leads",
+   "Champion",
+   "Name (Arabic)",
+   "Decision role",
+   "Referred leads",
+   "Documents"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "note",
+  "name": "All Notes",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Title",
+   "Relations",
+   "Body",
+   "Created by",
+   "Creation date"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "playbookRoleAssignment",
+  "name": "All Playbook role assignments",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 8,
+  "columns": [
+   "Name",
+   "Playbook role",
+   "Active",
+   "Member",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "company",
+  "name": "All Companies",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 23,
+  "columns": [
+   "Name",
+   "Domain Name",
+   "Created by",
+   "Account Owner",
+   "Creation date",
+   "Linkedin",
+   "Address",
+   "Account tier",
+   "Name (Arabic)",
+   "Engagement lapses at",
+   "Offset obligor",
+   "Campaign targets",
+   "Other details",
+   "Sector",
+   "Contracts",
+   "Relationship type",
+   "Leads",
+   "Projects",
+   "Documents",
+   "Search keywords",
+   "Last engagement",
+   "Size class",
+   "Engagements"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Pipeline pack: open leads",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Status",
+   "Next action date",
+   "Source"
+  ],
+  "sorts": [
+   "Status entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "playbookRoleAssignment",
+  "name": "Playbook role assignment Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 7,
+  "columns": [
+   "Playbook role",
+   "Active",
+   "Member",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "publicHoliday",
+  "name": "UAE public holiday Record Page Fields",
+  "key": "",
+  "type": "FIELDS_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 5,
+  "columns": [
+   "Date",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": false,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "lead",
+  "name": "BD: All leads",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 0,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Status",
+   "Source",
+   "Converted opportunity"
+  ],
+  "sorts": [
+   "Status entered at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "project",
+  "name": "All Projects",
+  "key": "INDEX",
+  "type": "TABLE",
+  "position": 0,
+  "isApp": false,
+  "isWidget": false,
+  "columnCount": 27,
+  "columns": [
+   "Name",
+   "Type",
+   "Status",
+   "Health",
+   "Percent complete",
+   "Event date",
+   "End date",
+   "Playbook applied",
+   "Close task created at",
+   "Department",
+   "Other details",
+   "Target sector",
+   "Target size class",
+   "Offering promoted",
+   "Channel plan",
+   "Milestones",
+   "Campaign targets",
+   "Owner",
+   "Documents",
+   "Leads",
+   "Opportunity",
+   "Work packages",
+   "Company",
+   "Creation date",
+   "Created by",
+   "Last update",
+   "Updated by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "person",
+  "name": "Champions",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Company",
+   "Job Title",
+   "Decision role",
+   "Emails",
+   "Phones"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "project",
+  "name": "By health",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "End date",
+   "Health",
+   "Percent complete",
+   "Type"
+  ],
+  "sorts": [
+   "End date ASC"
+  ],
+  "group": "Health",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "person",
+  "name": "List Members Table",
+  "key": "",
+  "type": "TABLE_WIDGET",
+  "position": 1,
+  "isApp": true,
+  "isWidget": true,
+  "columnCount": 3,
+  "columns": [
+   "Name",
+   "Emails",
+   "Company"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "note",
+  "name": "All Notes",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Title",
+   "Relations",
+   "Body",
+   "Created by",
+   "Creation date"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "person",
+  "name": "All People",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 8,
+  "columns": [
+   "Name",
+   "Emails",
+   "Created by",
+   "Company",
+   "Phones",
+   "Creation date",
+   "Job Title",
+   "Linkedin"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "This month",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Subject",
+   "Owner",
+   "Date",
+   "Kind",
+   "Company",
+   "Opportunity"
+  ],
+  "sorts": [
+   "Date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "company",
+  "name": "By sector",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Last engagement",
+   "Sector",
+   "Account tier",
+   "Domain Name"
+  ],
+  "sorts": [
+   "Last engagement ASC"
+  ],
+  "group": "Sector",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Licence pipeline",
+  "key": "",
+  "type": "KANBAN",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Amount",
+   "Company",
+   "Next action date"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "Stage",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "task",
+  "name": "By Status",
+  "key": "",
+  "type": "KANBAN",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Title",
+   "Status",
+   "Due Date",
+   "Assignee",
+   "Creation date"
+  ],
+  "sorts": [],
+  "group": "Status",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "document",
+  "name": "Documents expiring in 60 days",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Expires on",
+   "Type",
+   "Status",
+   "SharePoint or uVENTURE link"
+  ],
+  "sorts": [
+   "Expires on ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "My leads",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Next action date",
+   "Next action",
+   "Status",
+   "Company"
+  ],
+  "sorts": [
+   "Next action date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "contract",
+  "name": "Expiring",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Expires on",
+   "Counterparty",
+   "Kind",
+   "Value"
+  ],
+  "sorts": [
+   "Expires on ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "milestone",
+  "name": "Missed",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Owner",
+   "Due",
+   "Status",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "company",
+  "name": "All Companies",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 7,
+  "columns": [
+   "Name",
+   "Domain Name",
+   "Created by",
+   "Account Owner",
+   "Creation date",
+   "Linkedin",
+   "Address"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "capability",
+  "name": "Not available to offer",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Kind",
+   "Status changed at",
+   "Status",
+   "uVENTURE record",
+   "Last seen in uVENTURE"
+  ],
+  "sorts": [
+   "Status changed at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "task",
+  "name": "All Tasks",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 8,
+  "columns": [
+   "Title",
+   "Status",
+   "Relations",
+   "Created by",
+   "Due Date",
+   "Assignee",
+   "Body",
+   "Creation date"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Offered to me",
+  "key": "",
+  "type": "TABLE",
+  "position": 1,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Offered at",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "By Stage",
+  "key": "",
+  "type": "KANBAN",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Amount",
+   "Created by",
+   "Close date",
+   "Company",
+   "Point of Contact"
+  ],
+  "sorts": [],
+  "group": "Stage",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "By type",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Type",
+   "Stage",
+   "Amount"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "Type",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "person",
+  "name": "Missing email",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Company",
+   "Job Title",
+   "Decision role",
+   "Phones",
+   "Linkedin"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "task",
+  "name": "Assigned to Me",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 7,
+  "columns": [
+   "Title",
+   "Relations",
+   "Created by",
+   "Due Date",
+   "Assignee",
+   "Body",
+   "Creation date"
+  ],
+  "sorts": [],
+  "group": "Status",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": false,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "company",
+  "name": "Offset obligors",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Last engagement",
+   "Account tier",
+   "Sector"
+  ],
+  "sorts": [
+   "Last engagement ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Qualified not converted",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Qualification score",
+   "Offering interest",
+   "Company"
+  ],
+  "sorts": [
+   "Status entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "capability",
+  "name": "Not seen in uVENTURE for 7 days",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Kind",
+   "Last seen in uVENTURE",
+   "Status",
+   "uVENTURE record",
+   "Stale from"
+  ],
+  "sorts": [
+   "Last seen in uVENTURE ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "Without outcome",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Subject",
+   "Owner",
+   "Date",
+   "Kind",
+   "Company",
+   "Next step"
+  ],
+  "sorts": [
+   "Date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "milestone",
+  "name": "Open",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 4,
+  "columns": [
+   "Name",
+   "Owner",
+   "Due",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Submitted for my review",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Submitted at",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "project",
+  "name": "At risk",
+  "key": "",
+  "type": "TABLE",
+  "position": 2,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "End date",
+   "Health",
+   "Percent complete",
+   "Opportunity"
+  ],
+  "sorts": [
+   "End date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "By source",
+  "key": "",
+  "type": "TABLE",
+  "position": 3,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Source",
+   "Stage",
+   "Amount"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "Source",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Nurture review due",
+  "key": "",
+  "type": "TABLE",
+  "position": 3,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Nurture review date",
+   "Need",
+   "Company",
+   "Source"
+  ],
+  "sorts": [
+   "Nurture review date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "company",
+  "name": "Least recently engaged",
+  "key": "",
+  "type": "TABLE",
+  "position": 3,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Last engagement",
+   "Account tier",
+   "Sector"
+  ],
+  "sorts": [
+   "Last engagement ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Blocked",
+  "key": "",
+  "type": "TABLE",
+  "position": 3,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Blocked at",
+   "Blocked reason",
+   "Due",
+   "Opportunity"
+  ],
+  "sorts": [
+   "Blocked at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Dead this month by reason",
+  "key": "",
+  "type": "TABLE",
+  "position": 4,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Dead reason",
+   "Source",
+   "Company"
+  ],
+  "sorts": [
+   "Status entered at DESC"
+  ],
+  "group": "Dead reason",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "By status",
+  "key": "",
+  "type": "KANBAN",
+  "position": 4,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "Status",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "By probability",
+  "key": "",
+  "type": "TABLE",
+  "position": 4,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Probability",
+   "Stage",
+   "Amount"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "Probability",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "No next action",
+  "key": "",
+  "type": "TABLE",
+  "position": 5,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Stage",
+   "Next action",
+   "Company"
+  ],
+  "sorts": [
+   "Stage entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Planned",
+  "key": "",
+  "type": "TABLE",
+  "position": 5,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Depends on",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "By source",
+  "key": "",
+  "type": "TABLE",
+  "position": 5,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Status",
+   "Source",
+   "Campaign"
+  ],
+  "sorts": [
+   "Status entered at DESC"
+  ],
+  "group": "Source",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "By campaign",
+  "key": "",
+  "type": "TABLE",
+  "position": 6,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Campaign",
+   "Status",
+   "Source"
+  ],
+  "sorts": [
+   "Status entered at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Overdue",
+  "key": "",
+  "type": "TABLE",
+  "position": 6,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Proposals out",
+  "key": "",
+  "type": "TABLE",
+  "position": 6,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Next action date",
+   "Next action",
+   "Amount",
+   "Company"
+  ],
+  "sorts": [
+   "Next action date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Closing this quarter",
+  "key": "",
+  "type": "TABLE",
+  "position": 7,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Stage",
+   "Probability",
+   "Amount"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Due this week",
+  "key": "",
+  "type": "TABLE",
+  "position": 7,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Lost with reasons",
+  "key": "",
+  "type": "TABLE",
+  "position": 8,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Lost reason category",
+   "Lost reason",
+   "Amount"
+  ],
+  "sorts": [
+   "Stage entered at DESC"
+  ],
+  "group": "Lost reason category",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Parked",
+  "key": "",
+  "type": "TABLE",
+  "position": 9,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Next action date",
+   "Stage entered at",
+   "Next action",
+   "Company"
+  ],
+  "sorts": [
+   "Next action date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Hygiene: missing key fields",
+  "key": "",
+  "type": "TABLE",
+  "position": 15,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Type",
+   "Amount",
+   "Close date"
+  ],
+  "sorts": [
+   "Stage entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Hygiene: no done criteria",
+  "key": "",
+  "type": "TABLE",
+  "position": 15,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Opportunity",
+   "Project"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "company",
+  "name": "Hygiene: missing key fields",
+  "key": "",
+  "type": "TABLE",
+  "position": 15,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Last engagement",
+   "Sector",
+   "Size class",
+   "Account tier"
+  ],
+  "sorts": [
+   "Last engagement DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "Hygiene: outcome overdue",
+  "key": "",
+  "type": "TABLE",
+  "position": 15,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Subject",
+   "Owner",
+   "Date",
+   "Kind",
+   "Company",
+   "Opportunity"
+  ],
+  "sorts": [
+   "Date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "person",
+  "name": "Hygiene: missing email or decision role",
+  "key": "",
+  "type": "TABLE",
+  "position": 15,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Company",
+   "Job Title",
+   "Emails",
+   "Decision role",
+   "Phones"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "contract",
+  "name": "Hygiene: past expiry, still Signed",
+  "key": "",
+  "type": "TABLE",
+  "position": 15,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Expires on",
+   "Counterparty",
+   "Kind",
+   "Value"
+  ],
+  "sorts": [
+   "Expires on ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Hygiene: in Qualify over 30 days",
+  "key": "",
+  "type": "TABLE",
+  "position": 16,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Next action",
+   "Next action date",
+   "Company"
+  ],
+  "sorts": [
+   "Stage entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Hygiene: Parked over 90 days",
+  "key": "",
+  "type": "TABLE",
+  "position": 17,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Stage entered at",
+   "Next action",
+   "Lost reason category",
+   "Company"
+  ],
+  "sorts": [
+   "Stage entered at ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "person",
+  "name": "Added in the last 7 days",
+  "key": "",
+  "type": "TABLE",
+  "position": 18,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Company",
+   "Creation date",
+   "Emails",
+   "Job Title",
+   "Created by"
+  ],
+  "sorts": [
+   "Creation date DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "company",
+  "name": "Added in the last 7 days",
+  "key": "",
+  "type": "TABLE",
+  "position": 18,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Creation date",
+   "Domain Name",
+   "Sector",
+   "Created by"
+  ],
+  "sorts": [
+   "Creation date DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Source",
+   "Department",
+   "Dead reason",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 4,
+  "columns": [
+   "Title",
+   "Owner",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "contract",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Owner",
+   "Kind",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "company",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Sector",
+   "Relationship type",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Subject",
+   "Owner",
+   "Kind",
+   "Outcome type",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "document",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Type",
+   "Status",
+   "Confidentiality",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 6,
+  "columns": [
+   "Name",
+   "Owner",
+   "Source",
+   "Type",
+   "Offering",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "project",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 5,
+  "columns": [
+   "Name",
+   "Owner",
+   "Type",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "task",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 4,
+  "columns": [
+   "Title",
+   "Assignee",
+   "Type",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "milestone",
+  "name": "Hygiene: Other without details",
+  "key": "",
+  "type": "TABLE",
+  "position": 19,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 4,
+  "columns": [
+   "Name",
+   "Owner",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": true,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "person",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 10,
+  "columns": [
+   "Name",
+   "Company",
+   "Job Title",
+   "Decision role",
+   "Champion",
+   "Emails",
+   "Phones",
+   "Linkedin",
+   "Opportunities",
+   "Name (Arabic)"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": false,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "campaignTarget",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 7,
+  "columns": [
+   "Name",
+   "Campaign",
+   "Last update",
+   "Status",
+   "Company",
+   "Creation date",
+   "Created by"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "milestone",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 9,
+  "columns": [
+   "Name",
+   "Owner",
+   "Due",
+   "Status",
+   "Project",
+   "Work packages",
+   "Playbook step",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "contract",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 12,
+  "columns": [
+   "Name",
+   "Owner",
+   "Expires on",
+   "Status",
+   "Kind",
+   "Counterparty",
+   "Opportunity",
+   "Signed on",
+   "Value",
+   "SharePoint folder",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [
+   "Expires on ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "project",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 16,
+  "columns": [
+   "Name",
+   "Owner",
+   "End date",
+   "Status",
+   "Health",
+   "Percent complete",
+   "Type",
+   "Event date",
+   "Opportunity",
+   "Milestones",
+   "Work packages",
+   "Playbook applied",
+   "Close task created at",
+   "Company",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [
+   "End date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "document",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 17,
+  "columns": [
+   "Name",
+   "Owner",
+   "Expires on",
+   "Type",
+   "Status",
+   "Confidentiality",
+   "SharePoint or uVENTURE link",
+   "Version",
+   "Company",
+   "Person",
+   "Lead",
+   "Opportunity",
+   "Project",
+   "Contract",
+   "Source system",
+   "External id",
+   "Other details"
+  ],
+  "sorts": [
+   "Expires on ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "capability",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 10,
+  "columns": [
+   "Name",
+   "Kind",
+   "Status changed at",
+   "Status",
+   "uVENTURE record",
+   "Last seen in uVENTURE",
+   "Stale from",
+   "External id",
+   "Source system",
+   "Other details"
+  ],
+  "sorts": [],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": false,
+   "hasSort": false
+  }
+ },
+ {
+  "object": "engagement",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 11,
+  "columns": [
+   "Subject",
+   "Owner",
+   "Date",
+   "Kind",
+   "Company",
+   "Opportunity",
+   "Next step",
+   "Outcome",
+   "Outcome type",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [
+   "Date DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "company",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 20,
+  "columns": [
+   "Name",
+   "Account Owner",
+   "Last engagement",
+   "Account tier",
+   "Sector",
+   "Offset obligor",
+   "Domain Name",
+   "Address",
+   "Linkedin",
+   "Annual Revenue",
+   "People",
+   "Opportunities",
+   "Engagements",
+   "Contracts",
+   "Name (Arabic)",
+   "Search keywords",
+   "Projects",
+   "Size class",
+   "Relationship type",
+   "Other details"
+  ],
+  "sorts": [
+   "Last engagement ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "opportunity",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 26,
+  "columns": [
+   "Name",
+   "Owner",
+   "Close date",
+   "Stage",
+   "Amount",
+   "Company",
+   "Point of Contact",
+   "Type",
+   "Source",
+   "Probability",
+   "Next action",
+   "Next action date",
+   "Next action flagged on",
+   "Stage entered at",
+   "Client deadline",
+   "Lost reason category",
+   "Lost reason",
+   "Playbook applied",
+   "Projects",
+   "Work packages",
+   "Engagements",
+   "Contracts",
+   "SharePoint folder",
+   "Offering",
+   "Funding path",
+   "Other details"
+  ],
+  "sorts": [
+   "Close date ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "lead",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 31,
+  "columns": [
+   "Name",
+   "Owner",
+   "Status entered at",
+   "Status",
+   "Source",
+   "Company",
+   "Person",
+   "Campaign",
+   "Need",
+   "Offering interest",
+   "Department",
+   "Qualification score",
+   "Need identified",
+   "Decision maker reached",
+   "Capability matched",
+   "Funding path identified",
+   "Timing known",
+   "Estimated value",
+   "Next action",
+   "Next action date",
+   "Dead reason",
+   "Nurture review date",
+   "Referred by",
+   "Referred by (colleague)",
+   "Referral note",
+   "Converted opportunity",
+   "Last engagement",
+   "Referral credited at",
+   "Source system",
+   "External id",
+   "Other details"
+  ],
+  "sorts": [
+   "Status entered at DESC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ },
+ {
+  "object": "workPackage",
+  "name": "Everything (expert)",
+  "key": "",
+  "type": "TABLE",
+  "position": 20,
+  "isApp": true,
+  "isWidget": false,
+  "columnCount": 27,
+  "columns": [
+   "Title",
+   "Owner",
+   "Due",
+   "Status",
+   "Reviewer",
+   "Opportunity",
+   "Project",
+   "Milestone",
+   "Depends on",
+   "Dependents",
+   "Objective",
+   "Expected output",
+   "Done criteria",
+   "Blocked reason",
+   "Playbook step",
+   "Due offset (business days)",
+   "Offered at",
+   "Accepted at",
+   "Submitted at",
+   "Blocked at",
+   "Completed at",
+   "Acceptance reminder sent at",
+   "Reassigned at",
+   "Overdue owner notified at",
+   "Overdue ED notified at",
+   "Department",
+   "Other details"
+  ],
+  "sorts": [
+   "Due ASC"
+  ],
+  "group": "",
+  "checks": {
+   "atMostSix": false,
+   "nameFirst": true,
+   "ownerSecond": true,
+   "dateThird": true,
+   "sortOnThird": true,
+   "hasSort": true
+  }
+ }
+]

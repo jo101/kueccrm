@@ -39,6 +39,7 @@ export type OpportunityRecord = {
   nextActionFlaggedOn: string | null;
   stageEnteredAt: string | null;
   staleFrom: string | null;
+  parkedLapsesAt: string | null;
   lostReason: string | null;
   clientDeadline: string | null;
   createdAt: string;
@@ -73,6 +74,8 @@ export type EngagementRecord = {
   name: string | null;
   date: string | null;
   nextStep: string | null;
+  outcome: string | null;
+  outcomeDueAt: string | null;
   companyId: string | null;
   opportunityId: string | null;
 };

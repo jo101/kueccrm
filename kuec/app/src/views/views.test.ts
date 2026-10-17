@@ -8,6 +8,7 @@ import {
 } from 'twenty-sdk/define';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import { OPPORTUNITY_STAGE } from 'src/constants/opportunity-stage';
 import { OWNER_ON_CONTRACT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-contract.field';
 import { OWNER_ON_ENGAGEMENT_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-engagement.field';
 import { OWNER_ON_MILESTONE_FIELD_UNIVERSAL_IDENTIFIER } from 'src/fields/owner-on-milestone.field';
@@ -47,6 +48,16 @@ const ALLOWED_VIEW_TYPES: (ViewType | undefined)[] = [
 const opportunity = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.opportunity;
 const company = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.company;
 const person = STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.person;
+
+// Lost and Parked opportunities are kept, never deleted, and stay out of every
+// opportunity view except the ones that exist to list them (runbooks/14-hygiene.md).
+const RETAINED_STAGES: string[] = [OPPORTUNITY_STAGE.LOST, OPPORTUNITY_STAGE.PARKED];
+const VIEWS_LISTING_RETAINED_STAGES = [
+  'Lost with reasons',
+  'Parked',
+  'Hygiene: Parked over 90 days',
+  EXPERT_VIEW_NAME,
+];
 
 // People have no owner of their own, so their company stands in as the second column.
 const LEADING_COLUMNS_BY_OBJECT: Record<string, { name: string; owner: string }> = {
@@ -176,6 +187,44 @@ describe('views', () => {
       expect(expertViews[0].config.fields?.length).toBeGreaterThan(
         MAX_VISIBLE_COLUMNS,
       );
+    }
+  });
+
+  it('keep Lost and Parked opportunities out, except the views that list them', () => {
+    const stageField = opportunity.fields.stage.universalIdentifier;
+    const opportunityViews = views.filter(
+      (view) =>
+        view.config.objectUniversalIdentifier === opportunity.universalIdentifier &&
+        !VIEWS_LISTING_RETAINED_STAGES.includes(view.config.name),
+    );
+
+    expect(opportunityViews.length).toBeGreaterThan(0);
+
+    for (const view of opportunityViews) {
+      const excludedByFilter = (view.config.filters ?? []).some((filter) => {
+        if (
+          filter.fieldMetadataUniversalIdentifier !== stageField ||
+          filter.viewFilterGroupUniversalIdentifier !== undefined ||
+          !Array.isArray(filter.value)
+        ) {
+          return false;
+        }
+
+        const stages: string[] = filter.value;
+
+        return filter.operand === 'IS_NOT'
+          ? RETAINED_STAGES.every((stage) => stages.includes(stage))
+          : filter.operand === 'IS' &&
+              RETAINED_STAGES.every((stage) => !stages.includes(stage));
+      });
+      const hiddenColumns = (view.config.groups ?? [])
+        .filter((group) => !group.isVisible)
+        .map((group) => group.fieldValue);
+      const excludedByHiddenColumns =
+        view.config.mainGroupByFieldMetadataUniversalIdentifier === stageField &&
+        RETAINED_STAGES.every((stage) => hiddenColumns.includes(stage));
+
+      expect(excludedByFilter || excludedByHiddenColumns, view.config.name).toBe(true);
     }
   });
 

@@ -71,7 +71,7 @@ yarn import:prepare --in <import folder>/in --out <import folder>/out
 | `dedupe-report.csv` | Every merge, ambiguity, rejection and warning, with the source rows (`file:row`) |
 | `field-mapping.csv` | For each import column: the Twenty field, the source header it was read from, and the rule. Also every source column that is not imported |
 | `value-mapping.csv` | Every source value of a select field and the option it became, or `unmapped` |
-| `held-values.csv` | Values of `sizeClass` and `motion`, which have no field in Twenty yet (section 8) |
+| `held-values.csv` | Values of `sizeClass` (no mapping to the 0.7.0 field yet) and `motion` (no field yet), section 8 |
 | `post-import-check.sql` | The section 6 check, with this run's opportunity IDs |
 | `summary.txt` | Counts per object and per stage |
 
@@ -183,7 +183,7 @@ IDs stay stable while the keys stay stable: a company's website domain (or its n
 ## 8. Known limits
 
 - **App-only fields are not set by the import.** `Stage entered at` stays empty on imported opportunities until their first stage change, so they do not count on the dashboard's Stale tile until then, and No next action sorts them first. Project `Health` stays Green and `Percent complete` empty until a milestone's status changes, even for a project with a Missed milestone; W10's 08:00 run still turns projects with an open milestone due within 7 days Amber. A one-off backfill in the app would close this.
-- **No `sizeClass` or `motion` field.** The app has no company size class or opportunity motion field. The script reads both and lists their values in `held-values.csv`; nothing is imported for them. Adding them is a manifest change (two `SELECT` fields, options from `held-values.csv`, `plan` reviewed), then a refresh that imports only ID and those columns.
+- **`sizeClass` is not imported yet; there is no `motion` field.** Company **Size class** (`sizeClass`) exists since 0.7.0, with options Startup, SME, Large enterprise, and Government or semi-government (`src/fields/size-class-on-company.field.ts`). The script still holds the register's size values in `held-values.csv` because they are not yet mapped to those options. To import them: add a `sizeClass` mapping to `scripts/import/target-values.ts` from the values in `held-values.csv`, then run a refresh that imports only ID and Size class. Until then every imported company is listed in Companies > Hygiene: missing key fields (`14-hygiene.md`). Opportunity motion still has no field; adding one is a manifest change (a `SELECT` field, options from `held-values.csv`, `plan` reviewed).
 - **Contracts carry a SharePoint folder, not "documentsLink".** The source column `documentsLink` maps to the existing **SharePoint folder** field (`CLAUDE.md` section 4 names link fields by destination).
 - **Phones**: UAE numbers are split into +971 and the national number; other numbers keep their + prefix and no calling code.
 - **Source defaults to Inbound enquiry** (since 0.5.0, the quick-create default in `12-global-features.md` section 9). A new opportunity row with an empty Source cell is created as Inbound enquiry; check `value-mapping.csv` for blank sources before importing and fill them in the sheet if Inbound is wrong. Existing records and rows with a value are not affected.

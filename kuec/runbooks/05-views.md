@@ -19,6 +19,7 @@ Nothing in this runbook is set in the Settings UI except the stage options it de
 | Grouping in the UI is Select fields only. | Every grouped view groups on a `SELECT`. "By person" needs one filtered view per member (deferred, section 6). |
 | **Relative dates exist.** Date and date-time filters support `IS_RELATIVE` (this, past or next N days, weeks, months, quarters or years, with a timezone and week start), `IS_IN_PAST`, `IS_IN_FUTURE` and `IS_TODAY`, next to Is, Before, After and Is empty (`packages/twenty-shared/src/utils/filter/utils/filterOperandsMap.ts`). | Overdue, Due this week, This month and Closing this quarter are real filtered views here, not just sort orders. The dashboards (Prompt 6) can use the same filters. Relative values carry `Asia/Dubai` and a Monday week start (`kuec/app/src/constants/view-filter-values.ts`), so "this week" is the Dubai week whatever the viewer's browser timezone. `IS_IN_PAST` compares with the current instant. |
 | An app cannot set an object's default view. Manifest views are always added next to the engine-owned "All ..." view. | The sidebar entries open the intended default view directly (section 4). After that, Twenty reopens the last view each user picked. |
+| The engine-owned "All ..." view (key `INDEX`) is left out of the view picker once the object has any other view, is never reopened as a last-used view, and cannot take saved filters: its only save action is **Save as new view** (`packages/twenty-front/src/modules/views/view-picker/utils/computeViewPickerVisibleViews.ts`, `isUsableLastVisitedView.ts`, `components/UpdateViewButtonGroup.tsx`). | Nobody lands on an unfiltered list by default, so keeping Lost and Parked out of default views needs no UI step. `views.test.ts` checks that every opportunity view except Lost with reasons, Parked, Hygiene: Parked over 90 days and Everything (expert) excludes both stages (`14-hygiene.md` section 7). |
 | View visibility is Workspace (everyone) or Unlisted (only the person who created it). There is no per-role view access, and an app cannot create Unlisted views. | The expert views are Workspace views with no sidebar entry (section 3). |
 | A kanban column header shows one aggregate. | Pipeline columns show the sum of Amount. Count and sum together are in the table footers of By type, By source, By probability, Lost with reasons (per group), Proposals out and Closing this quarter: Count on Name, Sum on Amount. |
 | Install validates every view filter: the operand must suit the field type, the value must parse, and a select value must be an existing option. | The stage options Signed, Lost and Parked must exist before the app is installed (section 5). |
@@ -47,6 +48,8 @@ All are additive. Option ids are permanent; labels can be relabelled later. Neve
 | Project | End date (`endDate`) | Date | |
 
 The option lists are a first cut by engineering. The ED should confirm them before go-live; a relabel needs no data change.
+
+0.7.0 adds Company **Size class** (`sizeClass`, select: Startup, SME, Large enterprise, Government or semi-government) and two dates the app writes, Opportunity **Parked lapses at** and Engagement **Outcome due at**, for the hygiene views (`14-hygiene.md` section 2).
 
 ## 3. Views
 
@@ -123,7 +126,7 @@ Missed includes Open milestones past their due date as well as those set to Miss
 | By sector | Table | | Sector | Last engagement | Name, Account owner, Last engagement, Sector, Account tier, Domain |
 | Offset obligors | Table | Offset obligor is true | | Last engagement | Name, Account owner, Last engagement, Account tier, Sector |
 | Least recently engaged | Table | | | Last engagement, oldest first | as Offset obligors |
-| Everything (expert) | Table | | | Last engagement | all 17 fields (0.5.0 adds Name (Arabic), Search keywords, Projects) |
+| Everything (expert) | Table | | | Last engagement | all 18 fields (0.5.0 adds Name (Arabic), Search keywords, Projects; 0.7.0 adds Size class) |
 
 ### People
 
@@ -143,6 +146,10 @@ People have no owner and no date of their own. The company is the second column 
 | By status | Table | | Status | Expires on | Name, Owner, Expires on, Status, Kind, Counterparty |
 | Expiring (sidebar default) | Table | Status Signed; Expires on not empty | | Expires on, soonest first (past dates first: lapsed and not renewed) | Name, Owner, Expires on, Counterparty, Kind, Value |
 | Everything (expert) | Table | | | Expires on | all 10 fields |
+
+### Hygiene views (0.7.0)
+
+Each object below has one or more views named **Hygiene: ...** at positions 15 to 17, after its working views and before Everything (expert): Opportunities (missing key fields, in Qualify over 30 days, Parked over 90 days), Companies (missing key fields), People (missing email or decision role), Engagements (outcome overdue), Work packages (no done criteria), Contracts (past expiry, still Signed). Companies and People also have **Added in the last 7 days** (position 18) for the weekly duplicate sweep. Filters, columns and how each is worked: `14-hygiene.md` sections 1 and 4. The Data quality page shows each Hygiene view as a count beside the view itself.
 
 ### Capability
 
@@ -193,14 +200,14 @@ For each view below, open it, run **Export view** from the command menu (or the 
 
 | Object | Views | Checked by, date |
 | --- | --- | --- |
-| Work packages | My work, Offered to me, Submitted for my review, Blocked, By status, Planned, Overdue, Due this week, Everything (expert) | |
-| Opportunities | Pipeline, Licence pipeline, By type, By source, By probability, No next action, Proposals out, Closing this quarter, Lost with reasons, Parked, Everything (expert) | |
+| Work packages | My work, Offered to me, Submitted for my review, Blocked, By status, Planned, Overdue, Due this week, Hygiene: no done criteria, Everything (expert) | |
+| Opportunities | Pipeline, Licence pipeline, By type, By source, By probability, No next action, Proposals out, Closing this quarter, Lost with reasons, Parked, Hygiene: missing key fields, Hygiene: in Qualify over 30 days, Hygiene: Parked over 90 days, Everything (expert) | |
 | Projects | Portfolio, By health, At risk, Everything (expert) | |
 | Milestones | Calendar, Missed, Open, Everything (expert) | |
-| Engagements | Calendar, This month, Without outcome, Everything (expert) | |
-| Companies | By tier, By sector, Offset obligors, Least recently engaged, Everything (expert) | |
-| People | Decision makers, Champions, Missing email, Everything (expert) | |
-| Contracts | By status, Expiring, Everything (expert) | |
+| Engagements | Calendar, This month, Without outcome, Hygiene: outcome overdue, Everything (expert) | |
+| Companies | By tier, By sector, Offset obligors, Least recently engaged, Hygiene: missing key fields, Added in the last 7 days, Everything (expert) | |
+| People | Decision makers, Champions, Missing email, Hygiene: missing email or decision role, Added in the last 7 days, Everything (expert) | |
+| Contracts | By status, Expiring, Hygiene: past expiry, still Signed, Everything (expert) | |
 
 A user without Export CSV does not see the command; that is the expected result for a role that should not export.
 

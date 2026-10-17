@@ -12,7 +12,10 @@ import {
 } from 'src/automation/notifications/notify';
 import { OBJECT_NAMES } from 'src/automation/records/object-names';
 import { type OpportunityRecord } from 'src/automation/records/record-types';
-import { computeStaleFrom } from 'src/automation/rules/age-thresholds.rule';
+import {
+  computeParkedLapsesAt,
+  computeStaleFrom,
+} from 'src/automation/rules/age-thresholds.rule';
 import { OPPORTUNITY_STAGE } from 'src/constants/opportunity-stage';
 
 export const W08_OPPORTUNITY_STAGE_TRACKING_UNIVERSAL_IDENTIFIER = 'f2004638-3cea-4d6e-bc61-25984a3f476a';
@@ -32,6 +35,7 @@ const handler = async (
   await updateRecord(api.asApplication, OBJECT_NAMES.opportunity, event.recordId, {
     stageEnteredAt: after.updatedAt,
     staleFrom: computeStaleFrom(after.updatedAt),
+    parkedLapsesAt: computeParkedLapsesAt(after.stage, after.updatedAt),
   });
 
   if (
@@ -64,7 +68,7 @@ export default defineLogicFunction({
   universalIdentifier: W08_OPPORTUNITY_STAGE_TRACKING_UNIVERSAL_IDENTIFIER,
   name: 'w08-opportunity-stage-tracking',
   description:
-    'W8: stamps stageEnteredAt and staleFrom on every stage change; Lost without a reason creates a Record lost reason task for the owner',
+    'W8: stamps stageEnteredAt, staleFrom and parkedLapsesAt on every stage change; Lost without a reason creates a Record lost reason task for the owner',
   timeoutSeconds: 60,
   handler,
   databaseEventTriggerSettings: {

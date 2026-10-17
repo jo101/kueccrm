@@ -1,4 +1,4 @@
-import { defineObject, FieldType } from 'twenty-sdk/define';
+import { defineObject, FieldType, MetadataWritability } from 'twenty-sdk/define';
 
 export const ENGAGEMENT_UNIVERSAL_IDENTIFIER = '28836d0c-0ee1-461b-9785-32ae5dfa2d2b';
 
@@ -14,6 +14,7 @@ export const ENGAGEMENT_KIND_FIELD_UNIVERSAL_IDENTIFIER = 'b86f2c0b-c13e-478d-ae
 export const ENGAGEMENT_DATE_FIELD_UNIVERSAL_IDENTIFIER = '9441df08-5c1d-4173-b019-46dfa85ecc34';
 export const ENGAGEMENT_NEXT_STEP_FIELD_UNIVERSAL_IDENTIFIER = '83639484-27b0-420a-91c7-0d879a628ef9';
 export const ENGAGEMENT_OUTCOME_FIELD_UNIVERSAL_IDENTIFIER = '45993fb6-c3f2-4891-845e-301d35ec5b45';
+export const ENGAGEMENT_OUTCOME_DUE_AT_FIELD_UNIVERSAL_IDENTIFIER = 'f47e3974-434e-49b6-aae0-66bf18a77ef4';
 
 export default defineObject({
   universalIdentifier: ENGAGEMENT_UNIVERSAL_IDENTIFIER,
@@ -68,6 +69,16 @@ export default defineObject({
       label: 'Outcome',
       description: 'What was agreed or learned; empty means not yet written up',
       icon: 'IconClipboardCheck',
+    },
+    {
+      universalIdentifier: ENGAGEMENT_OUTCOME_DUE_AT_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.DATE_TIME,
+      name: 'outcomeDueAt',
+      label: 'Outcome due at',
+      description: 'Date plus 2 days, set by the app',
+      icon: 'IconHourglassLow',
+      isAuditLogged: false,
+      writability: MetadataWritability.APPLICATION,
     },
   ],
 });

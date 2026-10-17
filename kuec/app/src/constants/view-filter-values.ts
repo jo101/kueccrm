@@ -14,6 +14,7 @@ export const TODAY_FILTER_VALUE = 'THIS_1_DAY;;Asia/Dubai;;MONDAY;;';
 // A PAST or NEXT window stops at the current period, so "the past 12 months"
 // is the past 11 months OR this month, and "within N days" is today OR the next N days.
 export const PAST_11_MONTHS_FILTER_VALUE = 'PAST_11_MONTH;;Asia/Dubai;;MONDAY;;';
+export const PAST_7_DAYS_FILTER_VALUE = 'PAST_7_DAY;;Asia/Dubai;;MONDAY;;';
 export const NEXT_7_DAYS_FILTER_VALUE = 'NEXT_7_DAY;;Asia/Dubai;;MONDAY;;';
 export const NEXT_30_DAYS_FILTER_VALUE = 'NEXT_30_DAY;;Asia/Dubai;;MONDAY;;';
 export const NEXT_90_DAYS_FILTER_VALUE = 'NEXT_90_DAY;;Asia/Dubai;;MONDAY;;';

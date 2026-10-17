@@ -1,0 +1,32 @@
+[
+  {
+    "surface": "record page",
+    "attempt": "click the Status value, pick Done",
+    "storedStatusAfter": "OFFERED",
+    "dropdownOpened": false,
+    "toasts": ""
+  },
+  {
+    "surface": "kanban By status",
+    "attempt": "drag the card from Offered to Done",
+    "storedStatusAfter": "OFFERED",
+    "kanbanViewFound": true,
+    "cardFound": true,
+    "doneColumnFound": true,
+    "cardColumnOnScreenAfterDrag": "Done",
+    "toasts": ""
+  },
+  {
+    "surface": "kanban By status",
+    "attempt": "reload after the refused drag",
+    "cardColumnOnScreen": "not Done"
+  },
+  {
+    "surface": "table",
+    "attempt": "click the Status cell, pick Done",
+    "storedStatusAfter": "OFFERED",
+    "rowFound": true,
+    "dropdownOpened": false,
+    "toasts": ""
+  }
+]

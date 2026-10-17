@@ -1,0 +1,146 @@
+count core._typeorm_generated_columns_and_materialized_views 0
+count core._typeorm_migrations 182
+count core.agent 2
+count core.apiKey 3
+count core.appToken 15
+count core.application 5
+count core.applicationAuthorization 0
+count core.applicationRegistration 4
+count core.applicationRegistrationVariable 0
+count core.applicationTranslation 0
+count core.applicationVariable 7
+count core.approvedAccessDomain 0
+count core.calendarChannel 12
+count core.commandMenuItem 257
+count core.connectedAccount 18
+count core.connectionProvider 0
+count core.dataSource 0
+count core.deferredWorkspaceMigrationAction 0
+count core.dpaAgreement 0
+count core.emailingDomain 4
+count core.featureFlag 12
+count core.fieldMetadata 1769
+count core.fieldPermission 2
+count core.file 868
+count core.frontComponent 7
+count core.indexFieldMetadata 391
+count core.indexMetadata 337
+count core.keyValuePair 27
+count core.logicFunction 23
+count core.logicFunctionLayer 0
+count core.messageChannel 16
+count core.messageFolder 8
+count core.navigationMenuItem 37
+count core.objectMetadata 93
+count core.objectPermission 2
+count core.pageLayout 165
+count core.pageLayoutTab 305
+count core.pageLayoutWidget 554
+count core.pendingWakeUp 4
+count core.permissionFlag 52
+count core.publicDomain 0
+count core.role 8
+count core.rolePermissionFlag 1
+count core.roleTarget 1013
+count core.rowLevelPermissionPredicate 0
+count core.rowLevelPermissionPredicateGroup 0
+count core.searchFieldMetadata 85
+count core.settingsMenuItem 0
+count core.signingKey 1
+count core.skill 32
+count core.timelineActivityType 39
+count core.twoFactorAuthenticationMethod 0
+count core.unsubscribeTopic 6
+count core.upgradeMigration 244
+count core.usageLimit 0
+count core.user 1005
+count core.userApplicationVariableValue 0
+count core.userSession 15
+count core.userWorkspace 1009
+count core.validationRule 0
+count core.view 225
+count core.viewField 1753
+count core.viewFieldGroup 74
+count core.viewFilter 107
+count core.viewFilterGroup 7
+count core.viewGroup 116
+count core.viewSort 70
+count core.webhook 0
+count core.workflow 8
+count core.workflowVersion 8
+count core.workspace 2
+count core.workspaceSSOIdentityProvider 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5._contract 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5._employmentHistory 5
+count workspace_1wgvd1injqtife6y4rvfbu3h5._engagement 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5._milestone 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5._pet 1
+count workspace_1wgvd1injqtife6y4rvfbu3h5._petCareAgreement 3
+count workspace_1wgvd1injqtife6y4rvfbu3h5._playbookRoleAssignment 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5._project 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5._publicHoliday 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5._rocket 3
+count workspace_1wgvd1injqtife6y4rvfbu3h5._surveyResult 3
+count workspace_1wgvd1injqtife6y4rvfbu3h5._workPackage 2
+count workspace_1wgvd1injqtife6y4rvfbu3h5.agentChatThread 15
+count workspace_1wgvd1injqtife6y4rvfbu3h5.agentChatThreadParticipant 14
+count workspace_1wgvd1injqtife6y4rvfbu3h5.agentChatThreadTarget 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5.agentMessage 54
+count workspace_1wgvd1injqtife6y4rvfbu3h5.agentMessagePart 80
+count workspace_1wgvd1injqtife6y4rvfbu3h5.agentTurn 27
+count workspace_1wgvd1injqtife6y4rvfbu3h5.attachment 400
+count workspace_1wgvd1injqtife6y4rvfbu3h5.blocklist 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5.calendarChannelEventAssociation 800
+count workspace_1wgvd1injqtife6y4rvfbu3h5.calendarEvent 800
+count workspace_1wgvd1injqtife6y4rvfbu3h5.calendarEventParticipant 2050
+count workspace_1wgvd1injqtife6y4rvfbu3h5.calendarEventTarget 1738
+count workspace_1wgvd1injqtife6y4rvfbu3h5.callRecording 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5.campaignDelivery 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5.company 599
+count workspace_1wgvd1injqtife6y4rvfbu3h5.dashboard 3
+count workspace_1wgvd1injqtife6y4rvfbu3h5.message 600
+count workspace_1wgvd1injqtife6y4rvfbu3h5.messageCampaign 2
+count workspace_1wgvd1injqtife6y4rvfbu3h5.messageChannelMessageAssociation 600
+count workspace_1wgvd1injqtife6y4rvfbu3h5.messageChannelMessageAssociationMessageFolder 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5.messageList 2
+count workspace_1wgvd1injqtife6y4rvfbu3h5.messageListMember 182
+count workspace_1wgvd1injqtife6y4rvfbu3h5.messageParticipant 1790
+count workspace_1wgvd1injqtife6y4rvfbu3h5.messageSuppression 15
+count workspace_1wgvd1injqtife6y4rvfbu3h5.messageThread 300
+count workspace_1wgvd1injqtife6y4rvfbu3h5.messageThreadTarget 3619
+count workspace_1wgvd1injqtife6y4rvfbu3h5.note 1800
+count workspace_1wgvd1injqtife6y4rvfbu3h5.noteTarget 1800
+count workspace_1wgvd1injqtife6y4rvfbu3h5.opportunity 155
+count workspace_1wgvd1injqtife6y4rvfbu3h5.person 1200
+count workspace_1wgvd1injqtife6y4rvfbu3h5.recordShare 422
+count workspace_1wgvd1injqtife6y4rvfbu3h5.shortLink 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5.task 1974
+count workspace_1wgvd1injqtife6y4rvfbu3h5.taskTarget 1972
+count workspace_1wgvd1injqtife6y4rvfbu3h5.timelineActivity 15145
+count workspace_1wgvd1injqtife6y4rvfbu3h5.workflow 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5.workflowAutomatedTrigger 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5.workflowRun 2
+count workspace_1wgvd1injqtife6y4rvfbu3h5.workflowVersion 0
+count workspace_1wgvd1injqtife6y4rvfbu3h5.workspaceMember 1005
+record {"name":"T7 history","status":"DONE","dueAt":"2026-12-01T13:00:00+00:00","objective":null,"expectedOutput":null,"doneCriteria":"Restore keeps every row","blockedReason":"Waiting for the sample","declinedReason":"Kept for T8: written before the T7 backup","playbookStep":null,"dueOffsetBusinessDays":null,"offeredAt":"2026-10-16T06:24:03.84+00:00","acceptedAt":"2026-10-16T06:24:38.246+00:00","submittedAt":"2026-10-16T06:24:50.298+00:00","blockedAt":"2026-10-16T06:24:26.209+00:00","completedAt":"2026-10-16T06:25:03.563+00:00","acceptReminderSentAt":null,"reassignedAt":null,"overdueOwnerNotifiedAt":null,"overdueEdNotifiedAt":null,"id":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","createdAt":"2026-10-16T06:24:02.066253+00:00","createdBySource":"API","createdByWorkspaceMemberId":null,"createdByName":"kuec-acceptance2","createdByContext":{},"deletedAt":null,"position":-1,"updatedAt":"2026-10-16T06:25:03.62323+00:00","updatedBySource":"APPLICATION","updatedByWorkspaceMemberId":null,"updatedByName":"KUEC BD Ops","updatedByContext":{"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"},"searchVector":"'history':2 't7':1","milestoneId":null,"dependsOnId":null,"ownerId":"20202020-0687-4c41-b707-ed1bfca972a7","opportunityId":"2833884e-0388-404c-8a5d-2b41164d9634","reviewerId":null,"projectId":null}
+timeline {"id":"326670f2-86f5-4ed1-8799-7298fc6ac876","happensAt":"2026-10-16T06:24:02.066+00:00","type":"recordCreated","properties":{},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:02.559657+00:00"}
+timeline {"id":"93c33708-1c27-430b-bc38-89d4e34721e9","happensAt":"2026-10-16T06:24:02.125+00:00","type":"workPackageOffered","properties":{"ownerId": "20202020-0687-4c41-b707-ed1bfca972a7", "fromStatus": "PLANNED"},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:03.683552+00:00"}
+timeline {"id":"d871d675-b151-4bae-9037-2b1d81ade854","happensAt":"2026-10-16T06:24:02.125+00:00","type":"recordUpdated","properties":{"diff": {"status": {"after": "OFFERED", "before": "PLANNED"}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:02.632412+00:00"}
+timeline {"id":"da7e5baf-2d1a-4896-827e-44d944f9ead7","happensAt":"2026-10-16T06:24:03.923+00:00","type":"recordUpdated","properties":{"diff": {"offeredAt": {"after": "2026-10-16T06:24:03.84Z", "before": null}, "updatedBy": {"after": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}, "before": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:03.938588+00:00"}
+timeline {"id":"af6fc5e0-5172-4917-bccc-3221a8e28d90","happensAt":"2026-10-16T06:24:04.121+00:00","type":"taskLinked","properties":{},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":"e6ca20ad-43e8-4f37-a05f-1d1f66b44c51","createdAt":"2026-10-16T06:24:04.164565+00:00"}
+timeline {"id":"1476ae25-c11c-4802-a3d4-e1d073c2cb4c","happensAt":"2026-10-16T06:24:14.17+00:00","type":"recordUpdated","properties":{"diff": {"status": {"after": "ACCEPTED", "before": "OFFERED"}, "updatedBy": {"after": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}, "before": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:14.19076+00:00"}
+timeline {"id":"d8baed8f-597f-4610-a37a-10dc26e5084e","happensAt":"2026-10-16T06:24:14.17+00:00","type":"workPackageAccepted","properties":{"ownerId": "20202020-0687-4c41-b707-ed1bfca972a7", "fromStatus": "OFFERED"},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:15.364895+00:00"}
+timeline {"id":"8d2f8d4e-cfed-4c1e-8f8b-faf63d299674","happensAt":"2026-10-16T06:24:15.238+00:00","type":"recordUpdated","properties":{"diff": {"updatedBy": {"after": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}, "before": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}}, "acceptedAt": {"after": "2026-10-16T06:24:14.17Z", "before": null}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:15.278271+00:00"}
+timeline {"id":"30e8fc5a-c5bd-4029-ad0e-0a4554866431","happensAt":"2026-10-16T06:24:26.209+00:00","type":"recordUpdated","properties":{"diff": {"status": {"after": "BLOCKED", "before": "ACCEPTED"}, "updatedBy": {"after": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}, "before": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}}, "blockedReason": {"after": "Waiting for the sample", "before": ""}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:26.219961+00:00"}
+timeline {"id":"b60f5d85-dd8e-4c7c-b528-bbdd462d4640","happensAt":"2026-10-16T06:24:26.209+00:00","type":"workPackageBlocked","properties":{"ownerId": "20202020-0687-4c41-b707-ed1bfca972a7", "fromStatus": "ACCEPTED", "blockedReason": "Waiting for the sample"},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:27.121522+00:00"}
+timeline {"id":"fb77ff4a-0d07-4601-91fc-66fb6c2ad9c8","happensAt":"2026-10-16T06:24:26.984+00:00","type":"recordUpdated","properties":{"diff": {"blockedAt": {"after": "2026-10-16T06:24:26.209Z", "before": null}, "updatedBy": {"after": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}, "before": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:27.016936+00:00"}
+timeline {"id":"b879fc11-4ef7-4268-adbe-0d15ec05967c","happensAt":"2026-10-16T06:24:38.246+00:00","type":"workPackageAccepted","properties":{"ownerId": "20202020-0687-4c41-b707-ed1bfca972a7", "fromStatus": "BLOCKED"},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:39.60487+00:00"}
+timeline {"id":"c05ac676-51f9-422f-b376-2fd85d4ea499","happensAt":"2026-10-16T06:24:38.246+00:00","type":"recordUpdated","properties":{"diff": {"status": {"after": "ACCEPTED", "before": "BLOCKED"}, "updatedBy": {"after": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}, "before": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:38.260794+00:00"}
+timeline {"id":"72086d29-a646-437b-9b4d-a83183b25eeb","happensAt":"2026-10-16T06:24:39.52+00:00","type":"recordUpdated","properties":{"diff": {"updatedBy": {"after": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}, "before": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}}, "acceptedAt": {"after": "2026-10-16T06:24:38.246Z", "before": "2026-10-16T06:24:14.170Z"}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:39.54216+00:00"}
+timeline {"id":"1fbc603d-16d4-4af5-83e8-f7f628df60f9","happensAt":"2026-10-16T06:24:50.298+00:00","type":"recordUpdated","properties":{"diff": {"status": {"after": "SUBMITTED", "before": "ACCEPTED"}, "updatedBy": {"after": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}, "before": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:50.311238+00:00"}
+timeline {"id":"834fee9e-4751-40b1-aa85-da27663b1737","happensAt":"2026-10-16T06:24:50.298+00:00","type":"workPackageSubmitted","properties":{"ownerId": "20202020-0687-4c41-b707-ed1bfca972a7", "fromStatus": "ACCEPTED"},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:51.685815+00:00"}
+timeline {"id":"619439f5-4352-4fa9-b5fa-fca6bd26a29f","happensAt":"2026-10-16T06:24:51.606+00:00","type":"recordUpdated","properties":{"diff": {"updatedBy": {"after": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}, "before": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}}, "submittedAt": {"after": "2026-10-16T06:24:50.298Z", "before": null}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:24:51.622221+00:00"}
+timeline {"id":"4f8129bb-58fe-4080-8bc9-e7ddd2c7c9a2","happensAt":"2026-10-16T06:25:02.34+00:00","type":"recordUpdated","properties":{"diff": {"status": {"after": "DONE", "before": "SUBMITTED"}, "updatedBy": {"after": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}, "before": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:25:02.356884+00:00"}
+timeline {"id":"b9b95579-d42d-4176-b087-7040d040f396","happensAt":"2026-10-16T06:25:02.34+00:00","type":"workPackageDone","properties":{"ownerId": "20202020-0687-4c41-b707-ed1bfca972a7", "fromStatus": "SUBMITTED"},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:25:03.530259+00:00"}
+timeline {"id":"fd99e2a6-ba82-4a5f-aadc-df8390d2321c","happensAt":"2026-10-16T06:25:03.623+00:00","type":"recordUpdated","properties":{"diff": {"updatedBy": {"after": {"name": "KUEC BD Ops", "source": "APPLICATION", "context": {"applicationId": "5f10973d-2e82-4898-8c21-5cc801f71c15"}, "workspaceMemberId": null}, "before": {"name": "kuec-acceptance2", "source": "API", "context": {}, "workspaceMemberId": null}}, "completedAt": {"after": "2026-10-16T06:25:03.563Z", "before": null}}},"targetWorkPackageId":"64a09b0e-ffef-43a9-a95d-16ee0371ee05","targetOpportunityId":null,"linkedRecordId":null,"createdAt":"2026-10-16T06:25:03.632994+00:00"}
+task {"id":"e6ca20ad-43e8-4f37-a05f-1d1f66b44c51","title":"Accept or decline: T7 history","assigneeId":"20202020-0687-4c41-b707-ed1bfca972a7","createdAt":"2026-10-16T06:24:04.083308+00:00","deletedAt":null}

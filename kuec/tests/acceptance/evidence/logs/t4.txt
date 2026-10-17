@@ -1,0 +1,64 @@
+ RUN  v4.0.16 /home/user/kueccrm/kuec/app
+[t4] next run 2026-10-17T04:00:00.000Z (08:00 Asia/Dubai), worker clock offset 78247295 ms
+worker restarted (offset 78247295)
+[t4] observations:
+  2026-10-17T03:58:50.223Z tasks=0
+  2026-10-17T03:58:55.246Z tasks=0
+  2026-10-17T03:59:00.275Z tasks=0
+  2026-10-17T03:59:05.298Z tasks=0
+  2026-10-17T03:59:10.332Z tasks=0
+  2026-10-17T03:59:15.362Z tasks=0
+  2026-10-17T03:59:20.390Z tasks=0
+  2026-10-17T03:59:25.415Z tasks=0
+  2026-10-17T03:59:30.443Z tasks=0
+  2026-10-17T03:59:35.464Z tasks=0
+  2026-10-17T03:59:40.489Z tasks=0
+  2026-10-17T03:59:45.510Z tasks=0
+  2026-10-17T03:59:50.536Z tasks=0
+  2026-10-17T03:59:55.558Z tasks=0
+  2026-10-17T04:00:00.587Z tasks=0
+  2026-10-17T04:00:05.617Z tasks=0
+  2026-10-17T04:00:10.716Z tasks=0
+  2026-10-17T04:00:15.739Z tasks=0
+  2026-10-17T04:00:20.760Z tasks=0
+  2026-10-17T04:00:25.790Z tasks=0
+  2026-10-17T04:00:30.815Z tasks=1
+  2026-10-17T04:00:35.862Z tasks=1
+  2026-10-17T04:00:40.888Z tasks=1
+  2026-10-17T04:00:45.916Z tasks=1
+  2026-10-17T04:00:50.947Z tasks=1
+  2026-10-17T04:00:55.969Z tasks=1
+  2026-10-17T04:01:01.001Z tasks=1
+  2026-10-17T04:01:06.022Z tasks=1
+  2026-10-17T04:01:11.049Z tasks=1
+  2026-10-17T04:01:16.075Z tasks=1
+  2026-10-17T04:01:21.115Z tasks=1
+  2026-10-17T04:01:26.143Z tasks=1
+  2026-10-17T04:01:31.167Z tasks=1
+  2026-10-17T04:01:36.194Z tasks=1
+  2026-10-17T04:01:41.221Z tasks=1
+  2026-10-17T04:01:46.252Z tasks=1
+  2026-10-17T04:01:51.280Z tasks=1
+  2026-10-17T04:01:56.302Z tasks=1
+  2026-10-17T04:02:01.325Z tasks=1
+  2026-10-17T04:02:06.365Z tasks=1
+  2026-10-17T04:02:11.393Z tasks=1
+  2026-10-17T04:02:16.415Z tasks=1
+  2026-10-17T04:02:21.436Z tasks=1
+  2026-10-17T04:02:26.458Z tasks=1
+  2026-10-17T04:02:31.481Z tasks=1
+  2026-10-17T04:02:36.510Z tasks=1
+  2026-10-17T04:02:41.532Z tasks=1
+  2026-10-17T04:02:46.559Z tasks=1
+  2026-10-17T04:02:51.587Z tasks=1
+  2026-10-17T04:02:56.613Z tasks=1
+[t4] first seen at worker time 2026-10-17T04:00:30.815Z
+worker restarted (real )
+ ✓ src/__tests__/acceptance/t4-next-action-cron.integration-test.ts (3 tests) 434530ms
+     ✓ does not flag the opportunity outside the 08:00 run  130135ms
+     ✓ flags it at the next 08:00 run, once  271658ms
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  06:10:04
+   Duration  562.20s (transform 17.59s, setup 0ms, import 21.73s, tests 434.53s, environment 0ms)
+EXIT 0

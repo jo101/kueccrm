@@ -1,0 +1,22 @@
+ RUN  v4.0.16 /home/user/kueccrm/kuec/app
+[t2t3] shortened sync plan:
+Twenty will perform the following actions:
+Plan: 0 to add, 17 to change, 0 to destroy.
+[t2] reminder 40.587s after offeredAt (expected 40s)
+[t2] reassigned 100.683s after offeredAt (expected 100s)
+[t3] owner notified 0.573s after dueAt
+[t3] ED notified 40.68s after dueAt (expected 40s)
+[restore] manual level-1 run after 55s: {"outcome":"WAIT","detail":"chained wp-accept-e63bbd5a-3cf8-414c-a799-0362231ebc83-1792127738959-l1"}
+ ✓ src/__tests__/acceptance/t2-t3-escalation-timers.integration-test.ts (8 tests) 401361ms
+     ✓ stamps offeredAt and asks the owner to accept  2104ms
+     ✓ at 2 days notifies the owner and the ED, owner unchanged  42308ms
+     ✓ at 5 days reassigns to the ops coordinator and notifies old owner, new owner and ED  58373ms
+     ✓ fires each level once  20040ms
+     ✓ notifies the owner at the due time  32281ms
+     ✓ notifies the ED 2 days later  60304ms
+     ✓ syncs the shipped build back and its timers wait real business days again  125873ms
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  05:08:13
+   Duration  502.63s (transform 9.73s, setup 0ms, import 11.47s, tests 401.36s, environment 0ms)
+EXIT 0

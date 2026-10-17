@@ -1,0 +1,10 @@
+ RUN  v4.0.16 /home/user/kueccrm/kuec/app
+[upgrade] plan:
+Twenty will perform the following actions:
+Plan: 65 to add, 17 to change, 0 to destroy.
+ ✓ src/__tests__/upgrade.integration-test.ts (5 tests) 205293ms
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  06:37:50
+   Duration  335.17s (transform 11.70s, setup 0ms, import 14.77s, tests 205.29s, environment 0ms)
+EXIT 0

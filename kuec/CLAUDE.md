@@ -18,6 +18,7 @@ kuec/
   config/dashboards/   click-runbooks for anything configured in the Settings UI
   playbooks/           how BD staff work: stages, next actions, handoffs, in plain language
   runbooks/            how engineers and the ops coordinator run the system: incidents, key rotation, restore, import
+  roadmap/             one file per quarter: metrics, every gap in one bucket, what ships next
   tests/               app tests that run outside the app package (rules, sweeps, end-to-end)
 ```
 

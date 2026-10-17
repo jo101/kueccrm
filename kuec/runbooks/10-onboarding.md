@@ -20,6 +20,10 @@ Tick each one when you can answer yes.
 | 4 | Can you set a next action on an opportunity? | Open **Pipeline**, find your test opportunity, and fill in **Next action** ("Call the client to confirm the meeting") and **Next action date** (tomorrow). | Both fields are saved, and the opportunity no longer appears on the **Exceptions** page under No next action. |
 | 5 | Can you ask for help? | On the test work package card, press **Request help** and type one line, for example "Testing: please confirm you received this." | The ops coordinator confirms they received a task called "Help needed: TEST - <your first name>". |
 
+## Then connect your mailbox
+
+With the ops coordinator, connect your Microsoft mail and calendar (Settings > Accounts > Emails > **Connect with Microsoft**) with the team's settings: email visibility **Subject and metadata**, contact auto-creation **None**, calendar visibility **Everything**, calendar auto-creation off (`config/dashboards/email-calendar-sync.md`). Then read "How to find anything" in `runbooks/12-global-features.md`.
+
 ## Sign-off
 
 | | Name | Date |

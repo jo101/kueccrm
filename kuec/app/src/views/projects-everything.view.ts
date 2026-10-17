@@ -3,6 +3,7 @@ import {
   ViewSortDirection,
   ViewType,
 } from 'twenty-sdk/define';
+import { COMPANY_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/company-on-project.field';
 import { MILESTONES_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/milestones-on-project.field';
 import { OPPORTUNITY_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/opportunity-on-project.field';
 import { OWNER_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/owner-on-project.field';
@@ -44,6 +45,7 @@ export default defineView({
     { universalIdentifier: 'a6214415-c10b-4664-976b-533acb1411b6', fieldMetadataUniversalIdentifier: WORK_PACKAGES_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER, position: 10, isVisible: true, size: 170 },
     { universalIdentifier: '7a538edb-6be3-4db9-b9d5-65dd53acac7c', fieldMetadataUniversalIdentifier: PROJECT_PLAYBOOK_APPLIED_FIELD_UNIVERSAL_IDENTIFIER, position: 11, isVisible: true, size: 130 },
     { universalIdentifier: '0e37f68d-246c-4a87-b1c2-84c0fcdc157b', fieldMetadataUniversalIdentifier: PROJECT_CLOSE_TASK_CREATED_AT_FIELD_UNIVERSAL_IDENTIFIER, position: 12, isVisible: true, size: 140 },
+    { universalIdentifier: '67fe7577-cbd6-4471-8acc-0f62374c96c2', fieldMetadataUniversalIdentifier: COMPANY_ON_PROJECT_FIELD_UNIVERSAL_IDENTIFIER, position: 13, isVisible: true, size: 170 },
   ],
   sorts: [
     {

@@ -8,7 +8,10 @@ import { ACCOUNT_TIER_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/ac
 import { CONTRACTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/contracts-on-company.field';
 import { ENGAGEMENTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/engagements-on-company.field';
 import { IS_OFFSET_OBLIGOR_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/is-offset-obligor-on-company.field';
+import { KEYWORDS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/keywords-on-company.field';
 import { LAST_ENGAGEMENT_AT_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/last-engagement-at-on-company.field';
+import { NAME_ARABIC_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/name-arabic-on-company.field';
+import { PROJECTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/projects-on-company.field';
 import { SECTOR_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/sector-on-company.field';
 
 export const COMPANIES_EVERYTHING_VIEW_UNIVERSAL_IDENTIFIER = '342fbf6c-41df-4e98-8346-2589c4560fb1';
@@ -38,6 +41,9 @@ export default defineView({
     { universalIdentifier: '06795a84-7277-4e49-9f65-5a2c5178ce1c', fieldMetadataUniversalIdentifier: companyFields.opportunities.universalIdentifier, position: 11, isVisible: true, size: 170 },
     { universalIdentifier: '3d4c6d74-532c-4f15-af95-5339acc6dd5e', fieldMetadataUniversalIdentifier: ENGAGEMENTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, position: 12, isVisible: true, size: 170 },
     { universalIdentifier: '92f3d6c1-007b-4467-b6fb-52de09b9cfcb', fieldMetadataUniversalIdentifier: CONTRACTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, position: 13, isVisible: true, size: 170 },
+    { universalIdentifier: 'a98015fa-7765-4f1f-9de0-d09b6d133f8a', fieldMetadataUniversalIdentifier: NAME_ARABIC_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, position: 14, isVisible: true, size: 220 },
+    { universalIdentifier: '53bd05bb-a985-4d50-9461-c74a0425ad37', fieldMetadataUniversalIdentifier: KEYWORDS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, position: 15, isVisible: true, size: 220 },
+    { universalIdentifier: '49c8f620-d3ca-4f30-95d2-cafc590165e9', fieldMetadataUniversalIdentifier: PROJECTS_ON_COMPANY_FIELD_UNIVERSAL_IDENTIFIER, position: 16, isVisible: true, size: 170 },
   ],
   sorts: [
     {

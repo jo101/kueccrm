@@ -186,6 +186,8 @@ IDs stay stable while the keys stay stable: a company's website domain (or its n
 - **No `sizeClass` or `motion` field.** The app has no company size class or opportunity motion field. The script reads both and lists their values in `held-values.csv`; nothing is imported for them. Adding them is a manifest change (two `SELECT` fields, options from `held-values.csv`, `plan` reviewed), then a refresh that imports only ID and those columns.
 - **Contracts carry a SharePoint folder, not "documentsLink".** The source column `documentsLink` maps to the existing **SharePoint folder** field (`CLAUDE.md` section 4 names link fields by destination).
 - **Phones**: UAE numbers are split into +971 and the national number; other numbers keep their + prefix and no calling code.
+- **Source defaults to Inbound enquiry** (since 0.5.0, the quick-create default in `12-global-features.md` section 9). A new opportunity row with an empty Source cell is created as Inbound enquiry; check `value-mapping.csv` for blank sources before importing and fill them in the sheet if Inbound is wrong. Existing records and rows with a value are not affected.
+- **Search keywords and Name (Arabic)** are not filled by the import. Fill them for Tier 1 and Tier 2 companies by hand afterwards (`12-global-features.md` section 1.3).
 
 ## 9. Undo
 

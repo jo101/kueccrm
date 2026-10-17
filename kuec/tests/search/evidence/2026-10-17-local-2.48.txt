@@ -1,0 +1,31 @@
+Run 2026-10-17 against a disposable Twenty 2.48.0 built from this checkout (dev seed workspace), kuec-bd-ops 0.5.0 synced. Command: node kuec/tests/search/arabic-search.mjs
+
+| Query | Case | Object | Expected | Found | Result |
+| --- | --- | --- | --- | --- | --- |
+| شركة | first word, exact | company | companyPlain, companyWithKeywords | companyPlain, companyWithKeywords | PASS |
+| شر | start of a word | company | companyPlain, companyWithKeywords | companyPlain, companyWithKeywords | PASS |
+| أبوظبي | with hamza, as written | company | companyPlain, companyWithKeywords | companyPlain, companyWithKeywords | PASS |
+| ابوظبي | without hamza | company | companyWithKeywords | companyWithKeywords | PASS |
+| البترولية | with the article, as written | company | companyPlain, companyWithKeywords | companyPlain, companyWithKeywords | PASS |
+| بترولية | without the article | company | companyWithKeywords | companyWithKeywords | PASS |
+| بترول | stem without the article | company | companyWithKeywords | companyWithKeywords | PASS |
+| خدمات | without the attached لل | company | companyWithKeywords | companyWithKeywords | PASS |
+| شركه | ه typed for ة | company | none | none | PASS |
+| أبوظبي البترولية | two words | company | companyPlain, companyWithKeywords | companyPlain, companyWithKeywords | PASS |
+| abudhabi | transliteration | company | companyWithKeywords | companyWithKeywords | PASS |
+| Abu Dhabi | English name | company | companyPlain, companyWithKeywords | companyPlain, companyWithKeywords | PASS |
+| محمد | Arabic first name, no diacritics | person | personPlain | personPlain | PASS |
+| الحمادي | family name with the article | person | personPlain | personPlain | PASS |
+| حمادي | family name without the article | person | none | none | PASS |
+| أحمد | stored with diacritics, typed without | person | none | none | PASS |
+| 0501234567 | UAE mobile, local form | person | personPlain | personPlain | PASS |
+| +971501234567 | UAE mobile, international form | person | personPlain | personPlain | PASS |
+| test-ars.example | email domain | person | personPlain | personPlain | PASS |
+| إرسال | next action, as written | opportunity | opportunity | opportunity | PASS |
+| ارسال | next action, without hamza | opportunity | none | none | PASS |
+| العرض | next action, with the article | opportunity | opportunity | opportunity | PASS |
+| عرض | next action, without the article | opportunity | none | none | PASS |
+| تقييم | objective | workPackage | workPackage | workPackage | PASS |
+| دراسة | title | workPackage | workPackage | workPackage | PASS |
+
+All cases match 2.48 behaviour.

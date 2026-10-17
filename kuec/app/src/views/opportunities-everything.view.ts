@@ -16,6 +16,7 @@ import { PLAYBOOK_APPLIED_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../f
 import { PLAYBOOK_TYPE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/playbook-type-on-opportunity.field';
 import { PROBABILITY_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/probability-on-opportunity.field';
 import { PROJECTS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/projects-on-opportunity.field';
+import { SHAREPOINT_FOLDER_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/sharepoint-folder-on-opportunity.field';
 import { SOURCE_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/source-on-opportunity.field';
 import { STAGE_ENTERED_AT_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/stage-entered-at-on-opportunity.field';
 import { WORK_PACKAGES_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER } from '../fields/work-packages-on-opportunity.field';
@@ -55,6 +56,7 @@ export default defineView({
     { universalIdentifier: '95a83cc7-4c51-4769-b527-746970aee1b0', fieldMetadataUniversalIdentifier: WORK_PACKAGES_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 19, isVisible: true, size: 170 },
     { universalIdentifier: '30f6ae50-b19a-44a7-b3cb-f070ac2db07b', fieldMetadataUniversalIdentifier: ENGAGEMENTS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 20, isVisible: true, size: 170 },
     { universalIdentifier: 'f54b04d1-7367-4b94-9678-6a47355a9c9e', fieldMetadataUniversalIdentifier: CONTRACTS_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 21, isVisible: true, size: 170 },
+    { universalIdentifier: '0181669c-096a-45eb-9c6d-0ce75c07bb71', fieldMetadataUniversalIdentifier: SHAREPOINT_FOLDER_ON_OPPORTUNITY_FIELD_UNIVERSAL_IDENTIFIER, position: 22, isVisible: true, size: 220 },
   ],
   sorts: [
     {

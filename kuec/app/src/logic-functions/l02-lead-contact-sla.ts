@@ -74,7 +74,7 @@ export default defineLogicFunction({
   timeoutSeconds: 300,
   handler,
   cronTriggerSettings: {
-    // Every hour at minute 15, UTC (Asia/Dubai has the same minute), off the other sweeps' minutes
-    pattern: '15 * * * *',
+    // Every hour at minute 20, UTC (Asia/Dubai has the same minute), off the other sweeps' minutes
+    pattern: '20 * * * *',
   },
 });

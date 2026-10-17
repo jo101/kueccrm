@@ -149,9 +149,34 @@ People have no owner and no date of their own. The company is the second column 
 | Expiring (sidebar default) | Table | Status Signed; Expires on not empty | | Expires on, soonest first (past dates first: lapsed and not renewed) | Name, Owner, Expires on, Counterparty, Kind, Value |
 | Everything (expert) | Table | | | Expires on | all 10 fields |
 
+### Leads (0.9.0)
+
+`runbooks/19-leads.md` section 8 explains each one.
+
+| View | Type | Filter | Group | Sort | Columns |
+| --- | --- | --- | --- | --- | --- |
+| Lead inbox (sidebar default) | Table | Status New; Owner is me | | Status entered at, oldest first | Name, Owner, Status entered at, Source, Company, Campaign |
+| My leads | Table | Owner is me; Status not Dead or Converted | | Next action date | Name, Owner, Next action date, Next action, Status, Company |
+| Qualified not converted | Table | Status Qualified | | Status entered at, oldest first | Name, Owner, Status entered at, Qualification score, Offering interest, Company |
+| Nurture review due | Table | Status Nurture; Nurture review date today or past | | Nurture review date | Name, Owner, Nurture review date, Need, Company, Source |
+| Dead this month by reason | Table | Status Dead; Status entered at this month | Dead reason | Status entered at, newest first | Name, Owner, Status entered at, Dead reason, Source, Company. Footer: count |
+| By source | Table | | Source; deprecated sources hidden | Status entered at, newest first | Name, Owner, Status entered at, Status, Source, Campaign. Footer: count |
+| By campaign | Table | Campaign not empty | | Status entered at, newest first | Name, Owner, Status entered at, Campaign, Status, Source |
+| Hygiene: Other without details | Table | Other details empty; Source, Offering interest, Department or Dead reason Other | | | Name, Owner, Source, Department, Dead reason, Other details |
+| Everything (expert) | Table | | | Status entered at, newest first | all 31 fields |
+
+### Documents (0.9.0)
+
+| View | Type | Filter | Group | Sort | Columns |
+| --- | --- | --- | --- | --- | --- |
+| Documents by type (sidebar default) | Table | | Type | | Name, Owner, Status, Confidentiality, SharePoint or uVENTURE link, Company. Footer: count |
+| Documents expiring in 60 days | Table | Status not Expired or Superseded; Expires on today or in the next 60 days | | Expires on | Name, Owner, Expires on, Type, Status, SharePoint or uVENTURE link |
+| Hygiene: Other without details | Table | Other details empty; Type, Status or Confidentiality Other | | | Name, Owner, Type, Status, Confidentiality, Other details |
+| Everything (expert) | Table | | | Expires on | all 17 fields |
+
 ### Hygiene views (0.7.0)
 
-Each object below has one or more views named **Hygiene: ...** at positions 15 to 17, after its working views and before Everything (expert): Opportunities (missing key fields, in Qualify over 30 days, Parked over 90 days), Companies (missing key fields), People (missing email or decision role), Engagements (outcome overdue), Work packages (no done criteria), Contracts (past expiry, still Signed). Companies and People also have **Added in the last 7 days** (position 18) for the weekly duplicate sweep. Filters, columns and how each is worked: `14-hygiene.md` sections 1 and 4. 0.8.0 adds **Hygiene: Other without details** at position 19 on Opportunities, Companies, Engagements, Contracts, Projects, Work packages, Milestones and Tasks (`18-taxonomy.md` section 4); the Tasks one is the app's only task view, so Tasks has no expert view. The Data quality page shows each Hygiene view as a count beside the view itself.
+Each object below has one or more views named **Hygiene: ...** at positions 15 to 17, after its working views and before Everything (expert): Opportunities (missing key fields, in Qualify over 30 days, Parked over 90 days), Companies (missing key fields), People (missing email or decision role), Engagements (outcome overdue), Work packages (no done criteria), Contracts (past expiry, still Signed). Companies and People also have **Added in the last 7 days** (position 18) for the weekly duplicate sweep. Filters, columns and how each is worked: `14-hygiene.md` sections 1 and 4. 0.8.0 adds **Hygiene: Other without details** at position 19 on Opportunities, Companies, Engagements, Contracts, Projects, Work packages, Milestones and Tasks (`18-taxonomy.md` section 4); the Tasks one is the app's only task view, so Tasks has no expert view. 0.9.0 adds the same view on Leads and Documents. The Data quality page shows each Hygiene view as a count beside the view itself.
 
 ### Capability
 
@@ -167,11 +192,13 @@ Since 0.5.0 the order and the reasons for it are in `runbooks/12-global-features
 
 | Entry | Opens |
 | --- | --- |
+| Leads (0.9.0) | Leads > Lead inbox |
 | Pipeline | Opportunities > Pipeline |
 | My work | Work packages > My work |
 | Projects (was Portfolio) | Projects > Portfolio |
 | Engagements | Engagements > This month |
 | Contracts | Contracts > Expiring |
+| Documents (0.9.0) | Documents > Documents by type |
 | Milestones | Milestones > Open |
 
 Companies and People are app entries that open the object (the last view each person used). Twenty's own Companies and People entries are removed in the UI (`config/dashboards/sidebar.md`). Every other view is reached from the view picker at the top of the object page.
@@ -210,6 +237,8 @@ For each view below, open it, run **Export view** from the command menu (or the 
 | Companies | By tier, By sector, Offset obligors, Least recently engaged, Hygiene: missing key fields, Added in the last 7 days, Everything (expert) | |
 | People | Decision makers, Champions, Missing email, Hygiene: missing email or decision role, Added in the last 7 days, Everything (expert) | |
 | Contracts | By status, Expiring, Hygiene: past expiry, still Signed, Everything (expert) | |
+| Leads | Lead inbox, My leads, Qualified not converted, Nurture review due, Dead this month by reason, By source, By campaign, Hygiene: Other without details, Everything (expert) | |
+| Documents | Documents by type, Documents expiring in 60 days, Hygiene: Other without details, Everything (expert) | |
 
 A user without Export CSV does not see the command; that is the expected result for a role that should not export.
 

@@ -1,7 +1,7 @@
 # kuec-bd-ops: application variables and reference data
 
 - **Why not the manifest:** the manifest declares the variables (`kuec/app/src/application.config.ts`) but secret values are entered per instance, never committed. Role assignments and holidays are workspace data, not metadata.
-- **Written against:** Twenty 2.48.0, `kuec-bd-ops` 0.1.0.
+- **Written against:** Twenty 2.48.0, `kuec-bd-ops` 0.1.0; the lead and forms variables since 0.9.0.
 - **Prerequisites:** the ED's or an engineer's account (the **Apps** permission, `runbooks/13-roles.md`). `kuec-bd-ops` installed. From the secrets manager: the Teams incoming webhook URL (`twenty/<env>/TEAMS_WEBHOOK_URL`) and the bd-ops mailbox SMTP credentials (`twenty/<env>/BD_OPS_SMTP_*`). IT has enabled authenticated SMTP for the bd-ops mailbox (Exchange Online: SMTP AUTH on for that mailbox only).
 
 ## Steps: variables
@@ -18,6 +18,9 @@
    | SMTP username | `bd-ops@kuec.example` | yes |
    | SMTP password | from the secrets manager | yes |
    | Sender address | `bd-ops@kuec.example` | no |
+| Lead value that notifies the ED (0.9.0) | The amount in AED above which a qualified lead notifies the ED, as the ED decides it, digits only, e.g. `500000`. Leave empty until the ED has decided: then only IP licence interest notifies (`runbooks/19-leads.md` section 3) | no |
+| Forms signing secret (0.9.0) | from the secrets manager (`twenty/<env>/FORMS_SIGNING_SECRET`), set when the first form is connected (`runbooks/19-leads.md` section 6.2). While it is empty the intake route answers 503 | yes |
+| Forms signing secret (previous) (0.9.0) | empty, except for the week after a rotation: the secret it replaced | yes |
 
 3. **Save**. Secret values are stored encrypted and are not shown again.
 
@@ -40,4 +43,4 @@ The app's settings page shows no missing-configuration banner. Role assignments 
 
 ## Undo
 
-Clear a variable to stop that channel: the functions log `email skipped` or `teams post skipped` and carry on with tasks. Deactivate a role assignment (Active off) rather than deleting it, so history stays readable. Rotate the SMTP password and the webhook with the quarterly key rotation.
+Clear a variable to stop that channel: the functions log `email skipped` or `teams post skipped` and carry on with tasks. Deactivate a role assignment (Active off) rather than deleting it, so history stays readable. Rotate the SMTP password, the webhook and the forms signing secret with the quarterly key rotation. Clearing the forms secret stops the intake route (503, the forms retry for 24 hours); clearing the lead value threshold leaves only IP licence interest notifying the ED.

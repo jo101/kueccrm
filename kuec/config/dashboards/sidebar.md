@@ -32,7 +32,7 @@ The link takes a position between BD Executive and Projects. Moving an item only
 
 ## Expected result
 
-The Workspace section reads, top to bottom: Home, Exceptions, Pipeline, My work, BD Executive, BD Team, Projects, Companies, People, Engagements, Contracts, Milestones, Data quality (since `kuec-bd-ops` 0.7.0), Tasks. Each person's own Favorites section stays above it.
+The Workspace section reads, top to bottom: Home, Exceptions, Leads (since `kuec-bd-ops` 0.9.0), Pipeline, My work, BD Executive, BD Team, Projects, Companies, People, Engagements, Contracts, Documents (0.9.0), Milestones, Data quality (since 0.7.0), Tasks. Leads and Documents take half positions (-18.5 and -10.5), so no entry moves and the BD Team link keeps its place. Each person's own Favorites section stays above it.
 
 ## Verify
 

@@ -8,6 +8,8 @@ For everyone on the BD team, including people new to business development. Arabi
 2. **Accept a work package within 2 working days, or say why not.** Working days are Monday to Friday, without public holidays. After 2 days the CRM reminds you and tells the ED. After 5 days the work is taken from you and given to the ops coordinator.
 3. **Blocked means you say what is blocking you. Never silence.** Set the work package to **Blocked** and write the reason. The ED is told straight away, with your reason, and gets a task to decide.
 
+And one rule for everyone at KUEC: **a contact that is not a Lead in the CRM did not happen, and whoever logged it holds the referral credit.** Met someone with a possible need? Create a **Lead** the same working day, even with only a name and a company. How leads are triaged, qualified and converted: `19-leads.md`.
+
 ## 2. Daily standup: 10 minutes
 
 Everyone opens **My work** in the sidebar and reads from it. Each person takes about 2 minutes and says three things:

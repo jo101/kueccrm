@@ -39,6 +39,8 @@ R read, W create and update, D delete (soft delete and destroy), `-` no access. 
 | Project | RWD | RWD | R | R | R | R | RW | RW |
 | Milestone | RWD | RWD | R | R | R | R | RW | RW |
 | Contract | RWD | RWD | R | R | R | R | RW | RW |
+| Lead (0.9.0) | RWD | RWD | RW | R | - | RW | RW | RW |
+| Document (0.9.0) | RWD | RWD | RW | R | - | RW | RW | RW |
 | Task | RWD | RWD | RW | R | - | RW | RW | RW |
 | Note | RWD | RWD | RW | R | - | RW | RW | RW |
 | Dashboard | RWD | RWD | R | RW | R | R | - | RW |
@@ -75,8 +77,13 @@ canUpdateFieldValue false for **every role except ED, Ops coordinator, Automatio
 | Company | `lastEngagementAt` | `b24f9955-8e9c-4d8c-9fc6-a61d73074aaf` |
 | Project | `percentComplete` | `3daef18d-7300-4b2b-8564-8d660b61541c` |
 | Project | `health` | `d9ae87e2-fd5f-479e-9c61-d8be140679ef` |
+| Lead | `lastEngagementAt` | `1e6fe295-8b86-41bd-882c-d08b155d3755` |
+| Lead | `externalId` | `0abde774-ffe3-45c5-8f47-2641e2a9e631` |
+| Lead | `sourceSystem` | `77189717-0d49-4273-a843-ecd5e8f70945` |
+| Document | `externalId` | `98ecf6a8-4e8d-42cd-8a43-1ca8359f7ed7` |
+| Document | `sourceSystem` | `f21c2369-118b-40ff-98e8-28ef10b7cf03` |
 
-Also on the lock list, not in the data model yet: `externalId`, `sourceSystem`, `serviceCaseId`, `version` (`roles/utils/field-locks.ts`, `LOCKED_FIELD_NAMES`). All eight fields above are also app-stamped (`writability: APPLICATION`), so no person or API key writes them directly; see `runbooks/13-roles.md` section 2.
+Also on the lock list, not in the data model yet: `serviceCaseId`, `version`, and `externalId` and `sourceSystem` on Company and Person (`roles/utils/field-locks.ts`, `LOCKED_FIELD_NAMES`). The first eight fields above and Lead `lastEngagementAt` are also app-stamped (`writability: APPLICATION`), so no person or API key writes them directly. `externalId` and `sourceSystem` on Lead and Document (0.9.0) are `writability: OPEN`: the app and the Automation key write them, the lock keeps everyone else out; see `runbooks/13-roles.md` section 2.
 
 ## Settings and tools
 

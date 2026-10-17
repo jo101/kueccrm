@@ -1,6 +1,6 @@
 # 18: Taxonomy
 
-Written against Twenty 2.48.0 and `kuec-bd-ops` 0.8.0. Owners: the ops coordinator (proposes changes, section 6), the ED (approves them), the engineering lead (ships them, section 7). Readers: everyone who picks a value, engineers, the uVENTURE team.
+Written against Twenty 2.48.0 and `kuec-bd-ops` 0.9.0. Owners: the ops coordinator (proposes changes, section 6), the ED (approves them), the engineering lead (ships them, section 7). Readers: everyone who picks a value, engineers, the uVENTURE team.
 
 KUEC uses one set of picklists across the company: how an engagement happened, where an opportunity came from, what is being sold, who pays, which department leads, what a document or contract is. The single source is `kuec/playbooks/lookups.json`. The `kuec-bd-ops` manifest mirrors it option for option, and uVENTURE reads the same file, so both systems share one taxonomy. Section 8 lists every option with what it means and when to pick it, in English and Arabic.
 
@@ -10,25 +10,25 @@ KUEC uses one set of picklists across the company: how an engagement happened, w
 | --- | --- | --- | --- |
 | Engagement type (`ENGAGEMENT_TYPE`) | Engagement > **Kind** (`kind`) | Select | Options replaced; Meeting and Event deprecated |
 | Engagement outcome type (`ENGAGEMENT_OUTCOME_TYPE`) | Engagement > **Outcome type** (`outcomeType`) | Select | New field |
-| Source (`SOURCE`), for leads and opportunities | Opportunity > **Source** (`source`) | Select | Options replaced; Referral, Outreach and Event or workshop deprecated |
+| Source (`SOURCE`), for leads and opportunities | Lead > **Source** (`source`), Opportunity > **Source** (`source`) | Select | Options replaced; Referral, Outreach and Event or workshop deprecated. On Lead since 0.9.0, the same options |
 | Opportunity type (`OPPORTUNITY_TYPE`) | Opportunity > **Type** (`playbookType`) | Select | Options added |
-| Offering (`OFFERING`) | Opportunity > **Offering** (`offering`) | Multi-select | New field |
+| Offering (`OFFERING`) | Lead > **Offering interest** (`offeringInterest`), Opportunity > **Offering** (`offering`) | Multi-select | New field; on Lead since 0.9.0 |
 | Funding path (`FUNDING_PATH`) | Opportunity > **Funding path** (`fundingPath`) | Select | New field |
 | Contract type (`CONTRACT_TYPE`) | Contract > **Kind** (`kind`) | Select | Options added; Option and Service deprecated |
 | Project type (`PROJECT_TYPE`) | Project > **Type** (`playbookType`) | Select | Options added |
 | Task type (`TASK_TYPE`) | Task > **Type** (`taskType`) | Select | New field on the standard Task |
 | Company sector (`COMPANY_SECTOR`) | Company > **Sector** (`sector`) | Select | Unchanged: waiting for the UAE industrial cluster list |
 | Company relationship type (`COMPANY_RELATIONSHIP_TYPE`) | Company > **Relationship type** (`relationshipType`) | Select | New field |
-| Department (`DEPARTMENT`) | Engagement, Project, Contract, Work package, Milestone > **Department** (`department`) | Select | New field on each |
-| Document type, status, confidentiality (`DOCUMENT_*`) | none | | uVENTURE and SharePoint only |
+| Department (`DEPARTMENT`) | Lead, Opportunity, Engagement, Project, Contract, Work package, Milestone > **Department** (`department`) | Select | New field on each; Lead and Opportunity since 0.9.0 |
+| Document type, status, confidentiality (`DOCUMENT_*`) | Document > **Type** (`kind`), **Status** (`status`), **Confidentiality** (`confidentiality`) | Select | Since 0.9.0, on the link-only Document object |
 | Capability type (`CAPABILITY_TYPE`) | none | | uVENTURE only |
 
 `type` is a reserved field name in Twenty, so the API names are `kind`, `playbookType` and `taskType`; the labels people see say Kind or Type. Every object above with a Twenty list also has **Other details** (`otherDetails`, text), new in 0.8.0: Opportunity, Company, Task, Engagement, Contract, Project, Work package, Milestone.
 
 What is deliberately not in Twenty:
 
-- **Lead.** Twenty has no Lead object. A lead is an opportunity at stage Qualify, so the Source list applies to it there. When an engagement's outcome is **Lead created**, create the opportunity at Qualify; **Opportunity identified** means the need is already defined.
-- **Document.** Documents live on SharePoint or in uVENTURE and records carry a link (`kuec/CLAUDE.md` rule 4). Every confidentiality class is link-only: no system uploads the file. A **PO or invoice** is linked for reference only, since finance is the system of record.
+- **Lead status and Dead reason** (0.9.0) are Twenty's own workflow lists, like Lost reason category on an opportunity: uVENTURE has no leads, so they are not in `lookups.json`. Dead reason ends with Other, which needs Other details like every list here. Their meaning: `19-leads.md` sections 1 and 4. When an engagement's outcome is **Lead created**, create a Lead (until 0.9.0 this meant an opportunity at Qualify); **Opportunity identified** means the need is already defined and an opportunity is opened directly.
+- **The document file.** Since 0.9.0 a Document record carries the type, status, confidentiality, version, expiry and the SharePoint or uVENTURE link, never the file (`kuec/CLAUDE.md` rule 4). Every confidentiality class is link-only, and the label does not restrict who sees the record. A **PO or invoice** is linked for reference only, since finance is the system of record. Document takes its department from the records it is linked to.
 - **Capability.** Capabilities, technologies and equipment live in uVENTURE (rule 5). Twenty has no Capability object and will not get one.
 - **Department on configuration records.** Public holiday and Playbook role assignment are configuration, not business records, and carry no department.
 
@@ -50,11 +50,11 @@ What is deliberately not in Twenty:
 
 ## 4. Checking Other details: the Data quality page
 
-Each object has a view **Hygiene: Other without details** (position 19, before Everything (expert)): records with Other picked in any list and Other details empty. The eight are the last rows of the **Data quality** page and of the Monday run (`14-hygiene.md` section 4, step 1.9):
+Each object has a view **Hygiene: Other without details** (position 19, before Everything (expert)): records with Other picked in any list and Other details empty. The ten (eight until 0.9.0) are the last rows of the **Data quality** page and of the Monday run (`14-hygiene.md` section 4, step 1.9):
 
 | Object | Lists checked | Who fixes it |
 | --- | --- | --- |
-| Opportunities (open and Signed) | Source, Type, Offering, Funding path | The owner |
+| Opportunities (open and Signed) | Source, Type, Offering, Funding path, Department (0.9.0) | The owner |
 | Companies | Sector, Relationship type | The account owner |
 | Engagements | Kind, Outcome type, Department | The owner |
 | Contracts | Kind, Department | The ops coordinator, after asking the owner |
@@ -62,6 +62,8 @@ Each object has a view **Hygiene: Other without details** (position 19, before E
 | Work packages | Department | The ops coordinator |
 | Milestones | Department | The owner |
 | Tasks | Type | The assignee |
+| Leads (0.9.0) | Source, Offering interest, Department, Dead reason | The owner |
+| Documents (0.9.0) | Type, Status, Confidentiality | The owner |
 
 Fixing a row means writing what Other stands for in Other details, or picking the option that fits after all and leaving Other details empty. Lost and Parked opportunities are left out, like every opportunity view except the ones that list them.
 
@@ -161,9 +163,9 @@ List key `ENGAGEMENT_OUTCOME_TYPE`. Applies to `Engagement.outcomeType`. In Twen
 
 ### 8.3 Source (المصدر)
 
-List key `SOURCE`. Applies to `Lead.source`, `Opportunity.source`. In Twenty: `opportunity.source` (select).
+List key `SOURCE`. Applies to `Lead.source`, `Opportunity.source`. In Twenty: `lead.source` (select), `opportunity.source` (select).
 
-Twenty has no Lead object; leads are opportunities at stage Qualify, so Opportunity.source carries this list in Twenty.
+Lead.source and Opportunity.source hold the same options; a conversion copies the value.
 
 | Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
 | --- | --- | --- | --- | --- |
@@ -222,9 +224,9 @@ Licence and Technical service start a playbook (templates.json); every other typ
 
 ### 8.5 Offering (ما تقدمه KUEC)
 
-List key `OFFERING`. Applies to `Opportunity.offering`. In Twenty: `opportunity.offering` (multi-select).
+List key `OFFERING`. Applies to `Lead.offeringInterest`, `Opportunity.offering`. In Twenty: `lead.offeringInterest` (multi-select), `opportunity.offering` (multi-select).
 
-Several can apply to one opportunity, so Twenty holds it as a multi-select.
+Several can apply to one lead or opportunity, so Twenty holds it as a multi-select. A conversion copies the lead's interest into the opportunity's offering.
 
 | Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
 | --- | --- | --- | --- | --- |
@@ -258,9 +260,9 @@ List key `FUNDING_PATH`. Applies to `Opportunity.fundingPath`. In Twenty: `oppor
 
 ### 8.7 Document type (نوع الوثيقة)
 
-List key `DOCUMENT_TYPE`. Applies to `Document.type`. In Twenty: none.
+List key `DOCUMENT_TYPE`. Applies to `Document.type`. In Twenty: `document.kind` (select).
 
-Twenty has no Document object (kuec/CLAUDE.md rule 4): documents live on SharePoint or in uVENTURE and records carry a link.
+Twenty holds the link and these metadata only; the file stays on SharePoint or in uVENTURE and is never uploaded (kuec/CLAUDE.md rule 4).
 
 | Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
 | --- | --- | --- | --- | --- |
@@ -289,9 +291,9 @@ Twenty has no Document object (kuec/CLAUDE.md rule 4): documents live on SharePo
 
 ### 8.8 Document status (حالة الوثيقة)
 
-List key `DOCUMENT_STATUS`. Applies to `Document.status`. In Twenty: none.
+List key `DOCUMENT_STATUS`. Applies to `Document.status`. In Twenty: `document.status` (select).
 
-Twenty has no Document object (kuec/CLAUDE.md rule 4): documents live on SharePoint or in uVENTURE and records carry a link.
+Twenty holds the link and these metadata only; the file stays on SharePoint or in uVENTURE and is never uploaded (kuec/CLAUDE.md rule 4).
 
 | Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
 | --- | --- | --- | --- | --- |
@@ -305,9 +307,9 @@ Twenty has no Document object (kuec/CLAUDE.md rule 4): documents live on SharePo
 
 ### 8.9 Document confidentiality (سرية الوثيقة)
 
-List key `DOCUMENT_CONFIDENTIALITY`. Applies to `Document.confidentiality`. In Twenty: none.
+List key `DOCUMENT_CONFIDENTIALITY`. Applies to `Document.confidentiality`. In Twenty: `document.confidentiality` (select).
 
-Twenty has no Document object (kuec/CLAUDE.md rule 4): documents live on SharePoint or in uVENTURE and records carry a link. Every class is link-only: no system uploads the file.
+Twenty holds the link and these metadata only; the file stays on SharePoint or in uVENTURE and is never uploaded (kuec/CLAUDE.md rule 4). Every class is link-only, and the label does not restrict who sees the record: SharePoint and uVENTURE permissions protect the file.
 
 | Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
 | --- | --- | --- | --- | --- |
@@ -427,9 +429,9 @@ Capabilities live in uVENTURE (kuec/CLAUDE.md rule 5); Twenty has no Capability 
 
 ### 8.16 Department (الإدارة)
 
-List key `DEPARTMENT`. Applies to `Engagement.department`, `Project.department`, `Contract.department`, `WorkPackage.department`, `Milestone.department`. In Twenty: `engagement.department` (select), `project.department` (select), `contract.department` (select), `workPackage.department` (select), `milestone.department` (select).
+List key `DEPARTMENT`. Applies to `Lead.department`, `Opportunity.department`, `Engagement.department`, `Project.department`, `Contract.department`, `WorkPackage.department`, `Milestone.department`. In Twenty: `lead.department` (select), `opportunity.department` (select), `engagement.department` (select), `project.department` (select), `contract.department` (select), `workPackage.department` (select), `milestone.department` (select).
 
-On every custom business object. Public holiday and Playbook role assignment are configuration records and carry no department.
+On every case-carrying business object. Document takes its department from the record it is linked to; Public holiday and Playbook role assignment are configuration records and carry no department.
 
 | Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
 | --- | --- | --- | --- | --- |

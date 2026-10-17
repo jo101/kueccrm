@@ -46,8 +46,11 @@ describe('sidebar', () => {
       'Engagements',
       'Contracts',
       'Documents',
+      'Capabilities',
       'Milestones',
       'Data quality',
+      'uVENTURE',
+      'Open uVENTURE',
       'Help',
     ]);
   });

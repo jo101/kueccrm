@@ -17,7 +17,7 @@ Everything the manifest can express is in `kuec/app` (0.5.0). Everything else is
 | 1 | Person: Name (Arabic) | Native, once the field exists | New field `nameArabic`, searchable | manifest |
 | 1 | Opportunity: name, next action | Native | Name by default; `nextAction` made searchable in 0.5.0 | manifest |
 | 1 | Project name; Work package title and objective | Native | The title is indexed by default on app objects; `objective` made searchable in 0.5.0 | manifest |
-| 1 | Capability name | n/a | There is no Capability object: capabilities live in uVENTURE (`kuec/CLAUDE.md` section 5, decision of 2026-10-15 in `05-views.md`) | |
+| 1 | Capability name | Native | Since 0.11.0 the Capability pointer's name is searchable; the record itself lives in uVENTURE (`21-uventure-readiness.md`) | manifest |
 | 1 | Arabic tokenisation | Native | Arabic words are split and indexed correctly (**tested**) | |
 | 1 | Arabic matching of the forms people type | No | No Arabic normalisation: a word without its article, without the hamza or without diacritics is not found. Search keywords field and the team rule (section 1.3) | manifest, team rule |
 | 2 | Ctrl/Cmd+K searches every object and offers record actions | Native | | |
@@ -76,7 +76,7 @@ A field is searchable only if the manifest says so: one made searchable in Setti
 `kuec/tests/search/arabic-search.mjs` creates marked records through the API, runs each query through the same search the command menu uses, prints the matrix and destroys the records. Run it on staging after every upgrade; it fails as soon as search behaves differently from what is written here.
 
 ```bash
-TWENTY_API_URL=https://crm-staging.kuec.example TWENTY_API_KEY=<staging admin key> node kuec/tests/search/arabic-search.mjs
+TWENTY_API_URL=https://crm.uventure-staging.kuec.example TWENTY_API_KEY=<staging admin key> node kuec/tests/search/arabic-search.mjs
 ```
 
 Result on 2.48.0, 25 of 25 as predicted (`kuec/tests/search/evidence/2026-10-17-local-2.48.txt`). The company is شركة أبوظبي للخدمات البترولية, once with Search keywords empty and once filled per section 1.3:

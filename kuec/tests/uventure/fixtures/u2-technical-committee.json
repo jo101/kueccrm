@@ -1,0 +1,21 @@
+{
+  "delivery": {
+    "events": [
+      {
+        "eventId": "stg-u2t",
+        "type": "challenge.submitted",
+        "occurredAt": "{{now}}",
+        "data": {
+          "id": "STG-CH-0010",
+          "url": "https://uventure-staging.kuec.example/challenges/STG-CH-0010",
+          "title": "Staging: hydrogen storage safety review",
+          "programme": "TECHNICAL_COMMITTEE",
+          "company": {
+            "name": "Staging Energy Authority",
+            "website": "https://staging-energy.example"
+          }
+        }
+      }
+    ]
+  }
+}

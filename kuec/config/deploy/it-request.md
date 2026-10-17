@@ -1,16 +1,16 @@
 # IT request: KUEC BD Ops CRM (self-hosted Twenty 2.48.0)
 
 **From:** BD Ops engineering  **For approval by:** KUEC IT  **Sponsor:** Executive Director
-**Hosts:** prod `crm.kuec.example`, staging `crm-staging.kuec.example` (replace with the real names), both on our container host `<host>` (public IP `<ip>`).
+**Hosts:** prod `crm.uventure.kuec.example`, staging `crm.uventure-staging.kuec.example` (replace with the real names), both on our container host `<host>` (public IP `<ip>`). Each is a subdomain of the uVENTURE host it works with (`uventure.kuec.example`, `uventure-staging.kuec.example`): the two systems embed each other and must be one site to the browser (`runbooks/21-uventure-readiness.md` section 1).
 
 ## 1. Azure app registration and admin consent
 
 - [ ] Register one app, **"KUEC BD Ops CRM"**. Supported account types: **Accounts in any organizational directory (multitenant)**. Twenty 2.48 signs in through the `/common` endpoint, which a single-tenant registration rejects. To keep it KUEC-only: in Enterprise applications, set **Assignment required = Yes** and assign only the group `CRM-Users`.
 - [ ] Redirect URIs (Web):
-  `https://crm.kuec.example/auth/microsoft/redirect`
-  `https://crm.kuec.example/auth/microsoft-apis/get-access-token`
-  `https://crm-staging.kuec.example/auth/microsoft/redirect`
-  `https://crm-staging.kuec.example/auth/microsoft-apis/get-access-token`
+  `https://crm.uventure.kuec.example/auth/microsoft/redirect`
+  `https://crm.uventure.kuec.example/auth/microsoft-apis/get-access-token`
+  `https://crm.uventure-staging.kuec.example/auth/microsoft/redirect`
+  `https://crm.uventure-staging.kuec.example/auth/microsoft-apis/get-access-token`
 - [ ] Microsoft Graph **delegated** permissions: `Mail.ReadWrite`, `Mail.Send`, `Calendars.ReadWrite`, `User.Read`, `openid`, `email`, `profile`, `offline_access`. Twenty always asks for all of them, so read-only scopes are not enough.
 - [ ] **Grant admin consent for KUEC.** Without it users get AADSTS90094 when they connect their mailbox.
 - [ ] One client secret (24 months maximum). Put it straight into the secrets manager as `twenty/prod/AUTH_MICROSOFT_CLIENT_SECRET`, and add a renewal reminder 30 days before it expires. Send us the client ID.
@@ -24,9 +24,11 @@
 
 ## 3. DNS and TLS
 
-- [ ] `A crm.kuec.example -> <ip>` and `A crm-staging.kuec.example -> <ip>`.
+- [ ] `A crm.uventure.kuec.example -> <ip>` and `A crm.uventure-staging.kuec.example -> <ip>`.
 - [ ] TLS certificates for both names, through ACME on the host (needs inbound 80) or from the KUEC CA.
 - [ ] Inbound 443 (and 80 if ACME) to `<ip>`, from the KUEC network/VPN at minimum. Microsoft does not need to reach us: webhook push sync stays off.
+- [ ] Inbound 443 to `<ip>` from the uVENTURE servers (prod and staging), which post signed events to `/s/integrations/uventure/*` and read the API nightly. Tell us their source addresses.
+- [ ] The uVENTURE team: their pages answer with `Content-Security-Policy: frame-ancestors 'self' https://crm.uventure.kuec.example` (staging: the staging CRM host) for the pages the CRM embeds, and their session cookie is not `SameSite=Strict`.
 
 ## 4. AWS account (only if we use LAMBDA for logic functions)
 
@@ -44,6 +46,7 @@ Only these. Everything else, including any private/internal address, stays block
 | Backup store endpoint `<backup host>` | 443 | Nightly off-host backup |
 | `registry-1.docker.io`, `auth.docker.io`, `production.cloudflare.docker.com` | 443 | Image pulls at install and upgrade only (or point us to an internal registry mirror) |
 | `lambda.me-central-1.amazonaws.com`, `sts.me-central-1.amazonaws.com`, `iam.amazonaws.com` | 443 | Only if item 4 is LAMBDA |
+| The uVENTURE webhook host, `uventure.kuec.example` (staging `uventure-staging.kuec.example`) | 443 | Signed events from the CRM to uVENTURE (`runbooks/21-uventure-readiness.md` section 4.3). The app sends these itself, so only this firewall rule applies; `OUTBOUND_HTTP_ALLOWED_INTERNAL_HOSTS` covers Twenty's own webhooks, which we do not use |
 
 Telemetry is off. The npm marketplace sync is off. No AI providers are used.
 
@@ -53,6 +56,6 @@ Telemetry is off. The npm marketplace sync is off. No AI providers are used.
 - [ ] One off-host backup bucket `kuec-twenty-backups`, ideally with versioning and object lock, plus a write key. We keep 35 days.
 - [ ] A secrets-manager path `twenty/prod/*` and `twenty/staging/*` that the deploy engineer can read. It holds ENCRYPTION_KEY, the DB password, storage and backup keys, the Azure secret and the SMTP app password.
 
-We do not ask for SSO (SAML/OIDC), custom domains, audit logs, row-level permissions or per-key rate limits. Those need Twenty's paid Organization plan and are out of scope.
+We do not ask for SSO (SAML/OIDC), custom domains, audit logs, row-level permissions or per-key rate limits. Those need Twenty's paid Organization plan and are out of scope. Sign-in is Microsoft (item 1) on both the CRM and uVENTURE, with the same KUEC email; SSO is deferred to the paid plan (`runbooks/21-uventure-readiness.md` section 2).
 
 Approved by (KUEC IT): ____________  Date: ____________

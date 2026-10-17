@@ -4,6 +4,9 @@ import {
   MetadataWritability,
 } from 'twenty-sdk/define';
 import { DEPARTMENT } from '../constants/taxonomy';
+import { COMPANY_SECTOR } from '../fields/sector-on-company.field';
+import { COMPANY_SIZE_CLASS } from '../fields/size-class-on-company.field';
+import { OPPORTUNITY_OFFERING } from '../fields/offering-on-opportunity.field';
 import { fieldDescription, objectDescription } from '../i18n/field-guidance';
 
 export const PROJECT_UNIVERSAL_IDENTIFIER = 'd172d5bb-e4cf-4518-b874-13fbd4c4ae65';
@@ -44,6 +47,18 @@ export const PROJECT_HEALTH = {
 
 export type ProjectHealth = (typeof PROJECT_HEALTH)[keyof typeof PROJECT_HEALTH];
 
+// Mirrors CAMPAIGN_CHANNEL in kuec/playbooks/lookups.json.
+export const CAMPAIGN_CHANNEL = {
+  EMAIL_SEQUENCE: 'EMAIL_SEQUENCE',
+  LINKEDIN: 'LINKEDIN',
+  EVENT_OR_EXHIBITION: 'EVENT_OR_EXHIBITION',
+  WORKSHOP: 'WORKSHOP',
+  WEBSITE: 'WEBSITE',
+  DIRECT_VISIT: 'DIRECT_VISIT',
+  PARTNER_REFERRAL: 'PARTNER_REFERRAL',
+  OTHER: 'OTHER',
+} as const;
+
 export const PROJECT_NAME_FIELD_UNIVERSAL_IDENTIFIER = '7b4d9322-3655-4d44-8df3-d6491d8270fb';
 export const PROJECT_PLAYBOOK_TYPE_FIELD_UNIVERSAL_IDENTIFIER = '6ca1027b-490d-427c-9aac-eb942354cf60';
 export const PROJECT_STATUS_FIELD_UNIVERSAL_IDENTIFIER = 'aadf97fa-7759-4c22-9310-dffac316c725';
@@ -55,6 +70,10 @@ export const PROJECT_PLAYBOOK_APPLIED_FIELD_UNIVERSAL_IDENTIFIER = '2efd38a1-e54
 export const PROJECT_CLOSE_TASK_CREATED_AT_FIELD_UNIVERSAL_IDENTIFIER = '403de32b-aff4-4cb6-9c9b-1448c2c6fc8a';
 export const PROJECT_DEPARTMENT_FIELD_UNIVERSAL_IDENTIFIER = 'ab72807f-922e-4dc1-910c-58fece53d153';
 export const PROJECT_OTHER_DETAILS_FIELD_UNIVERSAL_IDENTIFIER = 'e57ca1a2-a2cf-456c-80f8-16a01832ce28';
+export const PROJECT_TARGET_SECTOR_FIELD_UNIVERSAL_IDENTIFIER = '31d3e99a-03ee-4ad2-b8d4-9801f7fb2e2e';
+export const PROJECT_TARGET_SIZE_CLASS_FIELD_UNIVERSAL_IDENTIFIER = '1ab18643-c509-4b27-a831-8c3f437bd2fc';
+export const PROJECT_TARGET_OFFERING_FIELD_UNIVERSAL_IDENTIFIER = '71edb372-7128-42ae-9881-222d8fd8779b';
+export const PROJECT_CHANNEL_PLAN_FIELD_UNIVERSAL_IDENTIFIER = '5987519e-1b7c-4b63-a467-81b895eadc9f';
 
 // `type` is a reserved field name in Twenty, hence playbookType.
 export default defineObject({
@@ -197,6 +216,83 @@ export default defineObject({
       label: 'Other details',
       description: fieldDescription('project.otherDetails'),
       icon: 'IconNotes',
+    },
+    // The go-to-market campaign fields (GTM pack, runbooks/21-uventure-readiness.md
+    // section 5.3). Sector and offering mirror their lookups.json lists, size
+    // class mirrors Company > Size class, so G1 can match companies on them.
+    {
+      universalIdentifier: PROJECT_TARGET_SECTOR_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.SELECT,
+      name: 'targetSector',
+      label: 'Target sector',
+      description: fieldDescription('project.targetSector'),
+      icon: 'IconBuildingFactory2',
+      options: [
+        { id: 'f630051b-a92f-4b6c-92ea-2fe7d3be1f98', value: COMPANY_SECTOR.OIL_AND_GAS, label: 'Oil and gas', position: 0, color: 'orange' },
+        { id: '00ad7571-0e6b-43f6-9a73-7e07aafe9ffd', value: COMPANY_SECTOR.ENERGY_AND_UTILITIES, label: 'Energy and utilities', position: 1, color: 'yellow' },
+        { id: '9a0fb2d3-b71e-436c-9fa4-55dbc0facf4a', value: COMPANY_SECTOR.DEFENCE_AND_SECURITY, label: 'Defence and security', position: 2, color: 'red' },
+        { id: '87e988f6-cad6-4d39-a793-1f2dacbdbdca', value: COMPANY_SECTOR.AEROSPACE, label: 'Aerospace', position: 3, color: 'sky' },
+        { id: 'e06aa8b5-8e3c-4288-9238-71b27c312e8a', value: COMPANY_SECTOR.HEALTHCARE, label: 'Healthcare and life sciences', position: 4, color: 'green' },
+        { id: '981f38d8-b811-4f37-b1db-43aa1bf3dc36', value: COMPANY_SECTOR.ICT, label: 'Information technology, telecoms and digital', position: 5, color: 'blue' },
+        { id: '4c636a72-7d60-43e0-9829-d66082f83dc4', value: COMPANY_SECTOR.MANUFACTURING, label: 'Advanced manufacturing', position: 6, color: 'purple' },
+        { id: '44ceb2fb-4d0d-4ff9-84a6-ec7bcca86f96', value: COMPANY_SECTOR.TRANSPORT_AND_LOGISTICS, label: 'Transport and logistics', position: 7, color: 'turquoise' },
+        { id: 'f7c9b583-6ba4-47dd-9a00-7c5636fd7a02', value: COMPANY_SECTOR.GOVERNMENT, label: 'Government', position: 8, color: 'pink' },
+        { id: '1f0ddcbe-a770-4c27-9217-2cb45f10e58e', value: COMPANY_SECTOR.OTHER, label: 'Other', position: 9, color: 'gray' },
+      ],
+    },
+    {
+      universalIdentifier: PROJECT_TARGET_SIZE_CLASS_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.SELECT,
+      name: 'targetSizeClass',
+      label: 'Target size class',
+      description: fieldDescription('project.targetSizeClass'),
+      icon: 'IconRuler2',
+      options: [
+        { id: '7b012e88-6a41-4748-bc4c-6e23939d2db3', value: COMPANY_SIZE_CLASS.STARTUP, label: 'Startup', position: 0, color: 'pink' },
+        { id: 'f31cedb8-cca3-45fb-acb3-6c0026ed86ad', value: COMPANY_SIZE_CLASS.SME, label: 'Small or medium business', position: 1, color: 'blue' },
+        { id: 'ae29d4da-2200-45ec-b2c6-ef696872cbe0', value: COMPANY_SIZE_CLASS.LARGE_ENTERPRISE, label: 'Large enterprise', position: 2, color: 'purple' },
+        { id: '64787e76-f56d-4e7e-b9d8-1d3ab05bbdf5', value: COMPANY_SIZE_CLASS.GOVERNMENT, label: 'Government or semi-government', position: 3, color: 'green' },
+      ],
+    },
+    {
+      universalIdentifier: PROJECT_TARGET_OFFERING_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.MULTI_SELECT,
+      name: 'targetOffering',
+      label: 'Offering promoted',
+      description: fieldDescription('project.targetOffering'),
+      icon: 'IconPackages',
+      options: [
+        { id: '865ec15d-7b54-4a5f-83fe-c72ce44aa659', value: OPPORTUNITY_OFFERING.IP_LICENCE, label: 'Intellectual property licence', position: 0, color: 'blue' },
+        { id: '4aa65944-c7d2-4a94-93c1-aabedd0b144a', value: OPPORTUNITY_OFFERING.TECHNICAL_SERVICE, label: 'Technical service', position: 1, color: 'green' },
+        { id: '4d78fd78-016c-4a00-a71e-dde515711a75', value: OPPORTUNITY_OFFERING.LAB_TESTING, label: 'Lab testing', position: 2, color: 'purple' },
+        { id: 'a64d590e-2fef-48a8-a477-e6b6b63bb49e', value: OPPORTUNITY_OFFERING.EQUIPMENT_ACCESS, label: 'Equipment access', position: 3, color: 'orange' },
+        { id: '0eab5fa6-1f04-4b2b-81ef-e4d55ed3fd39', value: OPPORTUNITY_OFFERING.RESEARCH_COLLABORATION, label: 'Research collaboration', position: 4, color: 'turquoise' },
+        { id: 'cce1b44c-1f6c-483e-9b51-22f4448999f6', value: OPPORTUNITY_OFFERING.STARTUP_PRODUCT, label: 'Startup product', position: 5, color: 'pink' },
+        { id: 'acb2bb71-e73a-410f-aa89-fc99aa899924', value: OPPORTUNITY_OFFERING.SUBSIDIARY_SERVICE, label: 'Subsidiary service', position: 6, color: 'sky' },
+        { id: '873cda04-216d-4b08-9731-a481d9f7739b', value: OPPORTUNITY_OFFERING.SPONSORED_CHAIR, label: 'Sponsored chair', position: 7, color: 'amber' },
+        { id: 'ea029004-6109-4f1a-bf63-73d929b64988', value: OPPORTUNITY_OFFERING.LEASING, label: 'Leasing', position: 8, color: 'red' },
+        { id: '36a5609f-990a-4d50-8c75-979b1ac8081b', value: OPPORTUNITY_OFFERING.TRAINING, label: 'Training', position: 9, color: 'violet' },
+        { id: '3bff3a8a-783d-47f4-ba45-adeb45cd5bcc', value: OPPORTUNITY_OFFERING.ADVISORY, label: 'Advisory', position: 10, color: 'jade' },
+        { id: '9478041b-b4c6-43cf-be32-cfed19db93ad', value: OPPORTUNITY_OFFERING.OTHER, label: 'Other', position: 11, color: 'gray' },
+      ],
+    },
+    {
+      universalIdentifier: PROJECT_CHANNEL_PLAN_FIELD_UNIVERSAL_IDENTIFIER,
+      type: FieldType.MULTI_SELECT,
+      name: 'channelPlan',
+      label: 'Channel plan',
+      description: fieldDescription('project.channelPlan'),
+      icon: 'IconSpeakerphone',
+      options: [
+        { id: '73ed11c1-e068-4179-98f7-612948d8650d', value: CAMPAIGN_CHANNEL.EMAIL_SEQUENCE, label: 'Email sequence', position: 0, color: 'blue' },
+        { id: 'f14ba733-bcf7-444c-aa29-5fc13fbda989', value: CAMPAIGN_CHANNEL.LINKEDIN, label: 'LinkedIn', position: 1, color: 'sky' },
+        { id: 'c374ee71-b957-41e2-b1b9-e35c2cdbdd8b', value: CAMPAIGN_CHANNEL.EVENT_OR_EXHIBITION, label: 'Event or exhibition', position: 2, color: 'red' },
+        { id: '82ec8995-c05e-4413-839a-6779f32d9e43', value: CAMPAIGN_CHANNEL.WORKSHOP, label: 'Workshop', position: 3, color: 'amber' },
+        { id: 'cd40ac77-6def-4871-8ae9-cddf065316da', value: CAMPAIGN_CHANNEL.WEBSITE, label: 'Website', position: 4, color: 'green' },
+        { id: '76c170ca-47f4-4422-ac7e-fa34e1fa8d94', value: CAMPAIGN_CHANNEL.DIRECT_VISIT, label: 'Direct visit', position: 5, color: 'purple' },
+        { id: '529d5162-4964-4cb1-a2d8-4dbb145957ae', value: CAMPAIGN_CHANNEL.PARTNER_REFERRAL, label: 'Partner referral', position: 6, color: 'pink' },
+        { id: '363c5442-2839-4019-aace-3458376f2a2c', value: CAMPAIGN_CHANNEL.OTHER, label: 'Other', position: 7, color: 'gray' },
+      ],
     },
   ],
 });

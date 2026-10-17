@@ -1,9 +1,13 @@
 # Reverse proxy example. Any proxy works if it terminates TLS for SERVER_URL,
 # forwards to 127.0.0.1:HOST_PORT and passes websockets.
-crm.kuec.example {
+# Add no X-Frame-Options or Content-Security-Policy header here: Twenty sets
+# frame-ancestors itself from Settings > Security > Iframe embedding, and a
+# proxy header would block uVENTURE from embedding it
+# (runbooks/21-uventure-readiness.md section 1.4).
+crm.uventure.kuec.example {
 	reverse_proxy 127.0.0.1:3000
 }
 
-crm-staging.kuec.example {
+crm.uventure-staging.kuec.example {
 	reverse_proxy 127.0.0.1:3100
 }

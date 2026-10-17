@@ -28,4 +28,6 @@ export const OBJECT_NAMES = {
   person: { singular: 'person', plural: 'people' },
   note: { singular: 'note', plural: 'notes' },
   noteTarget: { singular: 'noteTarget', plural: 'noteTargets' },
+  capability: { singular: 'capability', plural: 'capabilities' },
+  campaignTarget: { singular: 'campaignTarget', plural: 'campaignTargets' },
 } as const satisfies Record<string, ObjectNames>;

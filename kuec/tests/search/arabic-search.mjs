@@ -4,7 +4,7 @@
 // the records. Every expectation is 2.48 behaviour: a FAIL means search changed
 // (an upgrade, a reverted field) and the runbook's rule needs another look.
 //
-// TWENTY_API_URL=https://crm-staging.kuec.example TWENTY_API_KEY=<admin key> node kuec/tests/search/arabic-search.mjs
+// TWENTY_API_URL=https://crm.uventure-staging.kuec.example TWENTY_API_KEY=<admin key> node kuec/tests/search/arabic-search.mjs
 // Staging or a disposable instance only: it writes and destroys records.
 
 const API_URL = process.env.TWENTY_API_URL;

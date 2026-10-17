@@ -4,6 +4,7 @@ import {
   SystemPermissionFlag,
 } from 'twenty-sdk/define';
 
+import { CAPABILITY_UNIVERSAL_IDENTIFIER } from '../objects/capability.object';
 import { CONTRACT_UNIVERSAL_IDENTIFIER } from '../objects/contract.object';
 import { MILESTONE_UNIVERSAL_IDENTIFIER } from '../objects/milestone.object';
 import { PROJECT_UNIVERSAL_IDENTIFIER } from '../objects/project.object';
@@ -25,7 +26,8 @@ const { opportunity, company, dashboard } = STANDARD_OBJECT_UNIVERSAL_IDENTIFIER
 // People, engagements, work packages, tasks, notes, mail and timelines stay
 // closed. Company and milestone are opened because the BD Executive dashboard
 // charts them and an opportunity row shows its company; neither holds people
-// or engagement detail.
+// or engagement detail. Capability is opened with Opportunity: a case shows
+// the technology it sells.
 export default defineRole({
   universalIdentifier: LEADERSHIP_VIEWER_ROLE_UNIVERSAL_IDENTIFIER,
   label: 'Leadership viewer',
@@ -51,6 +53,7 @@ export default defineRole({
         dashboard.universalIdentifier,
         company.universalIdentifier,
         MILESTONE_UNIVERSAL_IDENTIFIER,
+        CAPABILITY_UNIVERSAL_IDENTIFIER,
       ],
       READ_ONLY,
     ),

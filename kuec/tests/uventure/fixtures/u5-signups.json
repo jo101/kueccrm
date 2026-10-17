@@ -1,0 +1,55 @@
+{
+  "delivery": {
+    "events": [
+      {
+        "eventId": "stg-u5g",
+        "type": "signup.submitted",
+        "occurredAt": "{{now}}",
+        "data": {
+          "form": "GALA_QR",
+          "submission": {
+            "submissionId": "STG-GALA-1",
+            "firstName": "Gala",
+            "lastName": "Guest",
+            "email": "gala.guest@staging-example.com",
+            "companyName": "Staging Guest Co"
+          }
+        }
+      },
+      {
+        "eventId": "stg-u5w",
+        "type": "signup.submitted",
+        "occurredAt": "{{now}}",
+        "data": {
+          "form": "WORKSHOP_SIGNUP",
+          "submission": {
+            "submissionId": "STG-WS-1",
+            "firstName": "Workshop",
+            "lastName": "Attendee",
+            "email": "attendee@staging-example.com",
+            "companyName": "Staging Workshop Co",
+            "offeringInterest": [
+              "TRAINING"
+            ]
+          }
+        }
+      },
+      {
+        "eventId": "stg-u5s",
+        "type": "signup.submitted",
+        "occurredAt": "{{now}}",
+        "data": {
+          "form": "WEBSITE",
+          "submission": {
+            "submissionId": "STG-WEB-1",
+            "email": "web.visitor@staging-example.com",
+            "need": "Lab testing for 40 membrane samples",
+            "offeringInterest": [
+              "LAB_TESTING"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

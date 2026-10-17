@@ -55,8 +55,10 @@ kuec/
 
 ### 5. uVENTURE is the system of record
 
-- Technologies, patents, licences, equipment, and industry challenges live in uVENTURE. Twenty never has objects for them and never copies their attributes.
-- An opportunity carries a single uVENTURE link field. No sync, no import of uVENTURE data.
+- Technologies, patents, licences, equipment, and industry challenges live in uVENTURE. Twenty never copies their attributes beyond the pointer fields below.
+- Since 2026-10-17 (gate G1 of `runbooks/16-integration-map.md` lifted, `runbooks/21-uventure-readiness.md`): one **Capability** pointer object holds a technology, disclosure or listing's name, kind, status and uVENTURE link, nothing else, written only by the uVENTURE feed and read-only for every person role. TRL, patents, inventors, owners, descriptions and licence terms are never copied.
+- uVENTURE writes to Twenty only through the signed server route (section 8), keyed on the Unique `externalId`, and only the record types its source-of-truth matrix gives it (runbooks/21 section 4.1): Capability pointers, leads from challenges and sign-ups, and the metadata of contracts signed in uVENTURE. Twenty tells uVENTURE through signed app calls and a read-only API key, never by writing into uVENTURE.
+- Opportunities, contracts and leads carry a uVENTURE link field labelled "uVENTURE record". A pointer gone from uVENTURE is shown, never deleted.
 
 ### 6. Automation
 

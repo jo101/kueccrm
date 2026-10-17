@@ -13,6 +13,8 @@ import {
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import { loadDefaultExports } from 'src/__tests__/utils/load-default-exports';
+import { CAMPAIGN_TARGET_UNIVERSAL_IDENTIFIER } from 'src/objects/campaign-target.object';
+import { CAPABILITY_UNIVERSAL_IDENTIFIER } from 'src/objects/capability.object';
 import { CONTRACT_UNIVERSAL_IDENTIFIER } from 'src/objects/contract.object';
 import { DOCUMENT_UNIVERSAL_IDENTIFIER } from 'src/objects/document.object';
 import { ENGAGEMENT_UNIVERSAL_IDENTIFIER } from 'src/objects/engagement.object';
@@ -28,6 +30,7 @@ import {
 } from 'src/objects/work-package.object';
 import { AUTOMATION_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/automation.role';
 import { BD_OFFICER_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/bd-officer.role';
+import { COMMERCIALIZATION_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/commercialization.role';
 import { DEFAULT_FUNCTION_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/default-function.role';
 import { ED_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/ed.role';
 import { ENGINEER_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/engineer.role';
@@ -37,6 +40,7 @@ import { LEADERSHIP_VIEWER_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/leadershi
 import { LEASING_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/leasing.role';
 import { OPS_COORDINATOR_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/ops-coordinator.role';
 import { STARTUPS_AND_INVESTMENT_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/startups-and-investment.role';
+import { UVENTURE_READER_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/uventure-reader.role';
 import {
   LOCKED_FIELD_NAMES,
   LOCKED_FIELDS,
@@ -67,6 +71,12 @@ const DEPARTMENT_ROLE_UNIVERSAL_IDENTIFIERS = [
   LEASING_ROLE_UNIVERSAL_IDENTIFIER,
   LAB_ACCESS_ROLE_UNIVERSAL_IDENTIFIER,
   STARTUPS_AND_INVESTMENT_ROLE_UNIVERSAL_IDENTIFIER,
+  COMMERCIALIZATION_ROLE_UNIVERSAL_IDENTIFIER,
+];
+
+const API_KEY_ROLE_UNIVERSAL_IDENTIFIERS = [
+  AUTOMATION_ROLE_UNIVERSAL_IDENTIFIER,
+  UVENTURE_READER_ROLE_UNIVERSAL_IDENTIFIER,
 ];
 
 // The function role is the app itself: it stamps the locked fields.
@@ -105,6 +115,7 @@ const BUSINESS_OBJECT_UNIVERSAL_IDENTIFIERS = [
   CONTRACT_UNIVERSAL_IDENTIFIER,
   LEAD_UNIVERSAL_IDENTIFIER,
   DOCUMENT_UNIVERSAL_IDENTIFIER,
+  CAMPAIGN_TARGET_UNIVERSAL_IDENTIFIER,
 ];
 
 // Objects whose changes start automation that creates notification tasks as
@@ -243,6 +254,7 @@ describe('roles', () => {
     expect(roles.map((role) => role.label).sort()).toEqual([
       'Automation',
       'BD officer',
+      'Commercialization',
       'ED',
       'Engineer',
       'IP office',
@@ -252,10 +264,11 @@ describe('roles', () => {
       'Leasing',
       'Ops coordinator',
       'Startups and investment',
+      'uVENTURE reader',
     ]);
   });
 
-  it('give people the human roles, the API key the Automation role, and nobody the function role', () => {
+  it('give people the human roles, the API keys the Automation and uVENTURE reader roles, and nobody the function role', () => {
     for (const role of roles) {
       const isHuman = HUMAN_ROLE_UNIVERSAL_IDENTIFIERS.includes(
         role.universalIdentifier,
@@ -264,7 +277,7 @@ describe('roles', () => {
       expect(role.canBeAssignedToUsers, role.label).toBe(isHuman);
       expect(role.canBeAssignedToAgents, role.label).toBe(false);
       expect(role.canBeAssignedToApiKeys, role.label).toBe(
-        role.universalIdentifier === AUTOMATION_ROLE_UNIVERSAL_IDENTIFIER,
+        API_KEY_ROLE_UNIVERSAL_IDENTIFIERS.includes(role.universalIdentifier),
       );
     }
   });
@@ -289,7 +302,7 @@ describe('roles', () => {
       BD_OFFICER_ROLE_UNIVERSAL_IDENTIFIER,
       OPS_COORDINATOR_ROLE_UNIVERSAL_IDENTIFIER,
       LEADERSHIP_VIEWER_ROLE_UNIVERSAL_IDENTIFIER,
-      AUTOMATION_ROLE_UNIVERSAL_IDENTIFIER,
+      ...API_KEY_ROLE_UNIVERSAL_IDENTIFIERS,
       ...DEPARTMENT_ROLE_UNIVERSAL_IDENTIFIERS,
     ]) {
       const role = getRole(universalIdentifier);
@@ -384,6 +397,7 @@ describe('roles', () => {
 
     expect(holdersOf(SystemPermissionFlag.EXPORT_CSV)).toEqual([
       'BD officer',
+      'Commercialization',
       'ED',
       'IP office',
       'Lab access',
@@ -493,6 +507,7 @@ describe('roles', () => {
         WORK_PACKAGE_UNIVERSAL_IDENTIFIER,
         LEAD_UNIVERSAL_IDENTIFIER,
         DOCUMENT_UNIVERSAL_IDENTIFIER,
+        CAMPAIGN_TARGET_UNIVERSAL_IDENTIFIER,
       ].sort(),
     );
 
@@ -508,9 +523,49 @@ describe('roles', () => {
           ENGAGEMENT_UNIVERSAL_IDENTIFIER,
           LEAD_UNIVERSAL_IDENTIFIER,
           DOCUMENT_UNIVERSAL_IDENTIFIER,
+          CAMPAIGN_TARGET_UNIVERSAL_IDENTIFIER,
         ].sort(),
       );
     }
+  });
+
+  it('let every person role and the uVENTURE key read capabilities, and nobody but the app change them', () => {
+    for (const universalIdentifier of [
+      ...HUMAN_ROLE_UNIVERSAL_IDENTIFIERS,
+      UVENTURE_READER_ROLE_UNIVERSAL_IDENTIFIER,
+    ]) {
+      const role = getRole(universalIdentifier);
+
+      expect(can(role, 'read', CAPABILITY_UNIVERSAL_IDENTIFIER), role.label).toBe(true);
+    }
+
+    for (const role of roles.filter(
+      (candidate) =>
+        candidate.universalIdentifier !== DEFAULT_FUNCTION_ROLE_UNIVERSAL_IDENTIFIER,
+    )) {
+      for (const action of ['update', 'softDelete', 'destroy'] as const) {
+        expect(
+          can(role, action, CAPABILITY_UNIVERSAL_IDENTIFIER),
+          `${role.label} ${action}`,
+        ).toBe(false);
+      }
+    }
+  });
+
+  it('let the uVENTURE key read and never write', () => {
+    const reader = getRole(UVENTURE_READER_ROLE_UNIVERSAL_IDENTIFIER);
+
+    for (const objectUniversalIdentifier of [
+      ...BUSINESS_OBJECT_UNIVERSAL_IDENTIFIERS,
+      ...SYSTEM_OBJECT_UNIVERSAL_IDENTIFIERS,
+      CAPABILITY_UNIVERSAL_IDENTIFIER,
+    ]) {
+      expect(can(reader, 'update', objectUniversalIdentifier), objectUniversalIdentifier).toBe(
+        false,
+      );
+    }
+
+    expect(reader.permissionFlagUniversalIdentifiers).toEqual([]);
   });
 
   it('let every role that can start automation also create the notification tasks it runs as', () => {
@@ -530,6 +585,7 @@ describe('roles', () => {
     const leadership = getRole(LEADERSHIP_VIEWER_ROLE_UNIVERSAL_IDENTIFIER);
     const readable = [
       ...BUSINESS_OBJECT_UNIVERSAL_IDENTIFIERS,
+      CAPABILITY_UNIVERSAL_IDENTIFIER,
       ...SYSTEM_OBJECT_UNIVERSAL_IDENTIFIERS,
       dashboard.universalIdentifier,
     ].filter((objectUniversalIdentifier) =>
@@ -543,6 +599,7 @@ describe('roles', () => {
         PROJECT_UNIVERSAL_IDENTIFIER,
         MILESTONE_UNIVERSAL_IDENTIFIER,
         CONTRACT_UNIVERSAL_IDENTIFIER,
+        CAPABILITY_UNIVERSAL_IDENTIFIER,
         dashboard.universalIdentifier,
         // always readable in Twenty: owners and assignees are members
         workspaceMember.universalIdentifier,

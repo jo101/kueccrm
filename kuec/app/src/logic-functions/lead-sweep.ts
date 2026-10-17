@@ -23,6 +23,7 @@ import { planQualification } from 'src/automation/rules/lead-qualification.rule'
 import { hasReferrer } from 'src/automation/rules/lead-referral.rule';
 import { OPPORTUNITY_STAGE } from 'src/constants/opportunity-stage';
 import { LEAD_STATUS } from 'src/objects/lead.object';
+import { isPackEnabled, PACK } from 'src/packs/pack-switch';
 
 export const LEAD_SWEEP_UNIVERSAL_IDENTIFIER = '78d7cec1-b707-4544-a5fa-2265e64adfa4';
 
@@ -106,7 +107,8 @@ const handler = async () => {
     }
   }
 
-  for (const opportunity of signedFromLeads) {
+  // Referral credit belongs to the CRM pack; the rest of the sweep never stands down.
+  for (const opportunity of isPackEnabled(PACK.CRM) ? signedFromLeads : []) {
     const lead = isDefined(opportunity.leadId) ? leadsById.get(opportunity.leadId) : undefined;
 
     if (

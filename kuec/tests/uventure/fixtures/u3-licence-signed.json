@@ -1,0 +1,29 @@
+{
+  "delivery": {
+    "events": [
+      {
+        "eventId": "stg-u3",
+        "type": "agreement.signed",
+        "occurredAt": "{{now}}",
+        "data": {
+          "id": "STG-AGR-0001",
+          "url": "https://uventure-staging.kuec.example/agreements/STG-AGR-0001",
+          "agreementType": "LICENCE",
+          "title": "Staging: membrane licence, Staging Gulf Water",
+          "signedOn": "2026-10-15",
+          "expiresOn": "2031-10-14",
+          "value": {
+            "amount": 250000,
+            "currency": "AED"
+          },
+          "counterparty": {
+            "name": "Staging Gulf Water",
+            "website": "https://staging-gulfwater.example"
+          },
+          "technologyId": "STG-TECH-0042",
+          "crmOpportunityId": "{{opportunityId}}"
+        }
+      }
+    ]
+  }
+}

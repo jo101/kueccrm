@@ -24,6 +24,8 @@ Tests:
 | 9 | **Upload files**: only engineers (publishing the app uploads its build). Nobody else can attach a file, which enforces `kuec/CLAUDE.md` section 4 | As described | Add `UPLOAD_FILE` to a role |
 | 10 | **Send email** and **Create calendar event** from Twenty: off for every role. People write from Outlook and the mail syncs in | As described | Add `SEND_EMAIL_TOOL` or `CREATE_CALENDAR_EVENT_TOOL` to a role |
 | 11 | Engineers hold Workflows, as asked. That breaks condition 2 of `config/deploy/logic-function-type.md` (LOCAL is accepted only while no role but the ED's holds Workflows or Applications) | The file is updated with the engineers and the added risk | Re-sign `logic-function-type.md`, or set `LOGIC_FUNCTION_TYPE=LAMBDA` |
+| 12 | Since 0.11.0: **Commercialization** is a department role like IP office, Leasing, Lab access and Startups and investment, for the team that takes KU technologies to market. Every person holds the same role in uVENTURE (`config/roles/uventure-role-map.json`, `21-uventure-readiness.md` section 2.3) | As described | Retire it as any role: move its members, relabel it `(deprecated)`, `canBeAssignedToUsers: false` |
+| 13 | Since 0.11.0: **Capability** is read-only for every role, the ED and the ops coordinator included, and readable by every person role and the uVENTURE key. Only the uVENTURE feed writes it; a wrong pointer is corrected in uVENTURE | As described | Give the ED write on Capability in `ed.role.ts` (the next snapshot overwrites any edit anyway) |
 
 ## 1. The roles
 
@@ -33,10 +35,11 @@ Twenty 2.48 gives each member exactly one role; assigning another replaces it. S
 | --- | --- | --- | --- | --- | --- | --- |
 | **ED** | the ED | read and write all | yes | export | workspace, members, roles, security, data model, API keys, apps, layouts, views | yes |
 | **Ops coordinator** | the ops coordinator | read and write all | yes | import and export | none | no |
-| **BD officer** | the BD staff | read all; write Lead, Opportunity, Company, Person, Engagement, Document, Task, Note; on a work package only Status, Accepted at, Blocked reason, Declined reason | no | export | none | no |
+| **BD officer** | the BD staff | read all; write Lead, Opportunity, Company, Person, Engagement, Document, Campaign target (0.11.0), Task, Note; on a work package only Status, Accepted at, Blocked reason, Declined reason | no | export | none | no |
 | **Engineer** | engineers | read all; write no business data (dashboards only) | no | neither | workspace, data model, apps, layouts, views | yes |
 | **Leadership viewer** | nobody yet | read Opportunity, Project, Milestone, Contract, Company and dashboards | no | neither | none | no |
-| **IP office**, **Leasing**, **Lab access**, **Startups and investment** | department staff, one role per department | read all; write Lead, Opportunity, Engagement, Document, Task, Note | no | export | none | no |
+| **IP office**, **Leasing**, **Lab access**, **Startups and investment**, **Commercialization** (0.11.0) | department staff, one role per department | read all; write Lead, Opportunity, Engagement, Document, Campaign target, Task, Note | no | export | none | no |
+| **uVENTURE reader** (0.11.0) | the uVENTURE API key only | read Opportunity, Lead, Engagement, Contract, Capability, Company, Person; nothing else, not even tasks, notes or history | no | neither | none | no |
 | **Automation** | the automation API key only | read and write Opportunity, Company, Person, Task, Note, their link objects, Project, Milestone, Work package, Contract, Engagement, Lead, Document; read members | no | neither | none | no |
 | KUEC BD Ops function role | the app's logic functions; never a person | read and write all | no | n/a | none | n/a |
 
@@ -74,6 +77,7 @@ Fields only automation, the ED and the ops coordinator may change. Every other r
 | `health` | Project | Health | yes | the app only |
 | `lastEngagementAt` | Lead | Last engagement | yes (0.9.0) | the app only |
 | `externalId`, `sourceSystem` | Lead, Document | External id, Source system | yes (0.9.0), `writability: OPEN` | the app, the ED, the ops coordinator, the Automation key |
+| `externalId`, `sourceSystem` | Capability, Contract | External id, Source system | yes (0.11.0), `writability: OPEN` | the app (the uVENTURE feed), the ED, the ops coordinator, the Automation key; Capability itself is read-only for every person role (decision 13) |
 | `externalId`, `sourceSystem` on Company and Person, `serviceCaseId`, `version` | | | **no** | |
 
 **Two layers.** The eight existing fields were already app-stamped in the manifest (`writability: APPLICATION`): Twenty refuses a write to them from any person or API key, the ED, the ops coordinator and the Automation key included. Only the app's logic functions and front components write them. The role locks add the second layer and matter where the app acts for a person (below). The exemption for the ED, the ops coordinator and Automation becomes real for fields people may edit: when the four missing fields are added (they read like integration fields the Automation key fills), give them `writability: OPEN` so the key can write them, and add them to `LOCKED_FIELDS` in `kuec/app/src/roles/utils/field-locks.ts` so everyone else cannot. If the ED or the ops coordinator should be able to correct a stamped value such as Health, that field has to become OPEN too; we recommend leaving the stamps to the app. The first two that exist, `externalId` and `sourceSystem` on Lead and Document (0.9.0), are built that way: OPEN, and in `LOCKED_FIELDS`.
@@ -101,6 +105,8 @@ Every API key in production and staging has a row here before it is created. A k
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `automation-prod-<yyyy-mm>` | prod | Automation | ED | | created + 1 year | every quarter | `twenty/prod/AUTOMATION_API_KEY` | inbound integrations and scripts that write BD records |
 | `automation-staging-<yyyy-mm>` | staging | Automation | engineering lead | | created + 1 year | every quarter | `twenty/staging/AUTOMATION_API_KEY` | the same, against staging |
+| `uventure-reader-prod-<yyyy-mm>` | prod | uVENTURE reader | ED | | created + 1 year | every quarter | `twenty/prod/UVENTURE_READER_API_KEY` | uVENTURE's nightly read (`21-uventure-readiness.md` section 4.3) |
+| `uventure-reader-staging-<yyyy-mm>` | staging | uVENTURE reader | engineering lead | | created + 1 year | every quarter | `twenty/staging/UVENTURE_READER_API_KEY` | the same, against staging |
 
 Revoked keys stay in the table, with the revocation date, for a year.
 
@@ -159,7 +165,7 @@ Record:
 
 ## 7. Joiners
 
-Who: the ED (invites, assigns), the new member, the ops coordinator.
+Who: the ED (invites, assigns), the new member, the ops coordinator. Since 0.11.0 a joiner in the commercialization vertical is set up in Twenty and in uVENTURE the same day, with the mapped role: `21-uventure-readiness.md` section 2.5 wraps the steps below.
 
 1. **IT** creates the KUEC Microsoft account and assigns it to the Twenty enterprise application in Entra (it-request item 1, "Assignment required").
 2. **ED:** Settings > Members > **Invite**. Enter the work address and pick the **role** from section 1 in the role list next to it, so the member never passes through the default role. **Invite**.
@@ -174,7 +180,7 @@ A member changing job: the ED assigns the new role (Settings > Members > Roles >
 
 ## 8. Leavers
 
-Who: the ops coordinator (records), the ED (access), IT. Steps 1 to 4 happen before the member is removed: **removing a member unassigns them from all their records** (owner fields become empty) and moves their synced mailbox and calendar to the person who removes them.
+Who: the ops coordinator (records), the ED (access), IT. Since 0.11.0 the uVENTURE account is reassigned and disabled the same day: `21-uventure-readiness.md` section 2.5. Steps 1 to 4 happen before the member is removed: **removing a member unassigns them from all their records** (owner fields become empty) and moves their synced mailbox and calendar to the person who removes them.
 
 1. **Find their open records.** For each object, open the list and filter by the leaver:
 

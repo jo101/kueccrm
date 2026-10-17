@@ -16,12 +16,17 @@ import { OBJECT_NAMES } from 'src/automation/records/object-names';
 import { type LeadRecord } from 'src/automation/records/record-types';
 import { planContactSlaEscalations } from 'src/automation/rules/lead-contact-sla.rule';
 import { LEAD_STATUS } from 'src/objects/lead.object';
+import { isPackEnabled, PACK, packStandDown } from 'src/packs/pack-switch';
 
 export const L02_LEAD_CONTACT_SLA_UNIVERSAL_IDENTIFIER = 'a7c363ee-ef10-44be-842a-166b14ef1b3f';
 
 // Hourly from lead state alone: the clock is Status entered at, so there is no
 // timer job to lose and the sweep is the only path.
 const handler = async () => {
+  if (!isPackEnabled(PACK.CRM)) {
+    return packStandDown(PACK.CRM);
+  }
+
   const api = createTwentyApi();
   const now = new Date();
   const [leads, context] = await Promise.all([

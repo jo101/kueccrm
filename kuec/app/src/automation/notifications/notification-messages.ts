@@ -46,4 +46,26 @@ export const NOTIFICATION_MESSAGES = {
     composeNotificationMessage({ lead: 'Thank the referrer of:', subject, link }),
   recordDeadReason: ({ subject, link }: MessageInput) =>
     composeNotificationMessage({ lead: 'Record why this lead is dead:', subject, link }),
+  capabilityNoLongerOffered: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'uVENTURE no longer offers what this case sells, check:', subject, link }),
+  uventureContractToLink: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'Signed in uVENTURE, link this contract to its case and owner:', subject, link }),
+  uventureFeedSilent: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'No complete uVENTURE snapshot for 26 hours, last:', subject, link }),
+  stageExitGaps: ({ subject, link, reason }: MessageInput & { reason: string | null }) =>
+    composeNotificationMessage({
+      lead: 'Moved on before its exit criteria were met:',
+      subject,
+      detail: `Missing: ${reason ?? 'see the stage table'}.`,
+      link,
+    }),
+  weeklyReview: ({ subject, link }: MessageInput) =>
+    composeNotificationMessage({ lead: 'Weekly review: update health, milestones and the RAID log of', subject, link }),
+  campaignTargetsAdded: ({ subject, link, reason }: MessageInput & { reason: string | null }) =>
+    composeNotificationMessage({
+      lead: 'Target list updated for your campaign:',
+      subject,
+      detail: reason,
+      link,
+    }),
 } as const;

@@ -112,7 +112,7 @@ An existing person is linked, never changed, except that an empty company is fil
 
 **The route.** `lead-intake-route` is the signed server route of `16-integration-map.md` section 2.4:
 
-- `POST https://crm.kuec.example/s/integrations/forms/leads`
+- `POST https://crm.uventure.kuec.example/s/integrations/forms/leads`
 - Headers: `x-kuec-timestamp` (Unix seconds), `x-kuec-signature: v1=<hex HMAC-SHA256(secret, timestamp + "." + raw body)>`, `x-kuec-delivery` (1 to 100 letters, digits, dot, dash or underscore, unique per delivery and the same on a resend).
 - Body:
 
@@ -149,6 +149,8 @@ An existing person is linked, never changed, except that an empty company is fil
 5. **Rotation**, quarterly with the API key (`13-roles.md` section 6): move the current secret to **Forms signing secret (previous)**, set the new one, tell the form operators, clear the previous one a week later.
 
 The forms must collect consent to be contacted before they submit; the route does not check it.
+
+**Since 0.11.0 two more ways in, through the uVENTURE route** (`21-uventure-readiness.md` section 4.2): a challenge submitted in uVENTURE becomes a lead with Source **Challenge Sprint** or **Technical committee**, Source system uVENTURE, External id `uventure:<challenge id>` and the challenge's **uVENTURE record** link (U2); and a gala, workshop or website form that uVENTURE hosts sends its submissions as `signup.submitted`, which go through the same code as this route with the same sources and external ids (U5). One sender per form: a form hosted by uVENTURE never also posts here.
 
 ## 7. Automation reference (L1 to L6)
 

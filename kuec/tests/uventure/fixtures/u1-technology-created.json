@@ -1,0 +1,17 @@
+{
+  "delivery": {
+    "events": [
+      {
+        "eventId": "stg-u1",
+        "type": "technology.created",
+        "occurredAt": "{{now}}",
+        "data": {
+          "id": "STG-TECH-0042",
+          "title": "Staging: low-cost desalination membrane",
+          "url": "https://uventure-staging.kuec.example/technologies/STG-TECH-0042",
+          "status": "AVAILABLE"
+        }
+      }
+    ]
+  }
+}

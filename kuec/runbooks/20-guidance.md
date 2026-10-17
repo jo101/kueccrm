@@ -104,6 +104,8 @@ Reordered in 0.10.0, most common case first: Engagement kind (Intro meeting, Cal
 | 4 | What each field means | this runbook section 12 |
 | 5 | Every screen | this runbook section 10, each screen with its screencast (section 7) |
 | 6 | When you don't know what to do | section 6 below |
+| 7 | The CRM and uVENTURE (0.11.0) | `21-uventure-readiness.md` sections 1.4 (signing in once in each), 1.6 (the links both ways) and 4.1 (who owns what), and the Capability guidance of section 10 |
+| 8 | Our best-practice packs (0.11.0) | `kuec/playbooks/crm-pack.md`, `pm-pack.md` and `gtm-pack.md`, in full, each under its tab name: Pipeline pack, Project pack, Campaign pack |
 
 **Keeping it current.** Every release that changes `src/i18n`, `lookups.json`, the cadence guide or the onboarding checklist changes the matching section of the Help page the same day; the release note names the sections. The ops coordinator checks the page against this runbook at each quarterly taxonomy review.
 
@@ -112,7 +114,7 @@ Reordered in 0.10.0, most common case first: Engagement kind (Intro meeting, Cal
 **The one rule, on every page where a work package appears: if you do not know what to do with a work package, open it and press Request help on its card.** The ops coordinator gets a task due today with your question, linked to the work package, and the work stays yours with the same status and due date.
 
 - The owner has **Request help** on every open status: Planned, Offered, Accepted, Submitted and Blocked. Until 0.10.0 it appeared only after Accept.
-- The pages that show work packages say so in their last line: the Opportunity, Project, Milestone, Task and Work package record pages, and the Home, Exceptions, Data quality, Team and Mine tabs (`showsWorkPackages` in `guidance.json`, checked by `src/i18n/guidance.test.ts`). On the Help page the rule is section 6 and it is repeated on each of those screens.
+- The pages that show work packages say so in their last line: the Opportunity, Project, Milestone, Task and Work package record pages, and the Home, Exceptions, Data quality, Team, Mine and Project pack tabs (`showsWorkPackages` in `guidance.json`, checked by `src/i18n/guidance.test.ts`). On the Help page the rule is section 6 and it is repeated on each of those screens.
 - Help is not a block: when someone else must act before you can go on, set **Blocked** with the reason (`10-cadence-en.md` section 6).
 
 ## 7. Screencasts to record
@@ -138,6 +140,10 @@ One screencast of about 10 minutes per screen, for people in their first week. N
 | 15 | Tasks and notes | Everyone | The Tasks list, reminders as tasks, marking Done, writing a note on a record and what never goes into one | `crm-15-tasks-notes.mp4` |
 | 16 | Your mailbox and calendar | Everyone | Settings > Accounts, Connect with Microsoft, the team settings, the Emails and Calendar tabs | `crm-16-mailbox.mp4` |
 | 17 | Playbook roles and public holidays | The ED, the ops coordinator | Playbook role assignments (one active Executive director and Operations coordinator), entering the year's UAE public holidays | `crm-17-configuration.mp4` |
+| 18 | The CRM and uVENTURE (0.11.0) | Everyone | Sidebar > uVENTURE and its three tabs, signing in once in each system, Open uVENTURE, a Capability and its uVENTURE record link, linking a capability to an opportunity and an engagement, Not available to offer, a challenge arriving as a lead | `crm-18-uventure.mp4` |
+| 19 | Pipeline pack (0.11.0) | Business development officers, the ED | The tab top to bottom, the stage exit criteria table, a C1 task and fixing it, account tiers, referral credits | `crm-19-pipeline-pack.mp4` |
+| 20 | Project pack and the weekly review (0.11.0) | Project owners | The Monday review task, the tab, editing the RAID log note, clearing Red with a note | `crm-20-project-pack.mp4` |
+| 21 | Campaign pack (0.11.0) | Campaign owners, the ED | Setting up a Go-to-market campaign project, the target list appearing, working targets, a campaign lead, why cost per qualified lead is blank | `crm-21-campaign-pack.mp4` |
 
 A screencast is re-recorded when its screen changes in a release (the release note says which).
 
@@ -170,7 +176,7 @@ Every change to the CRM ships with its guidance, or it does not ship (`kuec/CLAU
 
 ## 10. Every widget text
 
-14 record pages and 6 dashboard tabs, from `kuec/app/src/i18n/guidance.json`. The widget shows the five English lines, then the five Arabic lines.
+16 record pages and 12 dashboard tabs, from `kuec/app/src/i18n/guidance.json`. The widget shows the five English lines, then the five Arabic lines.
 
 ### 10.1 Company (الشركة)
 
@@ -340,7 +346,31 @@ Widget **How this record works** (كيف يعمل هذا السجل), key `publi
 | 4 | **What happens automatically:** Every working-day count in the app, such as the 2-day acceptance and the lead reminders, skips these dates. | **ما يحدث تلقائياً:** كل عدّ لأيام العمل في النظام، مثل مهلة القبول البالغة يومين وتذكيرات العملاء المحتملين، يتخطى هذه التواريخ. |
 | 5 | **Where to get help:** Ask the engineering lead if a reminder seems to have counted a holiday. | **أين تجد المساعدة:** اسأل قائد الفريق الهندسي إذا بدا أن تذكيراً احتسب يوم عطلة. |
 
-### 10.15 Home (الصفحة الرئيسية)
+### 10.15 Capability (القدرة)
+
+Widget **How this record works** (كيف يعمل هذا السجل), key `capability`.
+
+| | English | العربية |
+| --- | --- | --- |
+| 1 | **What it is:** A pointer to a technology, invention disclosure, lab or item of equipment whose full record lives in uVENTURE. | **ما هذا:** مؤشر إلى تقنية أو إفصاح عن اختراع أو مختبر أو معدات يوجد سجلها الكامل في uVENTURE. |
+| 2 | **Who owns it:** uVENTURE owns it: the uVENTURE feed creates and updates it, and nobody edits it in the CRM. | **من المسؤول:** يملكه uVENTURE: ينشئه ربط uVENTURE الآلي ويحدّثه، ولا يعدّله أحد في نظام إدارة العملاء. |
+| 3 | **What must be filled:** Nothing: to change the name, kind or status, change it in uVENTURE through the uVENTURE record link. | **ما يجب ملؤه:** لا شيء: لتغيير الاسم أو النوع أو الحالة، غيّرها في uVENTURE عبر رابط سجل uVENTURE. |
+| 4 | **What happens automatically:** Each night the uVENTURE snapshot refreshes it, a status change to unavailable or withdrawn tells the owners of open cases, and 7 days without a snapshot lists it under Not seen in uVENTURE. | **ما يحدث تلقائياً:** تحدّثه لقطة uVENTURE كل ليلة، وتغيّر الحالة إلى غير متاحة أو مسحوبة يُبلغ مسؤولي الحالات المفتوحة، ومرور 7 أيام بلا لقطة يدرجه تحت «لم يظهر في uVENTURE». |
+| 5 | **Where to get help:** Help in the sidebar explains the uVENTURE link, and the ops coordinator takes a wrong pointer to the uVENTURE administrator. | **أين تجد المساعدة:** في «المساعدة» بالقائمة الجانبية شرح لربط uVENTURE، ومنسق العمليات يحمل أي مؤشر خاطئ إلى مسؤول uVENTURE. |
+
+### 10.16 Campaign target (الجهة المستهدفة في الحملة)
+
+Widget **How this record works** (كيف يعمل هذا السجل), key `campaignTarget`.
+
+| | English | العربية |
+| --- | --- | --- |
+| 1 | **What it is:** One company on a go-to-market campaign's target list. | **ما هذا:** شركة واحدة ضمن قائمة استهداف حملة تسويقية. |
+| 2 | **Who owns it:** The campaign's owner works the list; anyone on the campaign can update a target. | **من المسؤول:** يعمل مسؤول الحملة على القائمة، ويمكن لأي عضو في الحملة تحديث أي جهة مستهدفة. |
+| 3 | **What must be filled:** Status after each contact: Contacted, Responded, Not interested or Do not contact. | **ما يجب ملؤه:** الحالة بعد كل تواصل: تم التواصل، أو استجابت، أو غير مهتمة، أو لا يُتواصل معها. |
+| 4 | **What happens automatically:** The app builds the list from the companies in the campaign's target sector and size class, and sets Lead created when a lead from this company is attributed to the campaign. | **ما يحدث تلقائياً:** يبني التطبيق القائمة من الشركات في القطاع وفئة الحجم المستهدفين للحملة، ويضبط «أُنشئ عميل محتمل» عندما يُنسب إلى الحملة عميل محتمل من هذه الشركة. |
+| 5 | **Where to get help:** Help in the sidebar has the campaign guide, and the campaign owner decides when a company leaves the list. | **أين تجد المساعدة:** في «المساعدة» بالقائمة الجانبية دليل الحملات، ومسؤول الحملة يقرر متى تخرج شركة من القائمة. |
+
+### 10.17 Home (الصفحة الرئيسية)
 
 Widget **How this tab works** (كيف يعمل هذا التبويب), key `home`.
 
@@ -352,7 +382,7 @@ Widget **How this tab works** (كيف يعمل هذا التبويب), key `home
 | 4 | **What happens automatically:** Rows appear when work is offered or submitted to you or falls due within 7 days, and leave once you act. | **ما يحدث تلقائياً:** تظهر الصفوف عندما يُعرض عليك عمل أو يُقدَّم إليك أو يحل موعده خلال 7 أيام، وتختفي بعد أن تتصرف. |
 | 5 | **Where to get help:** Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator. | **أين تجد المساعدة:** متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات. |
 
-### 10.16 Exceptions (الاستثناءات)
+### 10.18 Exceptions (الاستثناءات)
 
 Widget **How this tab works** (كيف يعمل هذا التبويب), key `exceptions`.
 
@@ -364,7 +394,7 @@ Widget **How this tab works** (كيف يعمل هذا التبويب), key `exce
 | 4 | **What happens automatically:** Rows come and go as records change, and the ED has already been told about each block. | **ما يحدث تلقائياً:** تظهر الصفوف وتختفي مع تغيّر السجلات، وقد أُبلغ المدير التنفيذي مسبقاً بكل تعطّل. |
 | 5 | **Where to get help:** Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator. | **أين تجد المساعدة:** متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات. |
 
-### 10.17 Data quality (جودة البيانات)
+### 10.19 Data quality (جودة البيانات)
 
 Widget **How this tab works** (كيف يعمل هذا التبويب), key `dataQuality`.
 
@@ -376,7 +406,7 @@ Widget **How this tab works** (كيف يعمل هذا التبويب), key `data
 | 4 | **What happens automatically:** A record leaves its list as soon as it is fixed. | **ما يحدث تلقائياً:** يخرج السجل من قائمته بمجرد تصحيحه. |
 | 5 | **Where to get help:** Stuck on a work package listed here? Open it and press Request help on its card, and Help in the sidebar explains every field and option. | **أين تجد المساعدة:** متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها، وفي «المساعدة» بالقائمة الجانبية شرح كل حقل وكل خيار. |
 
-### 10.18 BD dashboard, Executive tab (لوحة تطوير الأعمال، تبويب Executive)
+### 10.20 BD dashboard, Executive tab (لوحة تطوير الأعمال، تبويب Executive)
 
 Widget **How this tab works** (كيف يعمل هذا التبويب), key `bdExecutive`.
 
@@ -388,7 +418,7 @@ Widget **How this tab works** (كيف يعمل هذا التبويب), key `bdEx
 | 4 | **What happens automatically:** Each chart counts exactly the records in the table beside it and changes as soon as the records do. | **ما يحدث تلقائياً:** كل رسم بياني يعدّ بالضبط السجلات الموجودة في الجدول بجانبه، ويتغير بمجرد تغيّرها. |
 | 5 | **Where to get help:** Help in the sidebar explains each chart, and the ED answers questions about a number. | **أين تجد المساعدة:** في «المساعدة» بالقائمة الجانبية شرح كل رسم بياني، والمدير التنفيذي يجيب عن الأسئلة حول أي رقم. |
 
-### 10.19 BD dashboard, Team tab (لوحة تطوير الأعمال، تبويب Team)
+### 10.21 BD dashboard, Team tab (لوحة تطوير الأعمال، تبويب Team)
 
 Widget **How this tab works** (كيف يعمل هذا التبويب), key `bdTeam`.
 
@@ -400,7 +430,7 @@ Widget **How this tab works** (كيف يعمل هذا التبويب), key `bdTe
 | 4 | **What happens automatically:** The board and the charts move as statuses change, and dragging a card to another column changes its status. | **ما يحدث تلقائياً:** تتحرك اللوحة والرسوم البيانية مع تغيّر الحالات، وسحب البطاقة إلى عمود آخر يغيّر حالتها. |
 | 5 | **Where to get help:** Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator. | **أين تجد المساعدة:** متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات. |
 
-### 10.20 BD dashboard, Mine tab (لوحة تطوير الأعمال، تبويب Mine)
+### 10.22 BD dashboard, Mine tab (لوحة تطوير الأعمال، تبويب Mine)
 
 Widget **How this tab works** (كيف يعمل هذا التبويب), key `bdMine`.
 
@@ -412,9 +442,81 @@ Widget **How this tab works** (كيف يعمل هذا التبويب), key `bdMi
 | 4 | **What happens automatically:** Every view behind this tab filters to you, so each person sees their own page. | **ما يحدث تلقائياً:** كل عرض في هذا التبويب مصفّى عليك، فيرى كل شخص صفحته هو. |
 | 5 | **Where to get help:** Stuck on a work package listed here? Open it and press Request help on its card; for anything else, Help in the sidebar or the ops coordinator. | **أين تجد المساعدة:** متوقف في حزمة عمل مدرجة هنا؟ افتحها واضغط «طلب مساعدة» في بطاقتها؛ ولأي أمر آخر استخدم «المساعدة» في القائمة الجانبية أو اسأل منسق العمليات. |
 
+### 10.23 uVENTURE: Technologies (uVENTURE: التقنيات)
+
+Widget **How this tab works** (كيف يعمل هذا التبويب), key `uventureTechnologies`.
+
+| | English | العربية |
+| --- | --- | --- |
+| 1 | **What it is:** The uVENTURE technology list, shown inside the CRM so you can look up a technology without leaving it. | **ما هذا:** قائمة التقنيات في uVENTURE معروضة داخل نظام إدارة العملاء لتبحث عن تقنية دون مغادرته. |
+| 2 | **Who owns it:** The commercialization team keeps it current in uVENTURE; the CRM only shows it. | **من المسؤول:** يبقيها فريق التسويق التجاري محدَّثة في uVENTURE، والنظام يعرضها فقط. |
+| 3 | **What must be filled:** Nothing here: link a technology to a case through the case's Capability field. | **ما يجب ملؤه:** لا شيء هنا: اربط التقنية بالحالة عبر حقل «القدرة» في الحالة. |
+| 4 | **What happens automatically:** uVENTURE sends every new technology and disclosure to the CRM as a capability, so it can be picked on a case. | **ما يحدث تلقائياً:** يرسل uVENTURE كل تقنية وإفصاح جديد إلى نظام إدارة العملاء كقدرة، لتُختار في الحالة. |
+| 5 | **Where to get help:** If the page asks you to sign in, sign in to uVENTURE in its own tab once, then come back; Help in the sidebar explains why. | **أين تجد المساعدة:** إذا طلبت الصفحة تسجيل الدخول فسجّل الدخول إلى uVENTURE في تبويبه مرة واحدة ثم عد؛ وفي «المساعدة» بالقائمة الجانبية شرح السبب. |
+
+### 10.24 uVENTURE: Equipment and labs (uVENTURE: المعدات والمختبرات)
+
+Widget **How this tab works** (كيف يعمل هذا التبويب), key `uventureEquipment`.
+
+| | English | العربية |
+| --- | --- | --- |
+| 1 | **What it is:** The uVENTURE list of labs and equipment with their availability, shown inside the CRM. | **ما هذا:** قائمة المختبرات والمعدات في uVENTURE مع توفرها، معروضة داخل نظام إدارة العملاء. |
+| 2 | **Who owns it:** The lab access team keeps the listings and their availability current in uVENTURE. | **من المسؤول:** يبقي فريق الوصول إلى المختبرات الإدراجات وتوفرها محدَّثة في uVENTURE. |
+| 3 | **What must be filled:** Nothing here: before you promise a lab or a machine to a client, check its status on the capability. | **ما يجب ملؤه:** لا شيء هنا: قبل أن تعد عميلاً بمختبر أو جهاز، تحقق من حالته في القدرة. |
+| 4 | **What happens automatically:** A change of availability in uVENTURE updates the capability's status, and owners of open cases hear when it stops being offered. | **ما يحدث تلقائياً:** تغيّر التوفر في uVENTURE يحدّث حالة القدرة، ويُبلَّغ مسؤولو الحالات المفتوحة عندما تتوقف عن العرض. |
+| 5 | **Where to get help:** If the page asks you to sign in, sign in to uVENTURE in its own tab once, then come back; Help in the sidebar explains why. | **أين تجد المساعدة:** إذا طلبت الصفحة تسجيل الدخول فسجّل الدخول إلى uVENTURE في تبويبه مرة واحدة ثم عد؛ وفي «المساعدة» بالقائمة الجانبية شرح السبب. |
+
+### 10.25 uVENTURE: Challenges (uVENTURE: التحديات)
+
+Widget **How this tab works** (كيف يعمل هذا التبويب), key `uventureChallenges`.
+
+| | English | العربية |
+| --- | --- | --- |
+| 1 | **What it is:** The industry challenges submitted through uVENTURE, such as Challenge Sprint and Technical committee entries, shown inside the CRM. | **ما هذا:** التحديات الصناعية المقدمة عبر uVENTURE، مثل مشاركات Challenge Sprint واللجنة الفنية، معروضة داخل نظام إدارة العملاء. |
+| 2 | **Who owns it:** uVENTURE holds the challenge; the ops coordinator owns the lead it becomes in the CRM. | **من المسؤول:** يحتفظ uVENTURE بالتحدي، ويملك منسق العمليات العميل المحتمل الذي يصبحه في النظام. |
+| 3 | **What must be filled:** Nothing here: work the challenge as a lead, from the Lead inbox. | **ما يجب ملؤه:** لا شيء هنا: اعمل على التحدي كعميل محتمل من صندوق العملاء المحتملين. |
+| 4 | **What happens automatically:** Each submitted challenge arrives as a new lead with its source and its uVENTURE link, and is triaged like any lead. | **ما يحدث تلقائياً:** يصل كل تحدٍّ مقدَّم كعميل محتمل جديد بمصدره ورابطه في uVENTURE، ويُفرز مثل أي عميل محتمل. |
+| 5 | **Where to get help:** If the page asks you to sign in, sign in to uVENTURE in its own tab once, then come back; Help in the sidebar explains why. | **أين تجد المساعدة:** إذا طلبت الصفحة تسجيل الدخول فسجّل الدخول إلى uVENTURE في تبويبه مرة واحدة ثم عد؛ وفي «المساعدة» بالقائمة الجانبية شرح السبب. |
+
+### 10.26 BD > Pipeline pack (تطوير الأعمال > حزمة مسار المبيعات)
+
+Widget **How this tab works** (كيف يعمل هذا التبويب), key `packPipeline`.
+
+| | English | العربية |
+| --- | --- | --- |
+| 1 | **What it is:** The CRM pack: leads to opportunities with contact times, stage exit criteria, account tiers and referral credit, in one place. | **ما هذا:** حزمة إدارة العملاء: من العملاء المحتملين إلى الفرص مع مهل التواصل ومعايير الخروج من كل مرحلة وفئات الحسابات ورصيد الإحالة، في مكان واحد. |
+| 2 | **Who owns it:** Each owner works their own rows; the ED and the ops coordinator read the whole team here. | **من المسؤول:** يعمل كل مسؤول على صفوفه، ويقرأ المدير التنفيذي ومنسق العمليات الفريق كله هنا. |
+| 3 | **What must be filled:** Before moving a case on, fill the exit criteria of the stage it leaves, as the pipeline playbook lists them. | **ما يجب ملؤه:** قبل نقل الحالة، املأ معايير الخروج من المرحلة التي تغادرها كما يذكرها دليل مسار المبيعات. |
+| 4 | **What happens automatically:** Leads past their contact time are nudged, quiet leads close after 30 days, referrers are credited on signature, and a move with exit criteria missing gives the owner a task. | **ما يحدث تلقائياً:** يُذكَّر من تجاوز مهلة التواصل، وتُغلق العملاء المحتملين الخاملين بعد 30 يوماً، ويُنسب الرصيد للمُحيل عند التوقيع، ونقل الحالة دون معايير الخروج يعطي المسؤول مهمة. |
+| 5 | **Where to get help:** Help in the sidebar has the CRM pack playbook, and the ED decides whether the pack is on. | **أين تجد المساعدة:** في «المساعدة» بالقائمة الجانبية دليل حزمة إدارة العملاء، والمدير التنفيذي يقرر تشغيل الحزمة. |
+
+### 10.27 BD > Project pack (تطوير الأعمال > حزمة المشاريع)
+
+Widget **How this tab works** (كيف يعمل هذا التبويب), key `packProjects`.
+
+| | English | العربية |
+| --- | --- | --- |
+| 1 | **What it is:** The PM pack: projects with their health, milestones and blocked work, and the screen for the weekly review. | **ما هذا:** حزمة إدارة المشاريع: المشاريع مع صحتها ومعالمها والعمل المعطّل، وشاشة المراجعة الأسبوعية. |
+| 2 | **Who owns it:** Each project owner reviews their projects here every Monday; the ED reads the whole portfolio. | **من المسؤول:** يراجع كل مسؤول مشروع مشاريعه هنا كل يوم اثنين، ويقرأ المدير التنفيذي المحفظة كلها. |
+| 3 | **What must be filled:** At the weekly review: health, milestone dates and the project's RAID log note. | **ما يجب ملؤه:** في المراجعة الأسبوعية: الصحة ومواعيد المعالم وملاحظة سجل RAID للمشروع. |
+| 4 | **What happens automatically:** Every active project with an owner gets a RAID log note, health is recalculated daily, and each owner gets a weekly review task on Monday morning. | **ما يحدث تلقائياً:** يحصل كل مشروع نشط له مسؤول على ملاحظة سجل RAID، وتُعاد حساب الصحة يومياً، ويتلقى كل مسؤول مهمة المراجعة الأسبوعية صباح الاثنين. |
+| 5 | **Where to get help:** Use Request help on a work package when you don't know what to do; Help in the sidebar has the PM pack playbook. | **أين تجد المساعدة:** استخدم «طلب مساعدة» على حزمة العمل عندما لا تعرف ما تفعل؛ وفي «المساعدة» بالقائمة الجانبية دليل حزمة إدارة المشاريع. |
+
+### 10.28 BD > Campaign pack (تطوير الأعمال > حزمة الحملات)
+
+Widget **How this tab works** (كيف يعمل هذا التبويب), key `packCampaigns`.
+
+| | English | العربية |
+| --- | --- | --- |
+| 1 | **What it is:** The GTM pack: go-to-market campaigns with their target lists, channel plans and the leads they bring in. | **ما هذا:** حزمة التسويق: الحملات التسويقية مع قوائم استهدافها وخطط قنواتها والعملاء المحتملين الذين تجلبهم. |
+| 2 | **Who owns it:** Each campaign's owner works its target list; the ED reads every campaign here. | **من المسؤول:** يعمل مسؤول كل حملة على قائمة استهدافها، ويقرأ المدير التنفيذي كل الحملات هنا. |
+| 3 | **What must be filled:** On the campaign project: Type Go-to-market campaign, target sector, size class, offering promoted and channel plan. | **ما يجب ملؤه:** في مشروع الحملة: النوع «حملة تسويقية» والقطاع المستهدف وفئة الحجم وما تروّج له الحملة وخطة القنوات. |
+| 4 | **What happens automatically:** The target list is built from the companies in the target sector and size class, and a target turns Lead created when a lead from it is attributed to the campaign. | **ما يحدث تلقائياً:** تُبنى قائمة الاستهداف من الشركات في القطاع وفئة الحجم المستهدفين، وتتحول الجهة المستهدفة إلى «أُنشئ عميل محتمل» عندما يُنسب منها عميل محتمل إلى الحملة. |
+| 5 | **Where to get help:** Help in the sidebar has the GTM pack playbook; cost per qualified lead stays blank until finance provides campaign costs. | **أين تجد المساعدة:** في «المساعدة» بالقائمة الجانبية دليل حزمة التسويق؛ وتبقى تكلفة العميل المؤهل فارغة حتى توفر المالية تكاليف الحملات. |
+
 ## 11. Every option of the Twenty-only lists
 
-16 lists and 88 options, from `kuec/app/src/i18n/options.json`. The KUEC-wide lists are in `18-taxonomy.md` section 8.
+20 lists and 100 options, from `kuec/app/src/i18n/options.json`. The KUEC-wide lists are in `18-taxonomy.md` section 8.
 
 ### 11.1 Work package status (حالة حزمة العمل)
 
@@ -616,15 +718,83 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `LOST` | Lost | خسرناها | It will not happen; fill in Lost reason category and Lost reason. | لن تتم؛ املأ «فئة سبب الخسارة» و«سبب الخسارة». |
 | `PARKED` | Parked | مؤجَّلة | Real but on hold, and it comes up for review after 90 days. | حقيقية ولكنها متوقفة، وتُعرض للمراجعة بعد 90 يوماً. |
 
+### 11.17 Capability source system (النظام المصدر للقدرة)
+
+Field `capability.sourceSystem`.
+
+| Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
+| --- | --- | --- | --- | --- |
+| `UVENTURE` | uVENTURE | uVENTURE | Created and kept current by the uVENTURE feed. | أنشأها ربط uVENTURE الآلي ويبقيها محدَّثة. |
+
+### 11.18 Contract source system (النظام المصدر للعقد)
+
+Field `contract.sourceSystem`.
+
+| Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
+| --- | --- | --- | --- | --- |
+| `UVENTURE` | uVENTURE | uVENTURE | Created or adopted by the uVENTURE feed when the agreement was signed there, so uVENTURE owns its key fields. | أنشأه ربط uVENTURE الآلي أو تبنّاه عند توقيع الاتفاقية هناك، لذا يملك uVENTURE حقوله الرئيسية. |
+
+### 11.19 Target size class (فئة الحجم المستهدفة)
+
+Field `project.targetSizeClass`.
+
+| Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
+| --- | --- | --- | --- | --- |
+| `STARTUP` | Startup | شركة ناشئة | A young company still building its product or its market. | شركة حديثة ما زالت تبني منتجها أو سوقها. |
+| `SME` | Small or medium business | شركة صغيرة أو متوسطة | An established business that is not a large enterprise. | شركة قائمة ليست مؤسسة كبيرة. |
+| `LARGE_ENTERPRISE` | Large enterprise | مؤسسة كبيرة | A large company or group, often with its own research and development. | شركة أو مجموعة كبيرة، كثيراً ما يكون لديها بحث وتطوير خاص بها. |
+| `GOVERNMENT` | Government or semi-government | جهة حكومية أو شبه حكومية | A ministry, an authority or a government-owned company. | وزارة أو هيئة أو شركة مملوكة للحكومة. |
+
+### 11.20 Campaign target status (حالة الجهة المستهدفة في الحملة)
+
+Field `campaignTarget.status`.
+
+| Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
+| --- | --- | --- | --- | --- |
+| `TO_CONTACT` | To contact | للتواصل | On the target list and not yet contacted. | ضمن قائمة الاستهداف ولم يُتواصل معها بعد. |
+| `CONTACTED` | Contacted | تم التواصل | Reached through at least one campaign channel, with no answer yet. | وصلتها الحملة عبر قناة واحدة على الأقل دون رد حتى الآن. |
+| `RESPONDED` | Responded | استجابت | Answered or met the team, but no lead yet. | ردّت أو التقت الفريق، لكن دون عميل محتمل بعد. |
+| `LEAD_CREATED` | Lead created | أُنشئ عميل محتمل | A lead from this company is attributed to the campaign; the app sets it. | يوجد عميل محتمل من هذه الشركة منسوب إلى الحملة؛ ويضبطه التطبيق. |
+| `NOT_INTERESTED` | Not interested | غير مهتمة | Said no to this campaign; leave it for the next one. | رفضت هذه الحملة؛ اتركها للحملة القادمة. |
+| `DO_NOT_CONTACT` | Do not contact | لا يُتواصل معها | Must not be contacted, for example at the account owner's request. | يجب عدم التواصل معها، مثلاً بطلب من مسؤول الحساب. |
+
 ## 12. Every field
 
-203 fields the app adds, from `kuec/app/src/i18n/fields.json`. Twenty shows the description as the tooltip of the field, in the member's language.
+234 fields the app adds, from `kuec/app/src/i18n/fields.json`. Twenty shows the description as the tooltip of the field, in the member's language.
 
-### 12.1 `company`
+### 12.1 `campaignTarget`
+
+| Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
+| --- | --- | --- | --- | --- |
+| `campaign` | Campaign | الحملة | The go-to-market campaign project whose target list this company is on. | مشروع الحملة التسويقية الذي تقع هذه الشركة ضمن قائمة استهدافه. |
+| `company` | Company | الشركة | The company to reach in this campaign. | الشركة المطلوب الوصول إليها في هذه الحملة. |
+| `name` | Name | الاسم | The company's name, set by the app when it adds the company to the list. | اسم الشركة، يضبطه التطبيق عندما يضيف الشركة إلى القائمة. |
+| `status` | Status | الحالة | Where the campaign stands with this company; move it on after each contact, and the app sets Lead created. | موقف الحملة من هذه الشركة؛ حدّثه بعد كل تواصل، ويضبط التطبيق «أُنشئ عميل محتمل». |
+
+### 12.2 `capability`
+
+| Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
+| --- | --- | --- | --- | --- |
+| `contracts` | Contracts | العقود | Every contract, such as a licence, that covers this capability. | كل العقود، مثل الترخيص، التي تغطي هذه القدرة. |
+| `engagements` | Engagements | التواصلات | Every engagement where this capability was presented or discussed. | كل التواصلات التي عُرضت فيها هذه القدرة أو نوقشت. |
+| `externalId` | External id | المعرّف الخارجي | Filled by the uVENTURE feed with the record's uVENTURE id, such as uventure:TECH-0042; people never type it. | يملؤه ربط uVENTURE الآلي بمعرّف السجل في uVENTURE، مثل uventure:TECH-0042؛ ولا يكتبه أحد بيده. |
+| `kind` | Kind | النوع | What the capability is, such as a technology, a lab or an item of equipment, as uVENTURE classifies it. | نوع القدرة، مثل تقنية أو مختبر أو معدات، كما يصنفها uVENTURE. |
+| `lastSeenInUventureAt` | Last seen in uVENTURE | آخر ظهور في uVENTURE | When the nightly uVENTURE snapshot last listed this record; more than 7 days ago means uVENTURE no longer lists it. | آخر مرة أدرجت فيها لقطة uVENTURE الليلية هذا السجل؛ ومرور أكثر من 7 أيام يعني أن uVENTURE لم يعد يدرجه. |
+| `name` | Name | الاسم | The title the record has in uVENTURE, copied by the uVENTURE feed; change it in uVENTURE, never here. | العنوان الذي يحمله السجل في uVENTURE، ينسخه ربط uVENTURE الآلي؛ غيّره في uVENTURE لا هنا. |
+| `opportunities` | Opportunities | الفرص | Every case that offers or licenses this capability. | كل الحالات التي تعرض هذه القدرة أو ترخّصها. |
+| `otherDetails` | Other details | تفاصيل أخرى | What Other means for this record, sent by uVENTURE when Kind or Status is Other. | ما تعنيه «أخرى» لهذا السجل، يرسله uVENTURE عندما يكون النوع أو الحالة «أخرى». |
+| `sourceSystem` | Source system | النظام المصدر | Always uVENTURE: the system that owns this record. | دائماً uVENTURE: النظام الذي يملك هذا السجل. |
+| `staleFrom` | Stale from | راكدة منذ | Seven days after Last seen in uVENTURE, set by the app; once it is past, uVENTURE no longer lists the record and its cases need a check. | بعد سبعة أيام من «آخر ظهور في uVENTURE»، يضبطه التطبيق؛ وبعد مروره لم يعد uVENTURE يدرج السجل وتحتاج حالاته إلى مراجعة. |
+| `status` | Status | الحالة | Whether BD can offer it today, from its uVENTURE listing; check it before you promise it to a client. | هل يمكن لفريق تطوير الأعمال عرضها اليوم، وفق إدراجها في uVENTURE؛ تحقق منها قبل أن تعد بها عميلاً. |
+| `statusChangedAt` | Status changed at | تاريخ تغيّر الحالة | When the uVENTURE feed last changed the status; the app sets it. | آخر مرة غيّر فيها ربط uVENTURE الآلي الحالة؛ ويضبطه التطبيق. |
+| `uventureRecord` | uVENTURE record | سجل uVENTURE | The record's page in uVENTURE, where its details, owners and documents are. | صفحة السجل في uVENTURE، حيث تفاصيله ومسؤولوه ووثائقه. |
+
+### 12.3 `company`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
 | `accountTier` | Account tier | فئة الحساب | Pick how much attention this account gets: Tier 1 for the few strategic accounts, Tier 2 for active ones, Tier 3 to watch. | اختر مقدار الاهتمام الذي يستحقه هذا الحساب: الفئة 1 للحسابات الاستراتيجية القليلة، والفئة 2 للحسابات النشطة، والفئة 3 للمتابعة. |
+| `campaignTargets` | Campaign targets | الجهات المستهدفة | Every go-to-market campaign that has this company on its target list. | كل حملة تسويقية تضع هذه الشركة ضمن قائمة استهدافها. |
 | `contracts` | Contracts | العقود | Every contract that names this company as its counterparty. | كل العقود التي تذكر هذه الشركة طرفاً مقابلاً. |
 | `documents` | Documents | الوثائق | Links to files about this company on SharePoint or uVENTURE; add a document whenever a file about them is saved there. | روابط إلى ملفات عن هذه الشركة على SharePoint أو uVENTURE؛ أضف وثيقة كلما حُفظ هناك ملف يخصّها. |
 | `engagementLapsesAt` | Engagement lapses at | ينتهي التواصل في | Set by the app to 60 days after the last engagement; once it passes, the dashboard lists the company as not engaged. | يضبطه النظام على 60 يوماً بعد آخر تواصل؛ وبعد مروره تظهر الشركة في لوحة المتابعة على أنها بلا تواصل. |
@@ -640,14 +810,16 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `sector` | Sector | القطاع | Pick the company's main industry; if none fits, pick Other and name the industry in Other details. | اختر القطاع الرئيسي للشركة؛ وإن لم يناسبها أي قطاع فاختر Other واذكر القطاع في «تفاصيل أخرى». |
 | `sizeClass` | Size class | فئة الحجم | Pick the kind of organisation: a startup, a small or medium business, a large enterprise, or government. | اختر نوع الجهة: شركة ناشئة، أو شركة صغيرة أو متوسطة، أو مؤسسة كبيرة، أو جهة حكومية. |
 
-### 12.2 `contract`
+### 12.4 `contract`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
+| `capability` | Capability | القدرة | The technology or other capability the agreement covers, set by the uVENTURE feed for a licence. | التقنية أو القدرة الأخرى التي تغطيها الاتفاقية، ويضبطها ربط uVENTURE الآلي للترخيص. |
 | `counterparty` | Counterparty | الطرف المقابل | The company that signs the contract with KUEC, picked when you create the contract. | الشركة التي توقّع العقد مع KUEC، وتختارها عند إنشاء العقد. |
 | `department` | Department | الإدارة | Pick the KUEC department that leads this work, which is Business development unless another department runs it. | اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى. |
 | `documents` | Documents | الوثائق | Links to this contract's files on SharePoint, such as the signed copy and any amendment. | روابط إلى ملفات هذا العقد على SharePoint، مثل النسخة الموقَّعة وأي تعديل عليها. |
 | `expiresOn` | Expires on | تاريخ الانتهاء | The date the contract ends, taken from the signed copy; the dashboard lists it 90 days before. | تاريخ انتهاء العقد كما في النسخة الموقَّعة؛ وتعرضه لوحة المتابعة قبل 90 يوماً من حلوله. |
+| `externalId` | External id | المعرّف الخارجي | Filled by the uVENTURE feed with the agreement's uVENTURE id, such as uventure:AGR-0042; people never type it. | يملؤه ربط uVENTURE الآلي بمعرّف الاتفاقية في uVENTURE، مثل uventure:AGR-0042؛ ولا يكتبه أحد بيده. |
 | `kind` | Kind | النوع | Pick what sort of agreement it is; a non-disclosure agreement is the most common. | اختر نوع الاتفاقية؛ واتفاقية عدم الإفصاح هي الأكثر شيوعاً. |
 | `name` | Name | الاسم | A short name people recognise, made of the company and the agreement, such as ADNOC non-disclosure agreement 2026. | اسم قصير يعرفه الناس، من اسم الشركة ونوع الاتفاقية، مثل: اتفاقية عدم إفصاح ADNOC 2026. |
 | `opportunity` | Opportunity | الفرصة | The opportunity this contract came from, picked so the case and its contract stay linked. | الفرصة التي نتج عنها هذا العقد، وتختارها حتى يبقى الملف وعقده مرتبطين. |
@@ -655,10 +827,12 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `owner` | Owner | المسؤول | The colleague who looks after this contract and is told before it expires. | الزميل الذي يتابع هذا العقد ويُبلَّغ قبل انتهائه. |
 | `sharepointFolder` | SharePoint folder | مجلد SharePoint | The link to the SharePoint folder that holds the contract files; never upload the file itself here. | رابط مجلد SharePoint الذي يحفظ ملفات العقد؛ لا ترفع الملف نفسه هنا أبداً. |
 | `signedOn` | Signed on | تاريخ التوقيع | The date both sides signed, filled in when the status becomes Signed. | التاريخ الذي وقّع فيه الطرفان، ويُعبّأ عندما تصبح الحالة Signed. |
+| `sourceSystem` | Source system | النظام المصدر | uVENTURE when the agreement came from uVENTURE, whose feed then owns its kind, status, dates and value; empty when a person or the app made it. | uVENTURE عندما جاءت الاتفاقية من uVENTURE، فيملك ربطه الآلي نوعها وحالتها وتواريخها وقيمتها؛ وفارغ عندما أنشأها شخص أو التطبيق. |
 | `status` | Status | الحالة | Where the contract stands; set it to Signed, with the signed date, once both sides have signed. | أين وصل العقد؛ اجعلها Signed مع تاريخ التوقيع بعد أن يوقّع الطرفان. |
+| `uventureRecord` | uVENTURE record | سجل uVENTURE | The agreement's page in uVENTURE when it was signed there, such as a licence; the uVENTURE feed fills it. | صفحة الاتفاقية في uVENTURE عندما وُقّعت هناك، مثل الترخيص؛ ويملؤه ربط uVENTURE الآلي. |
 | `value` | Value | القيمة | The total value in AED as written in the contract, left empty for an agreement with no money in it. | القيمة الإجمالية بالدرهم كما في العقد، وتُترك فارغة إذا لم تتضمن الاتفاقية أي مبلغ. |
 
-### 12.3 `document`
+### 12.5 `document`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
@@ -680,10 +854,11 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `status` | Status | الحالة | Where the document stands; update it when you share it, get it signed or replace it with a new version. | أين وصلت الوثيقة؛ حدّثها عندما تشاركها أو توقَّع أو تُستبدل بإصدار جديد. |
 | `versionLabel` | Version | الإصدار | The version as written on the file, such as v3 or Final, updated whenever a new version is saved. | الإصدار كما هو مكتوب على الملف، مثل v3 أو Final، ويُحدَّث كلما حُفظ إصدار جديد. |
 
-### 12.4 `engagement`
+### 12.6 `engagement`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
+| `capability` | Capability | القدرة | The technology or other uVENTURE capability presented or discussed, if any; uVENTURE is told about engagements on a technology. | التقنية أو القدرة الأخرى من uVENTURE التي عُرضت أو نوقشت، إن وجدت؛ ويُبلَّغ uVENTURE بالتواصلات المتعلقة بتقنية. |
 | `company` | Company | الشركة | The company you met, called or emailed, picked for every engagement. | الشركة التي التقيتها أو اتصلت بها أو راسلتها، وتُختار لكل تواصل. |
 | `date` | Date | التاريخ | When the contact happened; its outcome is due 2 days later. | متى حدث التواصل؛ وتُستحق نتيجته بعد يومين. |
 | `department` | Department | الإدارة | Pick the KUEC department that leads this work, which is Business development unless another department runs it. | اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى. |
@@ -698,7 +873,7 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `outcomeType` | Outcome type | نوع النتيجة | Pick what the contact led to, and write the details in Outcome. | اختر ما أسفر عنه التواصل، واكتب التفاصيل في «النتيجة». |
 | `owner` | Owner | المسؤول | The colleague who held the contact and writes up its outcome. | الزميل الذي أجرى التواصل ويكتب نتيجته. |
 
-### 12.5 `lead`
+### 12.7 `lead`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
@@ -742,8 +917,9 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `status` | Status | الحالة | Where the lead stands; move it on as you contact, engage and qualify them, or set Nurture or Dead. | أين وصل العميل المحتمل؛ انقله إلى الحالة التالية كلما تواصلت معه أو تحاورت أو أهّلته، أو اجعله Nurture أو Dead. |
 | `statusEnteredAt` | Status entered at | تاريخ دخول الحالة | Set by the app when the lead entered its current status; you never type it. | يضبطه النظام عند دخول العميل المحتمل حالته الحالية؛ ولا تكتبه بنفسك. |
 | `timingKnown` | Timing known | التوقيت معروف | Tick it once they have given a date or a window by which they need it. | ضع علامة بعد أن يحددوا تاريخاً أو فترة يحتاجونه خلالها. |
+| `uventureRecord` | uVENTURE record | سجل uVENTURE | The challenge's page in uVENTURE when the lead came from a uVENTURE challenge; the uVENTURE feed fills it. | صفحة التحدي في uVENTURE عندما يأتي العميل المحتمل من تحدٍّ في uVENTURE؛ ويملؤه ربط uVENTURE الآلي. |
 
-### 12.6 `milestone`
+### 12.8 `milestone`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
@@ -757,10 +933,11 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `status` | Status | الحالة | Set it to Done when the checkpoint is reached; Missed turns the project red. | اجعلها Done عند بلوغ نقطة المتابعة؛ و Missed يجعل المشروع أحمر. |
 | `workPackages` | Work packages | حزم العمل | The work packages that must be done to reach this milestone. | حزم العمل التي يجب إنجازها لبلوغ هذه المرحلة. |
 
-### 12.7 `opportunity`
+### 12.9 `opportunity`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
+| `capability` | Capability | القدرة | The technology, lab, equipment or other uVENTURE capability this case offers; pick it from the list the uVENTURE feed keeps. | التقنية أو المختبر أو المعدات أو القدرة الأخرى من uVENTURE التي تعرضها هذه الحالة؛ اخترها من القائمة التي يبقيها ربط uVENTURE. |
 | `clientDeadline` | Client deadline | الموعد النهائي للعميل | The client's deadline for our reply to a request for quotation, filled when you open the case; the steps finish 2 working days before it. | الموعد النهائي الذي حدده العميل لردّنا على طلب عرض السعر، ويُعبّأ عند فتح الملف؛ وتنتهي الخطوات قبله بيومي عمل. |
 | `contracts` | Contracts | العقود | Every contract that came from this opportunity; the app creates the licence contract when a licence is signed. | كل العقود الناتجة عن هذه الفرصة؛ وينشئ النظام عقد الترخيص عند توقيع ترخيص. |
 | `convertedFromLeads` | Latest conversion of | آخر تحويل من | Set by the app to the leads whose latest conversion is this opportunity. | يضبطه النظام على العملاء المحتملين الذين كانت هذه الفرصة آخر تحويل لهم. |
@@ -786,9 +963,10 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `source` | Source | المصدر | Pick where the opportunity came from when you create it; a converted lead fills it for you. | اختر من أين جاءت الفرصة عند إنشائها؛ ويملؤه العميل المحتمل المحوَّل نيابة عنك. |
 | `stageEnteredAt` | Stage entered at | تاريخ دخول المرحلة | Set by the app whenever the stage changes; you never type it. | يضبطه النظام كلما تغيرت المرحلة؛ ولا تكتبه بنفسك. |
 | `staleFrom` | Stale from | راكدة منذ | Set by the app to 30 days after the stage last changed; after that the opportunity counts as stale. | يضبطه النظام على 30 يوماً بعد آخر تغيير للمرحلة؛ وبعدها تُعدّ الفرصة راكدة. |
+| `uventureRecord` | uVENTURE record | سجل uVENTURE | Paste the link to the uVENTURE record this case is about, such as the technology or the challenge, when the case opens. | الصق رابط سجل uVENTURE الذي تخصه هذه الحالة، مثل التقنية أو التحدي، عند فتح الحالة. |
 | `workPackages` | Work packages | حزم العمل | Every work package of this case, created by the playbook or added by the ED or the ops coordinator. | كل حزم العمل لهذا الملف، ينشئها دليل العمل أو يضيفها المدير التنفيذي أو منسق العمليات. |
 
-### 12.8 `person`
+### 12.10 `person`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
@@ -799,7 +977,7 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `nameArabic` | Name (Arabic) | الاسم (بالعربية) | The person's name in Arabic as they write it, so that Arabic search finds them. | اسم الشخص بالعربية كما يكتبه هو، حتى يجده البحث بالعربية. |
 | `referredLeads` | Referred leads | العملاء المحتملون المُحالون | Every lead this person introduced to KUEC; they keep the referral credit. | كل عميل محتمل عرّف هذا الشخص KUEC به؛ ويحتفظ برصيد الإحالة. |
 
-### 12.9 `playbookRoleAssignment`
+### 12.11 `playbookRoleAssignment`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
@@ -808,11 +986,13 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `name` | Name | الاسم | A label people recognise, such as Sara as business development officer. | تسمية يعرفها الناس، مثل: سارة مسؤولة تطوير أعمال. |
 | `playbookRole` | Playbook role | دور دليل العمل | Pick the role this member fills; new work for that role goes to its least-loaded active member. | اختر الدور الذي يشغله هذا العضو؛ ويذهب العمل الجديد لهذا الدور إلى أقل أعضائه النشطين انشغالاً. |
 
-### 12.10 `project`
+### 12.12 `project`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
 | `campaignLeads` | Leads | العملاء المحتملون | The leads that came from this campaign or workshop, which name this project as their campaign. | العملاء المحتملون الذين جاؤوا من هذه الحملة أو الورشة، ويذكرون هذا المشروع حملةً لهم. |
+| `campaignTargets` | Campaign targets | الجهات المستهدفة | The companies on this campaign's target list, built by the app from the target sector and size class. | الشركات ضمن قائمة استهداف هذه الحملة، يبنيها التطبيق من القطاع وفئة الحجم المستهدفين. |
+| `channelPlan` | Channel plan | خطة القنوات | For a go-to-market campaign, every channel it plans to use. | للحملة التسويقية، كل قناة تخطط لاستخدامها. |
 | `closeTaskCreatedAt` | Close task created at | تاريخ إنشاء مهمة الإغلاق | Set by the app when it asked the owner to close the project after every milestone was done; you never type it. | يضبطه النظام عندما طلب من المسؤول إغلاق المشروع بعد إنجاز كل المراحل؛ ولا تكتبه بنفسك. |
 | `company` | Company | الشركة | The company the project is run for or with, if there is one. | الشركة التي يُنفَّذ المشروع لها أو معها، إن وُجدت. |
 | `department` | Department | الإدارة | Pick the KUEC department that leads this work, which is Business development unless another department runs it. | اختر إدارة KUEC التي تقود هذا العمل، وهي Business development ما لم تتولَّه إدارة أخرى. |
@@ -829,23 +1009,26 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `playbookApplied` | Playbook applied | طُبّق دليل العمل | Set by the app once the template created this project's milestones and work packages; you never tick it. | يضبطه النظام بعد أن ينشئ القالب مراحل هذا المشروع وحزم عمله؛ ولا تضع العلامة بنفسك. |
 | `playbookType` | Type | النوع | Pick what sort of project it is; Workshop, Proposal and Delivery start a template of milestones and work packages. | اختر نوع المشروع؛ و Workshop و Proposal و Delivery تبدأ قالباً من المراحل وحزم العمل. |
 | `status` | Status | الحالة | Where the project stands; set On hold when it pauses and Done when the owner closes it. | أين وصل المشروع؛ اجعلها On hold عند التوقف و Done عندما يغلقه المسؤول. |
+| `targetOffering` | Offering promoted | ما تروّج له الحملة | For a go-to-market campaign, what KUEC offers the targets. | للحملة التسويقية، ما تعرضه KUEC على الجهات المستهدفة. |
+| `targetSector` | Target sector | القطاع المستهدف | For a go-to-market campaign, the sector to target; the target list is built from companies in it. | للحملة التسويقية، القطاع المستهدف؛ وتُبنى قائمة الاستهداف من الشركات العاملة فيه. |
+| `targetSizeClass` | Target size class | فئة الحجم المستهدفة | For a go-to-market campaign, the company size to target; empty means every size in the sector. | للحملة التسويقية، حجم الشركات المستهدفة؛ والفراغ يعني كل الأحجام في القطاع. |
 | `workPackages` | Work packages | حزم العمل | Every work package of this project. | كل حزم العمل في هذا المشروع. |
 
-### 12.11 `publicHoliday`
+### 12.13 `publicHoliday`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
 | `date` | Date | التاريخ | The date of the holiday; the app skips it when it counts working days. | تاريخ العطلة؛ ويتخطاه النظام عند حساب أيام العمل. |
 | `name` | Name | الاسم | The holiday's name, such as Eid al-Fitr, entered by the ops coordinator when the year's holidays are announced. | اسم العطلة، مثل عيد الفطر، ويُدخله منسق العمليات عند إعلان عطلات السنة. |
 
-### 12.12 `task`
+### 12.14 `task`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
 | `otherDetails` | Other details | تفاصيل أخرى | When any list on this record is set to Other, write in a few words what it is. | عند اختيار Other في أي قائمة في هذا السجل، اكتب في كلمات قليلة ما هو. |
 | `taskType` | Type | النوع | Pick what sort of task it is when you create it. | اختر نوع المهمة عند إنشائها. |
 
-### 12.13 `workPackage`
+### 12.15 `workPackage`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |
@@ -878,7 +1061,7 @@ Field `opportunity.stage`. A standard Twenty field: its options are set in Setti
 | `status` | Status | الحالة | Where the work stands; use the card's buttons, and set Blocked here with a reason when you cannot go on. | أين وصل العمل؛ استخدم أزرار البطاقة، واجعلها Blocked هنا مع السبب عندما لا تستطيع المتابعة. |
 | `submittedAt` | Submitted at | تاريخ التسليم | Set by the app when the owner submitted the work for review; you never type it. | يضبطه النظام عندما سلّم المسؤول العمل للمراجعة؛ ولا تكتبه بنفسك. |
 
-### 12.14 `workspaceMember`
+### 12.16 `workspaceMember`
 
 | Field | Label | التسمية | What to put, when | ماذا تكتب ومتى |
 | --- | --- | --- | --- | --- |

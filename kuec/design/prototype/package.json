@@ -1,0 +1,30 @@
+{
+  "name": "kuec-crm-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone design-validation prototype of the KUEC /crm employee experience (Today, Work Package card). Not an implementation.",
+  "scripts": {
+    "dev": "next dev --port 3100",
+    "build": "next build",
+    "start": "next start --port 3100",
+    "typecheck": "tsc --noEmit",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "dependencies": {
+    "@mantine/core": "8.3.18",
+    "@mantine/hooks": "8.3.18",
+    "@mantine/notifications": "8.3.18",
+    "@tabler/icons-react": "3.35.0",
+    "next": "15.5.27",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.7.2",
+    "@types/react": "19.2.2",
+    "postcss": "8.5.6",
+    "postcss-preset-mantine": "1.18.0",
+    "postcss-simple-vars": "7.0.1",
+    "typescript": "5.9.3"
+  }
+}

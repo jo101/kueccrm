@@ -1,0 +1,44 @@
+/* Font stacks only: uVENTURE loads Inter through next/font; the Arabic face is the
+   proposal in design/theme.md section 3 and falls back to the system Arabic fonts. */
+:root {
+  --font-inter: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--mantine-color-body);
+  color: var(--mantine-color-text);
+}
+
+html[dir='rtl'] body,
+html[dir='rtl'] .mantine-Text-root,
+html[dir='rtl'] .mantine-Title-root,
+html[dir='rtl'] .mantine-Button-root,
+html[dir='rtl'] .mantine-Input-input {
+  font-family: var(--font-arabic);
+  line-height: 1.6;
+}
+
+/* Below the sm breakpoint every action is full width and at least 44 px tall. */
+@media (max-width: 47.99em) {
+  .kuec-card-actions {
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .kuec-card-actions .kuec-action {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

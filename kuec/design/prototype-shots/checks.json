@@ -1,0 +1,122 @@
+[
+  {
+    "shot": "01-today-bd-officer-desktop",
+    "dir": "ltr",
+    "filledButtonsInViewport": 3,
+    "filledButtonsTotal": 6,
+    "smallestActionHeight": 36,
+    "firstCardTop": 227,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "02-today-ed-desktop",
+    "dir": "ltr",
+    "filledButtonsInViewport": 1,
+    "filledButtonsTotal": 5,
+    "smallestActionHeight": 36,
+    "firstCardTop": 227,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "03-today-ops-desktop",
+    "dir": "ltr",
+    "filledButtonsInViewport": 3,
+    "filledButtonsTotal": 3,
+    "smallestActionHeight": 36,
+    "firstCardTop": 227,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "04-work-package-offered-desktop",
+    "dir": "ltr",
+    "filledButtonsInViewport": 1,
+    "filledButtonsTotal": 1,
+    "smallestActionHeight": 36,
+    "firstCardTop": 130,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "05-work-package-review-desktop",
+    "dir": "ltr",
+    "filledButtonsInViewport": 1,
+    "filledButtonsTotal": 1,
+    "smallestActionHeight": 36,
+    "firstCardTop": 130,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "06-today-bd-officer-phone",
+    "dir": "ltr",
+    "filledButtonsInViewport": 1,
+    "filledButtonsTotal": 6,
+    "smallestActionHeight": 44,
+    "firstCardTop": 248,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "07-work-package-offered-phone",
+    "dir": "ltr",
+    "filledButtonsInViewport": 0,
+    "filledButtonsTotal": 1,
+    "smallestActionHeight": 44,
+    "firstCardTop": 130,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "08-today-bd-officer-arabic-desktop",
+    "dir": "rtl",
+    "filledButtonsInViewport": 3,
+    "filledButtonsTotal": 6,
+    "smallestActionHeight": 36,
+    "firstCardTop": 233,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "09-work-package-offered-arabic-phone",
+    "dir": "rtl",
+    "filledButtonsInViewport": 0,
+    "filledButtonsTotal": 1,
+    "smallestActionHeight": 44,
+    "firstCardTop": 130,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "10-today-ed-arabic-desktop",
+    "dir": "rtl",
+    "filledButtonsInViewport": 1,
+    "filledButtonsTotal": 5,
+    "smallestActionHeight": 36,
+    "firstCardTop": 233,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "11-today-technical-contributor-phone",
+    "dir": "ltr",
+    "filledButtonsInViewport": 1,
+    "filledButtonsTotal": 1,
+    "smallestActionHeight": 44,
+    "firstCardTop": 227,
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "shot": "12-today-tablet",
+    "dir": "ltr",
+    "filledButtonsInViewport": 3,
+    "filledButtonsTotal": 6,
+    "smallestActionHeight": 36,
+    "firstCardTop": 227,
+    "horizontalOverflow": false,
+    "errors": []
+  }
+]

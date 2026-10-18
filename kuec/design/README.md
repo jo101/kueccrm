@@ -8,6 +8,7 @@ Design artefacts for the KUEC BD Ops employee experience. Two generations live h
 
 | File | What it is |
 | --- | --- |
+| `guide.md` | Visual walkthrough of the prototype and the spike, with every screenshot and what to notice on each |
 | `diagnosis.md` | Current-state diagnosis with evidence: Twenty side, uVENTURE side, what is documented but not built, what must be preserved, dependencies |
 | `spike-mantine-in-twenty.md` + `spike/` + `spike-evidence/` | Stage 0 compatibility spike inside the pinned 2.48 runtime: 0 of 7 pass, standalone route confirmed |
 | `research.md` | Research plan (sessions, top tasks, card sort and tree test) and the artefact-derived personas, jobs, moments, pains and baselines, all marked UNVALIDATED |

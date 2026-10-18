@@ -4,7 +4,7 @@ Status: **no round has been run.** This document is the protocol, the task scrip
 
 ## 1. Setup
 
-- Prototype: `kuec/design/prototype` running locally (`npm run dev`, port 3100) with the anonymised data set in `src/data`. Never real client names on a shared screen.
+- Workbench: `kuec/design/prototype` running locally (`npm run build && npm run start`, port 3100, `/crm`) with the anonymised data set in `src/data`. Never real client names on a shared screen.
 - Rounds: two per screen before build; five participants per round, one of them working in Arabic; a round mixes roles according to the screen (Today: 3 BD officers, the ED, the ops coordinator; Work Package card: 2 BD officers, 2 technical contributors, the ops coordinator).
 - Devices: the participant's own laptop for tasks 1, 3, 4, 5, 6; their own phone for task 2 (the prototype is reachable on the office network).
 - Method: think-aloud, moderator silent except the script; a note-taker records time, hesitations (pause of 5 s or more, back navigation, wrong click, opening Help), questions verbatim, and whether the task was finished without help.
@@ -16,9 +16,9 @@ Status: **no round has been run.** This document is the protocol, the task scrip
 | # | Task (read aloud) | Start screen | Success | Target |
 | --- | --- | --- | --- | --- |
 | 1 | "You have just met this person (business card). Record them so the team can follow up." | Today | Lead saved with person, company and need; participant did not have to explain the relationship between lead, person, company | under 90 s, no help |
-| 2 | "You received this notification on your phone. Accept the work." | Notification (phone) | Status shows In progress; participant saw no raw field | under 30 s, no help |
+| 2 | "You received this notification on your phone. Accept the task." | Notification (phone, `/crm/tasks/task-term-sheet?from=notification`) | Status shows In Progress; participant saw no raw field | under 30 s, no help |
 | 3 | "Find out what is blocked right now and who is responsible." | Today | Names the blocked item and its owner | under 45 s |
-| 4 | "Set what should happen next on the Al Marzouqi Engineering case, by next Thursday." | Pipeline | Next action text and date saved | under 60 s |
+| 4 | "Set what should happen next on the Al Marzouqi Engineering opportunity, by next Thursday." | Opportunities (or the Home card) | Next Step text and date saved | under 60 s |
 | 5 | "Who do we know at Gulf Precision Industries, and what is their role?" | Today | Names at least one person and their decision role | under 45 s |
 | 6 | "What closed this month, and for how much?" | Today | Finds the signed cases and the total | under 60 s |
 
@@ -36,15 +36,15 @@ Welcome (2 min): purpose is to test the design, not the person; think aloud; the
 | Task 1: time, finished without help (Y/N), hesitations, questions verbatim, SEQ | |
 | Task 2 ... Task 6 | |
 | SUS score | |
-| Words the participant used for: Today, Pipeline, Accounts, Delivery, Insights, work package, case, blocked | |
+| Words the participant used for: Home, Opportunities, Accounts, Tasks, Dashboards, task, opportunity, blocked | |
 | First thing they would change | |
 
 ## 5. Round results
 
 | Round | Screen | Date | Participants | Completion without help | SEQ mean | SUS mean | Pass |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Today + Work Package card | not run | | | | | |
-| 2 | Today + Work Package card | not run | | | | | |
+| 1 | Home + Task card + Opportunity record | not run | | | | | |
+| 2 | Home + Task card + Opportunity record | not run | | | | | |
 
 ## 6. Change log between rounds
 

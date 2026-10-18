@@ -1,34 +1,42 @@
-# KUEC /crm prototype (design validation only)
+# KUEC CRM design workbench
 
-A standalone Next.js 15 + Mantine 8.3.18 prototype of the two screens that set the standard for the redesign: **Today** and the **Work Package card**, in English and Arabic, at 390, 768, 1024 and 1440 px, as each persona. It runs on anonymised data (`src/data/seed.ts`) and an in-memory store; it is **not connected to Twenty and is not an implementation**. Nothing here is reported as implemented in uVENTURE.
+The working screens of the Phase B redesign: Next.js 15.5.27 + Mantine 8.3.18 on anonymised data (`src/data/seed.ts`) with an in-memory store. It holds the tokens, the pattern library with a story per pattern, Storybook, the design-rule checker and the visual regression that produces the mockups in `../mockups`. It is **not connected to Twenty and is not an implementation**; in uVENTURE the `/crm` route group imports the real theme and shell and reads Twenty as the signed-in person.
 
 ## Run
 
 ```bash
 cd kuec/design/prototype
-npm install          # exact versions pinned in package.json
-npm run dev          # http://localhost:3100/crm
+npm ci                                  # exact versions pinned in package.json, all at least 14 days old
+npm run build && npm run start          # http://localhost:3100/crm (production build, as uVENTURE tests)
+npm run storybook                       # http://localhost:6006
 ```
 
-Switch persona and language from the avatar menu, or by URL: `?as=bd1|bd2|ed|ops|eng1|eng2` and `?lang=en|ar`. `?from=notification` on a work package shows the deep-link banner. The avatar menu has "Simulate a backend failure on the next write": the next action is refused, nothing changes, and the card says so (principle 15).
+Switch persona, language and scheme from the avatar menu, or by URL: `?as=bd1|bd2|ed|ops|eng1|eng2|viewer`, `?lang=en|ar`, `?scheme=light|dark`. `?from=notification` on a task shows the deep-link banner. The avatar menu has "Simulate a backend failure on the next write": the next action is refused, nothing changes, and the screen says so.
 
-Screenshots: `npm run screenshots` (needs Chromium; `CHROMIUM_PATH` overrides the default path) writes `../prototype-shots/*.png` and prints per-shot checks (one filled button in the viewport, smallest action height, horizontal overflow, direction).
+## Verify
 
-## What inherits from uVENTURE
+```bash
+npm run verify     # typecheck, design rules, build, Storybook build, visual regression
+npm run test:visual:update   # regenerate ../mockups after an intended change (review the diff)
+```
 
-`src/theme/uventure-theme.ts` is a verbatim copy of uVENTURE's `src/theme.ts` (commit 10f6f228); `src/theme/kuec-theme.ts` extends it with `mergeThemeOverrides` only. Provider order `DirectionProvider -> MantineProvider -> Notifications` is the proposal in `../theme.md`. In uVENTURE the route group imports the real theme and the shared `PageHeader`, `EmptyState`, `HelpTooltip`, `FieldLabelWithInfo`; the `Kuec*` components in `src/components/kuec` compose Mantine primitives exactly as listed in `../components.md`.
+`CHROMIUM_PATH` points Playwright at a system Chromium when the bundled one is not installed; the pinned Playwright 1.56.1 matches Chromium 1194.
 
 ## Structure
 
 ```
-src/app/page.tsx               Today (role-specific composition)
-src/app/work/[id]/page.tsx     Work Package card page
-src/app/[...rest]/page.tsx     every other destination: "Not in this prototype yet"
-src/components/kuec/*          KuecPageHeader, KuecSectionHeader, KuecActionCard, KuecStatusIndicator,
-                               KuecWorkPackageCard, KuecDecisionCard, KuecProgressSteps, KuecNextAction,
-                               KuecEmptyState, HowThisWorks, InfoLabel
-src/components/shell/CrmShell  header tabs, Log, bell, person menu, mobile bottom bar
-src/store/rules.ts             pure rules: allowed actions per role and status, due labels, exceptions
-src/store/PrototypeStore.tsx   in-memory writes with latency and a failure switch
-src/i18n/*                     messages (en, ar), locale context, Gulf-time Gregorian formatting
+src/theme/kuec-tokens.ts        the visual contract as numbers; the status map
+src/theme/kuec-theme.ts         extension of the verbatim copy of uVENTURE's theme
+src/i18n/messages.ts            every string, English and Arabic (Draft rows per design/glossary.md)
+src/i18n/dates.ts               dayjs ar-ae locale: Gregorian, Western digits
+src/data/model.ts, seed.ts      Twenty objects as the employee sees them; anonymised Gulf data
+src/store/rules.ts              pure rules: actions per role and status, tones, due labels, next-step state
+src/store/WorkbenchStore.tsx    in-memory writes with latency and the failure switch
+src/components/kuec/*           the pattern library and its stories
+src/components/shell/CrmShell   header tabs, search (Ctrl+K), New, bell, person menu, phone bottom bar
+src/app/page.tsx                Home
+src/app/tasks/[id]              Task card
+src/app/opportunities/[id]      Opportunity record
+tests/visual                    the eight-variant matrix and the structural checks
+scripts/check-design-rules.mjs  raw colours, physical CSS, off-grid sizes, story coverage
 ```

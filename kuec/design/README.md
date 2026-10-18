@@ -1,22 +1,26 @@
 # kuec/design
 
-Design artefacts for the KUEC BD Ops employee experience. Two generations live here:
+Design artefacts for the KUEC CRM employee experience. Three generations live here; the newest is Phase B.
 
 **Generation 1 (Twenty front components, 2026-10 until the spike):** `wireframes.md`, `journeys.md`, `backlog.md`. Still valid for the expert surface inside Twenty and for the backend items the new UI depends on.
 
-**Generation 2 (uVENTURE `/crm` route group, Mantine; Twenty headless), started 2026-10-18:**
+**Generation 2 (uVENTURE `/crm`, Mantine, Twenty headless; morning of 2026-10-18):** `diagnosis.md`, `spike-mantine-in-twenty.md` with `spike/` and `spike-evidence/`, `research.md`, `notifications.md`, `test-protocol.md`, `redesign-backlog.md`, `prototype-shots/` (the first prototype's screenshots, kept as the record of what the ED was not yet shown).
+
+**Phase B (afternoon of 2026-10-18 onwards): human-centred design the IDEO way, standard CRM vocabulary, the visual contract as tokens.**
 
 | File | What it is |
 | --- | --- |
-| `diagnosis.md` | Current-state diagnosis with evidence: Twenty side, uVENTURE side, what is documented but not built, what must be preserved, dependencies |
-| `spike-mantine-in-twenty.md` + `spike/` + `spike-evidence/` | Stage 0 compatibility spike inside the pinned 2.48 runtime: 0 of 7 pass, standalone route confirmed |
-| `research.md` | Research plan (sessions, top tasks, card sort and tree test) and the artefact-derived personas, jobs, moments, pains and baselines, all marked UNVALIDATED |
-| `ia.md` | Five destinations, shell, role landing, navigation map, tree test tasks |
-| `glossary.md` | English and Arabic terms with provenance (Existing or Draft needing native review) and date and number formats |
-| `notifications.md` | Channel matrix per event, quiet hours, digest, first run |
-| `theme.md` | What inherits from uVENTURE's theme, tokens to add, Arabic typography, direction and locale dependency |
-| `components.md` | Each `Kuec*` pattern and the Mantine primitives it composes |
-| `test-protocol.md` | Usability protocol, six tasks, SEQ and SUS, result sheets (no round run yet) |
-| `prototype/` + `prototype-shots/` | Standalone Next.js + Mantine 8.3.18 prototype of Today and the Work Package card, EN and AR, 390 to 1440 px, with screenshots |
-| `redesign-backlog.md` | Phased backlog with effort, priority, acceptance criteria and dependencies |
-| `redesign-stage-report.md` | What was done, what was verified, what remains unresolved, per stage |
+| `journal.md` | The IDEO mindsets, the How-might-we statements, every decision with its desirability, feasibility and viability reasons, the believed / saw / changed log, what failed and what it taught, open questions for the ED |
+| `inspiration.md` | Week 1: extremes and mainstreams, eight sessions, the immersion day, artefacts, analogous inspiration from three fields, the same-day download |
+| `repository-review.md` | What exists, what is partial, what is only documented, in this repository and in uVENTURE; gate 22 blockers visible |
+| `glossary.md` | The Part 4 vocabulary in English and Arabic with the Twenty API value beside each label; Existing or Draft provenance; two verbs pending the ED |
+| `ia.md` | Destinations, shell, role landing, navigation map, tree test tasks |
+| `flows.md` | The navigation state map: entry points, exits, back, drawer versus page, deep links, keyboard, the rules that hold on every screen |
+| `theme.md` | What inherits from uVENTURE, the visual contract as tokens, the status map, Arabic typography, direction and locale |
+| `components.md` | Every `Kuec*` pattern, what it composes, where it is used, built or planned; library decisions |
+| `scorecard.md` | The Part 8 scorecard filled honestly for Home, the Task card and the Opportunity record |
+| `mockups/` | 80 PNG mockups: ten screens x (390, 1440) x (LTR, RTL) x (light, dark). The ED gate artefacts and the Playwright baselines |
+| `prototype/` | The design workbench: Next.js 15 + Mantine 8.3.18 on anonymised data; tokens, pattern library, Storybook, visual regression, design-rule checker. Not connected to Twenty |
+| `redesign-stage-report.md` | What was done, what was verified, what remains, per report |
+
+Reading order for a newcomer: `journal.md`, `repository-review.md`, `glossary.md`, `flows.md`, then open the workbench.

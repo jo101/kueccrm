@@ -58,3 +58,56 @@ Reporting rule from the brief: what was done, what was verified, what remains un
 1. Send `research.md` section 1 to the ED this week; start the two uVENTURE dependencies (D1, D2) and the OAuth client (D3) in parallel.
 2. Native review of the glossary (R4), then usability round one on the prototype with five participants (`test-protocol.md`), two rounds before build.
 3. Stage 3 build behind `CRM_TODAY` and `CRM_WORK_PACKAGE` once D1 to D5 exist, against Twenty as the person, with the Playwright suite as each persona.
+
+## Report 2, 2026-10-18 (afternoon): Phase B started; foundations and the three screens that set the standard
+
+Scope of the Phase B brief this report covers: the repository review, the inspiration plan, the foundations, and Home, the Task card and the Opportunity record in both directions. Nothing below is reported as implemented in uVENTURE; no production system was touched; no test is reported as passing unless it ran in this session.
+
+### Done
+
+| Part of the brief | Output | Where |
+| --- | --- | --- |
+| Repository review first | What exists, is partial, is only documented, in `kuec/` and in uVENTURE (re-cloned at 10f6f228); gate 22 blockers kept visible | `repository-review.md` |
+| Part 1 method | Mindsets, HMW1 to HMW5, decisions with DFV reasons, believed / saw / changed log, failures and lessons, open questions | `journal.md` |
+| Part 1 inspiration | Week-1 plan: extremes and mainstreams, eight sessions, immersion day, artefacts, three analogous fields, same-day download | `inspiration.md` |
+| Part 2 design system | Tokens file (`kuec-tokens.ts`), one status map, theme extension on uVENTURE's theme (extend, never fork), IBM Plex Sans + IBM Plex Sans Arabic, Storybook 10.6.1 with locale and scheme globals and the two viewports, 18 patterns each with a story, design-rule checker (raw colours, physical CSS, off-grid sizes, story coverage), Playwright visual regression over eight variants; every package pinned to an exact version at least 14 days old and verified on the registry | `prototype/` |
+| Part 3 flows | Navigation state map for the shell and every screen | `flows.md` |
+| Part 4 terminology | Glossary rewritten to the standard CRM vocabulary with API values; IA and shell renamed | `glossary.md`, `ia.md`, `prototype/src/i18n/messages.ts` |
+| Part 5 screens | Home (greeting, performance strip, three sections with counts, one filled button), Task card (what, why, who, due, expected output, done criteria, plain status, role x status actions, sticky action bar on phones), Opportunity record (header with Account, Amount, Close Date, Stage, Owner; chevron stage path with Mark stage complete; Activity, Details, Related; timeline with composer; right rail with Next Step, key contacts, documents) | `prototype/src/app` |
+| Part 6 visual contract | The numbers as tokens and enforced before review (checker and visual test) | `theme.md` section 2 |
+| Part 7 Arabic | Mirrored layout, chevrons, breadcrumbs, drawer and arrows; Gregorian dates with Western digits through `Intl` and a derived dayjs locale; `<bdi>` on mixed strings; eight-variant captures | `mockups/*-rtl-*` |
+| Part 8 scorecard | Filled for the three screens | `scorecard.md` |
+| Part 9 gate | Static mockups at 390 and 1440 in both directions, ready for the ED's five-minute review | `mockups/` |
+
+### Verified (with how)
+
+- `npm run typecheck`, `npm run design-rules`, `npm run build` (Next 15.5.27 production build), `npm run storybook:build` all clean on 2026-10-18.
+- `npm run test:visual`: 80 of 80 pass. Each capture also asserts: zero console errors, `dir` and `lang` follow the locale, no horizontal overflow, at most one filled button in the viewport, no all-caps text, no filled badge, every action at least 44 px tall on a phone, the Task card first on its page.
+- Storybook static build probed with Playwright: four stories in Arabic and dark render with `dir="rtl"`, IBM Plex Sans, zero errors.
+- The refused-write path: with the failure switch on, Accept shows "That didn't save. Nothing was changed. Try again." and the status stays Assigned (behaviour carried over from the Generation 2 store and re-exercised through the new card).
+
+### Not verified (and therefore not claimed)
+
+- No user has seen any of this. Discovery sessions: 0 of 8. Usability rounds: 0. Tree test: not run.
+- Not connected to Twenty: no OAuth, no real permissions, no automation; the workbench store stands in.
+- Contrast of the four status tones, a keyboard-only pass, a screen-reader pass, LCP and INP: not measured (`scorecard.md`).
+- Every Arabic string is a machine draft awaiting a native-speaking BD colleague.
+- Skeleton loading states, analytics events and feature flags: not built (the first needs a data layer, the last two need uVENTURE).
+
+### Unresolved and who owns it
+
+| Item | Owner | Blocking |
+| --- | --- | --- |
+| Gate 22: 13 blockers, 9 majors; B5, B6, U2, U3, M6, U1 touch these screens directly | kuec engineer, ED, IT | Launch of anything |
+| uVENTURE i18n and RTL (D1), per-user flags (D2), Twenty OAuth client (D3), data layer (D5) | uVENTURE team, kuec engineer, IT | Any real data in `/crm` |
+| Two verbs beyond the brief (Report blocker, Resume work); lead status "Working" over two Twenty values; the Meeting to Proposal and Proposal to Negotiation relabel | ED | Glossary approval |
+| Twenty's own Task relabelled Reminders; stage relabels in Settings | kuec engineer (click-runbooks), ED | Expert surface consistency |
+| Discovery participants and the immersion day | ED | Week 1 |
+| CI for the design rules and visual regression | uVENTURE pipeline owners | Enforcement beyond `npm run verify` |
+
+### Next
+
+1. Send `inspiration.md` and `research.md` section 1 to the ED; name the eight participants and the immersion day.
+2. Weekly review one: the mockups, the glossary's open questions, the scorecard.
+3. Week 2 per the brief: synthesis; usability round one on Home, the Task card and the Opportunity record; measurements owed in `scorecard.md`.
+4. Week 3: New lead (with `KuecCompanyPicker` and `KuecGuidedForm`), Opportunities board (dnd-kit) and list (sorting, column chooser, saved views, inline edit), Accounts and Contacts on the record template.

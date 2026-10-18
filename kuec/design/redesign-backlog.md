@@ -30,7 +30,20 @@ Companion to `backlog.md` (the Twenty-side Phase B list B1 to B19, which stays v
 | N1 | Notifications: retire task-as-notification in `notify.ts`; in-app sink to uVENTURE through the signed route; quiet hours; Thursday digest; one message per transition (`notifications.md`) | 5 | P0 | Fixed-clock tests: one entry per transition after three retries (fixes audit U3); nothing sent 20:00 to 07:00 except escalations; digest at Thursday 08:00 Gulf | kuec app, backlog B5 and B10 |
 | F4 | Admin clears Twenty onboarding before first sign-in; step added to `runbooks/01-deploy.md` section 4 | 0.25 | P0 | A new member lands on `/crm` without seeing "Invite your team" (verified on staging) | none |
 
-## Stage 3: Today and the Work Package card
+## Phase B (2026-10-18 onwards): what this brief adds or changes
+
+Vocabulary per `glossary.md`: Today is Home, Pipeline is Opportunities, Delivery is Tasks and Projects, Insights is Dashboards, the Work Package card is the Task card. The stage ids below keep their names; the screens they produce follow the Phase B templates (`flows.md`, `components.md`).
+
+| Id | Item | Effort | Priority | Acceptance | Status |
+| --- | --- | --- | --- | --- | --- |
+| F1 | Tokens, status map, theme extension, Plex type family | done | P0 | `design-rules` clean; mockups in both scripts | Done 2026-10-18 (`prototype/src/theme`) |
+| F2 | Storybook with locale and scheme globals, a story per pattern | done | P0 | `storybook:build` clean; probe in Arabic and dark | Done 2026-10-18 |
+| F3 | Design-rule checker and Playwright visual regression over the eight variants | done | P0 | `npm run verify` green locally | Done 2026-10-18; CI is uVENTURE's (open) |
+| F4b | List template on mantine-datatable: sorting, column chooser, saved views, inline edit, virtualised rows | 3 | P1 | Opportunities list passes the eight variants | Week 3 |
+| F5 | `KuecCompanyPicker`, `KuecGuidedForm` | 2 pair | P1 | New lead under 90 s on a phone (round) | Week 3 |
+| F6 | Accessibility measurements: contrast of the four tones, keyboard and screen-reader passes | 1 per screen | P0 | `scorecard.md` rows turn Yes | Week 2 |
+
+## Stage 3: Today and the Work Package card (Phase B: Home and the Task card)
 
 | Id | Item | Effort | Priority | Acceptance | Evidence it answers | Expected benefit |
 | --- | --- | --- | --- | --- | --- | --- |

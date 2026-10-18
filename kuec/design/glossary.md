@@ -1,139 +1,172 @@
 # Content glossary (English and Arabic)
 
-Rules: plain words, verbs first, no abbreviations except KUEC, AED, UAE, QR; "working days", never "business days"; "the ED", never "manager" or "admin"; one language on screen at a time; Gregorian dates with Western digits in Gulf time (`Intl.DateTimeFormat('ar-AE', { calendar: 'gregory', numberingSystem: 'latn' })`); AED amounts formatted with `Intl.NumberFormat(locale, { style: 'currency', currency: 'AED' })`.
+Standard CRM terminology on screen (brief part 4), plain explanations in helper text only. Rules: no abbreviations except KUEC, AED, UAE, QR; "working days", never "business days"; "the ED", never "manager" or "admin"; one language per screen; Gregorian dates with Western digits in Gulf time (`Intl.DateTimeFormat('ar-AE', { calendar: 'gregory', numberingSystem: 'latn' })`); AED amounts through `Intl.NumberFormat` with `currency: 'AED'`.
 
-Provenance: **Existing** = already in the repository's reviewed catalogs (`app/src/i18n/interface.json`, `design/wireframes.md`, `playbooks/lookups.json`, `app/src/i18n/guidance.json`); **Draft** = coined for this design and **must be approved by a native-speaking BD colleague before it reaches a screen**. Every Draft row is a usability-test item in Arabic; the team's words win.
+Provenance: **Existing** = reviewed already in the repository's catalogs (`app/src/i18n/*.json`, `playbooks/lookups.json`); **Draft** = coined for this design and **approved by a native-speaking BD colleague before it reaches a pilot screen**. Nothing is machine-coined into production. API values are Twenty's and never change; only labels do.
 
-## 1. Destinations and shell
+## 1. Navigation
 
 | English | Arabic | Provenance | Note |
 | --- | --- | --- | --- |
-| Today | اليوم | Draft | wireframes used "Home / صفحتك الرئيسية"; "Today" is a hypothesis for the tree test |
-| Pipeline | خط الفرص | Draft | avoid "أنبوب"; alternative "الفرص" to be tested |
-| Lead inbox | الواردات الجديدة | Draft | existing sidebar name "Leads" |
-| Accounts | الجهات | Draft | "الشركات" if the team prefers "companies" |
-| Delivery | التنفيذ | Existing (PROJECT_TYPE "Delivery / تنفيذ") | |
-| Insights | المؤشرات | Draft | |
-| Log | سجّل | Draft | verb, the global capture button |
-| Inbox (notifications) | الإشعارات | Draft | |
-| Help | المساعدة | Existing (guidance line label "أين تجد المساعدة") | |
+| Home | الرئيسية | Existing (guidance) | |
+| Leads | العملاء المحتملون | Existing (object label) | |
+| Opportunities | الفرص | Existing (object label) | |
+| Accounts | الحسابات | Draft | Twenty object Company; "الشركات" if the team prefers |
+| Contacts | جهات الاتصال | Draft | Twenty object Person |
+| Activities | الأنشطة | Draft | Twenty object Engagement |
+| Tasks | المهام | Draft | Twenty object Work package; Twenty's own Task is relabelled Reminders |
+| Projects | المشاريع | Existing | |
+| Dashboards | لوحات المعلومات | Draft | |
 | More | المزيد | Draft | |
-| Open the expert CRM | افتح النظام الكامل | Draft | links to Twenty for roles that have it |
-| How this works | كيف يعمل هذا | Existing (guidance titles) | per screen, user's language only |
-| What do I do now? | ماذا أفعل الآن؟ | Existing (card rule, runbook 20) | |
+| Contracts | العقود | Existing | |
+| Documents | الوثائق | Existing | |
+| Products & Services | المنتجات والخدمات | Draft | Twenty object Capability plus the offering list |
+| Campaigns | الحملات | Existing | |
+| Help | المساعدة | Existing | |
+| New | جديد | Draft | the global create, defaults to New lead |
 | Search | بحث | Draft | |
-| Feedback | ملاحظاتك | Draft | |
+| Notifications | الإشعارات | Draft | |
+| Reminders | التذكيرات | Draft | Twenty's own Task object, kept off employee screens |
 
-## 2. Work package
+## 2. Objects
 
-| English | Arabic | Provenance |
-| --- | --- | --- |
-| Work package | حزمة عمل | Existing (wireframes) |
-| Owner | المسؤول | Existing |
-| Reviewer | المراجِع | Existing |
-| Objective | الهدف | Existing |
-| Context | السياق | Existing |
-| Expected output | المُخرَج المتوقَّع | Existing |
-| Done criteria | معايير الإنجاز | Existing |
-| Not started (PLANNED) | لم تبدأ بعد | Existing |
-| Waiting to be accepted (OFFERED) | بانتظار القبول | Existing |
-| In progress (ACCEPTED) | قيد التنفيذ | Existing |
-| Waiting for review (SUBMITTED) | بانتظار المراجعة | Existing |
-| Blocked (BLOCKED) | متوقفة | Existing (wireframes; interface.json also has متعطّل, to be unified by the native reviewer) |
-| Done (DONE) | منجزة | Existing |
-| Declined (DECLINED) | مرفوضة | Existing |
-| Stopped (CANCELLED) | أُوقفت | Existing |
-| Accept | قبول | Existing |
-| Decline | رفض | Existing |
-| Request help | طلب مساعدة | Existing |
-| Submit | تسليم | Existing |
-| Approve | اعتماد | Existing |
-| Send back | إعادة للتعديل | Existing |
-| Resolve blocker | حلّ العائق | Draft |
-| Reassign | إسناد إلى شخص آخر | Existing ("Give to someone else") |
-| Back to work | استئناف العمل | Existing |
-| Due today | مطلوب اليوم | Existing |
-| Due tomorrow | مطلوب غداً | Existing |
-| Late since {date} | متأخر منذ {date} | Existing |
-| Due {date} | مطلوب في {date} | Draft (pattern) |
-| Accepted. It's on your list. | تم القبول. أصبح في قائمتك. | Existing |
-| Part of {case} | ضمن {case} | Draft |
-
-The status badge shows the plain word above and never the system value (fixes audit U10); the Twenty field keeps its value.
-
-## 3. Pipeline and opportunity
-
-| English | Arabic | Provenance |
-| --- | --- | --- |
-| Case (an opportunity or project, the user word) | ملف | Draft; wireframes use "Case" in English |
-| Qualify | تأهيل | Draft (no Arabic stage labels exist today; options.json has "قيد التفاوض" for negotiation) |
-| Scope | تحديد النطاق | Draft |
-| Propose | تقديم العرض | Draft |
-| Negotiate | تفاوض | Existing root (قيد التفاوض) |
-| Signed | موقَّع | Draft |
-| Lost | خاسر | Draft |
-| Parked | مؤجَّل | Draft |
-| Next action | الخطوة التالية | Existing ("خطواتك التالية") |
-| Next action date | موعد الخطوة التالية | Draft |
-| Value (AED) | القيمة (درهم) | Draft |
-| Blocked by | متوقف بسبب | Draft |
-| Who owns it | المسؤول | Existing |
-| Where it stands | أين وصل | Draft |
-| What must happen next | ما الذي يجب أن يحدث الآن | Draft |
-| What is holding it back | ما الذي يعيقه | Draft |
-| Lead | عميل محتمل | Existing (COMPANY_RELATIONSHIP_TYPE "Prospect / عميل محتمل" reused as root) |
-| Referred by | بإحالة من | Draft |
-| Source | المصدر | Existing (list name) |
-| Need | الحاجة | Draft |
-
-## 4. Today, decisions, exceptions
-
-| English | Arabic | Provenance |
-| --- | --- | --- |
-| Needs your decision | بانتظار قرارك | Existing |
-| Your next actions | خطواتك التالية | Existing |
-| Other work is progressing | أعمال أخرى قيد التنفيذ | Existing |
-| Decision | قرار | Existing root |
-| Decide by {date} | قرّر قبل {date} | Draft |
-| Decide later | قرّر لاحقاً | Draft |
-| If nobody decides | إن لم يقرّر أحد | Draft |
-| Recommended | موصى به | Draft |
-| Who else is affected | من يتأثر أيضاً | Draft |
-| Routine | روتيني | Draft |
-| Material (commercial) decision | قرار تجاري مهم | Draft |
-| Blocked | متوقفة | Existing |
-| Late | متأخر | Existing root |
-| No next step | بلا خطوة تالية | Draft |
-| Not accepted yet | لم تُقبل بعد | Draft |
-| Nothing needs you right now | لا شيء يحتاجك الآن | Draft |
-
-## 5. Roles and people
-
-| English | Arabic | Provenance |
-| --- | --- | --- |
-| the ED (Executive director) | المدير التنفيذي | Existing |
-| Operations coordinator | منسق العمليات | Existing |
-| BD officer | موظف تطوير الأعمال | Existing root (DEPARTMENT "تطوير الأعمال") |
-| Technical contributor | مساهم تقني | Draft |
-| Leadership viewer | قارئ القيادة | Draft |
-| Me / mine | أنا / لي | Draft |
-
-## 6. Errors, empty states, feedback (patterns)
-
-| English | Arabic | Provenance |
-| --- | --- | --- |
-| That didn't save. Nothing was changed. Try again. | لم يُحفظ. لم يتغيّر شيء. حاول مرة أخرى. | Existing pattern (card) |
-| We couldn't load this. Your data is safe. | تعذّر التحميل. بياناتك بأمان. | Existing pattern |
-| You can't do this with your role. Ask {name}. | لا يمكنك فعل هذا بدورك. اسأل {name}. | Draft (fixes audit U2: never show an action the role cannot complete; if shown by mistake, say why) |
-| Saved. | تم الحفظ. | Draft |
-| Nothing here yet. {Next step}. | لا شيء هنا بعد. {Next step}. | Draft (empty states teach the next step) |
-| Working offline is not supported. Reconnect to continue. | العمل دون اتصال غير مدعوم. أعد الاتصال للمتابعة. | Draft |
-
-## 7. Date and number formats
-
-| Locale | Example date | Example time | Example amount |
+| English | Arabic | Twenty object | Provenance |
 | --- | --- | --- | --- |
-| en-AE | Thu 22 Oct 2026 | 17:00 | AED 450,000 |
-| ar-AE (gregory, latn) | الخميس، 22 أكتوبر 2026 | 17:00 | 450,000 د.إ. |
+| Lead | عميل محتمل | lead | Existing |
+| Contact | جهة اتصال | person | Draft |
+| Account | حساب | company | Draft |
+| Opportunity | فرصة | opportunity | Existing |
+| Activity (call, meeting, site visit, email, event) | نشاط (مكالمة، اجتماع، زيارة موقع، بريد إلكتروني، حدث) | engagement | Draft |
+| Task | مهمة | workPackage | Draft |
+| Project | مشروع | project | Existing |
+| Milestone | مرحلة رئيسية | milestone | Existing |
+| Contract | عقد | contract | Existing |
+| Document | وثيقة | document | Existing |
+| Product & Service | منتج وخدمة | capability | Draft |
+| Campaign | حملة | campaign (project type) | Existing |
+| Decision | قرار | (a blocked task plus its options; no object) | Existing root |
 
-Relative words (Today, Tomorrow, Late since) are used within 7 days; beyond that the short date. Never the Hijri calendar (fixes audit U6). Mixed-direction strings (an Arabic sentence with a Latin company name or email) are wrapped in bidi isolation (`<bdi>` or `unicode-bidi: isolate`).
+## 3. Opportunity fields and stages
+
+| English | Arabic | Twenty field or value | Provenance |
+| --- | --- | --- | --- |
+| Amount | المبلغ | amount | Draft |
+| Close Date | تاريخ الإغلاق | closeDate | Draft |
+| Stage | المرحلة | stage | Existing |
+| Probability | الاحتمال | probability | Existing |
+| Owner | المسؤول | pointOfContact / owner | Existing |
+| Next Step | الخطوة التالية | nextAction | Existing root |
+| Next Step Date | تاريخ الخطوة التالية | nextActionDate | Draft |
+| Lead Source | مصدر العميل المحتمل | source | Draft |
+| Type | النوع | type | Existing |
+| Forecast Category | فئة التوقعات | (derived from stage and probability; no field yet) | Draft |
+| Qualification | التأهيل | `NEW` | Draft |
+| Discovery | الاستكشاف | `SCREENING` | Draft |
+| Proposal | العرض | `MEETING` | Draft |
+| Negotiation | التفاوض | `PROPOSAL` | Existing root |
+| Closed Won | مُغلقة ناجحة | `SIGNED` | Draft |
+| Closed Lost | مُغلقة خاسرة | `LOST` | Draft |
+| On Hold | معلّقة | `PARKED` | Draft |
+| (hidden) | | `CUSTOMER` | deprecated, never shown |
+
+The stage relabel is a Settings change on a standard field and needs a click-runbook beside `config/dashboards/opportunity-stages.md`; the ED confirms the mapping of Twenty's Meeting and Proposal (open question 3 in `journal.md`).
+
+## 4. Lead status
+
+| English | Arabic | Twenty value | Provenance |
+| --- | --- | --- | --- |
+| New | جديد | `NEW` | Existing |
+| Working | قيد العمل | `CONTACTED`, `ENGAGED` | Draft; two values, one word on screen; the sub-state goes in helper text (open question 2) |
+| Nurturing | قيد التنمية | `NURTURE` | Draft |
+| Qualified | مؤهَّل | `QUALIFIED` | Existing |
+| Unqualified (with reason) | غير مؤهَّل (مع السبب) | `DEAD` plus dead reason | Draft |
+| Converted | محوَّل | `CONVERTED` | Existing |
+
+## 5. Task status
+
+| English | Arabic | Twenty value | Tone in the status map | Provenance |
+| --- | --- | --- | --- | --- |
+| Not Started | لم تبدأ | `PLANNED` | neutral | Draft |
+| Assigned | مُسنَدة | `OFFERED` | attention | Draft |
+| In Progress | قيد التنفيذ | `ACCEPTED` | ok (blocked when late, attention when due today) | Existing |
+| Pending Review | بانتظار المراجعة | `SUBMITTED` | attention | Existing root |
+| Completed | مكتملة | `DONE` | neutral | Draft |
+| Declined | مرفوضة | `DECLINED` | neutral | Existing |
+| Blocked | متوقفة | `BLOCKED` | blocked | Existing |
+| Cancelled | ملغاة | `CANCELLED` | neutral | Draft |
+
+## 6. Verbs
+
+The one set of action verbs. A screen never invents another.
+
+| English | Arabic | Where | Provenance |
+| --- | --- | --- | --- |
+| Accept | قبول | Task card, owner, Assigned | Existing |
+| Decline | رفض | Task card, owner, Assigned | Existing |
+| Request help | طلب مساعدة | Task card, owner, any open status | Existing |
+| Submit for review | إرسال للمراجعة | Task card, owner, In Progress with a reviewer | Draft |
+| Approve | اعتماد | Task card, reviewer, Pending Review | Existing |
+| Send back | إعادة | Task card, reviewer, Pending Review | Draft (was "إعادة للتعديل") |
+| Mark complete | تعليم كمكتمل | Task card, owner, In Progress without a reviewer | Draft |
+| Set Next Step | تحديد الخطوة التالية | Opportunity record and card | Draft |
+| Reassign | إعادة الإسناد | Task card, ED and operations coordinator | Draft |
+| Decide | قرّر | Decision card | Draft |
+| Decide later | قرّر لاحقاً | Decision card, with a date | Draft |
+| Log a call | تسجيل مكالمة | Opportunity composer | Draft |
+| New lead | عميل محتمل جديد | New; Home empty state | Draft |
+| Convert | تحويل | Lead record (week 3) | Draft |
+| Mark stage complete | إكمال المرحلة | Stage path | Draft (the brief names the control, not the verb list) |
+| Report blocker | الإبلاغ عن عائق | Task card, owner, In Progress | **Added beyond the brief**; pending ED (open question 1) |
+| Resume work | استئناف العمل | Task card, owner, Blocked | **Added beyond the brief**; pending ED (open question 1) |
+
+## 7. Home
+
+| English | Arabic | Provenance |
+| --- | --- | --- |
+| Needs your attention | يحتاج انتباهك | Draft |
+| Next Steps due | خطوات تالية مستحقة | Draft |
+| In progress | قيد التنفيذ | Existing |
+| Decisions | القرارات | Existing root |
+| Escalations | التصعيدات | Draft |
+| Open list | افتح القائمة | Draft |
+| Closed this quarter | أُغلق هذا الربع | Draft |
+| Open pipeline | الفرص المفتوحة | Draft |
+| Nothing needs you right now. | لا شيء يحتاجك الآن. | Draft |
+| What do I do now? | ماذا أفعل الآن؟ | Existing |
+
+## 8. Record template
+
+| English | Arabic | Provenance |
+| --- | --- | --- |
+| Activity (tab) | النشاط | Draft |
+| Details (tab) | التفاصيل | Draft |
+| Related (tab) | المرتبطة | Draft |
+| Key contacts | جهات الاتصال الرئيسية | Draft |
+| Open in SharePoint | افتح في SharePoint | Draft |
+| In this stage since {date} | في هذه المرحلة منذ {date} | Draft |
+| Decision maker, Champion, Influencer, User, Gatekeeper | صاحب القرار، الداعم، مؤثّر، مستخدم، حارس البوابة | Existing (decision role list) |
+
+## 9. Time and dates
+
+| English | Arabic | Provenance |
+| --- | --- | --- |
+| Due today | مستحق اليوم | Existing root |
+| Due tomorrow | مستحق غداً | Existing root |
+| Due {date} | مستحق في {date} | Draft |
+| Due in {n} days | مستحق خلال {n} أيام | Draft |
+| Late since {date} | متأخر منذ {date} | Existing |
+| No Next Step | بلا خطوة تالية | Draft |
+| Not accepted after {n} working days | لم تُقبل بعد {n} أيام عمل | Draft |
+
+Formats: `en-AE` "Thu 22 Oct 2026", `ar-AE` (gregory, latn) "الخميس، 22 أكتوبر 2026"; amounts "AED 450,000" and "450,000 د.إ."; compact "AED 1.2M" and "1.2 مليون د.إ.". Relative words within 7 days, the short date beyond. Never the Hijri calendar. Mixed-direction strings (an Arabic sentence with a Latin company name or email) are wrapped in `<bdi>`.
+
+## 10. Errors, empty states, feedback
+
+| English | Arabic | Provenance |
+| --- | --- | --- |
+| That didn't save. Nothing was changed. Try again. | لم يُحفظ. لم يتغيّر شيء. حاول مرة أخرى. | Existing |
+| We couldn't load this. Your data is safe. | تعذّر التحميل. بياناتك بأمان. | Existing |
+| You can't do this with your role. Ask {name}. | لا يمكنك فعل هذا بدورك. اسأل {name}. | Draft |
+| Saved. | تم الحفظ. | Draft |
+| Accepted. It's on your list. | تم القبول. أصبحت في قائمتك. | Existing |
+| Nothing here yet. | لا شيء هنا بعد. | Draft |

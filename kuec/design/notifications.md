@@ -6,7 +6,7 @@ Principle 12 of the brief: every notification is designed (channel, timing, one 
 
 | Channel | What it is | Rule |
 | --- | --- | --- |
-| In-app inbox | `/crm/inbox` and the bell; one entry per event with the record link; read state per person; stored in the uVENTURE side of `/crm` (Twenty 2.48 has no notification centre) | Always |
+| In-app inbox | `/crm/inbox` and the bell (routes per `flows.md`); one entry per event with the record link; read state per person; stored in the uVENTURE side of `/crm` (Twenty 2.48 has no notification centre) | Always |
 | Email | One message per event, under 20 words plus the deep link, from the bd-ops mailbox | Offered work, overdue work, weekly digest |
 | Teams | One line plus link to the BD channel | Blocked, escalated (5-day reassignment, overdue to ED), signed |
 | Twenty Task | Retired as a notification channel; a task is created only when the event is itself a piece of work for a person (triage a lead, record a lost reason) | Never for "you have been told" events |
@@ -17,27 +17,27 @@ Event ids are the logic functions that raise them (`kuec/app/src/logic-functions
 
 | Event | Recipient | In-app | Email | Teams | Timing | Deep link | Message (English; Arabic in `glossary.md`) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| W2 work package offered | owner | yes | yes | no | immediate | `/crm/work/:id` | "{Title} is offered to you, due {date}. Accept or decline." |
-| W2 not accepted after 2 working days | owner, ED | yes | owner only | no | 08:00 Gulf | `/crm/work/:id` | "{Title} has waited 2 working days. Accept, decline, or ask for help." |
-| W2 not accepted after 5 working days (reassigned) | previous owner, new owner (ops coordinator), ED | yes | new owner | yes | immediate | `/crm/work/:id` | "{Title} moved to {new owner} after 5 working days." |
-| W3 overdue, day 0 | owner | yes | yes | no | 08:00 Gulf on the due day | `/crm/work/:id` | "{Title} is due today." |
+| W2 work package offered | owner | yes | yes | no | immediate | `/crm/tasks/:id` | "{Title} is offered to you, due {date}. Accept or decline." |
+| W2 not accepted after 2 working days | owner, ED | yes | owner only | no | 08:00 Gulf | `/crm/tasks/:id` | "{Title} has waited 2 working days. Accept, decline, or ask for help." |
+| W2 not accepted after 5 working days (reassigned) | previous owner, new owner (ops coordinator), ED | yes | new owner | yes | immediate | `/crm/tasks/:id` | "{Title} moved to {new owner} after 5 working days." |
+| W3 overdue, day 0 | owner | yes | yes | no | 08:00 Gulf on the due day | `/crm/tasks/:id` | "{Title} is due today." |
 | W3 overdue, +2 working days | ED | yes | no | yes | 08:00 Gulf | `/crm/decisions/:id` | "{Title} is 2 working days late with {owner}." |
 | W5 blocked | ED | yes | no | yes | immediate (escalation: ignores quiet hours) | `/crm/decisions/:id` | "{Owner} blocked {title}: {reason}." |
-| Request help (card) | ops coordinator | yes | no | no | immediate | `/crm/work/:id` | "{Owner} asks for help on {title}: {question}." (this one stays a task too, because it is work for her) |
-| W6 submitted for review | reviewer | yes | no | no | immediate | `/crm/work/:id` | "{Owner} submitted {title}. Approve or send back." |
-| W6 approved, next step released | next owner | yes | yes | no | immediate | `/crm/work/:id` | as W2 offered |
-| W6 sent back | owner | yes | no | no | immediate | `/crm/work/:id` | "{Reviewer} sent {title} back: {note}." |
+| Request help (card) | ops coordinator | yes | no | no | immediate | `/crm/tasks/:id` | "{Owner} asks for help on {title}: {question}." (this one stays a task too, because it is work for her) |
+| W6 submitted for review | reviewer | yes | no | no | immediate | `/crm/tasks/:id` | "{Owner} submitted {title}. Approve or send back." |
+| W6 approved, next step released | next owner | yes | yes | no | immediate | `/crm/tasks/:id` | as W2 offered |
+| W6 sent back | owner | yes | no | no | immediate | `/crm/tasks/:id` | "{Reviewer} sent {title} back: {note}." |
 | W1 licence case opened, confirm plan | ED | yes | no | no | immediate | `/crm/decisions/:id` | "Confirm the plan for {case}." |
 | W4 no next action (08:00 daily) | owner, or ED if no owner | yes | no | no | 08:00 Gulf, grouped into one entry per person per day | `/crm?filter=no-next-action` | "{n} of your cases have no next step." |
 | W7 opportunity signed | ED, owner | yes | no | yes | immediate | `/crm/opportunities/:id` | "{Case} signed with {company}, {value} AED." |
 | W8 lost without reason | owner | task (it is work) + in-app | no | no | immediate | `/crm/opportunities/:id` | "Record why {case} was lost." |
-| L1 lead to triage | ops coordinator | task + in-app | no | no | next working day 17:00 | `/crm/pipeline/leads` | "Triage {lead}." |
-| L2 lead not contacted in 3 / 7 working days | owner / ED | yes | no | no | 08:00 Gulf | `/crm/pipeline/leads/:id` | "{Lead} has not been contacted for {n} working days." |
+| L1 lead to triage | ops coordinator | task + in-app | no | no | next working day 17:00 | `/crm/leads` | "Triage {lead}." |
+| L2 lead not contacted in 3 / 7 working days | owner / ED | yes | no | no | 08:00 Gulf | `/crm/leads/:id` | "{Lead} has not been contacted for {n} working days." |
 | L3 lead auto-closed, confirm or revive | owner | yes | no | no | 08:10 Gulf | lead | "{Lead} closed after 30 quiet days. Confirm or revive." |
 | L4 qualified, convert or park | owner (ED for licence-grade) | yes | no | no | immediate | lead | "{Lead} is qualified. Convert or park." |
 | L6 referral thanks | referrer | yes | yes | no | immediate | lead | "Thank you: {lead} came from your referral." |
 | U4 capability unavailable | owners of open cases using it | yes | yes | no | immediate | opportunity | "{Capability} is no longer available; {case} uses it." |
-| Thursday digest | ED | yes | yes | no | Thursday 08:00 Gulf | `/crm/insights?week` | What closed, what is blocked, decisions pending, overdue count |
+| Thursday digest | ED | yes | yes | no | Thursday 08:00 Gulf | `/crm/dashboards?week` | What closed, what is blocked, decisions pending, overdue count |
 
 ## 3. Timing rules
 

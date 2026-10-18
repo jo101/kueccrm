@@ -1,6 +1,6 @@
 # Research: discovery for the KUEC BD Ops employee experience
 
-Written 2026-10-18. **Status: no session has taken place. Every persona statement, job, top task and pain point below is derived from artefacts in this repository (journeys, wireframes, the UX audit, runbooks, the roadmap) and is marked UNVALIDATED until a named participant confirms it.** Section 1 is the request to the ED; sections 2 to 7 are the working hypotheses the sessions will correct; section 8 is the research plan itself.
+Written 2026-10-18; the week-1 plan built on it (participants as extremes and mainstreams, immersion, artefacts, analogous inspiration, same-day download) is `inspiration.md`. **Status: no session has taken place. Every persona statement, job, top task and pain point below is derived from artefacts in this repository (journeys, wireframes, the UX audit, runbooks, the roadmap) and is marked UNVALIDATED until a named participant confirms it.** Section 1 is the request to the ED; sections 2 to 7 are the working hypotheses the sessions will correct; section 8 is the research plan itself.
 
 ## 1. Request to the ED (to send this week)
 

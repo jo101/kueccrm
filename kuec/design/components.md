@@ -1,32 +1,43 @@
 # KUEC patterns and the Mantine primitives they compose
 
-Rule: no bespoke Button, Input, Select or Modal. Every KUEC pattern is a composition of Mantine 8.3.18 components plus uVENTURE's shared components (`src/components/common`). "Prototype" marks what `kuec/design/prototype` implements today; everything else is specified only.
+Rule: no bespoke Button, Input, Select or Modal. Every KUEC pattern composes Mantine 8.3.18 primitives and, in uVENTURE, the shared components in `src/components/common`. Every pattern has a story in `prototype/src/components/kuec/*.stories.tsx`; `npm run design-rules` fails when one does not. The Storybook toolbar switches locale (English LTR, Arabic RTL) and scheme (light, dark); the viewport addon has the 390 and 1440 px checkpoints, so each story covers the eight variants.
 
-| Pattern | Composes | Where it is used | Props (essential) | Prototype |
+| Pattern | Composes | Where it is used | Props (essential) | Built |
 | --- | --- | --- | --- | --- |
-| `KuecPageHeader` | uVENTURE `PageHeader` (Title, Text, Button, Breadcrumbs) + `ActionIcon` info + `HelpTooltip` | top of every destination | `title`, `description`, `primaryAction`, `howThisWorks` (five lines) | yes |
-| `KuecSectionHeader` | `Group`, `Title order={4}`, `Text c="dimmed"`, optional `Anchor` "Open as list" | section breaks on Today, opportunity detail, company page | `title`, `count`, `listHref` | yes |
-| `KuecActionCard` | `Card` (uVENTURE defaults: md radius, sm shadow, border) + `Stack` + `Group` + `Text` + `KuecStatusIndicator` + one `Button variant="filled"` | Today | `title`, `caseName`, `context`, `owner`, `deadline`, `status`, `primaryAction`, `href` | yes |
-| `KuecOpportunityCard` | `Card` + `Group` + `Text` + `NumberFormatter` (AED) + `KuecNextAction` + `Badge` only for the blocker flag | Pipeline kanban and list | `company`, `owner`, `value`, `nextAction`, `nextActionDate`, `blocked` | no |
-| `KuecStatusIndicator` | `Badge variant="light"` with the `--kuec-status-*` colour + `ThemeIcon` dot; text is the plain word from the glossary | everywhere a status shows | `status: 'onTrack' \| 'waiting' \| 'late' \| 'blocked' \| 'done'`, `label` | yes |
-| `KuecNextAction` | `Group` + `IconArrowRight` (mirrored) + `Text fw={500}` + `Text c="dimmed"` date + inline `Button variant="subtle"` "Set" | opportunity detail, cards | `text`, `date`, `onSet` | yes (static) |
-| `KuecProgressSteps` | `Stepper size="xs"` with the agreed stages, `allowNextStepsSelect={false}` | opportunity detail, work package "part of" | `stages`, `active` | yes |
-| `KuecMetricCard` | uVENTURE `StatCard` (+ `@mantine/charts` `Sparkline`) + `Anchor` to the list behind it | Insights | `question`, `value`, `trend`, `listHref` | no |
-| `KuecEmptyState` | uVENTURE `EmptyState` (icon, title, description, one action) | every list and section | `title`, `nextStep`, `action` | yes |
-| `KuecPersonPicker` | `Select` with `searchable`, `nothingFoundMessage`, `renderOption` showing role; data from workspace members | guided forms, reassign | `value`, `onChange`, `roleFilter` | no |
-| `KuecCompanyPicker` | `Autocomplete` with debounced search (300 ms, as in wireframes), "Create {name}" as the last option, `<bdi>` around names | Log a lead, accounts | `value`, `onChange`, `onCreate` | no |
-| `KuecGuidedForm` | `Stepper` or single `Stack` of `TextInput`, `Textarea`, `Select`, `DateInput`; `FieldLabelWithInfo` on every control; one `Button` "Save" | Log a lead, decline reason, request help | `steps`, `onSave` | partial (decline and help forms on the card) |
-| `KuecWorkPackageCard` | `Card` + `Stack` + `Group` + `Title order={3}` + `KuecStatusIndicator` + `List` (done criteria) + `Button.Group` of allowed actions (44 px on phones) + `Modal` for reasons + `Notification` via `@mantine/notifications` | `/crm/work/:id`, Delivery, Today detail, mobile | `workPackage`, `viewerRole`, `onAction` | yes |
-| `KuecDecisionCard` | `Card` + `Alert color="error" variant="light"` (what is blocked) + `Text` consequence + `Radio.Group` options with the recommended one first and marked + `Button` "Decide" + `Menu` "Decide later" with `DateInput` | Today (ED, ops coordinator), `/crm/decisions/:id` | `decision`, `onDecide`, `onDefer` | yes (one card on the ED's Today) |
-| `KuecContextPanel` | `Drawer position="end"` (mirrors in RTL) + `Tabs` (Details, Communications, Audit) + `ScrollArea` | opportunity detail "details (system metadata)" and audit trail | `recordId`, `sections` | no |
+| `KuecPageHeader` | `Title` (24 px), `Text`, `HowThisWorks` (`Popover` + `ActionIcon`), one action slot | top of every destination | `title`, `description`, `howThisWorks` (five message keys), `action` | yes |
+| `KuecRecordHeader` | `Title`, eyebrow `Text`, a `<dl>` of five facts, `HowThisWorks`, one action slot | top of every record | `eyebrow`, `title`, `facts`, `howThisWorks`, `action` | yes |
+| `KuecStagePath` | an `<ol>` of CSS chevrons (clip-path, mirrored in RTL), `IconCheck`, one `Button` "Mark stage complete" | Opportunity record; "Part of" on the Task card | `stage`, `onMarkComplete`, `markCompletePrimary` | yes |
+| `KuecSectionHeader` | `Title` (20 px), count `Text`, `Anchor` "Open list" | section breaks on Home, Related tab | `title`, `count`, `listLabel`, `listHref` | yes |
+| `KuecActionCard` | `Card` (1 px border, no shadow, 12 px radius, 16 px padding), `Text` title and context, meta row with `KuecStatus`, one `Button` | Home (tasks, escalations, lead triage) | `title`, `context`, `owner?`, `due`, `statusTone`, `statusLabel`, `actionLabel`, `actionHref`, `primary` | yes |
+| `KuecOpportunityCard` | same card with name · account, amount, Next Step as the context line, stage · due | Home "Next Steps due"; board and list (week 3) | `name`, `account`, `amount`, `stageLabel`, `nextStep`, `nextStepDue`, `nextStepTone`, `owner?`, `actionLabel`, `actionHref`, `primary` | yes |
+| `KuecTaskCard` | `Card`, `Title`, `KuecStatus`, `InfoLabel`, `Alert` (blocked reason, notification banner), `List` (done criteria), `Button` group (sticky on phones), `Modal` for the one-line forms, `KuecPersonPicker` for Reassign | `/crm/tasks/:id`; the first element on every width | `task`, `fromNotification` | yes |
+| `KuecDecisionCard` | `Card` with a tone edge, `KuecStatus` (routine or commercial), `Radio.Group` options with "Recommended", `Popover` + `DateInput` for Decide later, `Button` Decide | Home (ED, operations coordinator); `/crm/decisions/:id` (week 4) | `decision`, `primary` | yes |
+| `KuecStatus` | a 6 px dot (`Box`) and `Text` in the tone colour | everywhere status shows | `tone: ok \| attention \| blocked \| neutral`, `label`, `size` | yes |
+| `KuecNextStep` | `IconArrowRight` (mirrored), `Text`, `KuecStatus` due, `Button` "Set Next Step", `Modal` with `TextInput` + `DateInput`, toast with Undo | right rail of the Opportunity record; cards | `opportunity`, `canEdit`, `primary`, `labelled` | yes |
+| `KuecMetricStrip` | `Card`, two to three `Stack`s with 20 px numbers, `Progress` (4 px) | Home | `metrics[] {label, value, detail, ratio?, href?}`, `scopeLabel` | yes |
+| `KuecEmptyState` | dashed `Stack`, `Text` title, one-sentence next step, one `Button` | every list and section | `title`, `nextStep`, `actionLabel?`, `actionHref?` | yes |
+| `KuecPersonPicker` | `Select` searchable with the role in `renderOption` | Reassign, New task | `label`, `people`, `value`, `onChange`, `excludeIds` | yes |
+| `KuecCompanyPicker` | `Autocomplete` with debounced search and "Create {name}" last, `<bdi>` | New lead | | week 3 |
+| `KuecGuidedForm` | `Stack` of inputs with `FieldLabelWithInfo`, one Save; `Stepper` only when steps exist | New lead, Convert | | week 3 |
+| `KuecContextPanel` | `Stack` of quiet `Card`s with a 14 px title, count, info icon and link | right rail of every record | `sections[] {title, info?, count?, linkLabel?, linkHref?, content}` | yes |
+| `KuecListView` | `mantine-datatable` `DataTable` with 36 px rows, sticky header, no borders | Related tab; every list screen | `records`, `columns`, `onRowClick`, `ariaLabel`, `maxHeight` | yes (sorting, column chooser, saved views, inline edit, virtualised rows: week 3) |
+| `KuecDrawer` | `Drawer` from the end side (mirrors in RTL), 250 ms | New task; longer forms on desktop | `opened`, `onClose`, `title` | yes |
+| `KuecTimeline` | `Timeline` with a Tabler icon per activity kind | Activity tab | `activities` | yes (added: the record template's timeline) |
+| `KuecComposer` | `Button` group (Log a call, New event, Email, New task), `Textarea`, `MultiSelect` "With" | Activity tab | `opportunityId`, `contacts`, `onNewTask` | yes (added: the record template's composer) |
+
+Library decisions:
+
+- **Lists:** `mantine-datatable` 8.3.13, uVENTURE's table library. The brief names mantine-react-table; its latest release (1.3.4) peer-depends on Mantine 6 and no Mantine 8 release exists (`journal.md`).
+- **Dates:** `@mantine/dates` 8.3.18 with dayjs 1.11.23 and a derived `ar-ae` locale (Gregorian, Western digits).
+- **Search:** `@mantine/spotlight` 8.3.18 on Ctrl or Cmd+K.
+- **Confirmations:** `@mantine/modals` 8.3.18 (`openConfirmModal`) for Mark stage complete.
+- **Feedback:** `@mantine/notifications` 8.3.18, 4 s success, 8 s error, Undo where reversible.
+- **Board:** dnd-kit arrives with the Opportunities board (week 3). **Charts:** `@mantine/charts` arrives with Dashboards (week 5). Neither is installed yet.
 
 Shared behaviours:
 
-- One primary action per screen: exactly one `variant="filled"` Button in the viewport; everything else `default` or `subtle`.
-- Loading: `Skeleton` with the real headings after 300 ms (wireframes line 142); never a spinner alone.
-- Error: Mantine `Alert` with "what happened" and "what to do"; writes that fail roll the optimistic state back and say so (principle 15).
-- Toasts: `@mantine/notifications` through uVENTURE's `NotificationManager`, 4 s success, 8 s error.
-- Every control has an info icon via `FieldLabelWithInfo` or `HelpTooltip`; the icon is focusable once and is not a tab stop inside the control (fixes audit U12).
-- No third-party avatar or logo service: initials in `Avatar` only; client domains never leave the tenant.
-
-Compatibility matrix with Twenty's front component runtime: see `spike-mantine-in-twenty.md` (0 of 7 pass). None of the patterns above is built as a Twenty front component.
+- One primary action per screen: exactly one `variant="filled"` Button in the viewport; everything else `default` or `subtle`. Asserted by the visual test.
+- Loading: `Skeleton` with the real headings; never a spinner alone (to build with the data layer).
+- Error: `Alert` with what happened and what to do; a refused write rolls back and says "That didn't save. Nothing was changed. Try again."
+- Every control has an info icon that is one focusable element beside the control, never inside it.
+- No third-party avatar or logo service; initials only; client domains never leave the tenant.

@@ -1,53 +1,53 @@
 # Theme and tokens: inheriting uVENTURE
 
-Rule: extend, never fork. `/crm` renders inside uVENTURE's `MantineProvider` (`src/app/providers.tsx`) with `src/theme.ts` and the `--uv-*` semantic variables. Nothing in `/crm` creates a second provider or theme.
+Rule: extend, never fork. `/crm` renders inside uVENTURE's `MantineProvider` (`src/app/providers.tsx`) with `src/theme.ts` and the `--uv-*` semantic variables. Nothing in `/crm` creates a second provider or theme. The workbench carries a verbatim copy of `src/theme.ts` (`prototype/src/theme/uventure-theme.ts`, commit 10f6f228) because it cannot import across repositories; the extension is `prototype/src/theme/kuec-theme.ts` and the numbers are `prototype/src/theme/kuec-tokens.ts`.
 
 ## 1. What is inherited as is
 
-| Token group | uVENTURE value (`src/theme.ts`) | Used in `/crm` for |
+| Token group | uVENTURE value | Used in `/crm` for |
 | --- | --- | --- |
-| `primaryColor: 'brand'` (#4071F4 at shade 6, `primaryShade {light 6, dark 8}`) | filled primary actions, active navigation, focus ring | the one primary button per screen, selected tab, progress steps |
-| `success`, `info`, `warning`, `error` tuples | semantic states | status indicator only: on track / waiting / late / blocked; never decorative |
-| `dark` tuple, `defaultColorScheme: 'auto'` | dark mode | inherited; `/crm` is tested in both schemes |
-| Inter, headings 600, `h1 1.875rem`, `h2 1.5rem`, `h3 1.25rem`, `h4 1.125rem` | type scale | card title h3, page title h2 |
-| `defaultRadius: 'md'` (0.5rem), radius xs to xl | corners | cards md, chips xl (Badge default) |
-| spacing xs 0.25rem to xl 2rem | layout | card padding lg, section gap xl |
-| shadows xs to xl | elevation | Card default `shadow: 'sm'` |
+| `primaryColor: 'brand'` (#4071F4 at shade 6) | the one accent | the single filled button per screen, the selected tab, the progress fill of the performance strip |
+| `success`, `warning`, `error`, `gray` tuples | the four semantic tones | the status map only (section 2); never decorative |
+| `dark` tuple | dark scheme | inherited; every screen is captured in both schemes |
+| spacing xs 4, sm 8, md 16, lg 24, xl 32 px | the 8 px grid, 24 px rhythm, 32 px section gaps | everything |
+| radius md 8 px | buttons, inputs | everything but cards |
+| `--uv-content-link-color`, `--uv-accent-icon-color`, `--uv-surface-neutral*`, `--uv-surface-accent*`, `--uv-field-border*` | content colours independent of tenant branding | links, info icons, the quiet chevron surfaces, the current stage surface |
 | `focusRing: 'auto'`, `respectReducedMotion: true`, `autoContrast: true` | accessibility | inherited |
-| Component defaults: Button `variant: 'default'`, Card `withBorder`, inputs `size: 'md'`, Badge `variant: 'light' size: 'sm'`, Modal centered, Tooltip `withArrow` | | inherited; `/crm` passes `variant="filled"` explicitly for the single primary action |
-| `--uv-content-link-color`, `--uv-accent-icon-color`, `--uv-surface-neutral*`, `--uv-surface-accent*`, `--uv-field-border*` | content colours independent of tenant branding | links, info icons, quiet tiles, selected cards |
-| Tenant branding (`src/lib/tenantBrandingColors.ts`, applied in `AppShell.tsx`) | filled actions and chrome per institution | KUEC's navy and blue arrive as the tenant's primary and secondary colours, on light neutral surfaces, never as a full dark background |
+| Tenant branding (`src/lib/tenantBrandingColors.ts`) | filled actions and chrome per institution | arrives as the brand colour; never a full dark background |
 
-## 2. Tokens to add (documented in uVENTURE's `docs/engineering/UI_SYSTEM.md` when merged)
+## 2. The visual contract as tokens (`kuec-tokens.ts`)
 
-| Token | Value | Why |
+| Token | Value | Enforced by |
 | --- | --- | --- |
-| `--kuec-status-waiting` | `var(--mantine-color-warning-6)` | one name for "waiting on someone" so cards and lists cannot drift |
-| `--kuec-status-late` | `var(--mantine-color-error-6)` | |
-| `--kuec-status-blocked` | `var(--mantine-color-error-8)` | darker than late: a decision, not a delay |
-| `--kuec-status-on-track` | `var(--mantine-color-success-6)` | |
-| `--kuec-status-done` | `var(--mantine-color-gray-6)` | done is quiet |
-| `theme.other.kuec.touchTarget` | `44px` | minimum height of every action on phones (audit U5 measured 26 px today) |
-| `theme.other.kuec.cardMaxWidth` | `720px` | reading width of a card column (wireframes line 112) |
-| `theme.other.kuec.factsAboveTheFold` | `6` | design-time constant, enforced by the pattern specs |
+| Layout | card column 720 px; record 1200 px with a 280 px right rail; 8 px grid; 24 px rhythm; 32 px section gaps; header 56 px; bottom bar 64 px | `KUEC_LAYOUT`; `design-rules` rejects off-grid sizes |
+| Type | IBM Plex Sans with IBM Plex Sans Arabic; 13 px meta, 14 px lists and records, 15 px Home cards, 20 px section titles, 24 px page titles; weights 400 and 600; sentence case | `fontSizes` and `headings` in `kuec-theme.ts`; the visual test fails on any `text-transform: uppercase` |
+| Colour | 90 percent neutral; one accent; four semantic tones as a 6 px dot or coloured text, never a filled badge; identical palette in both schemes | `KUEC_STATUS_TONE`, `KuecStatus`; the visual test fails on any filled badge |
+| Cards | 1 px border, no shadow, 12 px radius, 16 px padding, 8 px gaps; title, context, meta (owner only when not me · due · status), one button | `Card` defaults in `kuec-theme.ts`; `KuecActionCard` |
+| Lists | 36 px rows, sticky header, no filters shown by default | `KuecListView` |
+| Controls | buttons 36 px; full width only on phones; 44 px touch targets | `Button` default styles; `.kuec-action` at the sm breakpoint; the visual test measures the smallest action on every phone capture |
+| Motion | 150 ms micro, 250 ms panels; nothing under reduced motion | `KUEC_MOTION`; `transitionProps` on Modal, Drawer, Tooltip, Popover, Menu |
+| Status map | ok = success, attention = warning, blocked = error, neutral = gray, all at shade 6 | `KUEC_STATUS_COLOR`, `kuecStatusCssColor()` |
 
-Contrast: every status colour on its light surface is checked against WCAG 2.2 AA 4.5:1 in both schemes before use; audit U13 measured 4.17 to 4.46 on today's tags, which fails. The prototype uses `autoContrast` and the shade 6 or darker for text.
+Status map rules: a task is blocked when its status is Blocked or it is late; attention when Assigned, Pending Review or due today; neutral when Not Started, Completed, Declined or Cancelled; otherwise ok. An opportunity's Next Step is blocked when missing or late, attention when due today or tomorrow, neutral when the opportunity is closed, otherwise ok. One function per rule in `prototype/src/store/rules.ts`.
+
+Contrast of the four tones on light and dark surfaces is **not yet measured** (scorecard). Audit U13 measured 4.17 to 4.46 on today's tags; shade 6 text on the body surface is the hypothesis to verify.
 
 ## 3. Typography for Arabic
 
-uVENTURE loads Inter with the `latin` subset only (`src/app/layout.tsx`). Inter has no Arabic glyphs, so Arabic text falls back to the system font today. Proposal: load `IBM Plex Sans Arabic` (open licence, pairs with Inter's x-height) via `next/font/google` with `subsets: ['arabic']` and expose `--font-arabic`; set `fontFamily` per direction with `[dir="rtl"] { font-family: var(--font-arabic), var(--font-inter), ... }`. Western digits are kept by the `latn` numbering system in formatting, not by the font. Line height 1.6 for Arabic body text. To be validated with the Arabic participants in usability round one (the prototype uses this stack).
+IBM Plex Sans (latin, 400 and 600) and IBM Plex Sans Arabic (arabic, 400 and 600) through `next/font/google`, exposed as `--font-plex` and `--font-plex-arabic` **on `<html>`**, because Mantine resolves `--mantine-font-family` at `:root`; a variable defined only on `<body>` leaves every font invalid (seen on the first build, fixed the same day). The font stack lists both faces so mixed strings fall through; Arabic body text gets 1.6 line height. Storybook loads the same family self-hosted through `@fontsource`.
 
 ## 4. Direction and locale (a dependency on uVENTURE)
 
-uVENTURE has no i18n layer and no `DirectionProvider` (`UI_SYSTEM.md` says it does; the code does not). Minimum for `/crm`:
+uVENTURE has no i18n layer and no `DirectionProvider` (`UI_SYSTEM.md` says it does; the code does not). Minimum for `/crm`, unchanged as dependency D1:
 
-1. A `locale` per user (`en` or `ar`), stored on the user record, switchable from More, defaulting from the browser.
-2. `DirectionProvider` around `MantineProvider` in `src/app/providers.tsx`, direction derived from the locale, `dir` and `lang` set on `<html>` in the root layout.
-3. A message catalog for `/crm` (ICU messages, Arabic plural categories); the prototype uses a small typed dictionary to show the pattern; the production choice (Lingui, next-intl, or uVENTURE's own `src/lib/messages.ts` extended) is uVENTURE's call and is listed as dependency D1 in `redesign-backlog.md`.
-4. Logical CSS properties only (`margin-inline-start`, `padding-inline`, `inset-inline-end`); Mantine 8 already does this internally.
-5. Mirrored directional icons, listed explicitly: `IconArrowRight`/`IconArrowLeft`, `IconChevronRight`/`IconChevronLeft`, `IconArrowBack`, `IconCornerDownLeft`, `IconLogout`, `IconPlayerTrackNext`. Not mirrored: clocks, calendars, checks, flags, the KUEC mark.
-6. Bidi isolation for mixed names and emails.
+1. A `locale` per user (`en` or `ar`), switchable from the person menu, defaulting from the browser.
+2. `DirectionProvider` around `MantineProvider`, direction from the locale, `dir` and `lang` on `<html>`. The workbench's provider order is the proposal: DirectionProvider > MantineProvider > DatesProvider > ModalsProvider > Notifications > app providers.
+3. A message catalog (the workbench uses a typed dictionary, `prototype/src/i18n/messages.ts`; the production choice is uVENTURE's).
+4. Logical CSS properties only; `design-rules` fails on physical ones.
+5. Mirrored directional icons: arrows and chevrons (including breadcrumb separators) mirror with `scaleX(-1)`; checks, clocks, calendars, flags and the KUEC mark do not. The drawer opens from the end side.
+6. `<bdi>` around names, emails and phone numbers in mixed-script sentences.
+7. Dates through `@mantine/dates` with a derived `ar-ae` dayjs locale that keeps Western digits; week starts Monday; weekend Saturday and Sunday.
 
 ## 5. Breakpoints
 
-Mantine's `xs 36em (576px)`, `sm 48em (768px)`, `md 62em (992px)`, `lg 75em (1200px)` are inherited; design checkpoints are 390, 768, 1024, 1440 px. Below `sm` the shell switches to the bottom bar; cards go full width; tables become card lists, never shrunken tables.
+Mantine's `sm 48em (768 px)` and `md 62em (992 px)` are the two that matter: below sm the bottom bar, full-width 44 px actions and the compact stage path; from md the record's right rail. Design checkpoints and the visual test matrix are 390 and 1440 px.

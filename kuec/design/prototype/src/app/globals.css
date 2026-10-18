@@ -1,9 +1,5 @@
-/* Font stacks only: uVENTURE loads Inter through next/font; the Arabic face is the
-   proposal in design/theme.md section 3 and falls back to the system Arabic fonts. */
-:root {
-  --font-inter: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-arabic: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Segoe UI', Tahoma, Arial, sans-serif;
-}
+/* Logical properties only (design/theme.md section 4). Numbers come from
+   src/theme/kuec-tokens.ts; this file repeats none that Mantine can carry. */
 
 html,
 body {
@@ -13,29 +9,200 @@ body {
   color: var(--mantine-color-text);
 }
 
-html[dir='rtl'] body,
-html[dir='rtl'] .mantine-Text-root,
-html[dir='rtl'] .mantine-Title-root,
-html[dir='rtl'] .mantine-Button-root,
-html[dir='rtl'] .mantine-Input-input {
-  font-family: var(--font-arabic);
+/* Arabic body text breathes at 1.6; one family across scripts. */
+html[dir='rtl'] body {
   line-height: 1.6;
 }
 
-/* Below the sm breakpoint every action is full width and at least 44 px tall. */
+/* The one filled button per screen is the only accent; links stay neutral until hovered. */
+a {
+  color: inherit;
+}
+
+/* Card template: the footer row stacks on phones and the one button goes full width at 44 px. */
 @media (max-width: 47.99em) {
+  .kuec-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .kuec-card-actions {
     width: 100%;
     flex-direction: column-reverse;
     align-items: stretch;
   }
 
-  .kuec-card-actions .kuec-action {
+  .kuec-action {
     width: 100%;
     min-height: 44px;
+    height: 44px;
+  }
+
+  /* The Task card's action bar sticks above the bottom bar while the card scrolls. */
+  .kuec-sticky-actions {
+    position: sticky;
+    inset-block-end: calc(64px + env(safe-area-inset-bottom));
+    background: var(--mantine-color-body);
+    padding-block-end: 8px;
+    z-index: 2;
   }
 }
 
+/* Record template: main column plus a 280 px right rail from the md breakpoint; the rail comes first on phones so the Next Step is visible at a glance. */
+.kuec-record {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.kuec-record > .kuec-record-main {
+  min-width: 0;
+  order: 2;
+}
+
+.kuec-record > .kuec-rail {
+  order: 1;
+}
+
+@media (min-width: 62em) {
+  .kuec-record {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    align-items: start;
+  }
+
+  .kuec-record > .kuec-record-main {
+    order: 1;
+  }
+
+  .kuec-record > .kuec-rail {
+    order: 2;
+    position: sticky;
+    inset-block-start: 72px;
+  }
+}
+
+/* Record header facts: label over value, wrapping at phone width. */
+.kuec-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  margin: 0;
+}
+
+.kuec-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kuec-fact dt,
+.kuec-fact dd {
+  margin: 0;
+}
+
+/* Chevron stage path. Shapes are clip-paths, mirrored as a whole in RTL and the labels mirrored back. */
+.kuec-chevrons {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2px;
+  flex: 1 1 420px;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.kuec-chevron {
+  flex: 1 1 0;
+  min-width: 96px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--uv-surface-neutral);
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 600;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
+  padding-inline: 20px 16px;
+}
+
+.kuec-chevron:first-child {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+  padding-inline-start: 12px;
+}
+
+.kuec-chevron:last-child {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 12px 50%);
+}
+
+html[dir='rtl'] .kuec-chevron {
+  transform: scaleX(-1);
+}
+
+html[dir='rtl'] .kuec-chevron-label {
+  transform: scaleX(-1);
+}
+
+.kuec-chevron-done {
+  color: var(--mantine-color-text);
+}
+
+.kuec-chevron-current {
+  background: var(--uv-surface-accent-strong);
+  color: var(--uv-surface-accent-foreground);
+}
+
+.kuec-chevron-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kuec-chevron-done svg {
+  color: var(--mantine-color-success-6);
+}
+
+/* On phones the path compacts: done stages keep their check, the current stage keeps its label. */
+@media (max-width: 47.99em) {
+  .kuec-chevrons {
+    flex-basis: 100%;
+    overflow-x: hidden;
+  }
+
+  .kuec-chevron {
+    min-width: 0;
+    padding-inline: 16px 12px;
+  }
+
+  .kuec-chevron:first-child {
+    padding-inline-start: 8px;
+  }
+
+  .kuec-chevron:not(.kuec-chevron-current) .kuec-chevron-label > span {
+    display: none;
+  }
+
+  .kuec-chevron-current {
+    flex: 3 1 0;
+  }
+}
+
+/* Lists: 36 px rows, sticky header, no filters shown by default. */
+.kuec-list .mantine-datatable-header {
+  position: sticky;
+  inset-block-start: 0;
+}
+
+.kuec-list-row {
+  cursor: default;
+}
+
+/* 150 ms micro transitions; honour reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   * {
     transition-duration: 0.01ms !important;

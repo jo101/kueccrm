@@ -3,26 +3,22 @@
 import { type ReactNode } from 'react';
 import { Group, Stack, Text, Title } from '@mantine/core';
 
-import type { MessageKey } from '@/i18n/messages';
-
-import { HowThisWorks } from './HowThisWorks';
+import { HowThisWorks, type HowThisWorksKeys } from './HowThisWorks';
 
 type KuecPageHeaderProps = {
   title: string;
   description?: string;
-  howThisWorks: [MessageKey, MessageKey, MessageKey, MessageKey, MessageKey];
-  primaryAction?: ReactNode;
+  howThisWorks: HowThisWorksKeys;
+  // At most one control, in the same position on every screen.
+  action?: ReactNode;
 };
 
-// Composes uVENTURE's PageHeader shape (title, description, one action) with
-// the info icon that opens the five lines in the user's language only.
-export const KuecPageHeader = ({ title, description, howThisWorks, primaryAction }: KuecPageHeaderProps) => (
-  <Group justify="space-between" align="flex-start" wrap="nowrap" mb="lg">
+// Page title at 24 px, one line of description, the info icon, one action.
+export const KuecPageHeader = ({ title, description, howThisWorks, action }: KuecPageHeaderProps) => (
+  <Group justify="space-between" align="flex-start" wrap="nowrap" mb="lg" gap="md">
     <Stack gap={4} style={{ minWidth: 0 }}>
-      <Group gap="xs" wrap="nowrap" align="center">
-        <Title order={2} style={{ lineHeight: 1.2 }}>
-          {title}
-        </Title>
+      <Group gap={4} wrap="nowrap" align="center">
+        <Title order={1}>{title}</Title>
         <HowThisWorks lineKeys={howThisWorks} />
       </Group>
       {description ? (
@@ -31,6 +27,6 @@ export const KuecPageHeader = ({ title, description, howThisWorks, primaryAction
         </Text>
       ) : null}
     </Stack>
-    {primaryAction}
+    {action}
   </Group>
 );

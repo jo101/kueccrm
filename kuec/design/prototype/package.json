@@ -2,29 +2,48 @@
   "name": "kuec-crm-prototype",
   "version": "0.1.0",
   "private": true,
-  "description": "Standalone design-validation prototype of the KUEC /crm employee experience (Today, Work Package card). Not an implementation.",
+  "description": "Design workbench for the KUEC /crm employee experience (Home, Task card, Opportunity record) with the pattern library, Storybook and visual regression. Not an implementation: not connected to Twenty.",
   "scripts": {
     "dev": "next dev --port 3100",
     "build": "next build",
     "start": "next start --port 3100",
     "typecheck": "tsc --noEmit",
-    "screenshots": "node scripts/screenshots.mjs"
+    "design-rules": "node scripts/check-design-rules.mjs",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build -o storybook-static",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots",
+    "verify": "npm run typecheck && npm run design-rules && npm run build && npm run storybook:build && npm run test:visual"
   },
   "dependencies": {
     "@mantine/core": "8.3.18",
+    "@mantine/dates": "8.3.18",
+    "@mantine/form": "8.3.18",
     "@mantine/hooks": "8.3.18",
+    "@mantine/modals": "8.3.18",
     "@mantine/notifications": "8.3.18",
+    "@mantine/spotlight": "8.3.18",
     "@tabler/icons-react": "3.35.0",
+    "clsx": "2.1.1",
+    "dayjs": "1.11.23",
+    "mantine-datatable": "8.3.13",
     "next": "15.5.27",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@fontsource/ibm-plex-sans": "5.3.0",
+    "@fontsource/ibm-plex-sans-arabic": "5.3.0",
+    "@playwright/test": "1.56.1",
+    "@storybook/nextjs-vite": "10.6.1",
     "@types/node": "24.7.2",
     "@types/react": "19.2.2",
+    "playwright": "1.56.1",
     "postcss": "8.5.6",
     "postcss-preset-mantine": "1.18.0",
     "postcss-simple-vars": "7.0.1",
-    "typescript": "5.9.3"
+    "storybook": "10.6.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.2"
   }
 }

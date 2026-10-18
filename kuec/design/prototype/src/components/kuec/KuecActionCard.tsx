@@ -2,77 +2,58 @@
 
 import { Button, Card, Group, Stack, Text } from '@mantine/core';
 
-import { KUEC_TOUCH_TARGET_PX, type KuecStatusTone } from '@/theme/kuec-theme';
+import type { KuecStatusTone } from '@/theme/kuec-tokens';
 
-import { KuecStatusIndicator } from './KuecStatusIndicator';
+import { KuecStatus } from './KuecStatus';
 
-type KuecActionCardProps = {
-  eyebrow: string;
+export type KuecActionCardProps = {
   title: string;
-  caseName: string;
   context: string;
-  owner: string;
-  deadline: string;
+  // Owner is shown only when it is not the viewer.
+  owner?: string;
+  due: string;
   statusTone: KuecStatusTone;
   statusLabel: string;
-  primaryLabel: string;
-  primaryHref: string;
-  secondaryLabel?: string;
-  secondaryHref?: string;
+  actionLabel: string;
+  actionHref: string;
+  // Exactly one card on a screen carries the filled button: the one thing to do now.
+  primary?: boolean;
 };
 
-// At most six facts above the fold: title, case, context, owner, deadline,
-// status. One filled button. Composes Card, Stack, Group, Text, Button.
-export const KuecActionCard = ({
-  eyebrow,
-  title,
-  caseName,
-  context,
-  owner,
-  deadline,
-  statusTone,
-  statusLabel,
-  primaryLabel,
-  primaryHref,
-  secondaryLabel,
-  secondaryHref,
-}: KuecActionCardProps) => (
+// The one card template (brief part 6): title, context, meta (owner · due ·
+// status), one button. 15 px title on Home, 13 px meta, 1 px border, no shadow.
+export const KuecActionCard = ({ title, context, owner, due, statusTone, statusLabel, actionLabel, actionHref, primary = false }: KuecActionCardProps) => (
   <Card component="article" aria-label={title}>
-    <Stack gap="sm">
-      <Group justify="space-between" align="flex-start" wrap="wrap" gap="xs">
-        <Stack gap={2} style={{ minWidth: 0, flex: '1 1 240px' }}>
-          <Text size="xs" c="dimmed" tt="uppercase" fw={600} style={{ letterSpacing: '0.04em' }}>
-            {eyebrow}
-          </Text>
-          <Text fw={600} size="lg" style={{ lineHeight: 1.3 }}>
-            {title}
-          </Text>
-          <Text size="sm" c="dimmed">
-            <bdi>{caseName}</bdi>
-          </Text>
-        </Stack>
-        <KuecStatusIndicator tone={statusTone} label={statusLabel} />
-      </Group>
-      <Text size="sm">{context}</Text>
-      <Group justify="space-between" align="center" wrap="wrap" gap="sm">
-        <Group gap="md">
-          <Text size="sm" c="dimmed">
-            <bdi>{owner}</bdi>
-          </Text>
-          <Text size="sm" fw={500}>
-            {deadline}
-          </Text>
-        </Group>
-        <Group gap="xs" wrap="nowrap" className="kuec-card-actions">
-          {secondaryLabel && secondaryHref ? (
-            <Button component="a" href={secondaryHref} variant="default" h={KUEC_TOUCH_TARGET_PX} className="kuec-action">
-              {secondaryLabel}
-            </Button>
+    <Stack gap={8}>
+      <Text fw={600} size="md" component="h3" style={{ margin: 0, lineHeight: 1.35 }}>
+        <bdi>{title}</bdi>
+      </Text>
+      <Text size="sm" c="dimmed" lineClamp={2}>
+        <bdi>{context}</bdi>
+      </Text>
+      <Group justify="space-between" align="center" wrap="wrap" gap={8} className="kuec-card-footer">
+        <Group gap={8} wrap="wrap" align="center" style={{ minWidth: 0 }}>
+          {owner ? (
+            <>
+              <Text size="xs" c="dimmed">
+                <bdi>{owner}</bdi>
+              </Text>
+              <Text size="xs" c="dimmed" aria-hidden>
+                ·
+              </Text>
+            </>
           ) : null}
-          <Button component="a" href={primaryHref} variant="filled" h={KUEC_TOUCH_TARGET_PX} className="kuec-action">
-            {primaryLabel}
-          </Button>
+          <Text size="xs" c="dimmed">
+            {due}
+          </Text>
+          <Text size="xs" c="dimmed" aria-hidden>
+            ·
+          </Text>
+          <KuecStatus tone={statusTone} label={statusLabel} size="xs" />
         </Group>
+        <Button component="a" href={actionHref} variant={primary ? 'filled' : 'default'} className="kuec-action">
+          {actionLabel}
+        </Button>
       </Group>
     </Stack>
   </Card>

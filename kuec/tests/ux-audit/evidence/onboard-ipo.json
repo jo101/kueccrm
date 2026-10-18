@@ -1,0 +1,18 @@
+[
+ {
+  "step": 0,
+  "url": "/create/profile",
+  "seconds": 11,
+  "text": "Create profile How you'll appear to teammates and agents. First Name Last name Job Title Continue"
+ },
+ {
+  "step": 1,
+  "url": "/page/27e8aca9-876e-4d74-a420-2eab6caf5e5b",
+  "seconds": 15,
+  "text": "K KUEC BD Ops rehearsal Home Settings Workspace Home Exceptions Lead inbox · Leads Pipeline · Opportunities My work · Work packages BD Executive Portfolio · Projects Companies People This month · Engagements Expiring · Contracts Documents b"
+ },
+ {
+  "landed": "/page/27e8aca9-876e-4d74-a420-2eab6caf5e5b",
+  "seconds": 19
+ }
+]

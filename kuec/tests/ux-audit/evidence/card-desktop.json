@@ -1,0 +1,113 @@
+{
+ "cardInIframe": false,
+ "cardPosition": {
+  "top": 0,
+  "height": 0,
+  "viewportHeight": 1000
+ },
+ "cardText": "K\nKUEC BD Ops rehearsal\nHome\nSettings\nOpened\nWork packages\nWorkspace\nHome\nExceptions\nLead inbox · Leads\nPipeline · Opportunities\nMy work · Work packages\nBD Executive\nPortfolio · Projects\nCompanies\nPeople\nThis month · Engagements\nExpiring · Contracts\nDocuments by type · Documents\nAll capabilities · Capabilities\nOpen · Milestones\nData quality\nuVENTURE\nOpen uVENTURE\nHelp\nCompanies\nPeople\nOpportunities\nTasks\nNotes\nDashboards\nWork packages\n/\nTest offered scoping\n(7/8)\nCard\nT\nTest offered scoping\nTimeline\nTasks\nNotes\nFiles\n\nWhat it is: One piece of work with one owner, a due date and done criteria, and the card below says what to do now.\n\nWho owns it: The owner delivers it, the reviewer checks it, and the ED or the ops coordinator plans it.\n\nWhat must be filled: Title, Owner, Due, Objective, Expected output and Done criteria before it is offered, and a Blocked reason whenever it is blocked.\n\nWhat happens automatically: Not accepted after 2 working days reminds the owner and the ED, after 5 it moves to the ops coordinator, late work is flagged on the day and to the ED 2 working days later, and Done offers the next step.\n\nWhere to get help: Do not know what to do? Press Request help on the",
+ "focusOrder": [
+  {
+   "tag": "DIV",
+   "text": "KKUEC BD Ops rehearsal",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "BUTTON",
+   "text": "Search",
+   "outline": "solid 2px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "BUTTON",
+   "text": "Collapse sidebar",
+   "outline": "solid 2px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "BUTTON",
+   "text": "Home",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "BUTTON",
+   "text": "Settings",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "A",
+   "text": "Work packages",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "A",
+   "text": "Home",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "A",
+   "text": "Exceptions",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "A",
+   "text": "Lead inbox · Leads",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "A",
+   "text": "Pipeline · Opportunities",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "A",
+   "text": "My work · Work packages",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "A",
+   "text": "BD Executive",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "A",
+   "text": "Portfolio · Projects",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "A",
+   "text": "Companies",
+   "outline": "auto 1px",
+   "boxShadow": "none"
+  }
+ ],
+ "tooltipOnFocus": [
+  "Opens the full work package page, with every field and its history.",
+  "Opens the full work package page, with every field and its history."
+ ],
+ "declineFormFocus": "BODY:",
+ "declineFormOpenAfterEscape": 1,
+ "buttonsWhilePending": [
+  ":enabled, :enabled, Home:enabled, Settings:enabled, Card:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, Card:enabled, :enabled, Timeline:enabled, Tasks:enabled, Notes:enabled, Files:enabled, +4 More:enabled, Open full record:enabled, Accept:enabled, Decline:enabled, Request help:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled",
+  ":enabled, :enabled, Home:enabled, Settings:enabled, Card:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, Card:enabled, :enabled, Timeline:enabled, Tasks:enabled, Notes:enabled, Files:enabled, +4 More:enabled, Open full record:enabled, Submit:enabled, Request help:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled",
+  ":enabled, :enabled, Home:enabled, Settings:enabled, Card:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, Card:enabled, :enabled, Timeline:enabled, Tasks:enabled, Notes:enabled, Files:enabled, +4 More:enabled, Open full record:enabled, Submit:enabled, Request help:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled",
+  ":enabled, :enabled, Home:enabled, Settings:enabled, Card:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, Card:enabled, :enabled, Timeline:enabled, Tasks:enabled, Notes:enabled, Files:enabled, +4 More:enabled, Open full record:enabled, Submit:enabled, Request help:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled",
+  ":enabled, :enabled, Home:enabled, Settings:enabled, Card:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, Card:enabled, :enabled, Timeline:enabled, Tasks:enabled, Notes:enabled, Files:enabled, +4 More:enabled, Open full record:enabled, Submit:enabled, Request help:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled",
+  ":enabled, :enabled, Home:enabled, Settings:enabled, Card:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, Card:enabled, :enabled, Timeline:enabled, Tasks:enabled, Notes:enabled, Files:enabled, +4 More:enabled, Open full record:enabled, Submit:enabled, Request help:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled",
+  ":enabled, :enabled, Home:enabled, Settings:enabled, Card:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, Card:enabled, :enabled, Timeline:enabled, Tasks:enabled, Notes:enabled, Files:enabled, +4 More:enabled, Open full record:enabled, Submit:enabled, Request help:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled",
+  ":enabled, :enabled, Home:enabled, Settings:enabled, Card:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, Card:enabled, :enabled, Timeline:enabled, Tasks:enabled, Notes:enabled, Files:enabled, +4 More:enabled, Open full record:enabled, Submit:enabled, Request help:enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled, :enabled"
+ ],
+ "toasts": [],
+ "cardTextAfterAccept": "K\nKUEC BD Ops rehearsal\nHome\nSettings\nOpened\nWork packages\nWorkspace\nHome\nExceptions\nLead inbox · Leads\nPipeline · Opportunities\nMy work · Work packages\nBD Executive\nPortfolio · Projects\nCompanies\nPeople\nThis month · Engagements\nExpiring · Contracts\nDocuments by type · Documents\nAll capabilities · Capabilities\nOpen · Milestones\nData quality\nuVENTURE\nOpen uVENTURE\nHelp\nCompanies\nPeople\nOpportunities\nTasks\nNotes\nDashboards\nWork packages\n/\nTest offered scoping\n(7/8)\nCard\nT\nTest offered scoping\nTimeline\nTasks\nNotes\nFiles\n\nWhat it is: One piece of work with one owner, a due date and done criteria, "
+}

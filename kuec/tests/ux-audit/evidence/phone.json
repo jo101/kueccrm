@@ -1,0 +1,43 @@
+{
+ "home": {
+  "horizontalOverflow": false,
+  "widths": [
+   390,
+   390
+  ],
+  "pageHeight": 844,
+  "guidanceAboveFold": true,
+  "firstTableAboveFold": true,
+  "cardButtonsAboveFold": false,
+  "cardButtons": []
+ },
+ "work-package-accepted": {
+  "horizontalOverflow": false,
+  "widths": [
+   390,
+   390
+  ],
+  "pageHeight": 844,
+  "guidanceAboveFold": true,
+  "firstTableAboveFold": false,
+  "cardButtonsAboveFold": false,
+  "cardButtons": [
+   "Submit 66x26 at y=2414",
+   "Request help 106x26 at y=2414"
+  ]
+ },
+ "cardSubmitOffsetPx": 2414,
+ "teamTabReachable": 1,
+ "bd-team": {
+  "horizontalOverflow": false,
+  "widths": [
+   390,
+   390
+  ],
+  "pageHeight": 844,
+  "guidanceAboveFold": true,
+  "firstTableAboveFold": true,
+  "cardButtonsAboveFold": false,
+  "cardButtons": []
+ }
+}

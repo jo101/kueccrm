@@ -1,0 +1,186 @@
+picker views 104 {
+  atMostSix: '74/104',
+  nameFirst: '104/104',
+  ownerSecond: '85/104',
+  dateThird: '70/104',
+  sortOnThird: '61/104',
+  hasSort: '61/104'
+}
+widget views 66 {
+  atMostSix: '53/66',
+  nameFirst: '50/66',
+  ownerSecond: '52/66',
+  dateThird: '50/66',
+  sortOnThird: '48/66',
+  hasSort: '48/66'
+}
+campaignTarget | P | All Campaign targets [INDEX] | TABLE | 8 | Name, Status, Campaign, Company, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+campaignTarget | P | To work | TABLE | 5 | Name, Campaign, Last update, Status, Company | sort: Last update ASC | group: - | fails: -
+campaignTarget | P | Everything (expert) | TABLE | 7 | Name, Campaign, Last update, Status, Company, Creation date, Created by | sort: - | group: - | fails: atMostSix,sortOnThird,hasSort
+campaignTarget | W | Campaign pack: campaign targets | TABLE_WIDGET | 5 | Name, Campaign, Last update, Status, Company | sort: Last update DESC | group: - | fails: -
+campaignTarget | W | Campaign target Record Page Fields | FIELDS_WIDGET | 7 | Status, Campaign, Company, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,dateThird,sortOnThird,hasSort
+capability | P | All capabilities | TABLE | 6 | Name, Kind, Status changed at, Status, uVENTURE record, Last seen in uVENTURE | sort: Status changed at DESC | group: - | fails: -
+capability | P | All Capabilities [INDEX] | TABLE | 17 | Name, Kind, Status, uVENTURE record, External id, Source system, Status changed at, Last seen in uVENTURE, Stale from, Other details, Contracts, Engagements, Opportunities, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,dateThird,sortOnThird,hasSort
+capability | P | Not available to offer | TABLE | 6 | Name, Kind, Status changed at, Status, uVENTURE record, Last seen in uVENTURE | sort: Status changed at DESC | group: - | fails: -
+capability | P | Not seen in uVENTURE for 7 days | TABLE | 6 | Name, Kind, Last seen in uVENTURE, Status, uVENTURE record, Stale from | sort: Last seen in uVENTURE ASC | group: - | fails: -
+capability | P | Everything (expert) | TABLE | 10 | Name, Kind, Status changed at, Status, uVENTURE record, Last seen in uVENTURE, Stale from, External id, Source system, Other details | sort: - | group: - | fails: atMostSix,sortOnThird,hasSort
+capability | W | Capability Record Page Fields | FIELDS_WIDGET | 16 | Kind, Status, uVENTURE record, External id, Source system, Status changed at, Last seen in uVENTURE, Stale from, Other details, Contracts, Engagements, Opportunities, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+company | P | By tier | TABLE | 6 | Name, Account Owner, Last engagement, Account tier, Sector, Offset obligor | sort: Last engagement ASC | group: Account tier | fails: -
+company | P | All Companies [INDEX] | TABLE | 23 | Name, Domain Name, Created by, Account Owner, Creation date, Linkedin, Address, Account tier, Name (Arabic), Engagement lapses at, Offset obligor, Campaign targets, Other details, Sector, Contracts, Relationship type, Leads, Projects, Documents, Search keywords, Last engagement, Size class, Engagements | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+company | P | By sector | TABLE | 6 | Name, Account Owner, Last engagement, Sector, Account tier, Domain Name | sort: Last engagement ASC | group: Sector | fails: -
+company | P | All Companies | TABLE | 7 | Name, Domain Name, Created by, Account Owner, Creation date, Linkedin, Address | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+company | P | Offset obligors | TABLE | 5 | Name, Account Owner, Last engagement, Account tier, Sector | sort: Last engagement ASC | group: - | fails: -
+company | P | Least recently engaged | TABLE | 5 | Name, Account Owner, Last engagement, Account tier, Sector | sort: Last engagement ASC | group: - | fails: -
+company | P | Hygiene: missing key fields | TABLE | 6 | Name, Account Owner, Last engagement, Sector, Size class, Account tier | sort: Last engagement DESC | group: - | fails: -
+company | P | Added in the last 7 days | TABLE | 6 | Name, Account Owner, Creation date, Domain Name, Sector, Created by | sort: Creation date DESC | group: - | fails: -
+company | P | Hygiene: Other without details | TABLE | 5 | Name, Account Owner, Sector, Relationship type, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+company | P | Everything (expert) | TABLE | 20 | Name, Account Owner, Last engagement, Account tier, Sector, Offset obligor, Domain Name, Address, Linkedin, Annual Revenue, People, Opportunities, Engagements, Contracts, Name (Arabic), Search keywords, Projects, Size class, Relationship type, Other details | sort: Last engagement ASC | group: - | fails: atMostSix
+company | W | BD: Key accounts not engaged in 60 days | TABLE_WIDGET | 5 | Name, Account Owner, Last engagement, Account tier, Sector | sort: Last engagement ASC | group: - | fails: -
+company | W | Company Record Page Fields | FIELDS_WIDGET | 23 | Domain Name, Annual Revenue, Address, Creation date, Account Owner, Linkedin, Created by, Account tier, Name (Arabic), Engagement lapses at, Offset obligor, Campaign targets, Other details, Sector, Contracts, Relationship type, Leads, Projects, Documents, Search keywords, Last engagement, Size class, Engagements | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+company | W | Pipeline pack: tiered accounts | TABLE_WIDGET | 6 | Name, Account Owner, Last engagement, Account tier, Sector, Engagement lapses at | sort: Last engagement ASC | group: - | fails: -
+contract | P | All Contracts [INDEX] | TABLE | 21 | Name, Kind, Status, Signed on, Expires on, Value, SharePoint folder, Department, Other details, uVENTURE record, External id, Source system, Capability, Owner, Documents, Counterparty, Opportunity, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,dateThird,sortOnThird,hasSort
+contract | P | By status | TABLE | 6 | Name, Owner, Expires on, Status, Kind, Counterparty | sort: Expires on ASC | group: Status | fails: -
+contract | P | Expiring | TABLE | 6 | Name, Owner, Expires on, Counterparty, Kind, Value | sort: Expires on ASC | group: - | fails: -
+contract | P | Hygiene: past expiry, still Signed | TABLE | 6 | Name, Owner, Expires on, Counterparty, Kind, Value | sort: Expires on ASC | group: - | fails: -
+contract | P | Hygiene: Other without details | TABLE | 5 | Name, Owner, Kind, Department, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+contract | P | Everything (expert) | TABLE | 12 | Name, Owner, Expires on, Status, Kind, Counterparty, Opportunity, Signed on, Value, SharePoint folder, Department, Other details | sort: Expires on ASC | group: - | fails: atMostSix
+contract | W | BD: Contracts expiring in 90 days | TABLE_WIDGET | 6 | Name, Owner, Expires on, Counterparty, Kind, Value | sort: Expires on ASC | group: - | fails: -
+contract | W | BD: Contracts signed this year | TABLE_WIDGET | 6 | Name, Owner, Signed on, Counterparty, Kind, Value | sort: Signed on DESC | group: - | fails: -
+contract | W | Contract Record Page Fields | FIELDS_WIDGET | 20 | Kind, Status, Signed on, Expires on, Value, SharePoint folder, Department, Other details, uVENTURE record, External id, Source system, Capability, Owner, Documents, Counterparty, Opportunity, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,sortOnThird,hasSort
+contract | W | BD: Contracts in negotiation | TABLE_WIDGET | 6 | Name, Owner, Counterparty, Kind, Value, Opportunity | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+document | P | All Documents [INDEX] | TABLE | 21 | Name, Type, Status, Confidentiality, SharePoint or uVENTURE link, Version, Expires on, External id, Source system, Other details, Lead, Contract, Project, Owner, Person, Company, Opportunity, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,dateThird,sortOnThird,hasSort
+document | P | Documents by type | TABLE | 6 | Name, Owner, Status, Confidentiality, SharePoint or uVENTURE link, Company | sort: - | group: Type | fails: dateThird,sortOnThird,hasSort
+document | P | Documents expiring in 60 days | TABLE | 6 | Name, Owner, Expires on, Type, Status, SharePoint or uVENTURE link | sort: Expires on ASC | group: - | fails: -
+document | P | Hygiene: Other without details | TABLE | 6 | Name, Owner, Type, Status, Confidentiality, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+document | P | Everything (expert) | TABLE | 17 | Name, Owner, Expires on, Type, Status, Confidentiality, SharePoint or uVENTURE link, Version, Company, Person, Lead, Opportunity, Project, Contract, Source system, External id, Other details | sort: Expires on ASC | group: - | fails: atMostSix
+document | W | Document Record Page Fields | FIELDS_WIDGET | 20 | Type, Status, Confidentiality, SharePoint or uVENTURE link, Version, Expires on, External id, Source system, Other details, Lead, Contract, Project, Owner, Person, Company, Opportunity, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+engagement | P | All Engagements [INDEX] | TABLE | 18 | Subject, Kind, Date, Next step, Outcome, Outcome due at, Outcome type, Department, Other details, Capability, Lead, Owner, Company, Opportunity, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,sortOnThird,hasSort
+engagement | P | Calendar | CALENDAR | 5 | Subject, Owner, Date, Kind, Company | sort: - | group: - | fails: sortOnThird,hasSort
+engagement | P | This month | TABLE | 6 | Subject, Owner, Date, Kind, Company, Opportunity | sort: Date ASC | group: - | fails: -
+engagement | P | Without outcome | TABLE | 6 | Subject, Owner, Date, Kind, Company, Next step | sort: Date ASC | group: - | fails: -
+engagement | P | Hygiene: outcome overdue | TABLE | 6 | Subject, Owner, Date, Kind, Company, Opportunity | sort: Date ASC | group: - | fails: -
+engagement | P | Hygiene: Other without details | TABLE | 6 | Subject, Owner, Kind, Outcome type, Department, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+engagement | P | Everything (expert) | TABLE | 11 | Subject, Owner, Date, Kind, Company, Opportunity, Next step, Outcome, Outcome type, Department, Other details | sort: Date DESC | group: - | fails: atMostSix
+engagement | W | BD: My engagements this week | TABLE_WIDGET | 6 | Subject, Owner, Date, Kind, Company, Opportunity | sort: Date ASC | group: - | fails: -
+engagement | W | BD: Team engagements this month | TABLE_WIDGET | 6 | Subject, Owner, Date, Kind, Company, Opportunity | sort: Date ASC | group: - | fails: -
+engagement | W | Engagement Record Page Fields | FIELDS_WIDGET | 17 | Kind, Date, Next step, Outcome, Outcome due at, Outcome type, Department, Other details, Capability, Lead, Owner, Company, Opportunity, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+lead | P | All Leads [INDEX] | TABLE | 45 | Name, Status, Source, Need, Offering interest, Department, Dead reason, Nurture review date, Referral note, Need identified, Decision maker reached, Capability matched, Funding path identified, Timing known, Qualification score, Estimated value, Next action, Next action date, uVENTURE record, External id, Source system, Triaged, Status entered at, Last engagement, Contact nudge sent at, Contact ED notified at, Qualified at, Closed for no response at, Last converted at, Referral credited at, Other details, Documents, Owner, Converted opportunity, Referred by (colleague), Company, Person, Engagements, Referred by, Campaign, Opportunities, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+lead | P | Lead inbox | TABLE | 6 | Name, Owner, Status entered at, Source, Company, Campaign | sort: Status entered at ASC | group: - | fails: -
+lead | P | My leads | TABLE | 6 | Name, Owner, Next action date, Next action, Status, Company | sort: Next action date ASC | group: - | fails: -
+lead | P | Qualified not converted | TABLE | 6 | Name, Owner, Status entered at, Qualification score, Offering interest, Company | sort: Status entered at ASC | group: - | fails: -
+lead | P | Nurture review due | TABLE | 6 | Name, Owner, Nurture review date, Need, Company, Source | sort: Nurture review date ASC | group: - | fails: -
+lead | P | Dead this month by reason | TABLE | 6 | Name, Owner, Status entered at, Dead reason, Source, Company | sort: Status entered at DESC | group: Dead reason | fails: -
+lead | P | By source | TABLE | 6 | Name, Owner, Status entered at, Status, Source, Campaign | sort: Status entered at DESC | group: Source | fails: -
+lead | P | By campaign | TABLE | 6 | Name, Owner, Status entered at, Campaign, Status, Source | sort: Status entered at DESC | group: - | fails: -
+lead | P | Hygiene: Other without details | TABLE | 6 | Name, Owner, Source, Department, Dead reason, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+lead | P | Everything (expert) | TABLE | 31 | Name, Owner, Status entered at, Status, Source, Company, Person, Campaign, Need, Offering interest, Department, Qualification score, Need identified, Decision maker reached, Capability matched, Funding path identified, Timing known, Estimated value, Next action, Next action date, Dead reason, Nurture review date, Referred by, Referred by (colleague), Referral note, Converted opportunity, Last engagement, Referral credited at, Source system, External id, Other details | sort: Status entered at DESC | group: - | fails: atMostSix
+lead | W | Pipeline pack: leads past their contact time | TABLE_WIDGET | 6 | Name, Owner, Status entered at, Contact nudge sent at, Source, Next action date | sort: Status entered at ASC | group: - | fails: -
+lead | W | Campaign pack: campaign leads | TABLE_WIDGET | 6 | Name, Owner, Status entered at, Campaign, Status, Source | sort: Status entered at DESC | group: - | fails: -
+lead | W | Pipeline pack: referral credits | TABLE_WIDGET | 6 | Name, Owner, Referral credited at, Referred by (colleague), Referred by, Source | sort: Referral credited at DESC | group: - | fails: -
+lead | W | Lead Record Page Fields | FIELDS_WIDGET | 44 | Status, Source, Need, Offering interest, Department, Dead reason, Nurture review date, Referral note, Need identified, Decision maker reached, Capability matched, Funding path identified, Timing known, Qualification score, Estimated value, Next action, Next action date, uVENTURE record, External id, Source system, Triaged, Status entered at, Last engagement, Contact nudge sent at, Contact ED notified at, Qualified at, Closed for no response at, Last converted at, Referral credited at, Other details, Documents, Owner, Converted opportunity, Referred by (colleague), Company, Person, Engagements, Referred by, Campaign, Opportunities, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+lead | W | BD Team: Referral credits | TABLE_WIDGET | 6 | Name, Owner, Referral credited at, Referred by (colleague), Referred by, Converted opportunity | sort: Referral credited at DESC | group: - | fails: -
+lead | W | BD: Leads created, past 12 months | TABLE_WIDGET | 6 | Name, Owner, Creation date, Source, Status, Campaign | sort: Creation date DESC | group: - | fails: -
+lead | W | BD Team: Open leads | TABLE_WIDGET | 6 | Name, Owner, Status entered at, Status, Next action date, Source | sort: Status entered at ASC | group: - | fails: -
+lead | W | Pipeline pack: open leads | TABLE_WIDGET | 6 | Name, Owner, Status entered at, Status, Next action date, Source | sort: Status entered at ASC | group: - | fails: -
+lead | W | BD: All leads | TABLE_WIDGET | 6 | Name, Owner, Status entered at, Status, Source, Converted opportunity | sort: Status entered at DESC | group: - | fails: -
+milestone | P | All Milestones [INDEX] | TABLE | 13 | Name, Status, Due, Playbook step, Department, Other details, Work packages, Project, Owner, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,ownerSecond,sortOnThird,hasSort
+milestone | P | Calendar | CALENDAR | 5 | Name, Owner, Due, Status, Project | sort: - | group: - | fails: sortOnThird,hasSort
+milestone | P | Missed | TABLE | 5 | Name, Owner, Due, Status, Project | sort: Due ASC | group: - | fails: -
+milestone | P | Open | TABLE | 4 | Name, Owner, Due, Project | sort: Due ASC | group: - | fails: -
+milestone | P | Hygiene: Other without details | TABLE | 4 | Name, Owner, Department, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+milestone | P | Everything (expert) | TABLE | 9 | Name, Owner, Due, Status, Project, Work packages, Playbook step, Department, Other details | sort: Due ASC | group: - | fails: atMostSix
+milestone | W | Milestone Record Page Fields | FIELDS_WIDGET | 12 | Status, Due, Playbook step, Department, Other details, Work packages, Project, Owner, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+milestone | W | BD: Milestones due in 30 days | TABLE_WIDGET | 5 | Name, Owner, Due, Status, Project | sort: Due ASC | group: - | fails: -
+milestone | W | Project pack: open milestones | TABLE_WIDGET | 5 | Name, Owner, Due, Status, Project | sort: Due ASC | group: - | fails: -
+note | P | All Notes [INDEX] | TABLE | 5 | Title, Relations, Body, Created by, Creation date | sort: - | group: - | fails: ownerSecond,dateThird,sortOnThird,hasSort
+note | P | All Notes | TABLE | 5 | Title, Relations, Body, Created by, Creation date | sort: - | group: - | fails: ownerSecond,dateThird,sortOnThird,hasSort
+note | W | Note Record Page Fields | FIELDS_WIDGET | 1 | Relations | sort: - | group: - | fails: nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+opportunity | P | Pipeline | KANBAN | 6 | Name, Owner, Close date, Amount, Company, Next action date | sort: Close date ASC | group: Stage | fails: -
+opportunity | P | All Opportunities [INDEX] | TABLE | 34 | Name, Amount, Created by, Close date, Company, Point of Contact, Probability, Playbook applied, Lost reason, Projects, Department, Work packages, Client deadline, Next action, Lead, Contracts, Parked lapses at, Documents, Capability, Funding path, Offering, uVENTURE record, Stale from, Lost reason category, Next action date, Type, Next action flagged on, Other details, Source, Engagements, Description, SharePoint folder, Stage entered at, Latest conversion of | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+opportunity | P | Licence pipeline | KANBAN | 6 | Name, Owner, Close date, Amount, Company, Next action date | sort: Close date ASC | group: Stage | fails: -
+opportunity | P | By Stage | KANBAN | 6 | Name, Amount, Created by, Close date, Company, Point of Contact | sort: - | group: Stage | fails: ownerSecond,dateThird,sortOnThird,hasSort
+opportunity | P | By type | TABLE | 6 | Name, Owner, Close date, Type, Stage, Amount | sort: Close date ASC | group: Type | fails: -
+opportunity | P | By source | TABLE | 6 | Name, Owner, Close date, Source, Stage, Amount | sort: Close date ASC | group: Source | fails: -
+opportunity | P | By probability | TABLE | 6 | Name, Owner, Close date, Probability, Stage, Amount | sort: Close date ASC | group: Probability | fails: -
+opportunity | P | No next action | TABLE | 6 | Name, Owner, Stage entered at, Stage, Next action, Company | sort: Stage entered at ASC | group: - | fails: -
+opportunity | P | Proposals out | TABLE | 6 | Name, Owner, Next action date, Next action, Amount, Company | sort: Next action date ASC | group: - | fails: -
+opportunity | P | Closing this quarter | TABLE | 6 | Name, Owner, Close date, Stage, Probability, Amount | sort: Close date ASC | group: - | fails: -
+opportunity | P | Lost with reasons | TABLE | 6 | Name, Owner, Stage entered at, Lost reason category, Lost reason, Amount | sort: Stage entered at DESC | group: Lost reason category | fails: -
+opportunity | P | Parked | TABLE | 6 | Name, Owner, Next action date, Stage entered at, Next action, Company | sort: Next action date ASC | group: - | fails: -
+opportunity | P | Hygiene: missing key fields | TABLE | 6 | Name, Owner, Stage entered at, Type, Amount, Close date | sort: Stage entered at ASC | group: - | fails: -
+opportunity | P | Hygiene: in Qualify over 30 days | TABLE | 6 | Name, Owner, Stage entered at, Next action, Next action date, Company | sort: Stage entered at ASC | group: - | fails: -
+opportunity | P | Hygiene: Parked over 90 days | TABLE | 6 | Name, Owner, Stage entered at, Next action, Lost reason category, Company | sort: Stage entered at ASC | group: - | fails: -
+opportunity | P | Hygiene: Other without details | TABLE | 6 | Name, Owner, Source, Type, Offering, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+opportunity | P | Everything (expert) | TABLE | 26 | Name, Owner, Close date, Stage, Amount, Company, Point of Contact, Type, Source, Probability, Next action, Next action date, Next action flagged on, Stage entered at, Client deadline, Lost reason category, Lost reason, Playbook applied, Projects, Work packages, Engagements, Contracts, SharePoint folder, Offering, Funding path, Other details | sort: Close date ASC | group: - | fails: atMostSix
+opportunity | W | BD: Open pipeline by type and sector | TABLE_WIDGET | 6 | Name, Owner, Close date, Type, Company, Amount | sort: Close date ASC | group: - | fails: -
+opportunity | W | BD: Stale opportunities | TABLE_WIDGET | 6 | Name, Owner, Stage entered at, Stage, Next action, Amount | sort: Stage entered at ASC | group: - | fails: -
+opportunity | W | BD: Opportunities created, past 12 months | TABLE_WIDGET | 6 | Name, Owner, Creation date, Source, Stage, Amount | sort: Creation date DESC | group: - | fails: -
+opportunity | W | Pipeline pack: exit criteria missing | TABLE_WIDGET | 6 | Name, Owner, Stage entered at, Amount, Close date, Probability | sort: Stage entered at ASC | group: - | fails: -
+opportunity | W | BD: Lost this quarter | TABLE_WIDGET | 6 | Name, Owner, Stage entered at, Lost reason category, Lost reason, Amount | sort: Stage entered at DESC | group: - | fails: -
+opportunity | W | BD: My closing this quarter | TABLE_WIDGET | 6 | Name, Owner, Close date, Stage, Probability, Amount | sort: Close date ASC | group: - | fails: -
+opportunity | W | BD: Open pipeline by stage | TABLE_WIDGET | 6 | Name, Owner, Close date, Stage, Probability, Amount | sort: Close date ASC | group: - | fails: -
+opportunity | W | BD: Closing this quarter | TABLE_WIDGET | 6 | Name, Owner, Close date, Stage, Probability, Amount | sort: Close date ASC | group: - | fails: -
+opportunity | W | Opportunity Record Page Fields | FIELDS_WIDGET | 36 | Amount, Company, Creation date, Stage, Point of Contact, Created by, Close date, Owner, Probability, Playbook applied, Lost reason, Projects, Department, Work packages, Client deadline, Next action, Lead, Contracts, Parked lapses at, Documents, Capability, Funding path, Offering, uVENTURE record, Stale from, Lost reason category, Next action date, Type, Next action flagged on, Other details, Source, Engagements, Description, SharePoint folder, Stage entered at, Latest conversion of | sort: - | group: - | fails: atMostSix,nameFirst,sortOnThird,hasSort
+opportunity | W | Pipeline pack: open opportunities | TABLE_WIDGET | 6 | Name, Owner, Stage entered at, Stage, Next action date, Amount | sort: Stage entered at ASC | group: - | fails: -
+opportunity | W | BD: Won and lost this quarter | TABLE_WIDGET | 6 | Name, Owner, Stage entered at, Stage, Lost reason category, Amount | sort: Stage entered at DESC | group: - | fails: -
+opportunity | W | BD: Team open opportunities | TABLE_WIDGET | 6 | Name, Owner, Close date, Stage, Amount, Company | sort: Close date ASC | group: - | fails: -
+opportunity | W | BD: Signed licences this year | TABLE_WIDGET | 5 | Name, Owner, Stage entered at, Company, Amount | sort: Stage entered at DESC | group: - | fails: -
+opportunity | W | BD: Team opportunities without next action | TABLE_WIDGET | 6 | Name, Owner, Stage entered at, Stage, Next action, Company | sort: Stage entered at ASC | group: - | fails: -
+opportunity | W | BD: My opportunities without next action | TABLE_WIDGET | 6 | Name, Owner, Stage entered at, Stage, Next action, Company | sort: Stage entered at ASC | group: - | fails: -
+person | P | All People [INDEX] | TABLE | 14 | Name, Emails, Created by, Company, Phones, Creation date, Job Title, Linkedin, Leads, Champion, Name (Arabic), Decision role, Referred leads, Documents | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+person | P | Decision makers | TABLE | 6 | Name, Company, Job Title, Decision role, Champion, Emails | sort: - | group: Decision role | fails: dateThird,sortOnThird,hasSort
+person | P | Champions | TABLE | 6 | Name, Company, Job Title, Decision role, Emails, Phones | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+person | P | All People | TABLE | 8 | Name, Emails, Created by, Company, Phones, Creation date, Job Title, Linkedin | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+person | P | Missing email | TABLE | 6 | Name, Company, Job Title, Decision role, Phones, Linkedin | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+person | P | Hygiene: missing email or decision role | TABLE | 6 | Name, Company, Job Title, Emails, Decision role, Phones | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+person | P | Added in the last 7 days | TABLE | 6 | Name, Company, Creation date, Emails, Job Title, Created by | sort: Creation date DESC | group: - | fails: -
+person | P | Everything (expert) | TABLE | 10 | Name, Company, Job Title, Decision role, Champion, Emails, Phones, Linkedin, Opportunities, Name (Arabic) | sort: - | group: - | fails: atMostSix,dateThird,sortOnThird,hasSort
+person | W | Person Record Page Fields | FIELDS_WIDGET | 13 | Emails, Company, Linkedin, Creation date, Phones, Job Title, Created by, Leads, Champion, Name (Arabic), Decision role, Referred leads, Documents | sort: - | group: - | fails: atMostSix,nameFirst,dateThird,sortOnThird,hasSort
+person | W | List Members Table | TABLE_WIDGET | 3 | Name, Emails, Company | sort: - | group: - | fails: ownerSecond,dateThird,sortOnThird,hasSort
+playbookRoleAssignment | P | All Playbook role assignments [INDEX] | TABLE | 8 | Name, Playbook role, Active, Member, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+playbookRoleAssignment | W | Playbook role assignment Record Page Fields | FIELDS_WIDGET | 7 | Playbook role, Active, Member, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+project | P | Portfolio | TABLE | 5 | Name, Owner, End date, Health, Percent complete | sort: End date ASC | group: - | fails: -
+project | P | All Projects [INDEX] | TABLE | 27 | Name, Type, Status, Health, Percent complete, Event date, End date, Playbook applied, Close task created at, Department, Other details, Target sector, Target size class, Offering promoted, Channel plan, Milestones, Campaign targets, Owner, Documents, Leads, Opportunity, Work packages, Company, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+project | P | By health | TABLE | 6 | Name, Owner, End date, Health, Percent complete, Type | sort: End date ASC | group: Health | fails: -
+project | P | At risk | TABLE | 6 | Name, Owner, End date, Health, Percent complete, Opportunity | sort: End date ASC | group: - | fails: -
+project | P | Hygiene: Other without details | TABLE | 5 | Name, Owner, Type, Department, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+project | P | Everything (expert) | TABLE | 16 | Name, Owner, End date, Status, Health, Percent complete, Type, Event date, Opportunity, Milestones, Work packages, Playbook applied, Close task created at, Company, Department, Other details | sort: End date ASC | group: - | fails: atMostSix
+project | W | BD: Team active projects | TABLE_WIDGET | 6 | Name, Owner, End date, Health, Percent complete, Opportunity | sort: End date ASC | group: - | fails: -
+project | W | BD: Active projects | TABLE_WIDGET | 6 | Name, Owner, End date, Health, Percent complete, Type | sort: End date ASC | group: - | fails: -
+project | W | Project Record Page Fields | FIELDS_WIDGET | 26 | Type, Status, Health, Percent complete, Event date, End date, Playbook applied, Close task created at, Department, Other details, Target sector, Target size class, Offering promoted, Channel plan, Milestones, Campaign targets, Owner, Documents, Leads, Opportunity, Work packages, Company, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+project | W | Project pack: active projects | TABLE_WIDGET | 6 | Name, Owner, End date, Health, Percent complete, Type | sort: End date ASC | group: - | fails: -
+project | W | Campaign pack: active campaigns | TABLE_WIDGET | 6 | Name, Owner, End date, Target sector, Target size class, Channel plan | sort: End date ASC | group: - | fails: -
+publicHoliday | P | All UAE public holidays [INDEX] | TABLE | 6 | Name, Date, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: ownerSecond,sortOnThird,hasSort
+publicHoliday | W | UAE public holiday Record Page Fields | FIELDS_WIDGET | 5 | Date, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+task | P | All Tasks [INDEX] | TABLE | 10 | Title, Status, Relations, Created by, Due Date, Assignee, Body, Creation date, Other details, Type | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+task | P | By Status | KANBAN | 5 | Title, Status, Due Date, Assignee, Creation date | sort: - | group: Status | fails: ownerSecond,sortOnThird,hasSort
+task | P | All Tasks | TABLE | 8 | Title, Status, Relations, Created by, Due Date, Assignee, Body, Creation date | sort: - | group: - | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+task | P | Assigned to Me | TABLE | 7 | Title, Relations, Created by, Due Date, Assignee, Body, Creation date | sort: - | group: Status | fails: atMostSix,ownerSecond,dateThird,sortOnThird,hasSort
+task | P | Hygiene: Other without details | TABLE | 4 | Title, Assignee, Type, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+task | W | Task Record Page Fields | FIELDS_WIDGET | 6 | Due Date, Status, Assignee, Relations, Other details, Type | sort: - | group: - | fails: nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+workPackage | P | My work | TABLE | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | P | All Work packages [INDEX] | TABLE | 32 | Title, Status, Due, Objective, Expected output, Done criteria, Blocked reason, Declined reason, Playbook step, Due offset (business days), Offered at, Accepted at, Submitted at, Blocked at, Completed at, Acceptance reminder sent at, Reassigned at, Overdue owner notified at, Overdue ED notified at, Department, Other details, Depends on, Owner, Opportunity, Reviewer, Dependents, Project, Milestone, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,ownerSecond,sortOnThird,hasSort
+workPackage | P | Offered to me | TABLE | 6 | Title, Owner, Due, Offered at, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | P | Submitted for my review | TABLE | 6 | Title, Owner, Due, Submitted at, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | P | Blocked | TABLE | 6 | Title, Owner, Blocked at, Blocked reason, Due, Opportunity | sort: Blocked at ASC | group: - | fails: -
+workPackage | P | By status | KANBAN | 5 | Title, Owner, Due, Opportunity, Project | sort: Due ASC | group: Status | fails: -
+workPackage | P | Planned | TABLE | 6 | Title, Owner, Due, Depends on, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | P | Overdue | TABLE | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | P | Due this week | TABLE | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | P | Hygiene: no done criteria | TABLE | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | P | Hygiene: Other without details | TABLE | 4 | Title, Owner, Department, Other details | sort: - | group: - | fails: dateThird,sortOnThird,hasSort
+workPackage | P | Everything (expert) | TABLE | 27 | Title, Owner, Due, Status, Reviewer, Opportunity, Project, Milestone, Depends on, Dependents, Objective, Expected output, Done criteria, Blocked reason, Playbook step, Due offset (business days), Offered at, Accepted at, Submitted at, Blocked at, Completed at, Acceptance reminder sent at, Reassigned at, Overdue owner notified at, Overdue ED notified at, Department, Other details | sort: Due ASC | group: - | fails: atMostSix
+workPackage | W | Work package Record Page Fields | FIELDS_WIDGET | 31 | Status, Due, Objective, Expected output, Done criteria, Blocked reason, Declined reason, Playbook step, Due offset (business days), Offered at, Accepted at, Submitted at, Blocked at, Completed at, Acceptance reminder sent at, Reassigned at, Overdue owner notified at, Overdue ED notified at, Department, Other details, Depends on, Owner, Opportunity, Reviewer, Dependents, Project, Milestone, Creation date, Created by, Last update, Updated by | sort: - | group: - | fails: atMostSix,nameFirst,ownerSecond,dateThird,sortOnThird,hasSort
+workPackage | W | BD: My submitted work packages | TABLE_WIDGET | 6 | Title, Owner, Submitted at, Reviewer, Due, Opportunity | sort: Submitted at ASC | group: - | fails: -
+workPackage | W | Home: Needs your decision | TABLE_WIDGET | 6 | Title, Owner, Due, Status, Reviewer, Opportunity | sort: Due ASC | group: - | fails: -
+workPackage | W | BD: Team offered, not accepted | TABLE_WIDGET | 6 | Title, Owner, Offered at, Due, Opportunity, Project | sort: Offered at ASC | group: - | fails: -
+workPackage | W | BD: Team work package board | KANBAN_WIDGET | 5 | Title, Owner, Due, Opportunity, Project | sort: Due ASC | group: Status | fails: -
+workPackage | W | BD: Team overdue work packages | TABLE_WIDGET | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | W | BD: Team submitted, awaiting review | TABLE_WIDGET | 6 | Title, Owner, Submitted at, Reviewer, Due, Opportunity | sort: Submitted at ASC | group: - | fails: -
+workPackage | W | Project pack: blocked work packages | TABLE_WIDGET | 6 | Title, Owner, Blocked at, Blocked reason, Project, Due | sort: Blocked at ASC | group: - | fails: -
+workPackage | W | Home: Other work by status | TABLE_WIDGET | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: Status | fails: -
+workPackage | W | BD: Team blocked work packages | TABLE_WIDGET | 6 | Title, Owner, Blocked at, Blocked reason, Due, Opportunity | sort: Blocked at ASC | group: - | fails: -
+workPackage | W | Home: My work due within 7 days | TABLE_WIDGET | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | W | BD: My overdue work packages | TABLE_WIDGET | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | W | BD: Team open work packages | TABLE_WIDGET | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: - | fails: -
+workPackage | W | BD: My open work packages | TABLE_WIDGET | 6 | Title, Owner, Due, Status, Opportunity, Project | sort: Due ASC | group: - | fails: -

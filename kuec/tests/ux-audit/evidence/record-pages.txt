@@ -1,0 +1,139 @@
+
+## company (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files | Emails | Conversations | Calendar
+  [Home] VERTICAL_LIST: Fields<FIELDS@0>, How this record works<STANDALONE_RICH_TEXT@0>, People<FIELD@1>, Opportunities<FIELD@2>, Documents<FIELD@3>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+  [Emails] VERTICAL_LIST: Emails<EMAILS@0>
+  [Conversations] VERTICAL_LIST: Conversations<CHAT_THREADS@0>
+  [Calendar] VERTICAL_LIST: Calendar<CALENDAR@0>
+
+## person (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files | Emails | Conversations | Calendar
+  [Home] VERTICAL_LIST: Fields<FIELDS@0>, How this record works<STANDALONE_RICH_TEXT@0>, Company<FIELD@1>, Opportunities<FIELD@2>, Lists<FIELD@4>, Documents<FIELD@4>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+  [Emails] VERTICAL_LIST: Emails<EMAILS@0>
+  [Conversations] VERTICAL_LIST: Conversations<CHAT_THREADS@0>
+  [Calendar] VERTICAL_LIST: Calendar<CALENDAR@0>
+
+## opportunity (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files | Emails | Conversations | Calendar
+  [Home] VERTICAL_LIST: Fields<FIELDS@0>, How this record works<STANDALONE_RICH_TEXT@0>, Point of Contact<FIELD@1>, SharePoint folder<FIELD@1>, Company<FIELD@2>, Owner<FIELD@3>, Documents<FIELD@4>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+  [Emails] VERTICAL_LIST: Emails<EMAILS@0>
+  [Conversations] VERTICAL_LIST: Conversations<CHAT_THREADS@0>
+  [Calendar] VERTICAL_LIST: Calendar<CALENDAR@0>
+
+## note (1 record layout) tabs: Home | Note
+  [Home] VERTICAL_LIST: Fields<FIELDS@0>, How this record works<STANDALONE_RICH_TEXT@0>, Note<FIELD_RICH_TEXT@1>
+  [Note] VERTICAL_LIST: Note<FIELD_RICH_TEXT@0>
+
+## task (1 record layout) tabs: Home | Note
+  [Home] VERTICAL_LIST: Fields<FIELDS@0>, How this record works<STANDALONE_RICH_TEXT@0>, Task<FIELD_RICH_TEXT@1>
+  [Note] VERTICAL_LIST: Task<FIELD_RICH_TEXT@0>
+
+## lead (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>, Documents<FIELD@1>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## engagement (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## project (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>, Documents<FIELD@1>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## milestone (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## workPackage (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>, Work package<FRONT_COMPONENT@1>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## contract (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>, SharePoint folder<FIELD@1>, Documents<FIELD@2>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## document (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## playbookRoleAssignment (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## publicHoliday (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## capability (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## campaignTarget (1 record layout) tabs: Home | Timeline | Tasks | Notes | Files
+  [Home] VERTICAL_LIST: How this record works<STANDALONE_RICH_TEXT@0>, Fields<FIELDS@0>
+  [Timeline] VERTICAL_LIST: Timeline<TIMELINE@0>
+  [Tasks] VERTICAL_LIST: Tasks<TASKS@0>
+  [Notes] VERTICAL_LIST: Notes<NOTES@0>
+  [Files] VERTICAL_LIST: Files<FILES@0>
+
+## standalone pages
+
+BD: Executive | Team | Mine | Pipeline pack | Project pack | Campaign pack
+  [Executive] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, Thursday update<STANDALONE_RICH_TEXT@{"row":6,"column":0,"rowSpan":4,"columnSpan":12}>, Signed licences this year<GRAPH@{"row":10,"column":0,"rowSpan":4,"columnSpan":5}>, Signed licences this year<RECORD_TABLE@{"row":10,"column":5,"rowSpan":4,"columnSpan":7}>, Signed contract value this year<GRAPH@{"row":14,"column":0,"rowSpan":4,"columnSpan":5}>, Contracts signed this year<RECORD_TABLE@{"row":14,"column":5,"rowSpan":4,"columnSpan":7}>, Open pipeline by stage (count)<GRAPH@{"row":18,"column":0,"rowSpan":5,"columnSpan":5}>, Open pipeline<RECORD_TABLE@{"row":18,"column":5,"rowSpan":15,"columnSpan":7}>, Open pipeline by stage (Amount)<GRAPH@{"row":23,"column":0,"rowSpan":5,"columnSpan":5}>, Open pipeline by stage and probability (Amount)<GRAPH@{"row":28,"column":0,"rowSpan":5,"columnSpan":5}>, Open pipeline by type (Amount)<GRAPH@{"row":33,"column":0,"rowSpan":5,"columnSpan":5}>, Open pipeline by type and company<RECORD_TABLE@{"row":33,"column":5,"rowSpan":10,"columnSpan":7}>, Open pipeline by company sector (Amount)<GRAPH@{"row":38,"column":0,"rowSpan":5,"columnSpan":5}>, Opportunities created per month, by source<GRAPH@{"row":43,"column":0,"rowSpan":5,"columnSpan":5}>, Opportunities created, past 12 months<RECORD_TABLE@{"row":43,"column":5,"rowSpan":5,"columnSpan":7}>, Closing this quarter<GRAPH@{"row":48,"column":0,"rowSpan":3,"columnSpan":5}>, Closing this quarter<RECORD_TABLE@{"row":48,"column":5,"rowSpan":6,"columnSpan":7}>, Closing this quarter (Amount)<GRAPH@{"row":51,"column":0,"rowSpan":3,"columnSpan":5}>, Stale: in stage for more than 30 days<GRAPH@{"row":54,"column":0,"rowSpan":4,"columnSpan":5}>, Stale opportunities<RECORD_TABLE@{"row":54,"column":5,"rowSpan":4,"columnSpan":7}>, Won and lost by month, this quarter<GRAPH@{"row":58,"column":0,"rowSpan":5,"columnSpan":5}>, Won and lost this quarter<RECORD_TABLE@{"row":58,"column":5,"rowSpan":5,"columnSpan":7}>, Lost by reason, this quarter<GRAPH@{"row":63,"column":0,"rowSpan":5,"columnSpan":5}>, Lost this quarter<RECORD_TABLE@{"row":63,"column":5,"rowSpan":5,"columnSpan":7}>, Tier 1 and 2 accounts not engaged in 60 days<GRAPH@{"row":68,"column":0,"rowSpan":4,"columnSpan":5}>, Tier 1 and 2 accounts not engaged in 60 days<RECORD_TABLE@{"row":68,"column":5,"rowSpan":4,"columnSpan":7}>, Contracts in negotiation<GRAPH@{"row":72,"column":0,"rowSpan":4,"columnSpan":5}>, Contracts in negotiation<RECORD_TABLE@{"row":72,"column":5,"rowSpan":4,"columnSpan":7}>, Contracts expiring in 90 days<GRAPH@{"row":76,"column":0,"rowSpan":4,"columnSpan":5}>, Contracts expiring in 90 days<RECORD_TABLE@{"row":76,"column":5,"rowSpan":4,"columnSpan":7}>, Active projects by health<GRAPH@{"row":80,"column":0,"rowSpan":5,"columnSpan":5}>, Active projects<RECORD_TABLE@{"row":80,"column":5,"rowSpan":5,"columnSpan":7}>, Milestones due in 30 days<GRAPH@{"row":85,"column":0,"rowSpan":4,"columnSpan":5}>, Milestones due in 30 days<RECORD_TABLE@{"row":85,"column":5,"rowSpan":4,"columnSpan":7}>, Leads created per month, by source<GRAPH@{"row":89,"column":0,"rowSpan":5,"columnSpan":5}>, Leads created, past 12 months<RECORD_TABLE@{"row":89,"column":5,"rowSpan":5,"columnSpan":7}>, Lead conversion rate<GRAPH@{"row":94,"column":0,"rowSpan":4,"columnSpan":5}>, All leads<RECORD_TABLE@{"row":94,"column":5,"rowSpan":4,"columnSpan":7}>
+  [Team] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, Open work packages per owner, by status<GRAPH@{"row":6,"column":0,"rowSpan":6,"columnSpan":5}>, Open work packages<RECORD_TABLE@{"row":6,"column":5,"rowSpan":6,"columnSpan":7}>, Overdue per owner<GRAPH@{"row":12,"column":0,"rowSpan":5,"columnSpan":5}>, Overdue work packages<RECORD_TABLE@{"row":12,"column":5,"rowSpan":5,"columnSpan":7}>, Blocked per owner<GRAPH@{"row":17,"column":0,"rowSpan":5,"columnSpan":5}>, Blocked work packages<RECORD_TABLE@{"row":17,"column":5,"rowSpan":5,"columnSpan":7}>, Offered, not accepted, per owner<GRAPH@{"row":22,"column":0,"rowSpan":5,"columnSpan":5}>, Offered, not accepted<RECORD_TABLE@{"row":22,"column":5,"rowSpan":5,"columnSpan":7}>, Submitted, awaiting review, per reviewer<GRAPH@{"row":27,"column":0,"rowSpan":5,"columnSpan":5}>, Submitted, awaiting review<RECORD_TABLE@{"row":27,"column":5,"rowSpan":5,"columnSpan":7}>, Open opportunities per owner, by stage<GRAPH@{"row":32,"column":0,"rowSpan":6,"columnSpan":5}>, Open opportunities<RECORD_TABLE@{"row":32,"column":5,"rowSpan":6,"columnSpan":7}>, No next action per owner<GRAPH@{"row":38,"column":0,"rowSpan":5,"columnSpan":5}>, Opportunities without next action<RECORD_TABLE@{"row":38,"column":5,"rowSpan":5,"columnSpan":7}>, Engagements this month per owner, by kind<GRAPH@{"row":43,"column":0,"rowSpan":6,"columnSpan":5}>, Engagements this month<RECORD_TABLE@{"row":43,"column":5,"rowSpan":6,"columnSpan":7}>, Active projects per owner, by health<GRAPH@{"row":49,"column":0,"rowSpan":6,"columnSpan":5}>, Active projects<RECORD_TABLE@{"row":49,"column":5,"rowSpan":6,"columnSpan":7}>, Open work packages by status<RECORD_TABLE@{"row":55,"column":0,"rowSpan":14,"columnSpan":12}>, Open leads per owner, by status<GRAPH@{"row":69,"column":0,"rowSpan":6,"columnSpan":5}>, Open leads<RECORD_TABLE@{"row":69,"column":5,"rowSpan":6,"columnSpan":7}>, Leads by referrer<GRAPH@{"row":75,"column":0,"rowSpan":5,"columnSpan":5}>, Referral credits<RECORD_TABLE@{"row":75,"column":5,"rowSpan":5,"columnSpan":7}>
+  [Mine] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, My open work packages<GRAPH@{"row":6,"column":0,"rowSpan":4,"columnSpan":5}>, My open work packages<RECORD_TABLE@{"row":6,"column":5,"rowSpan":4,"columnSpan":7}>, My overdue work packages<GRAPH@{"row":10,"column":0,"rowSpan":4,"columnSpan":5}>, My overdue work packages<RECORD_TABLE@{"row":10,"column":5,"rowSpan":4,"columnSpan":7}>, My submitted work packages, awaiting review<GRAPH@{"row":14,"column":0,"rowSpan":4,"columnSpan":5}>, My submitted work packages, awaiting review<RECORD_TABLE@{"row":14,"column":5,"rowSpan":4,"columnSpan":7}>, My opportunities with no next action<GRAPH@{"row":18,"column":0,"rowSpan":4,"columnSpan":5}>, My opportunities with no next action<RECORD_TABLE@{"row":18,"column":5,"rowSpan":4,"columnSpan":7}>, My engagements this week<GRAPH@{"row":22,"column":0,"rowSpan":4,"columnSpan":5}>, My engagements this week<RECORD_TABLE@{"row":22,"column":5,"rowSpan":4,"columnSpan":7}>, My opportunities closing this quarter<GRAPH@{"row":26,"column":0,"rowSpan":3,"columnSpan":5}>, My opportunities closing this quarter<RECORD_TABLE@{"row":26,"column":5,"rowSpan":6,"columnSpan":7}>, My opportunities closing this quarter (Amount)<GRAPH@{"row":29,"column":0,"rowSpan":3,"columnSpan":5}>
+  [Pipeline pack] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, Open leads by status<GRAPH@{"row":6,"column":0,"rowSpan":5,"columnSpan":5}>, Open leads, oldest status first<RECORD_TABLE@{"row":6,"column":5,"rowSpan":5,"columnSpan":7}>, Leads past their contact time<RECORD_TABLE@{"row":11,"column":0,"rowSpan":4,"columnSpan":12}>, Open opportunities by stage<GRAPH@{"row":15,"column":0,"rowSpan":5,"columnSpan":5}>, Open opportunities, longest in stage first<RECORD_TABLE@{"row":15,"column":5,"rowSpan":5,"columnSpan":7}>, Proposal or later, exit criteria missing<RECORD_TABLE@{"row":20,"column":0,"rowSpan":4,"columnSpan":12}>, Accounts by tier<GRAPH@{"row":24,"column":0,"rowSpan":5,"columnSpan":5}>, Tiered accounts, least recently engaged first<RECORD_TABLE@{"row":24,"column":5,"rowSpan":5,"columnSpan":7}>, Referral credits<RECORD_TABLE@{"row":29,"column":0,"rowSpan":4,"columnSpan":12}>
+  [Project pack] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, Active projects by health<GRAPH@{"row":6,"column":0,"rowSpan":6,"columnSpan":5}>, Active projects, nearest end date first<RECORD_TABLE@{"row":6,"column":5,"rowSpan":6,"columnSpan":7}>, Open and missed milestones<RECORD_TABLE@{"row":12,"column":0,"rowSpan":5,"columnSpan":12}>, Blocked work packages on projects<RECORD_TABLE@{"row":17,"column":0,"rowSpan":5,"columnSpan":12}>
+  [Campaign pack] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, Targets per campaign, by status<GRAPH@{"row":6,"column":0,"rowSpan":6,"columnSpan":5}>, Campaign targets, latest change first<RECORD_TABLE@{"row":6,"column":5,"rowSpan":6,"columnSpan":7}>, Leads per campaign, by status<GRAPH@{"row":12,"column":0,"rowSpan":6,"columnSpan":5}>, Leads attributed to a campaign<RECORD_TABLE@{"row":12,"column":5,"rowSpan":6,"columnSpan":7}>, Active campaigns and their plan<RECORD_TABLE@{"row":18,"column":0,"rowSpan":5,"columnSpan":8}>, Cost per qualified lead<STANDALONE_RICH_TEXT@{"row":18,"column":8,"rowSpan":5,"columnSpan":4}>
+
+Exceptions: Exceptions
+  [Exceptions] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, Blocked<RECORD_TABLE@{"row":6,"column":0,"rowSpan":6,"columnSpan":12}>, Overdue<RECORD_TABLE@{"row":12,"column":0,"rowSpan":6,"columnSpan":12}>, No next action<RECORD_TABLE@{"row":18,"column":0,"rowSpan":6,"columnSpan":12}>
+
+Home: Home
+  [Home] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, Needs your decision<RECORD_TABLE@{"row":6,"column":0,"rowSpan":6,"columnSpan":12}>, Your next actions<RECORD_TABLE@{"row":12,"column":0,"rowSpan":6,"columnSpan":12}>, Other work is progressing<RECORD_TABLE@{"row":18,"column":0,"rowSpan":8,"columnSpan":12}>
+
+uVENTURE: Technologies | Equipment and labs | Challenges
+  [Technologies] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, uVENTURE: technologies<IFRAME@{"row":6,"column":0,"rowSpan":18,"columnSpan":12}>
+  [Equipment and labs] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, uVENTURE: equipment and labs<IFRAME@{"row":6,"column":0,"rowSpan":18,"columnSpan":12}>
+  [Challenges] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, uVENTURE: challenges<IFRAME@{"row":6,"column":0,"rowSpan":18,"columnSpan":12}>
+
+Data quality: Data quality
+  [Data quality] How this tab works<STANDALONE_RICH_TEXT@{"row":0,"column":0,"rowSpan":6,"columnSpan":12}>, Opportunities missing type, owner, amount or close date<GRAPH@{"row":6,"column":0,"rowSpan":5,"columnSpan":3}>, Opportunities missing type, owner, amount or close date<RECORD_TABLE@{"row":6,"column":3,"rowSpan":5,"columnSpan":9}>, Companies missing sector, size class or account owner<GRAPH@{"row":11,"column":0,"rowSpan":5,"columnSpan":3}>, Companies missing sector, size class or account owner<RECORD_TABLE@{"row":11,"column":3,"rowSpan":5,"columnSpan":9}>, People missing email or decision role<GRAPH@{"row":16,"column":0,"rowSpan":5,"columnSpan":3}>, People missing email or decision role<RECORD_TABLE@{"row":16,"column":3,"rowSpan":5,"columnSpan":9}>, Engagements without outcome after 2 days<GRAPH@{"row":21,"column":0,"rowSpan":5,"columnSpan":3}>, Engagements without outcome after 2 days<RECORD_TABLE@{"row":21,"column":3,"rowSpan":5,"columnSpan":9}>, Work packages without done criteria<GRAPH@{"row":26,"column":0,"rowSpan":5,"columnSpan":3}>, Work packages without done criteria<RECORD_TABLE@{"row":26,"column":3,"rowSpan":5,"columnSpan":9}>, Opportunities in Qualify over 30 days<GRAPH@{"row":31,"column":0,"rowSpan":5,"columnSpan":3}>, Opportunities in Qualify over 30 days<RECORD_TABLE@{"row":31,"column":3,"rowSpan":5,"columnSpan":9}>, Parked over 90 days: propose Lost<GRAPH@{"row":36,"column":0,"rowSpan":5,"columnSpan":3}>, Parked over 90 days: propose Lost<RECORD_TABLE@{"row":36,"column":3,"rowSpan":5,"columnSpan":9}>, Contracts past expiry, still Signed<GRAPH@{"row":41,"column":0,"rowSpan":5,"columnSpan":3}>, Contracts past expiry, still Signed<RECORD_TABLE@{"row":41,"column":3,"rowSpan":5,"columnSpan":9}>, Opportunities with Other and no details<GRAPH@{"row":46,"column":0,"rowSpan":5,"columnSpan":3}>, Opportunities with Other and no details<RECORD_TABLE@{"row":46,"column":3,"rowSpan":5,"columnSpan":9}>, Companies with Other and no details<GRAPH@{"row":51,"column":0,"rowSpan":5,"columnSpan":3}>, Companies with Other and no details<RECORD_TABLE@{"row":51,"column":3,"rowSpan":5,"columnSpan":9}>, Engagements with Other and no details<GRAPH@{"row":56,"column":0,"rowSpan":5,"columnSpan":3}>, Engagements with Other and no details<RECORD_TABLE@{"row":56,"column":3,"rowSpan":5,"columnSpan":9}>, Contracts with Other and no details<GRAPH@{"row":61,"column":0,"rowSpan":5,"columnSpan":3}>, Contracts with Other and no details<RECORD_TABLE@{"row":61,"column":3,"rowSpan":5,"columnSpan":9}>, Projects with Other and no details<GRAPH@{"row":66,"column":0,"rowSpan":5,"columnSpan":3}>, Projects with Other and no details<RECORD_TABLE@{"row":66,"column":3,"rowSpan":5,"columnSpan":9}>, Work packages with Other and no details<GRAPH@{"row":71,"column":0,"rowSpan":5,"columnSpan":3}>, Work packages with Other and no details<RECORD_TABLE@{"row":71,"column":3,"rowSpan":5,"columnSpan":9}>, Milestones with Other and no details<GRAPH@{"row":76,"column":0,"rowSpan":5,"columnSpan":3}>, Milestones with Other and no details<RECORD_TABLE@{"row":76,"column":3,"rowSpan":5,"columnSpan":9}>, Tasks with Other and no details<GRAPH@{"row":81,"column":0,"rowSpan":5,"columnSpan":3}>, Tasks with Other and no details<RECORD_TABLE@{"row":81,"column":3,"rowSpan":5,"columnSpan":9}>, Leads with Other and no details<GRAPH@{"row":86,"column":0,"rowSpan":5,"columnSpan":3}>, Leads with Other and no details<RECORD_TABLE@{"row":86,"column":3,"rowSpan":5,"columnSpan":9}>, Documents with Other and no details<GRAPH@{"row":91,"column":0,"rowSpan":5,"columnSpan":3}>, Documents with Other and no details<RECORD_TABLE@{"row":91,"column":3,"rowSpan":5,"columnSpan":9}>

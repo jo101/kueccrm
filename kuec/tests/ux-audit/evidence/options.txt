@@ -1,0 +1,66 @@
+company.accountTier [Account tier] 3: Tier 1 (strategic)=green | Tier 2 (active)=blue | Tier 3 (watch)=gray
+company.sector [Sector] 10: Oil and gas=amber | Energy and utilities=yellow | Defence and security=red | Aerospace=sky | Healthcare and life sciences=pink | Information technology and telecoms and digital=blue | Advanced manufacturing=purple | Transport and logistics=turquoise | Government=green | Other=gray
+company.relationshipType [Relationship type] 10: Prospect=blue | Customer=green | Partner=purple | Sponsor=orange | Government=turquoise | Investor=pink | Portfolio company=sky | Supplier=amber | University unit=red | Other=gray
+company.sizeClass [Size class] 4: Startup=turquoise | Small or medium business=sky | Large enterprise=blue | Government or semi-government=green
+person.decisionRole [Decision role] 6: Decision maker=red | Budget holder=orange | Technical evaluator=blue | Influencer=purple | End user=green | Gatekeeper=gray
+opportunity.stage [Stage] 8: New=red | Screening=purple | Meeting=sky | Proposal=turquoise | Customer=yellow | Signed=green | Lost=red | Parked=gray
+opportunity.probability [Probability] 5: 10%=gray | 25%=orange | 50%=yellow | 75%=turquoise | 90%=green
+opportunity.department [Department] 7: Business development=blue | Commercialization=green | Intellectual property office=purple | Leasing=orange | Lab access=turquoise | Startups and investment=pink | Other=gray
+opportunity.fundingPath [Funding path] 8: Customer budget=blue | Offset credit=green | In-country value programme=purple | Government grant=orange | Co-funding programme=turquoise | Sponsor=pink | Unknown=sky | Other=gray
+opportunity.offering [Offering] 12: Intellectual property licence=blue | Technical service=green | Lab testing=purple | Equipment access=orange | Research collaboration=turquoise | Startup product=pink | Subsidiary service=sky | Sponsored chair=amber | Leasing=red | Training=violet | Advisory=jade | Other=gray
+opportunity.lostReasonCategory [Lost reason category] 8: No response=gray | Price too high=red | No budget=amber | Wrong timing=orange | Went to a competitor=purple | Not a technical fit=blue | No capacity on our side=pink | Other=gray
+opportunity.playbookType [Type] 18: Licence=purple | Technical service (research as a service)=blue | Lab testing=orange | Equipment or facility access=turquoise | Research collaboration or joint development=sky | Consulting or advisory=red | Industry pilot=amber | Training or bootcamp=violet | Spinout or startup=green | Leasing (space)=pink | Sponsored chair=jade | Programme sponsorship (workshop or sprint or fellowship)=gold | Government proposal or grant=iris | Offset or in-country value project=tomato | Platform or product delivery=mint | Partnership or memorandum of understanding=plum | Investment (portfolio)=cyan | Other=gray
+opportunity.source [Source] 25: Inbound (web or email or phone)=green | Existing customer=brown | Referral: colleague=cyan | Referral: faculty=sky | Referral: partner=pink | Referral: Khalifa University leadership=mint | Referral: chief executive or board=plum | Workshop=amber | Exhibition=red | Gala QR code=violet | Challenge Sprint=jade | Technology Readiness Level Bridging Program=gold | Technology Fellows=iris | Technical committee=tomato | Government request=lime | Tender or quotation portal=orange | Offset manager=ruby | Startup portfolio=yellow | Registry outreach=bronze | Outbound email sequence=crimson | LinkedIn=grass | Referral (deprecated)=gray | Outreach (deprecated)=gray | Event or workshop (deprecated)=gray | Other=gray
+   ! near-duplicate "Referral: colleague" ~ "Referral (deprecated)" (0.50)
+   ! near-duplicate "Referral: faculty" ~ "Referral (deprecated)" (0.50)
+   ! near-duplicate "Referral: partner" ~ "Referral (deprecated)" (0.50)
+   ! near-duplicate "Workshop" ~ "Event or workshop (deprecated)" (0.50)
+   ! near-duplicate "Registry outreach" ~ "Outreach (deprecated)" (0.50)
+task.status [Status] 3: To do=sky | In progress=purple | Done=green
+task.taskType [Type] 9: Follow-up=blue | Call=green | Email=purple | Prepare document=orange | Review=turquoise | Approval=pink | Internal=sky | Administration=amber | Other=gray
+lead.status [Status] 7: New=sky | Contacted=blue | Engaged=purple | Qualified=green | Converted=turquoise | Nurture=amber | Dead=gray
+lead.source [Source] 25: Inbound (web or email or phone)=green | Existing customer=brown | Referral: colleague=cyan | Referral: faculty=sky | Referral: partner=pink | Referral: Khalifa University leadership=mint | Referral: chief executive or board=plum | Workshop=amber | Exhibition=red | Gala QR code=violet | Challenge Sprint=jade | Technology Readiness Level Bridging Program=gold | Technology Fellows=iris | Technical committee=tomato | Government request=lime | Tender or quotation portal=orange | Offset manager=ruby | Startup portfolio=yellow | Registry outreach=bronze | Outbound email sequence=crimson | LinkedIn=grass | Referral (deprecated)=gray | Outreach (deprecated)=gray | Event or workshop (deprecated)=gray | Other=gray
+   ! near-duplicate "Referral: colleague" ~ "Referral (deprecated)" (0.50)
+   ! near-duplicate "Referral: faculty" ~ "Referral (deprecated)" (0.50)
+   ! near-duplicate "Referral: partner" ~ "Referral (deprecated)" (0.50)
+   ! near-duplicate "Workshop" ~ "Event or workshop (deprecated)" (0.50)
+   ! near-duplicate "Registry outreach" ~ "Outreach (deprecated)" (0.50)
+lead.offeringInterest [Offering interest] 12: Intellectual property licence=blue | Technical service=green | Lab testing=purple | Equipment access=orange | Research collaboration=turquoise | Startup product=pink | Subsidiary service=sky | Sponsored chair=amber | Leasing=red | Training=violet | Advisory=jade | Other=gray
+lead.department [Department] 7: Business development=blue | Commercialization=green | Intellectual property office=purple | Leasing=orange | Lab access=turquoise | Startups and investment=pink | Other=gray
+lead.deadReason [Dead reason] 8: No response=gray | No fit=orange | No budget=red | Duplicate=sky | Went to a competitor=pink | Wrong timing=amber | Not the decision maker=purple | Other=gray
+lead.sourceSystem [Source system] 6: Website form=green | Gala QR code form=violet | Workshop sign-up form=amber | Apollo=blue | uVENTURE=purple | Industrial registry=gray
+engagement.kind [Kind] 20: Intro meeting=orange | Call=green | Email thread=gray | Discovery meeting=turquoise | Site visit (we go to them)=pink | Lab or campus visit (they come to us)=sky | Proposal presentation=tomato | Negotiation session=mint | Technical assessment session=iris | Workshop=amber | Exhibition or conference=red | Gala or event=violet | Webinar=lime | Challenge sprint session=jade | Fellowship or bootcamp session=gold | Committee or steering meeting=plum | Pilot review=cyan | Meeting (deprecated)=gray | Event (deprecated)=gray | Other=gray
+   ! near-duplicate "Intro meeting" ~ "Meeting (deprecated)" (0.50)
+   ! near-duplicate "Discovery meeting" ~ "Meeting (deprecated)" (0.50)
+   ! near-duplicate "Gala or event" ~ "Event (deprecated)" (0.50)
+engagement.outcomeType [Outcome type] 7: Follow-up agreed=orange | Lead created=green | Opportunity identified=blue | Information only=purple | Referral received=pink | No fit=turquoise | Other=gray
+engagement.department [Department] 7: Business development=blue | Commercialization=green | Intellectual property office=purple | Leasing=orange | Lab access=turquoise | Startups and investment=pink | Other=gray
+project.playbookType [Type] 9: Delivery=green | Initiative=orange | Workshop=purple | Proposal=blue | Go-to-market campaign=turquoise | Account plan=pink | Programme cohort=sky | Internal=amber | Other=gray
+project.status [Status] 4: Active=blue | On hold=orange | Done=green | Cancelled=gray
+project.health [Health] 3: Green (on track)=green | Amber (at risk)=amber | Red (off track)=red
+project.department [Department] 7: Business development=blue | Commercialization=green | Intellectual property office=purple | Leasing=orange | Lab access=turquoise | Startups and investment=pink | Other=gray
+project.targetSector [Target sector] 10: Oil and gas=orange | Energy and utilities=yellow | Defence and security=red | Aerospace=sky | Healthcare and life sciences=green | Information technology and telecoms and digital=blue | Advanced manufacturing=purple | Transport and logistics=turquoise | Government=pink | Other=gray
+project.targetSizeClass [Target size class] 4: Startup=pink | Small or medium business=blue | Large enterprise=purple | Government or semi-government=green
+project.targetOffering [Offering promoted] 12: Intellectual property licence=blue | Technical service=green | Lab testing=purple | Equipment access=orange | Research collaboration=turquoise | Startup product=pink | Subsidiary service=sky | Sponsored chair=amber | Leasing=red | Training=violet | Advisory=jade | Other=gray
+project.channelPlan [Channel plan] 8: Email sequence=blue | LinkedIn=sky | Event or exhibition=red | Workshop=amber | Website=green | Direct visit=purple | Partner referral=pink | Other=gray
+milestone.status [Status] 3: Open=blue | Done=green | Missed=red
+milestone.department [Department] 7: Business development=blue | Commercialization=green | Intellectual property office=purple | Leasing=orange | Lab access=turquoise | Startups and investment=pink | Other=gray
+workPackage.status [Status] 8: Planned=gray | Offered=sky | Accepted=blue | Submitted=purple | Blocked=red | Done=green | Declined=orange | Cancelled=gray
+workPackage.department [Department] 7: Business development=blue | Commercialization=green | Intellectual property office=purple | Leasing=orange | Lab access=turquoise | Startups and investment=pink | Other=gray
+contract.kind [Kind] 12: Non-disclosure agreement=gray | Memorandum of understanding=orange | Master services agreement=turquoise | Licence=purple | Technical services agreement=pink | Joint development agreement=sky | Sponsorship=amber | Leasing=red | Consulting=violet | Option (deprecated)=gray | Service (deprecated)=gray | Other=gray
+   ! near-duplicate "Master services agreement" ~ "Technical services agreement" (0.50)
+contract.status [Status] 5: Draft=gray | In negotiation=orange | Signed=green | Expired=gray | Terminated=red
+contract.department [Department] 7: Business development=blue | Commercialization=green | Intellectual property office=purple | Leasing=orange | Lab access=turquoise | Startups and investment=pink | Other=gray
+contract.sourceSystem [Source system] 1: uVENTURE=purple
+document.kind [Type] 22: Non-disclosure agreement=gray | Memorandum of understanding=orange | Master services agreement=turquoise | Proposal or statement of work=blue | Quote=sky | Request for quotation or proposal received=amber | Technical assessment report=green | Term sheet=pink | Licence agreement=purple | Technical services agreement=red | Joint development agreement=violet | Sponsorship agreement=gold | Pitch deck=iris | One-pager=jade | Workshop report=tomato | Site-visit report=mint | Meeting minutes=plum | Purchase order or invoice (finance is the system of record)=cyan | Offset documentation=lime | Vendor registration or know-your-customer check=bronze | Faculty profile or résumé=crimson | Other=gray
+   ! near-duplicate "Master services agreement" ~ "Technical services agreement" (0.50)
+document.status [Status] 7: Draft=gray | Shared=sky | Under review=orange | Signed=green | Expired=red | Superseded=purple | Other=gray
+document.confidentiality [Confidentiality] 4: Internal=blue | Confidential=orange | Restricted=red | Other=gray
+document.sourceSystem [Source system] 2: uVENTURE=purple | SharePoint=blue
+playbookRoleAssignment.playbookRole [Playbook role] 8: Business development officer=blue | Researcher=purple | Developer=green | Data analyst=turquoise | Operations coordinator=orange | Executive director=red | Legal=gray | Finance=yellow
+capability.kind [Kind] 10: Lab=blue | Equipment=orange | Technical service=green | Expertise=sky | Startup=pink | Subsidiary=turquoise | Technology=purple | Space=amber | Invention disclosure=violet | Other=gray
+capability.status [Status] 5: Available to offer=green | Limited availability=amber | Temporarily unavailable=orange | Withdrawn=red | Other=gray
+capability.sourceSystem [Source system] 1: uVENTURE=purple
+campaignTarget.status [Status] 6: To contact=sky | Contacted=blue | Responded=purple | Lead created=green | Not interested=gray | Do not contact=red
+
+49 lists, 407 options

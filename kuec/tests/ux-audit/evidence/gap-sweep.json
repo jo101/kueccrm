@@ -1,0 +1,708 @@
+{
+  "engagementKind": [
+    {
+      "label": "Intro meeting",
+      "value": "INTRO_MEETING",
+      "status": 201,
+      "id": "7c0213b7-ee14-4ac5-b4ee-ad0e89694bb8"
+    },
+    {
+      "label": "Call",
+      "value": "CALL",
+      "status": 201,
+      "id": "f58f3538-0ba1-4b58-b796-b3458fe5d311"
+    },
+    {
+      "label": "Email thread",
+      "value": "EMAIL",
+      "status": 201,
+      "id": "997f9ec5-73b3-45fe-be9b-34de2a9492a8"
+    },
+    {
+      "label": "Discovery meeting",
+      "value": "DISCOVERY_MEETING",
+      "status": 201,
+      "id": "cd34a466-c6d1-43ea-ad47-8726c772f2ba"
+    },
+    {
+      "label": "Site visit (we go to them)",
+      "value": "SITE_VISIT",
+      "status": 201,
+      "id": "714f2d1a-4d2d-4c7b-b523-60c638487c75"
+    },
+    {
+      "label": "Lab or campus visit (they come to us)",
+      "value": "LAB_OR_CAMPUS_VISIT",
+      "status": 201,
+      "id": "f85eacc5-ce6a-420d-a9d0-5a8cafaf17ef"
+    },
+    {
+      "label": "Proposal presentation",
+      "value": "PROPOSAL_PRESENTATION",
+      "status": 201,
+      "id": "2f3da3de-69c7-4e37-8e18-8bf3558e1188"
+    },
+    {
+      "label": "Negotiation session",
+      "value": "NEGOTIATION_SESSION",
+      "status": 201,
+      "id": "da1c92cb-1722-4bfd-9f71-7e85603b2bad"
+    },
+    {
+      "label": "Technical assessment session",
+      "value": "TECHNICAL_ASSESSMENT_SESSION",
+      "status": 201,
+      "id": "8d5006aa-9c60-44df-a0f1-928470ef7015"
+    },
+    {
+      "label": "Workshop",
+      "value": "WORKSHOP",
+      "status": 201,
+      "id": "65813186-bd19-4c1e-85e0-15f4352fbe0b"
+    },
+    {
+      "label": "Exhibition or conference",
+      "value": "EXHIBITION_OR_CONFERENCE",
+      "status": 201,
+      "id": "59598245-6019-4f40-87b6-ae15f5ea5ea7"
+    },
+    {
+      "label": "Gala or event",
+      "value": "GALA_OR_EVENT",
+      "status": 201,
+      "id": "492b3318-0784-40db-b6c6-52baaec2e785"
+    },
+    {
+      "label": "Webinar",
+      "value": "WEBINAR",
+      "status": 201,
+      "id": "30aa67fe-95ed-491a-bb3d-d9362c85d2fd"
+    },
+    {
+      "label": "Challenge sprint session",
+      "value": "CHALLENGE_SPRINT_SESSION",
+      "status": 201,
+      "id": "147b346f-07ad-467f-aa60-076c8b740313"
+    },
+    {
+      "label": "Fellowship or bootcamp session",
+      "value": "FELLOWSHIP_OR_BOOTCAMP_SESSION",
+      "status": 201,
+      "id": "48fad697-ede4-49b0-8fe6-11aba85b8d7e"
+    },
+    {
+      "label": "Committee or steering meeting",
+      "value": "COMMITTEE_OR_STEERING_MEETING",
+      "status": 201,
+      "id": "93a1aac9-22b6-434a-8fc5-586c0ff63b5d"
+    },
+    {
+      "label": "Pilot review",
+      "value": "PILOT_REVIEW",
+      "status": 201,
+      "id": "07268f19-c04d-4a47-9fcd-63d6e74fefcb"
+    },
+    {
+      "label": "Meeting (deprecated)",
+      "value": "MEETING",
+      "status": 201,
+      "id": "feff26bb-59d6-4f4d-a182-a0e83ddbf8db"
+    },
+    {
+      "label": "Event (deprecated)",
+      "value": "EVENT",
+      "status": 201,
+      "id": "648d60bb-ea78-43c7-9006-50e2929dd575"
+    },
+    {
+      "label": "Other",
+      "value": "OTHER",
+      "status": 201,
+      "id": "d4930458-ec25-4d7a-816d-0cea97b92f0e"
+    }
+  ],
+  "opportunitySource": [
+    {
+      "label": "Inbound (web or email or phone)",
+      "value": "INBOUND",
+      "status": 201,
+      "id": "709a397c-d7ea-4437-99dd-05f7deab846d"
+    },
+    {
+      "label": "Existing customer",
+      "value": "EXISTING_CUSTOMER",
+      "status": 201,
+      "id": "7a3dade9-a8c2-4ae1-9c19-e004d0154010"
+    },
+    {
+      "label": "Referral: colleague",
+      "value": "REFERRAL_COLLEAGUE",
+      "status": 201,
+      "id": "628d9ac2-33d9-4188-b76e-13e83061ead5"
+    },
+    {
+      "label": "Referral: faculty",
+      "value": "FACULTY",
+      "status": 201,
+      "id": "a5415b98-ebe2-4077-93c8-4ba85d1ef47c"
+    },
+    {
+      "label": "Referral: partner",
+      "value": "PARTNER",
+      "status": 201,
+      "id": "817107cf-037e-48ce-9b2b-d9a8ef5aed55"
+    },
+    {
+      "label": "Referral: Khalifa University leadership",
+      "value": "REFERRAL_KU_LEADERSHIP",
+      "status": 201,
+      "id": "2c6009b7-03bb-419d-b496-7dd16acc7016"
+    },
+    {
+      "label": "Referral: chief executive or board",
+      "value": "REFERRAL_CEO_OR_BOARD",
+      "status": 201,
+      "id": "5bbd7261-bd4c-474f-83a4-60859940e40b"
+    },
+    {
+      "label": "Workshop",
+      "value": "WORKSHOP",
+      "status": 201,
+      "id": "16e7b703-3cfa-4b82-bf10-d19d6488968c"
+    },
+    {
+      "label": "Exhibition",
+      "value": "EXHIBITION",
+      "status": 201,
+      "id": "fd6081de-d97b-4ed8-b13d-ef423f7f1b2b"
+    },
+    {
+      "label": "Gala QR code",
+      "value": "GALA_QR",
+      "status": 201,
+      "id": "2ada27d6-9987-4ec5-88f6-323464f81ff9"
+    },
+    {
+      "label": "Challenge Sprint",
+      "value": "CHALLENGE_SPRINT",
+      "status": 201,
+      "id": "82f3283c-b567-4cf4-8f95-b992cd29eea6"
+    },
+    {
+      "label": "Technology Readiness Level Bridging Program",
+      "value": "TRL_BRIDGING_PROGRAM",
+      "status": 201,
+      "id": "720216b2-6b32-4c80-9dd7-bfa44c403324"
+    },
+    {
+      "label": "Technology Fellows",
+      "value": "TECHNOLOGY_FELLOWS",
+      "status": 201,
+      "id": "a8daa04f-3ff2-4d56-898f-62604e31906c"
+    },
+    {
+      "label": "Technical committee",
+      "value": "TECHNICAL_COMMITTEE",
+      "status": 201,
+      "id": "0c1009ed-f78a-4f5f-9d85-6a8c37806974"
+    },
+    {
+      "label": "Government request",
+      "value": "GOVERNMENT_REQUEST",
+      "status": 201,
+      "id": "a6012812-5706-4c7e-a212-b32128034e21"
+    },
+    {
+      "label": "Tender or quotation portal",
+      "value": "TENDER",
+      "status": 201,
+      "id": "eb703cc0-1e3b-4c68-a2ae-d794ee956b00"
+    },
+    {
+      "label": "Offset manager",
+      "value": "OFFSET_MANAGER",
+      "status": 201,
+      "id": "c68ac2c4-9285-4b9a-bcbf-4dbb1aa277c3"
+    },
+    {
+      "label": "Startup portfolio",
+      "value": "STARTUP_PORTFOLIO",
+      "status": 201,
+      "id": "33ab0553-999c-490b-9879-2860844b765a"
+    },
+    {
+      "label": "Registry outreach",
+      "value": "REGISTRY_OUTREACH",
+      "status": 201,
+      "id": "c065cead-46ca-4bcd-badb-933841ced0ce"
+    },
+    {
+      "label": "Outbound email sequence",
+      "value": "OUTBOUND_SEQUENCE",
+      "status": 201,
+      "id": "90cc9856-3b64-4866-ac12-b8b24ed0c2cd"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "LINKEDIN",
+      "status": 201,
+      "id": "212c3f24-6112-4361-be7f-d5c294c55f8e"
+    },
+    {
+      "label": "Referral (deprecated)",
+      "value": "REFERRAL",
+      "status": 201,
+      "id": "22501534-3014-4bc8-86c6-d0db9d334ebe"
+    },
+    {
+      "label": "Outreach (deprecated)",
+      "value": "OUTREACH",
+      "status": 201,
+      "id": "091dc6c2-b808-4dd8-940b-5586fbab9e14"
+    },
+    {
+      "label": "Event or workshop (deprecated)",
+      "value": "EVENT",
+      "status": 201,
+      "id": "5bf576f4-9fee-4ec3-a770-f2cef2569eff"
+    },
+    {
+      "label": "Other",
+      "value": "OTHER",
+      "status": 201,
+      "id": "c0828f34-6367-445e-95ce-1afa872734aa"
+    }
+  ],
+  "leadSource": [
+    {
+      "label": "Inbound (web or email or phone)",
+      "value": "INBOUND",
+      "status": 201,
+      "id": "1b6a743d-2947-471f-ad93-b3a25c36a8e9"
+    },
+    {
+      "label": "Existing customer",
+      "value": "EXISTING_CUSTOMER",
+      "status": 201,
+      "id": "d70184e2-caaf-4ffb-ae92-f5ec45c0b8c5"
+    },
+    {
+      "label": "Referral: colleague",
+      "value": "REFERRAL_COLLEAGUE",
+      "status": 201,
+      "id": "079d0303-b259-4628-9221-404e9323ec1c"
+    },
+    {
+      "label": "Referral: faculty",
+      "value": "FACULTY",
+      "status": 201,
+      "id": "1635276d-fec1-4dab-b063-c4b2c9a117a2"
+    },
+    {
+      "label": "Referral: partner",
+      "value": "PARTNER",
+      "status": 201,
+      "id": "06e20aaf-cfe6-4de9-b36e-84128ab7b5d6"
+    },
+    {
+      "label": "Referral: Khalifa University leadership",
+      "value": "REFERRAL_KU_LEADERSHIP",
+      "status": 201,
+      "id": "96c579c0-1bf9-40b5-93b6-40557237d4b3"
+    },
+    {
+      "label": "Referral: chief executive or board",
+      "value": "REFERRAL_CEO_OR_BOARD",
+      "status": 201,
+      "id": "44b0197c-3257-4335-8f18-9e2b68076732"
+    },
+    {
+      "label": "Workshop",
+      "value": "WORKSHOP",
+      "status": 201,
+      "id": "41d3ca41-c23b-4be3-90b7-88898509624e"
+    },
+    {
+      "label": "Exhibition",
+      "value": "EXHIBITION",
+      "status": 201,
+      "id": "77fb8672-4da6-4ed9-b4df-e953b2b03a17"
+    },
+    {
+      "label": "Gala QR code",
+      "value": "GALA_QR",
+      "status": 201,
+      "id": "f6d8751f-beba-4014-88ab-f336fc20843b"
+    },
+    {
+      "label": "Challenge Sprint",
+      "value": "CHALLENGE_SPRINT",
+      "status": 201,
+      "id": "49ba0ced-c12b-4f16-a825-de8c11b535cb"
+    },
+    {
+      "label": "Technology Readiness Level Bridging Program",
+      "value": "TRL_BRIDGING_PROGRAM",
+      "status": 201,
+      "id": "2c1113c2-2864-42e5-88ca-6dece1b6f09a"
+    },
+    {
+      "label": "Technology Fellows",
+      "value": "TECHNOLOGY_FELLOWS",
+      "status": 201,
+      "id": "1f93eb97-10fd-4e7d-abed-5a48a6ebf0eb"
+    },
+    {
+      "label": "Technical committee",
+      "value": "TECHNICAL_COMMITTEE",
+      "status": 201,
+      "id": "6fea4037-d23d-4f88-ac8a-f43af82b70b0"
+    },
+    {
+      "label": "Government request",
+      "value": "GOVERNMENT_REQUEST",
+      "status": 201,
+      "id": "02600aba-54e9-4dd9-be9f-ef8d6bf25425"
+    },
+    {
+      "label": "Tender or quotation portal",
+      "value": "TENDER",
+      "status": 201,
+      "id": "e402bbe4-682b-47ea-b404-9a40a80afc2e"
+    },
+    {
+      "label": "Offset manager",
+      "value": "OFFSET_MANAGER",
+      "status": 201,
+      "id": "adb52b5b-b5ba-4801-b190-d4e719e4a84e"
+    },
+    {
+      "label": "Startup portfolio",
+      "value": "STARTUP_PORTFOLIO",
+      "status": 201,
+      "id": "242d269a-3118-4ffa-805b-66faf1956906"
+    },
+    {
+      "label": "Registry outreach",
+      "value": "REGISTRY_OUTREACH",
+      "status": 201,
+      "id": "8d86946c-d15a-4c19-8a16-dcce139ec197"
+    },
+    {
+      "label": "Outbound email sequence",
+      "value": "OUTBOUND_SEQUENCE",
+      "status": 201,
+      "id": "db54492a-0dd3-4e32-8cb6-40f15d085014"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "LINKEDIN",
+      "status": 201,
+      "id": "fb996a7a-830c-4f3c-846a-1a6bfe1e4c26"
+    },
+    {
+      "label": "Referral (deprecated)",
+      "value": "REFERRAL",
+      "status": 201,
+      "id": "379ba42f-9a50-4b0d-bd33-e231154f6d25"
+    },
+    {
+      "label": "Outreach (deprecated)",
+      "value": "OUTREACH",
+      "status": 201,
+      "id": "abec6eb7-bc93-4058-9ed6-a75e6d9cc6f9"
+    },
+    {
+      "label": "Event or workshop (deprecated)",
+      "value": "EVENT",
+      "status": 201,
+      "id": "427a918d-c3c7-4554-aaa3-154af7de04ec"
+    },
+    {
+      "label": "Other",
+      "value": "OTHER",
+      "status": 201,
+      "id": "7fdc5f63-338c-4246-b158-6862e3e54874"
+    }
+  ],
+  "opportunityType": [
+    {
+      "label": "Licence",
+      "value": "TECHNOLOGY_LICENSING",
+      "create": 201,
+      "setType": 200,
+      "id": "61705c07-8617-44b5-bb4f-010988ff40ae",
+      "workPackages": 6
+    },
+    {
+      "label": "Technical service (research as a service)",
+      "value": "RFQ_TECHNICAL_SERVICE",
+      "create": 201,
+      "setType": 200,
+      "id": "73653df9-dad2-488c-9a4a-3ff5e030cacf",
+      "workPackages": 7
+    },
+    {
+      "label": "Lab testing",
+      "value": "LAB_TESTING",
+      "create": 201,
+      "setType": 200,
+      "id": "e626142e-6039-4592-b775-29451e1f0abd",
+      "workPackages": 0
+    },
+    {
+      "label": "Equipment or facility access",
+      "value": "EQUIPMENT_OR_FACILITY_ACCESS",
+      "create": 201,
+      "setType": 200,
+      "id": "1794ec4b-5e77-4dca-95da-23ef23e1aef4",
+      "workPackages": 0
+    },
+    {
+      "label": "Research collaboration or joint development",
+      "value": "RESEARCH_COLLABORATION",
+      "create": 201,
+      "setType": 200,
+      "id": "3f23c7c8-e4a2-4b43-987b-2d51e204fb8f",
+      "workPackages": 0
+    },
+    {
+      "label": "Consulting or advisory",
+      "value": "CONSULTING_OR_ADVISORY",
+      "create": 201,
+      "setType": 200,
+      "id": "5f60a4df-3bc1-45e6-a5f5-76ffce84cf87",
+      "workPackages": 0
+    },
+    {
+      "label": "Industry pilot",
+      "value": "INDUSTRY_PILOT",
+      "create": 201,
+      "setType": 200,
+      "id": "56af0c49-a1cf-4f2e-8c67-51d42b16af66",
+      "workPackages": 0
+    },
+    {
+      "label": "Training or bootcamp",
+      "value": "TRAINING_OR_BOOTCAMP",
+      "create": 201,
+      "setType": 200,
+      "id": "1d979800-915f-43b1-b048-04bb6b138519",
+      "workPackages": 0
+    },
+    {
+      "label": "Spinout or startup",
+      "value": "SPINOUT_OR_STARTUP",
+      "create": 201,
+      "setType": 200,
+      "id": "90699a63-f6dd-4c33-bc2a-8d9b9c10206a",
+      "workPackages": 0
+    },
+    {
+      "label": "Leasing (space)",
+      "value": "LEASING",
+      "create": 201,
+      "setType": 200,
+      "id": "f246c368-2571-4459-8d3b-ab0add03331c",
+      "workPackages": 0
+    },
+    {
+      "label": "Sponsored chair",
+      "value": "SPONSORED_CHAIR",
+      "create": 201,
+      "setType": 200,
+      "id": "92e4ccf3-62be-4fda-81df-d850f00cc862",
+      "workPackages": 0
+    },
+    {
+      "label": "Programme sponsorship (workshop or sprint or fellowship)",
+      "value": "PROGRAMME_SPONSORSHIP",
+      "create": 201,
+      "setType": 200,
+      "id": "d0930669-2445-44e1-90a6-04b4d18e3b59",
+      "workPackages": 0
+    },
+    {
+      "label": "Government proposal or grant",
+      "value": "GOVERNMENT_PROPOSAL_OR_GRANT",
+      "create": 201,
+      "setType": 200,
+      "id": "6b2b34a2-1e05-4f94-a37a-29757a1f117d",
+      "workPackages": 0
+    },
+    {
+      "label": "Offset or in-country value project",
+      "value": "OFFSET_OR_ICV_PROJECT",
+      "create": 201,
+      "setType": 200,
+      "id": "8434faa9-e8c6-4122-933c-78001db3dc27",
+      "workPackages": 0
+    },
+    {
+      "label": "Platform or product delivery",
+      "value": "PLATFORM_OR_PRODUCT_DELIVERY",
+      "create": 201,
+      "setType": 200,
+      "id": "cfcb63ea-6918-419b-af7f-b274f192f49d",
+      "workPackages": 0
+    },
+    {
+      "label": "Partnership or memorandum of understanding",
+      "value": "PARTNERSHIP_OR_MOU",
+      "create": 201,
+      "setType": 200,
+      "id": "47041291-1d0b-47d6-96a8-d606f8be5e62",
+      "workPackages": 0
+    },
+    {
+      "label": "Investment (portfolio)",
+      "value": "INVESTMENT",
+      "create": 201,
+      "setType": 200,
+      "id": "97e96835-0ea5-49c5-97a5-3a3470b8a8c0",
+      "workPackages": 0
+    },
+    {
+      "label": "Other",
+      "value": "OTHER",
+      "create": 201,
+      "setType": 200,
+      "id": "48e55296-2105-486a-b843-b5ce76b27f28",
+      "workPackages": 0
+    }
+  ],
+  "documentType": [
+    {
+      "label": "Non-disclosure agreement",
+      "value": "NDA",
+      "status": 201,
+      "id": "22837c3c-8c64-42d7-934c-90dd726cbaf0"
+    },
+    {
+      "label": "Memorandum of understanding",
+      "value": "MOU",
+      "status": 201,
+      "id": "0eed14d9-68b2-4b65-b8b7-3d07fa275733"
+    },
+    {
+      "label": "Master services agreement",
+      "value": "MSA",
+      "status": 201,
+      "id": "f5efb264-5125-4ed8-96bc-f96f25f49911"
+    },
+    {
+      "label": "Proposal or statement of work",
+      "value": "PROPOSAL_OR_SOW",
+      "status": 201,
+      "id": "f871c09a-7572-4d5d-9b16-8b4d58b35278"
+    },
+    {
+      "label": "Quote",
+      "value": "QUOTE",
+      "status": 201,
+      "id": "0c2851cc-6fd3-4e6b-89f2-df5200985e6d"
+    },
+    {
+      "label": "Request for quotation or proposal received",
+      "value": "RFQ_OR_RFP_RECEIVED",
+      "status": 201,
+      "id": "8a6bedfd-b694-445b-8260-91518d72f538"
+    },
+    {
+      "label": "Technical assessment report",
+      "value": "TECHNICAL_ASSESSMENT_REPORT",
+      "status": 201,
+      "id": "e59da975-27c5-4b1a-b70a-805c30126a04"
+    },
+    {
+      "label": "Term sheet",
+      "value": "TERM_SHEET",
+      "status": 201,
+      "id": "5d5d0691-2eb7-4f18-84f2-5b45d9d371a4"
+    },
+    {
+      "label": "Licence agreement",
+      "value": "LICENCE_AGREEMENT",
+      "status": 201,
+      "id": "ab29312a-0d18-4ebc-9a6e-09c999af2e31"
+    },
+    {
+      "label": "Technical services agreement",
+      "value": "TSA",
+      "status": 201,
+      "id": "0893ef77-e65b-4b8b-91b5-75f9c96e8172"
+    },
+    {
+      "label": "Joint development agreement",
+      "value": "JDA",
+      "status": 201,
+      "id": "90597b23-8a7f-44d9-84be-26216cc2b6a5"
+    },
+    {
+      "label": "Sponsorship agreement",
+      "value": "SPONSORSHIP_AGREEMENT",
+      "status": 201,
+      "id": "7d84b40e-bfbd-4716-864f-eaec36ffa95b"
+    },
+    {
+      "label": "Pitch deck",
+      "value": "PITCH_DECK",
+      "status": 201,
+      "id": "c86e1237-3e5a-41f2-8a2d-2955946fbe92"
+    },
+    {
+      "label": "One-pager",
+      "value": "ONE_PAGER",
+      "status": 201,
+      "id": "1fc70d79-97b6-4fa3-9c04-9d4a6abf2d2e"
+    },
+    {
+      "label": "Workshop report",
+      "value": "WORKSHOP_REPORT",
+      "status": 201,
+      "id": "766e700b-3424-47c1-ac77-9f22894abefa"
+    },
+    {
+      "label": "Site-visit report",
+      "value": "SITE_VISIT_REPORT",
+      "status": 201,
+      "id": "d9007cd6-4515-4004-859f-530303a720c6"
+    },
+    {
+      "label": "Meeting minutes",
+      "value": "MEETING_MINUTES",
+      "status": 201,
+      "id": "b4f9e612-700c-4dbe-846b-41b897e8fb4d"
+    },
+    {
+      "label": "Purchase order or invoice (finance is the system of record)",
+      "value": "PO_OR_INVOICE",
+      "status": 201,
+      "id": "e9986b3e-6656-408e-abf2-5f7627c4cc24"
+    },
+    {
+      "label": "Offset documentation",
+      "value": "OFFSET_DOCUMENTATION",
+      "status": 201,
+      "id": "94a27669-3950-418e-a3c2-aba39e8f9834"
+    },
+    {
+      "label": "Vendor registration or know-your-customer check",
+      "value": "VENDOR_REGISTRATION_OR_KYC",
+      "status": 201,
+      "id": "26791d29-5927-4482-b71d-22a5e2bf2a29"
+    },
+    {
+      "label": "Faculty profile or résumé",
+      "value": "FACULTY_PROFILE_OR_CV",
+      "status": 201,
+      "id": "4a813e66-f1b1-4ada-ae21-f0bfd62db480"
+    },
+    {
+      "label": "Other",
+      "value": "OTHER",
+      "status": 201,
+      "id": "e7835719-14ab-4f92-b1f5-ccdbd53cdda8"
+    }
+  ]
+}

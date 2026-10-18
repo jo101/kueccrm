@@ -1,0 +1,134 @@
+{
+ "results": {
+  "home": {
+   "url": "http://server:3000/page/27e8aca9-876e-4d74-a420-2eab6caf5e5b",
+   "ms": 12574,
+   "title": "Twenty",
+   "horizontalOverflow": false,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "guidanceHeading": false,
+   "guidanceBody": true,
+   "guidanceArabic": true,
+   "whatDoIDoNow": false,
+   "requestHelpWord": true,
+   "viewName": null,
+   "iframes": [],
+   "firstText": "K\nKUEC BD Ops rehearsal\nالرئيسية\nالإعدادات\nمساحة العمل\nHome\nExceptions\nصندوق العملاء المحتملين · العملاء المحتملون\nPipeline · الفرص\nMy work · حزم العمل\nBD Executive\nPortfolio · المشاريع\nالشركات\nالأشخاص\nThis month · التواصلات\nExpiring · العقود\nالوثائق حسب النوع · الوثائق\nAll capabilities · القدرات\nOpen · المراحل الرئيسية\nData quality\nuVENTURE\nOpen uVENTURE\nالمساعدة\nالشركات\nالأشخاص\nالفرص\nالمهام\nالملاحظات\nلوحات القيادة\nHome\nNeeds your decision\nالعنوان\nالمسؤول\nموعد التسليم\nالحالة\nالمراجِع\nالفرصة\nT\nTest blocked scoping\nB\nBader One\n22 أكتوبر, 2026 2:23 ص\nBlocked\nE\nExecutive Director\nT\nTest Gulf Coat",
+   "frameTexts": []
+  },
+  "wp-offered": {
+   "url": "http://server:3000/object/workPackage/35134233-8118-4f7d-bd44-9de3e9f994b4",
+   "ms": 11788,
+   "title": "Test offered scoping - حزمة عمل",
+   "horizontalOverflow": false,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "guidanceHeading": false,
+   "guidanceBody": true,
+   "guidanceArabic": true,
+   "whatDoIDoNow": false,
+   "requestHelpWord": true,
+   "viewName": null,
+   "iframes": [
+    ""
+   ],
+   "firstText": "K\nKUEC BD Ops rehearsal\nالرئيسية\nالإعدادات\nتم الفتح\nحزم العمل\nمساحة العمل\nHome\nExceptions\nصندوق العملاء المحتملين · العملاء المحتملون\nPipeline · الفرص\nMy work · حزم العمل\nBD Executive\nPortfolio · المشاريع\nالشركات\nالأشخاص\nThis month · التواصلات\nExpiring · العقود\nالوثائق حسب النوع · الوثائق\nAll capabilities · القدرات\nOpen · المراحل الرئيسية\nData quality\nuVENTURE\nOpen uVENTURE\nالمساعدة\nالشركات\nالأشخاص\nالفرص\nالمهام\nالملاحظات\nلوحات القيادة\nحزم العمل\n/\nTest offered scoping\n(7/8)\nCard\nT\nTest offered scoping\nالجدول الزمني\nالمهام\nالملاحظات\nملفات\n\nWhat it is: One piece of work with one owner, a due date",
+   "frameTexts": [
+    "(function(){var e=(e,t)=>()=>(t||(e((t={exports:{}}).exports,t),e=null),t.exports),t=e((e=>{Object.defineProperty(e,\"__esModule\",{value:!0}),e.isSymbol=e.isBigInt=e.isString=e.isNumber=e.isBoolean=e.isUndefined=void 0,e.isUndefined=e=>e===void 0,e.isBoolean=e=>typeof e==`boolean`,e.isNumber=e=>typeof e==`number`&&!Number.isNaN(e),e.isString=e=>typeof e==`string`,e.isBigInt=e=>typeof e==`bigint`,e.isSymbol=e=>typeof e==`symbol`})),n=e((e=>{Object.defineProperty(e,\"__esModule\",{value:!0}),e.isDate=e.isWeakSet=e.isWeakMap=e.isSet=e.isMap=e.isArray=e.isObject=e.isFunction=e.isNull=void 0,e.isNull=e=>e===null,e.isFunction=e=>typeof e==`function`,e.isObject=t=>!e.isNull(t)&&typeof t==`object`,e.isArray=e=>Array.isArray(e),e.isMap=e=>e instanceof Map,e.isSet=e=>e instanceof Set,e.isWeakMap=e=>e instanceof WeakMap,e.isWeakSet=e=>e instanceof WeakSet,e.isDate=e=>e instanceof Date})),r=e((e=>{Object.defineProperty(e,\"__esModule\",{value:!0}),e.isNegativeInteger=e.isNonNegativeInteger=e.isPositiveInteger=e.isInteger=e.isNumberOrNaN=e.isNonEmptyString=e.isNonEmptyArray=e.isObjectOrNull=void 0;var r=t(),i=n();e.isObjectOrNull=e=>typeof e==`object`,e.isNonEmptyArray=e=>i.isArray(e)&&e.length>0,e.isNonEmptyString=e=>r.isString(e)&&e.length>0,e.isNumberOrNaN=e=>typeof e==`number`,e.isInteger=e=>r.isNumber(e)&&Number.isInteger(e),e.isPositiveInteger=t=>e.isInteger(t)&&t>0,e.isNonNegativeInteger=t=>e.isInteger(t)&&t>=0,e.isNegativeInteger=t=>e.isInteger(t)&&t<0})),i=e((e=>{var i=e&&e.__createBi"
+   ]
+  },
+  "wp-accepted": {
+   "url": "http://server:3000/object/workPackage/4f2c1da2-58eb-4eb0-9929-5429eabad9e3",
+   "ms": 11790,
+   "title": "Test accepted scoping - حزمة عمل",
+   "horizontalOverflow": false,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "guidanceHeading": false,
+   "guidanceBody": true,
+   "guidanceArabic": true,
+   "whatDoIDoNow": false,
+   "requestHelpWord": true,
+   "viewName": null,
+   "iframes": [
+    ""
+   ],
+   "firstText": "K\nKUEC BD Ops rehearsal\nالرئيسية\nالإعدادات\nتم الفتح\nحزم العمل\nمساحة العمل\nHome\nExceptions\nصندوق العملاء المحتملين · العملاء المحتملون\nPipeline · الفرص\nMy work · حزم العمل\nBD Executive\nPortfolio · المشاريع\nالشركات\nالأشخاص\nThis month · التواصلات\nExpiring · العقود\nالوثائق حسب النوع · الوثائق\nAll capabilities · القدرات\nOpen · المراحل الرئيسية\nData quality\nuVENTURE\nOpen uVENTURE\nالمساعدة\nالشركات\nالأشخاص\nالفرص\nالمهام\nالملاحظات\nلوحات القيادة\nحزم العمل\n/\nTest accepted scoping\n(6/8)\nCard\nT\nTest accepted scoping\nالجدول الزمني\nالمهام\nالملاحظات\nملفات\n\nWhat it is: One piece of work with one owner, a due da",
+   "frameTexts": [
+    "(function(){var e=(e,t)=>()=>(t||(e((t={exports:{}}).exports,t),e=null),t.exports),t=e((e=>{Object.defineProperty(e,\"__esModule\",{value:!0}),e.isSymbol=e.isBigInt=e.isString=e.isNumber=e.isBoolean=e.isUndefined=void 0,e.isUndefined=e=>e===void 0,e.isBoolean=e=>typeof e==`boolean`,e.isNumber=e=>typeof e==`number`&&!Number.isNaN(e),e.isString=e=>typeof e==`string`,e.isBigInt=e=>typeof e==`bigint`,e.isSymbol=e=>typeof e==`symbol`})),n=e((e=>{Object.defineProperty(e,\"__esModule\",{value:!0}),e.isDate=e.isWeakSet=e.isWeakMap=e.isSet=e.isMap=e.isArray=e.isObject=e.isFunction=e.isNull=void 0,e.isNull=e=>e===null,e.isFunction=e=>typeof e==`function`,e.isObject=t=>!e.isNull(t)&&typeof t==`object`,e.isArray=e=>Array.isArray(e),e.isMap=e=>e instanceof Map,e.isSet=e=>e instanceof Set,e.isWeakMap=e=>e instanceof WeakMap,e.isWeakSet=e=>e instanceof WeakSet,e.isDate=e=>e instanceof Date})),r=e((e=>{Object.defineProperty(e,\"__esModule\",{value:!0}),e.isNegativeInteger=e.isNonNegativeInteger=e.isPositiveInteger=e.isInteger=e.isNumberOrNaN=e.isNonEmptyString=e.isNonEmptyArray=e.isObjectOrNull=void 0;var r=t(),i=n();e.isObjectOrNull=e=>typeof e==`object`,e.isNonEmptyArray=e=>i.isArray(e)&&e.length>0,e.isNonEmptyString=e=>r.isString(e)&&e.length>0,e.isNumberOrNaN=e=>typeof e==`number`,e.isInteger=e=>r.isNumber(e)&&Number.isInteger(e),e.isPositiveInteger=t=>e.isInteger(t)&&t>0,e.isNonNegativeInteger=t=>e.isInteger(t)&&t>=0,e.isNegativeInteger=t=>e.isInteger(t)&&t<0})),i=e((e=>{var i=e&&e.__createBi"
+   ]
+  },
+  "opportunity": {
+   "url": "http://server:3000/object/opportunity/f01b4801-cb3a-4a9e-9c6c-45101101e697",
+   "ms": 11692,
+   "title": "Test Gulf Coatings: salt-spray testing - الفرصة",
+   "horizontalOverflow": false,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "guidanceHeading": false,
+   "guidanceBody": true,
+   "guidanceArabic": true,
+   "whatDoIDoNow": false,
+   "requestHelpWord": true,
+   "viewName": null,
+   "iframes": [],
+   "firstText": "K\nKUEC BD Ops rehearsal\nالرئيسية\nالإعدادات\nمساحة العمل\nHome\nExceptions\nصندوق العملاء المحتملين · العملاء المحتملون\nPipeline · الفرص\nMy work · حزم العمل\nBD Executive\nPortfolio · المشاريع\nالشركات\nالأشخاص\nThis month · التواصلات\nExpiring · العقود\nالوثائق حسب النوع · الوثائق\nAll capabilities · القدرات\nOpen · المراحل الرئيسية\nData quality\nuVENTURE\nOpen uVENTURE\nالمساعدة\nالشركات\nالأشخاص\nالفرص\nالمهام\nالملاحظات\nلوحات القيادة\nالفرص\n/\nTest Gulf Coatings: salt-spray testing\n(1/7 في Pipeline → New)\nT\nTest Gulf Coatings: salt-spray testing\nالجدول الزمني\nالمهام\nالملاحظات\nملفات\nالرسائل الإلكترونية\nالتقويم\nالح",
+   "frameTexts": []
+  },
+  "lead": {
+   "url": "http://server:3000/object/lead/3badd4e4-0396-4661-a747-ab88b51f79ba",
+   "ms": 11759,
+   "title": "Test lead from a business card - عميل محتمل",
+   "horizontalOverflow": false,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "guidanceHeading": false,
+   "guidanceBody": true,
+   "guidanceArabic": true,
+   "whatDoIDoNow": false,
+   "requestHelpWord": false,
+   "viewName": null,
+   "iframes": [],
+   "firstText": "K\nKUEC BD Ops rehearsal\nالرئيسية\nالإعدادات\nتم الفتح\nالعملاء المحتملون\nمساحة العمل\nHome\nExceptions\nصندوق العملاء المحتملين · العملاء المحتملون\nPipeline · الفرص\nMy work · حزم العمل\nBD Executive\nPortfolio · المشاريع\nالشركات\nالأشخاص\nThis month · التواصلات\nExpiring · العقود\nالوثائق حسب النوع · الوثائق\nAll capabilities · القدرات\nOpen · المراحل الرئيسية\nData quality\nuVENTURE\nOpen uVENTURE\nالمساعدة\nالشركات\nالأشخاص\nالفرص\nالمهام\nالملاحظات\nلوحات القيادة\nالعملاء المحتملون\n/\nTest lead from a business card\n(1/1)\nT\nTest lead from a business card\nالجدول الزمني\nالمهام\nالملاحظات\nملفات\n\nWhat it is: A contact wit",
+   "frameTexts": []
+  },
+  "view-pipeline": {
+   "url": "http://server:3000/objects/opportunities?viewId=5316d8a4-81a1-4273-8aff-0889f6061a7b",
+   "ms": 11654,
+   "title": "Pipeline - الفرص",
+   "horizontalOverflow": false,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "guidanceHeading": false,
+   "guidanceBody": false,
+   "guidanceArabic": false,
+   "whatDoIDoNow": false,
+   "requestHelpWord": false,
+   "viewName": null,
+   "iframes": [],
+   "firstText": "K\nKUEC BD Ops rehearsal\nالرئيسية\nالإعدادات\nمساحة العمل\nHome\nExceptions\nصندوق العملاء المحتملين · العملاء المحتملون\nPipeline · الفرص\nMy work · حزم العمل\nBD Executive\nPortfolio · المشاريع\nالشركات\nالأشخاص\nThis month · التواصلات\nExpiring · العقود\nالوثائق حسب النوع · الوثائق\nAll capabilities · القدرات\nOpen · المراحل الرئيسية\nData quality\nuVENTURE\nOpen uVENTURE\nالمساعدة\nالشركات\nالأشخاص\nالفرص\nالمهام\nالملاحظات\nلوحات القيادة\nالفرص\nإنشاء\nPipeline\n· 7\nتصفية\nترتيب\nخيارات\nتاريخ الإغلاق\nإضافة فلتر\nNew\n360k\nScreening\n0\nMeeting\n0\nProposal\n0\nCustomer\n0\nSigned\n0\nD\nDesign Partnership\n-\n15 يناير, 2026 8:27 م\n30k\n",
+   "frameTexts": []
+  },
+  "view-my-work": {
+   "url": "http://server:3000/objects/workPackages?viewId=26324910-d057-4b13-a646-5d9ab6d1442e",
+   "ms": 11550,
+   "title": "My work - حزم العمل",
+   "horizontalOverflow": false,
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "guidanceHeading": false,
+   "guidanceBody": false,
+   "guidanceArabic": false,
+   "whatDoIDoNow": false,
+   "requestHelpWord": false,
+   "viewName": null,
+   "iframes": [],
+   "firstText": "K\nKUEC BD Ops rehearsal\nالرئيسية\nالإعدادات\nمساحة العمل\nHome\nExceptions\nصندوق العملاء المحتملين · العملاء المحتملون\nPipeline · الفرص\nMy work · حزم العمل\nBD Executive\nPortfolio · المشاريع\nالشركات\nالأشخاص\nThis month · التواصلات\nExpiring · العقود\nالوثائق حسب النوع · الوثائق\nAll capabilities · القدرات\nOpen · المراحل الرئيسية\nData quality\nuVENTURE\nOpen uVENTURE\nالمساعدة\nالشركات\nالأشخاص\nالفرص\nالمهام\nالملاحظات\nلوحات القيادة\nحزم العمل\nإنشاء\nMy work\n· 0\nتصفية\nترتيب\nخيارات\nموعد التسليم\nالمسؤول\n: أنا\nالحالة\n: Offered, Accepted, Submitted, Blocked\nإضافة فلتر\nالعنوان\nالمسؤول\nموعد التسليم\nالحالة\nالفرصة\nالمشر",
+   "frameTexts": []
+  }
+ },
+ "errors": [
+  "Failed to load resource: the server responded with a status of 404 ()"
+ ]
+}

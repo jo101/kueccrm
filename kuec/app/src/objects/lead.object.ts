@@ -138,7 +138,7 @@ export default defineObject({
       // Mirrors Opportunity > Source, deprecated options included, so a
       // conversion copies the value as it is (runbooks/18-taxonomy.md).
       options: [
-        { id: 'beb1b23f-3926-4399-a905-2be4799dab67', value: OPPORTUNITY_SOURCE.INBOUND, label: 'Inbound (web, email, phone)', position: 0, color: 'green' },
+        { id: 'beb1b23f-3926-4399-a905-2be4799dab67', value: OPPORTUNITY_SOURCE.INBOUND, label: 'Inbound (web / email / phone)', position: 0, color: 'green' },
         { id: 'f392f33a-6889-4bd5-a6f9-8deb98c9701f', value: OPPORTUNITY_SOURCE.EXISTING_CUSTOMER, label: 'Existing customer', position: 1, color: 'brown' },
         { id: 'df8da2f3-a7a2-4d2b-9b4d-96e7f2ea1d2a', value: OPPORTUNITY_SOURCE.REFERRAL_COLLEAGUE, label: 'Referral: colleague', position: 2, color: 'cyan' },
         { id: '9e4bcf4a-3532-4683-9151-42654f15dd92', value: OPPORTUNITY_SOURCE.FACULTY, label: 'Referral: faculty', position: 3, color: 'sky' },

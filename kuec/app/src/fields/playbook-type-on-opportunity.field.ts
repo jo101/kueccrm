@@ -128,7 +128,7 @@ export default defineField({
     {
       id: '75704b7c-45bf-40da-b5a0-8b118c28d938',
       value: OPPORTUNITY_TYPE.PROGRAMME_SPONSORSHIP,
-      label: 'Programme sponsorship (workshop, sprint, fellowship)',
+      label: 'Programme sponsorship (workshop / sprint / fellowship)',
       position: 11,
       color: 'gold',
     },

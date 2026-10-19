@@ -233,7 +233,7 @@ export default defineObject({
         { id: '9a0fb2d3-b71e-436c-9fa4-55dbc0facf4a', value: COMPANY_SECTOR.DEFENCE_AND_SECURITY, label: 'Defence and security', position: 2, color: 'red' },
         { id: '87e988f6-cad6-4d39-a793-1f2dacbdbdca', value: COMPANY_SECTOR.AEROSPACE, label: 'Aerospace', position: 3, color: 'sky' },
         { id: 'e06aa8b5-8e3c-4288-9238-71b27c312e8a', value: COMPANY_SECTOR.HEALTHCARE, label: 'Healthcare and life sciences', position: 4, color: 'green' },
-        { id: '981f38d8-b811-4f37-b1db-43aa1bf3dc36', value: COMPANY_SECTOR.ICT, label: 'Information technology, telecoms and digital', position: 5, color: 'blue' },
+        { id: '981f38d8-b811-4f37-b1db-43aa1bf3dc36', value: COMPANY_SECTOR.ICT, label: 'Information technology / telecoms / digital', position: 5, color: 'blue' },
         { id: '4c636a72-7d60-43e0-9829-d66082f83dc4', value: COMPANY_SECTOR.MANUFACTURING, label: 'Advanced manufacturing', position: 6, color: 'purple' },
         { id: '44ceb2fb-4d0d-4ff9-84a6-ec7bcca86f96', value: COMPANY_SECTOR.TRANSPORT_AND_LOGISTICS, label: 'Transport and logistics', position: 7, color: 'turquoise' },
         { id: 'f7c9b583-6ba4-47dd-9a00-7c5636fd7a02', value: COMPANY_SECTOR.GOVERNMENT, label: 'Government', position: 8, color: 'pink' },

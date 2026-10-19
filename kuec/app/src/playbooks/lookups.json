@@ -442,7 +442,7 @@
           "value": "INBOUND",
           "status": "active",
           "label": {
-            "en": "Inbound (web, email, phone)",
+            "en": "Inbound (web / email / phone)",
             "ar": "وارد (الموقع، البريد، الهاتف)"
           },
           "description": {
@@ -950,7 +950,7 @@
           "value": "PROGRAMME_SPONSORSHIP",
           "status": "active",
           "label": {
-            "en": "Programme sponsorship (workshop, sprint, fellowship)",
+            "en": "Programme sponsorship (workshop / sprint / fellowship)",
             "ar": "رعاية برنامج (ورشة، سبرنت، زمالة)"
           },
           "description": {
@@ -2390,7 +2390,7 @@
           "value": "ICT",
           "status": "active",
           "label": {
-            "en": "Information technology, telecoms and digital",
+            "en": "Information technology / telecoms / digital",
             "ar": "الاتصالات وتقنية المعلومات والخدمات الرقمية"
           },
           "description": {

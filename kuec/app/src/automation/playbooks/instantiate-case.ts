@@ -19,13 +19,15 @@ import {
   type PlannedWorkPackage,
 } from 'src/automation/playbooks/plan-case-work-packages';
 import { type CaseTemplate } from 'src/automation/playbooks/playbook-templates';
+import { planOfferedTransitions } from 'src/automation/rules/playbook-follow-up.rule';
 import { OBJECT_NAMES } from 'src/automation/records/object-names';
 import {
   type MilestoneRecord,
   type WorkPackageRecord,
 } from 'src/automation/records/record-types';
 import {
-  publishWorkPackageTransition,
+  publishWorkPackageTransitions,
+  type TimelinePublishFailure,
   WORK_PACKAGE_TRANSITION,
 } from 'src/automation/timeline/publish-work-package-transition';
 import { scheduleWorkPackageTimers } from 'src/automation/timers/schedule-work-package-timers';
@@ -195,8 +197,10 @@ export const instantiateCase = async ({
     createdWorkPackages.push({ ...workPackage, ...systemFields });
   }
 
-  // Created records emit no .updated event, so the offered step's timers,
-  // timeline row and notification start here.
+  // Created records emit no .updated event, so the offered step's timers and
+  // notification start here. Its timeline row is the caller's last step
+  // (publishOfferedTransitions), so a timeline failure cannot stop the owner
+  // from being told.
   for (const workPackage of createdWorkPackages) {
     if (workPackage.status !== WORK_PACKAGE_STATUS.OFFERED) {
       continue;
@@ -206,11 +210,6 @@ export const instantiateCase = async ({
       workPackage,
       holidays: context.holidays,
       now,
-    });
-    await publishWorkPackageTransition({
-      workPackage,
-      transition: WORK_PACKAGE_TRANSITION.OFFERED,
-      happenedAt: workPackage.offeredAt ?? now.toISOString(),
     });
 
     const target = {
@@ -237,3 +236,19 @@ export const instantiateCase = async ({
     firstPlanned: plan.workPackages[0] ?? null,
   };
 };
+
+// The last step of W1 and W9, after notifying and stamping: the Offered rows on
+// the work package and case timelines. A retry publishes only what is missing.
+export const publishOfferedTransitions = (
+  workPackages: WorkPackageRecord[],
+  now: Date,
+): Promise<TimelinePublishFailure[]> =>
+  publishWorkPackageTransitions(
+    planOfferedTransitions(workPackages, now).map(
+      ({ workPackage, happenedAt }) => ({
+        workPackage,
+        transition: WORK_PACKAGE_TRANSITION.OFFERED,
+        happenedAt,
+      }),
+    ),
+  );

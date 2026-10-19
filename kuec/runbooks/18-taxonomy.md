@@ -42,6 +42,7 @@ What is deliberately not in Twenty:
 4. **Other is always last.** A new option goes just before Other; deprecated options sit just before Other too, after the live ones.
 5. **Only the quarterly review adds, relabels or deprecates an option** (section 6). Nobody edits these options in Settings > Data model, in Twenty or in uVENTURE.
 6. **Plain words.** A label spells out every abbreviation ("Non-disclosure agreement", not "NDA"), and a list without a natural order starts with its most common case (`20-guidance.md` section 2). `kuec/app/src/i18n/i18n.test.ts` rejects a label in capitals other than KUEC, QR, AED and UAE.
+7. **No comma in an English label.** Twenty 2.48 refuses the whole install when any option label contains a comma. Separate a list with " / " instead ("Inbound (web / email / phone)"). The Arabic comma (،) is fine. `i18n.test.ts` rejects a comma. In 0.11.1 three labels were relabelled for this, without a change of meaning: Information technology / telecoms / digital, Inbound (web / email / phone), and Programme sponsorship (workshop / sprint / fellowship).
 
 ## 3. What people see
 
@@ -84,7 +85,7 @@ The ops coordinator, in the first two weeks after the release. Records keep the 
 | Contract type | Option (`OPTION`) | Licence |
 | Contract type | Service (`SERVICE`) | TSA, Consulting or MSA |
 
-Relabelled without a change of meaning (records need nothing): Email to **Email thread**, Inbound enquiry to **Inbound (web, email, phone)**, Faculty or researcher to **Referral: faculty**, Partner to **Referral: partner**, RFQ / technical service to **Technical service (research as a service)**. In 0.10.0 every abbreviation in a label was spelled out and four lists were reordered, again without a change of meaning: the table is in `20-guidance.md` section 2.
+Relabelled without a change of meaning (records need nothing): Email to **Email thread**, Inbound enquiry to **Inbound (web / email / phone)**, Faculty or researcher to **Referral: faculty**, Partner to **Referral: partner**, RFQ / technical service to **Technical service (research as a service)**. In 0.10.0 every abbreviation in a label was spelled out and four lists were reordered, again without a change of meaning: the table is in `20-guidance.md` section 2.
 
 Steps, per row of the table:
 
@@ -172,7 +173,7 @@ Lead.source and Opportunity.source hold the same options; a conversion copies th
 
 | Value | Label | التسمية | What it means, when to pick it | المعنى ومتى تختاره |
 | --- | --- | --- | --- | --- |
-| `INBOUND` | Inbound (web, email, phone) | وارد (الموقع، البريد، الهاتف) | They contacted KUEC first through the website, email or phone; pick it when no programme, event or person sent them. | تواصلوا مع KUEC أولاً عبر الموقع أو البريد الإلكتروني أو الهاتف؛ اختره عندما لم يوجّههم برنامج أو فعالية أو شخص. |
+| `INBOUND` | Inbound (web / email / phone) | وارد (الموقع، البريد، الهاتف) | They contacted KUEC first through the website, email or phone; pick it when no programme, event or person sent them. | تواصلوا مع KUEC أولاً عبر الموقع أو البريد الإلكتروني أو الهاتف؛ اختره عندما لم يوجّههم برنامج أو فعالية أو شخص. |
 | `EXISTING_CUSTOMER` | Existing customer | عميل حالي | A current or past customer came back with new work; pick it for repeat business. | عاد عميل حالي أو سابق بعمل جديد؛ اختره للأعمال المتكررة. |
 | `REFERRAL_COLLEAGUE` | Referral: colleague | إحالة: زميل | A KUEC or Khalifa University colleague outside the faculty and leadership referred them; pick it for introductions from staff. | أحالهم زميل في KUEC أو جامعة خليفة من خارج الكادر الأكاديمي والقيادة؛ اختره للتعريفات الواردة من الموظفين. |
 | `FACULTY` | Referral: faculty | إحالة: عضو هيئة تدريس | A Khalifa University faculty member or researcher referred them; pick it when the introduction came from academic staff. | أحالهم عضو هيئة تدريس أو باحث في جامعة خليفة؛ اختره عندما جاء التعريف من الكادر الأكاديمي. |
@@ -217,7 +218,7 @@ Licence and Technical service start a playbook (templates.json); every other typ
 | `SPINOUT_OR_STARTUP` | Spinout or startup | شركة منبثقة أو ناشئة | Creating or supporting a company built on Khalifa University technology; pick it when the outcome is a new venture. | تأسيس شركة قائمة على تقنية من جامعة خليفة أو دعمها؛ اختره عندما تكون النتيجة مشروعاً جديداً. |
 | `LEASING` | Leasing (space) | تأجير (مساحات) | Renting office, lab or industrial space to the counterpart; pick it for any space lease. | تأجير مساحات مكتبية أو مخبرية أو صناعية للطرف الآخر؛ اختره لأي عقد تأجير مساحة. |
 | `SPONSORED_CHAIR` | Sponsored chair | كرسي بحثي ممول | The counterpart funds a sponsored professorship or research chair at Khalifa University; pick it for chair agreements. | يموّل الطرف الآخر كرسياً بحثياً أو أستاذية برعاية في جامعة خليفة؛ اختره لاتفاقيات الكراسي البحثية. |
-| `PROGRAMME_SPONSORSHIP` | Programme sponsorship (workshop, sprint, fellowship) | رعاية برنامج (ورشة، سبرنت، زمالة) | The counterpart sponsors a KUEC programme such as a workshop, Challenge Sprint or fellowship; pick it for money or in-kind support. | يرعى الطرف الآخر برنامجاً لـ KUEC مثل ورشة عمل أو Challenge Sprint أو زمالة؛ اختره للرعاية المالية أو العينية. |
+| `PROGRAMME_SPONSORSHIP` | Programme sponsorship (workshop / sprint / fellowship) | رعاية برنامج (ورشة، سبرنت، زمالة) | The counterpart sponsors a KUEC programme such as a workshop, Challenge Sprint or fellowship; pick it for money or in-kind support. | يرعى الطرف الآخر برنامجاً لـ KUEC مثل ورشة عمل أو Challenge Sprint أو زمالة؛ اختره للرعاية المالية أو العينية. |
 | `GOVERNMENT_PROPOSAL_OR_GRANT` | Government proposal or grant | مقترح أو منحة حكومية | A proposal to, or a grant from, a government funder; pick it when a public body funds the work. | مقترح مقدَّم إلى جهة تمويل حكومية أو منحة منها؛ اختره عندما تموّل جهة حكومية العمل. |
 | `OFFSET_OR_ICV_PROJECT` | Offset or in-country value project | مشروع أوفست أو قيمة محلية مضافة | Work that earns the counterpart offset or in-country value credit; pick it when those obligations drive the deal. | عمل يكسب الطرف الآخر رصيد أوفست أو قيمة محلية مضافة؛ اختره عندما تكون هذه الالتزامات دافع الصفقة. |
 | `PLATFORM_OR_PRODUCT_DELIVERY` | Platform or product delivery | تسليم منصة أو منتج | Delivering a finished platform, software or product built by KUEC or a subsidiary; pick it when a product, not a study, is delivered. | تسليم منصة أو برمجية أو منتج جاهز من تطوير KUEC أو إحدى شركاتها التابعة؛ اختره عندما يُسلَّم منتج لا دراسة. |
@@ -387,7 +388,7 @@ Pending: to be replaced by the UAE industrial cluster list. These options are th
 | `DEFENCE_AND_SECURITY` | Defence and security | الدفاع والأمن | Defence manufacturers, integrators and security bodies; pick it for companies selling to defence. | مصنّعو المعدات الدفاعية ومكاملو الأنظمة والجهات الأمنية؛ اختره للشركات التي تبيع لقطاع الدفاع. |
 | `AEROSPACE` | Aerospace | الطيران والفضاء | Aircraft, space and aviation services; pick it for airlines, maintenance and space companies. | الطائرات والفضاء وخدمات الطيران؛ اختره لشركات الطيران والصيانة والفضاء. |
 | `HEALTHCARE` | Healthcare and life sciences | الرعاية الصحية وعلوم الحياة | Hospitals, pharma, medical devices and biotech; pick it for health and life-science organisations. | المستشفيات والأدوية والأجهزة الطبية والتقنية الحيوية؛ اختره لجهات الصحة وعلوم الحياة. |
-| `ICT` | Information technology, telecoms and digital | الاتصالات وتقنية المعلومات والخدمات الرقمية | Telecoms, software, data and digital services; pick it for technology and telecom companies. | الاتصالات والبرمجيات والبيانات والخدمات الرقمية؛ اختره لشركات التقنية والاتصالات. |
+| `ICT` | Information technology / telecoms / digital | الاتصالات وتقنية المعلومات والخدمات الرقمية | Telecoms, software, data and digital services; pick it for technology and telecom companies. | الاتصالات والبرمجيات والبيانات والخدمات الرقمية؛ اختره لشركات التقنية والاتصالات. |
 | `MANUFACTURING` | Advanced manufacturing | التصنيع المتقدم | Industrial manufacturing, materials and chemicals; pick it for factories and materials producers. | التصنيع الصناعي والمواد والكيماويات؛ اختره للمصانع ومنتجي المواد. |
 | `TRANSPORT_AND_LOGISTICS` | Transport and logistics | النقل والخدمات اللوجستية | Ports, shipping, rail, road and logistics; pick it for companies that move goods or people. | الموانئ والشحن والسكك الحديدية والنقل البري والخدمات اللوجستية؛ اختره للشركات التي تنقل البضائع أو الأشخاص. |
 | `GOVERNMENT` | Government | الحكومة | Federal or emirate government entities; pick it for ministries, authorities and departments. | الجهات الحكومية الاتحادية أو المحلية؛ اختره للوزارات والهيئات والدوائر. |

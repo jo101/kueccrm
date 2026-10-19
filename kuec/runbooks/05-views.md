@@ -38,7 +38,7 @@ All are additive. Option ids are permanent; labels can be relabelled later. Neve
 | Opportunity | Probability (`probability`) | Select | 10%, 25%, 50%, 75%, 90% |
 | Opportunity | Lost reason category (`lostReasonCategory`) | Select | No response, Price too high, No budget, Wrong timing, Went to a competitor, Not a technical fit, No capacity on our side, Other (relabelled and reordered in 0.10.0, `20-guidance.md` section 2). The existing text **Lost reason** keeps the detail. |
 | Company | Account tier (`accountTier`) | Select | Tier 1 (strategic), Tier 2 (active), Tier 3 (watch) |
-| Company | Sector (`sector`) | Select | Oil and gas, Energy and utilities, Defence and security, Aerospace, Healthcare and life sciences, Information technology, telecoms and digital, Advanced manufacturing, Transport and logistics, Government, Other (to be replaced by the UAE industrial cluster list, `18-taxonomy.md`) |
+| Company | Sector (`sector`) | Select | Oil and gas, Energy and utilities, Defence and security, Aerospace, Healthcare and life sciences, Information technology / telecoms / digital, Advanced manufacturing, Transport and logistics, Government, Other (to be replaced by the UAE industrial cluster list, `18-taxonomy.md`) |
 | Company | Offset obligor (`isOffsetObligor`) | Boolean, default false | |
 | Person | Decision role (`decisionRole`) | Select | Decision maker, Budget holder, Technical evaluator, Influencer, End user, Gatekeeper |
 | Person | Champion (`isChampion`) | Boolean, default false | |

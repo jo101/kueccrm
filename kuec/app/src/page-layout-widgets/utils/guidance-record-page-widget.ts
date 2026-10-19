@@ -12,9 +12,10 @@ import {
   GUIDANCE_WIDGET_TITLE,
 } from '../../i18n/guidance-widget-body';
 
-// Twenty's Fields widget holds index 0 on every Home tab, and the guidance
-// opens the tab, so it sorts before it.
-export const GUIDANCE_WIDGET_INDEX = -1;
+// Twenty 2.48 rejects a negative index, so the guidance shares index 0 with
+// Twenty's Fields widget on every Home tab; the front's sort is stable, so
+// which of the two comes first follows the order the server returns them in.
+export const GUIDANCE_WIDGET_INDEX = 0;
 
 export const getAppObjectHomeTabUniversalIdentifier = (
   objectUniversalIdentifier: string,

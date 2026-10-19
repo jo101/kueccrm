@@ -104,7 +104,7 @@ The three forms post their submissions to the CRM, so no contact is retyped. Eac
 
 | Form | Source | Source system | External id |
 | --- | --- | --- | --- |
-| Website contact form | Inbound (web, email, phone) | Website form | `web:<submission id>` |
+| Website contact form | Inbound (web / email / phone) | Website form | `web:<submission id>` |
 | Gala QR form | Gala QR code | Gala QR code form | `gala:<submission id>` |
 | Workshop sign-up | Workshop | Workshop sign-up form | `workshop:<submission id>` |
 

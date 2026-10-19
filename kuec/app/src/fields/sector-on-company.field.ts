@@ -68,7 +68,7 @@ export default defineField({
     {
       id: 'aff91be0-d8d8-497b-9850-bfc6a5dfc4f7',
       value: COMPANY_SECTOR.ICT,
-      label: 'Information technology, telecoms and digital',
+      label: 'Information technology / telecoms / digital',
       position: 5,
       color: 'blue',
     },

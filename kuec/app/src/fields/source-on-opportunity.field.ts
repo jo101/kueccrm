@@ -51,7 +51,7 @@ export default defineField({
     {
       id: 'f2847582-721b-42a0-867f-7a44fed82449',
       value: OPPORTUNITY_SOURCE.INBOUND,
-      label: 'Inbound (web, email, phone)',
+      label: 'Inbound (web / email / phone)',
       position: 0,
       color: 'green',
     },

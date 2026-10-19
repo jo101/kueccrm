@@ -63,7 +63,7 @@ Changed in 0.10.0. These are relabels without a change of meaning (`18-taxonomy.
 | Document type | Proposal or SOW, RFQ or RFP received, PO or invoice (...), Vendor registration or KYC, Faculty profile or CV | Proposal or statement of work, Request for quotation or proposal received, Purchase order or invoice (...), Vendor registration or know-your-customer check, Faculty profile or résumé |
 | Project type | GTM campaign | Go-to-market campaign |
 | Task type | Admin | Administration |
-| Company sector | ICT and digital | Information technology, telecoms and digital |
+| Company sector | ICT and digital | Information technology / telecoms / digital |
 | Company size class | SME | Small or medium business |
 | Lead dead reason | Competitor, Timing, Not decision maker | Went to a competitor, Wrong timing, Not the decision maker |
 | Lost reason category | Price, Timing, Technical fit, Our capacity | Price too high, Wrong timing, Not a technical fit, No capacity on our side |
@@ -88,7 +88,7 @@ Reordered in 0.10.0, most common case first: Engagement kind (Intro meeting, Cal
 
 ## 5. The Help page
 
-**Help** is the last entry of the sidebar, under Data quality (position -8.5). It opens `https://kuac.sharepoint.com/sites/BD/SitePages/CRM-Help.aspx` (`HELP_PAGE_URL` in `help.navigation-menu-item.ts`); the sidebar marks it with an arrow as a link outside the CRM. The page lives on SharePoint so that it changes without an app release and everyone at KUEC can open it with their usual sign-in.
+**Help** is the last entry of the sidebar, under Data quality (position -8.5). It opens `https://kuec.sharepoint.com/sites/BD/SitePages/CRM-Help.aspx` (`HELP_PAGE_URL` in `help.navigation-menu-item.ts`); the sidebar marks it with an arrow as a link outside the CRM. The page lives on SharePoint so that it changes without an app release and everyone at KUEC can open it with their usual sign-in.
 
 **Before the first install of 0.10.0 (ops coordinator, with an engineer):**
 

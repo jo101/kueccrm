@@ -172,6 +172,8 @@ describe('field and option guidance (src/i18n)', () => {
 
       for (const option of options) {
         expect(abbreviationsIn(option.label), `${key}.${option.value}: ${option.label}`).toEqual([]);
+        // Twenty 2.48 rejects the whole install on a comma in any option label.
+        expect(option.label, `${key}.${option.value}`).not.toContain(',');
       }
 
       const live = options.filter((option) => !option.label.endsWith(DEPRECATED_SUFFIX));

@@ -47,7 +47,7 @@ Everything the manifest can express is in `kuec/app` (0.5.0). Everything else is
 | 8 | Delete limited to ED and ops coordinator | Native | Object permission "delete records" off for every other role (`13-roles.md`) | roles |
 | 9 | Keyboard shortcuts | Native | Section 9.1 | |
 | 9 | Quick-create default stage Qualify | Native | Stage defaults to `NEW`. It reads "New" until the stage relabel (Phase B build list) renames it "Qualify" | |
-| 9 | Quick-create default source Inbound | Native | Source default **Inbound (web, email, phone)** on the app's field (labelled Inbound enquiry before 0.8.0), 0.5.0 (**tested**) | manifest |
+| 9 | Quick-create default source Inbound | Native | Source default **Inbound (web / email / phone)** on the app's field (labelled Inbound enquiry before 0.8.0), 0.5.0 (**tested**) | manifest |
 | 9 | Quick-create default owner = current user | No | A relation cannot default to the current user. App function `default-opportunity-owner` sets it within seconds; the hourly sweep repairs a miss (**tested**) | app logic |
 | 10 | Timeline, Notes and Tasks on every record page | Native | Default tabs on every object, standard and app | |
 | 10 | Duplicates on every record page | No | Row 3 | |
@@ -277,7 +277,7 @@ Applies to **+ New** on a list, the **+** in a kanban column, and Ctrl+K > Creat
 | Field | Default | How |
 | --- | --- | --- |
 | Owner | the person creating it | `default-opportunity-owner`: on the first edit (the name), an opportunity created in the UI without an owner gets its creator; the hourly `derived-dates-sweep` catches a miss. Only in the record's first 24 hours, and never for imported, API or app-created records. Within that day, clearing the owner gives it back to the creator: hand over by choosing the new owner instead |
-| Source | Inbound (web, email, phone) | default value of the app's Source field |
+| Source | Inbound (web / email / phone) | default value of the app's Source field |
 | Stage | New (to be relabelled Qualify) | Twenty's default for Stage; a kanban column sets its own stage |
 
 Filters do not prefill the owner: a view filtered "Owner is me" leaves Owner empty on a new record (2.48 prefills "me" only for a field labelled Assignee), which is why the function exists.
@@ -302,7 +302,7 @@ Since 0.10.0 the Home tab of every record page opens with **How this record work
 4. Verify:
    - `node kuec/tests/search/arabic-search.mjs` against staging: all cases pass.
    - Sidebar order as in section 5, signed in as a BD officer.
-   - Create an opportunity from Pipeline > + New, type a name: within a minute Owner is you and Source is Inbound (web, email, phone).
+   - Create an opportunity from Pipeline > + New, type a name: within a minute Owner is you and Source is Inbound (web / email / phone).
    - An opportunity and a contract show the SharePoint folder card and no Files tab.
    - The mail settings query in `email-calendar-sync.md`.
 5. Monthly (ops coordinator): the duplicates queries (section 3.2), the mail settings query, and Tier 1 and Tier 2 companies without keywords:

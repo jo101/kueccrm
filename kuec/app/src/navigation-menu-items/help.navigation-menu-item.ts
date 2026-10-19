@@ -9,7 +9,7 @@ export const HELP_NAVIGATION_MENU_ITEM_UNIVERSAL_IDENTIFIER = '6303d542-2721-4d7
 // A SharePoint page, so the guide can change without an app release; what it
 // holds and who keeps it current: kuec/runbooks/20-guidance.md section 5.
 export const HELP_PAGE_URL =
-  'https://kuac.sharepoint.com/sites/BD/SitePages/CRM-Help.aspx';
+  'https://kuec.sharepoint.com/sites/BD/SitePages/CRM-Help.aspx';
 
 export default defineNavigationMenuItem({
   universalIdentifier: HELP_NAVIGATION_MENU_ITEM_UNIVERSAL_IDENTIFIER,

@@ -187,7 +187,7 @@ IDs stay stable while the keys stay stable: a company's website domain (or its n
 - **Contracts carry a SharePoint folder, not "documentsLink".** The source column `documentsLink` maps to the existing **SharePoint folder** field (`CLAUDE.md` section 4 names link fields by destination).
 - **Phones**: UAE numbers are split into +971 and the national number; other numbers keep their + prefix and no calling code.
 - **Deprecated options are not import targets** (0.8.0, `18-taxonomy.md`). A source value of plain "referral", "outreach" or "event" now comes out unmapped in `value-mapping.csv`: pick the specific option in `value-map.csv`. "Option" contracts import as Licence.
-- **Source defaults to Inbound (web, email, phone)** (since 0.5.0, the quick-create default in `12-global-features.md` section 9; labelled Inbound enquiry before 0.8.0). A new opportunity row with an empty Source cell is created as Inbound; check `value-mapping.csv` for blank sources before importing and fill them in the sheet if Inbound is wrong. Existing records and rows with a value are not affected.
+- **Source defaults to Inbound (web / email / phone)** (since 0.5.0, the quick-create default in `12-global-features.md` section 9; labelled Inbound enquiry before 0.8.0). A new opportunity row with an empty Source cell is created as Inbound; check `value-mapping.csv` for blank sources before importing and fill them in the sheet if Inbound is wrong. Existing records and rows with a value are not affected.
 - **Search keywords and Name (Arabic)** are not filled by the import. Fill them for Tier 1 and Tier 2 companies by hand afterwards (`12-global-features.md` section 1.3).
 
 ## 9. Undo

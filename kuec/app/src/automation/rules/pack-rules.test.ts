@@ -29,7 +29,7 @@ const COMPLETE: ExitCheckOpportunity = {
   closeDate: '2026-12-15',
   fundingPath: 'CUSTOMER_BUDGET',
   probability: 'PCT_50',
-  sharepointFolder: { primaryLinkUrl: 'https://kuac.sharepoint.com/sites/BD/case-1' },
+  sharepointFolder: { primaryLinkUrl: 'https://kuec.sharepoint.com/sites/BD/case-1' },
   capabilityId: null,
   uventureRecord: null,
 };

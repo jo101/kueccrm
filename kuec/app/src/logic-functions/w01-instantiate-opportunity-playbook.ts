@@ -6,23 +6,27 @@ import {
 import { isDefined } from 'twenty-sdk/utils';
 
 import { loadAutomationContext } from 'src/automation/api/load-automation-context';
+import { withFailureLog } from 'src/automation/api/log-handler-failure';
 import {
   createTwentyApi,
   getRecord,
   updateRecord,
 } from 'src/automation/api/twenty-api';
-import { toDubaiDateString } from 'src/automation/dates/business-days';
 import { NOTIFICATION_MESSAGES } from 'src/automation/notifications/notification-messages';
 import {
   createTaskOnce,
   postToTeamsOnce,
   recordLinkFor,
 } from 'src/automation/notifications/notify';
-import { instantiateCase } from 'src/automation/playbooks/instantiate-case';
+import {
+  instantiateCase,
+  publishOfferedTransitions,
+} from 'src/automation/playbooks/instantiate-case';
 import { findOpportunityPlaybook } from 'src/automation/playbooks/playbook-templates';
 import { OBJECT_NAMES } from 'src/automation/records/object-names';
 import { type OpportunityRecord } from 'src/automation/records/record-types';
-import { OPPORTUNITY_PLAYBOOK_TYPE } from 'src/fields/playbook-type-on-opportunity.field';
+import { planOpportunityPlaybookFollowUp } from 'src/automation/rules/playbook-follow-up.rule';
+import { describeTimelineFailures } from 'src/automation/timeline/publish-work-package-transition';
 
 export const W01_INSTANTIATE_OPPORTUNITY_PLAYBOOK_UNIVERSAL_IDENTIFIER =
   'efc2be9d-af73-41bd-affa-8a8245727435';
@@ -52,6 +56,7 @@ const handler = async (
 
   const context = await loadAutomationContext(api);
   const caseName = opportunity.name ?? 'Opportunity';
+  // Creates the work packages and tells each Offered step's owner.
   const { workPackages } = await instantiateCase({
     api,
     context,
@@ -65,34 +70,33 @@ const handler = async (
     now,
   });
 
-  const firstWorkPackage = workPackages[0];
-  const hasNextAction =
-    (opportunity.nextAction ?? '').trim().length > 0 &&
-    isDefined(opportunity.nextActionDate);
-
-  if (!hasNextAction && isDefined(firstWorkPackage)) {
-    await updateRecord(api.asPerson, OBJECT_NAMES.opportunity, opportunity.id, {
-      nextAction: opportunity.nextAction || firstWorkPackage.name,
-      nextActionDate:
-        opportunity.nextActionDate ??
-        (isDefined(firstWorkPackage.dueAt)
-          ? toDubaiDateString(new Date(firstWorkPackage.dueAt))
-          : null),
-    });
-  }
-
   const target = {
     objectNameSingular: OBJECT_NAMES.opportunity.singular,
     recordId: opportunity.id,
   };
   const link = recordLinkFor(target);
+  const { nextActionPatch, confirmPlanTask } = planOpportunityPlaybookFollowUp({
+    opportunity,
+    workPackages,
+    caseName,
+    link,
+  });
 
-  if (opportunity.playbookType === OPPORTUNITY_PLAYBOOK_TYPE.TECHNOLOGY_LICENSING) {
+  if (isDefined(nextActionPatch)) {
+    await updateRecord(
+      api.asPerson,
+      OBJECT_NAMES.opportunity,
+      opportunity.id,
+      nextActionPatch,
+    );
+  }
+
+  if (isDefined(confirmPlanTask)) {
     await createTaskOnce({
       api,
       assigneeId: context.edMemberId,
-      title: `Confirm plan: ${caseName}`,
-      body: `Confirm the licensing plan and its ${workPackages.length} work packages. ${link}`,
+      title: confirmPlanTask.title,
+      body: confirmPlanTask.body,
       target,
       dedupeKey: `confirm-plan:${opportunity.id}`,
       now,
@@ -104,7 +108,8 @@ const handler = async (
     line: NOTIFICATION_MESSAGES.playbookStarted({ subject: caseName, link }),
   });
 
-  // Set last: a run that fails before this point is retried and resumes.
+  // Stamped once everyone is told: a run that fails before this point is
+  // retried and resumes, and every step above is idempotent.
   await updateRecord(api.asApplication, OBJECT_NAMES.opportunity, opportunity.id, {
     playbookApplied: true,
   });
@@ -112,6 +117,16 @@ const handler = async (
   console.log(
     `w01 applied ${caseTemplate.key} to ${opportunity.id}: ${workPackages.length} work packages`,
   );
+
+  // Audit trail last, so a timeline failure cannot swallow the notifications.
+  // The playbook is applied by now; failing the run still puts it in the logs.
+  const timelineFailures = await publishOfferedTransitions(workPackages, now);
+
+  if (timelineFailures.length > 0) {
+    throw new Error(
+      `w01 applied the playbook to ${opportunity.id} but could not write its timeline: ${describeTimelineFailures(timelineFailures)}`,
+    );
+  }
 
   return { playbook: caseTemplate.key, workPackages: workPackages.length };
 };
@@ -122,7 +137,7 @@ export default defineLogicFunction({
   description:
     'W1: when an opportunity gets a type, creates its playbook work packages once',
   timeoutSeconds: 120,
-  handler,
+  handler: withFailureLog('w01-instantiate-opportunity-playbook', handler),
   databaseEventTriggerSettings: {
     eventName: 'opportunity.updated',
     updatedFields: ['playbookType'],

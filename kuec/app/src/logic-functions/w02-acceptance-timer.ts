@@ -76,14 +76,16 @@ const handler = async (payload: TimerJobPayload) => {
         now,
       });
       await postToTeamsOnce({ dedupeKey: timer.baseJobId, line: message });
+      // Stamped before the timeline row, so a timeline failure cannot make
+      // the sweep re-run an escalation that already went out.
+      await updateRecord(api.asApplication, OBJECT_NAMES.workPackage, workPackage.id, {
+        reassignedAt: now.toISOString(),
+      });
       await publishWorkPackageTransition({
         workPackage,
         transition: WORK_PACKAGE_TRANSITION.REASSIGNED,
         happenedAt: timer.fireAt.toISOString(),
         properties: { previousOwnerId, newOwnerId },
-      });
-      await updateRecord(api.asApplication, OBJECT_NAMES.workPackage, workPackage.id, {
-        reassignedAt: now.toISOString(),
       });
     },
   });

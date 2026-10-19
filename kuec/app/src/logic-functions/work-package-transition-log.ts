@@ -4,6 +4,7 @@ import {
   type ObjectRecordUpdateEvent,
 } from 'twenty-sdk/logic-function';
 
+import { withFailureLog } from 'src/automation/api/log-handler-failure';
 import { createTwentyApi, updateRecord } from 'src/automation/api/twenty-api';
 import { OBJECT_NAMES } from 'src/automation/records/object-names';
 import { type WorkPackageRecord } from 'src/automation/records/record-types';
@@ -62,7 +63,7 @@ export default defineLogicFunction({
   description:
     'Stamps accepted, submitted and blocked times and writes each work-package transition to the work package and case timelines',
   timeoutSeconds: 60,
-  handler,
+  handler: withFailureLog('work-package-transition-log', handler),
   databaseEventTriggerSettings: {
     eventName: 'workPackage.updated',
     updatedFields: ['status'],

@@ -6,7 +6,7 @@ Read this file in full before every task in `kuec/`. If a task conflicts with a 
 
 Twenty CRM 2.48.0, self-hosted, is the work-management layer for the KUEC technology-commercialization business-development team in Abu Dhabi. Team: 4 BD staff who are new to BD, 2 to 4 engineers, and one executive director (ED). The ED should stop firefighting and chasing follow-ups. The configuration exists to make sure nothing open goes without an owner, a next step and a date, and to escalate automatically when that slips.
 
-The repo `jo101/kueccrm` is a fork that tracks upstream Twenty. Everything KUEC-specific lives under `kuec/`. Nothing outside `kuec/` is edited, so upstream syncs stay conflict-free. The upstream root `CLAUDE.md` still applies to Twenty conventions (TypeScript style, named exports, no `any`, `isDefined` and similar guards).
+The repo `jo101/kueccrm` is a fork that tracks upstream Twenty. Everything KUEC-specific lives under `kuec/`. Nothing outside `kuec/` is edited, so upstream syncs stay conflict-free, except the branding files listed in section 1. The upstream root `CLAUDE.md` still applies to Twenty conventions (TypeScript style, named exports, no `any`, `isDefined` and similar guards).
 
 ## Layout
 
@@ -27,6 +27,7 @@ kuec/
 ### 1. No core changes. One app.
 
 - Never modify `packages/twenty-server`, `packages/twenty-front`, or any other upstream package. No patches, no forks of core files, no `patch-package`.
+- One exception, branding only (requested by KUEC management on 2026-10-21): the uVENTURE icon set in `packages/twenty-front/public/images/icons/`, the app name and titles in `packages/twenty-front/index.html`, `public/manifest.json`, `src/utils/title-utils.ts`, `src/pages/auth/SignInUp.tsx` and `src/pages/not-found/NotFound.tsx`, the default workspace logo constant, and the email logo, head title, footer and "What is" block in `packages/twenty-emails/src/components/`. Images, names and links only; no behaviour changes. Keep these files as they are when syncing upstream, and regenerate the icons with `python kuec/design/brand/make-icons.py kuec/design/brand/uventure-icon.png packages/twenty-front/public/images/icons` if upstream adds or changes sizes. Because of this, the server image is built from this fork, not pulled from `twentycrm/twenty`.
 - Everything we add lives in one SDK app, `kuec-bd-ops`, in `kuec/app`, scaffolded with `create-twenty-app`: objects, fields, relations, views, navigation menu items, page layouts, logic functions, front components, roles, and install hooks.
 - Reference pattern: `packages/twenty-apps/internal/real-estate` (one entity per file under `src/objects`, `src/fields`, `src/views`, `src/page-layouts`, `src/navigation-menu-items`, `src/roles`, `src/logic-functions`; `application.config.ts` with `defineApplication`). Copy its structure, not its shortcuts: it uses TypeScript `enum` and `as any`. We use `as const` string-literal objects and typed clients.
 - The Settings UI is used only for what the manifest cannot express. Every such step has a click-runbook in `config/dashboards/` (see Click-runbooks below). If it is not in a runbook, it does not exist.
@@ -43,7 +44,7 @@ kuec/
 
 - Twenty version pinned at exactly `2.48.0` for the server image, `twenty-sdk`, and `twenty-client-sdk`. No floating tags (`latest`, `v2`). Upgrades are a deliberate task with their own runbook.
 - Telemetry off: `TELEMETRY_ENABLED=false`.
-- Branding follows `.github/TRADEMARK.md`. Do not present the instance as an official Twenty product or alter Twenty marks; KUEC naming goes in workspace name and logo only.
+- Branding follows `.github/TRADEMARK.md`. The instance is branded uVENTURE CRM (see the branding exception in section 1): it never presents itself as an official Twenty product and never uses or alters the Twenty logo as our own. Saying it is built on Twenty is allowed and truthful. Keep the AGPL licence notices and the public source.
 - One API key for automation, scoped to a dedicated role with only the objects and permissions it needs. Rotated quarterly per `runbooks/`. Never committed; never pasted into a runbook, test, or log.
 - Plan: free self-hosted, which includes the Pro feature set. Row-level permissions, SSO, audit logs, and additional workspaces are Organization-plan features: do not design anything that depends on them. Access control is object- and field-level through roles.
 

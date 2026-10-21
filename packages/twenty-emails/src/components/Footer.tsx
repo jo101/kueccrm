@@ -20,7 +20,7 @@ export const Footer = ({ i18n }: FooterProps) => {
             <Link
               href="https://crm.uventure.net/"
               value={i18n._('Open the CRM')}
-              aria-label={i18n._('Open uVENTURE CRM')}
+              aria-label={i18n._('Open UVenture CRM')}
             />
           </ShadowText>
         </Column>
@@ -28,15 +28,15 @@ export const Footer = ({ i18n }: FooterProps) => {
           <ShadowText>
             <Link
               href="https://uventure.net/"
-              value={i18n._('uVENTURE')}
-              aria-label={i18n._("Visit uVENTURE's website")}
+              value={i18n._('UVenture')}
+              aria-label={i18n._("Visit UVenture's website")}
             />
           </ShadowText>
         </Column>
       </Row>
       <ShadowText>
         <>
-          {i18n._('uVENTURE by KUEC')}
+          {i18n._('UVenture by KUEC')}
           <br />
           {i18n._('Abu Dhabi')}
         </>

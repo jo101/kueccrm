@@ -9,7 +9,7 @@ type WhatIsTwentyProps = {
 export const WhatIsTwenty = ({ i18n }: WhatIsTwentyProps) => {
   return (
     <>
-      <SubTitle value={i18n._('What is uVENTURE CRM?')} />
+      <SubTitle value={i18n._('What is UVenture CRM?')} />
       <MainText>
         {i18n._(
           "It's the CRM KUEC uses to manage relationships, opportunities and the work behind them.",

@@ -52,7 +52,7 @@ describe('title-utils', () => {
     expect(getPageTitleFromPath('/settings/general')).toBe(
       'General - Settings',
     );
-    expect(getPageTitleFromPath('/')).toBe('uVENTURE CRM');
-    expect(getPageTitleFromPath('/random')).toBe('uVENTURE CRM');
+    expect(getPageTitleFromPath('/')).toBe('UVenture CRM');
+    expect(getPageTitleFromPath('/random')).toBe('UVenture CRM');
   });
 });

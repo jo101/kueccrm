@@ -122,7 +122,7 @@ export const SignInUp = () => {
     }
 
     if (isGlobalScope) {
-      return t`Welcome to uVENTURE CRM`;
+      return t`Welcome to UVenture CRM`;
     }
 
     const workspaceName = workspacePublicData?.displayName;

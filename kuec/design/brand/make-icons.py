@@ -1,6 +1,6 @@
-"""Regenerate Twenty's front-end icon set from the uVENTURE icon.
+"""Regenerate Twenty's front-end icon set from the UVenture icon.
 
-Every existing PNG keeps its exact size. The uVENTURE mark is fitted into a
+Every existing PNG keeps its exact size. The UVenture mark is fitted into a
 centred square of 84% of the shorter side, which is where Twenty's own marks sat
 (full-bleed icons with an 8% margin, tiles and splash screens at about 85%).
 Only the file sizes are read, never their pixels, so re-running gives the same

@@ -39,13 +39,17 @@ export const SendInviteLinkEmail = ({
     ? getImageAbsoluteURI({ imageUrl: workspace.logo, baseUrl: serverUrl })
     : null;
 
-  const senderName = capitalize(sender.firstName);
+  // KUEC: full name, so an organisation account such as "Khalifa University" +
+  // "Enterprises Company" is not cut down to its first name.
+  const senderName = [capitalize(sender.firstName.trim()), sender.lastName.trim()]
+    .filter((namePart) => namePart.length > 0)
+    .join(' ');
   const senderEmail = sender.email;
   const workspaceName = workspace.name;
 
   return (
     <BaseEmail width={333} locale={locale}>
-      <Title value={i18n._('Join your team on Twenty')} />
+      <Title value={i18n._('Join your team on UVenture CRM')} />
       <MainText>
         <Trans
           id="{senderName} (<0>{senderEmail}</0>) has invited you to join a workspace called <1>{workspaceName}</1>."

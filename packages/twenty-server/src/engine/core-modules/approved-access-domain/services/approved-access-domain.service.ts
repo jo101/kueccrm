@@ -120,8 +120,12 @@ export class ApprovedAccessDomainService {
       plainText: true,
     });
 
+    const senderFullName = `${sender.name.firstName} ${sender.name.lastName}`
+      .replace(/\s+/g, ' ')
+      .trim();
+
     await this.emailService.send({
-      from: `${sender.name.firstName} ${sender.name.lastName} (via Twenty) <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
+      from: `${senderFullName} (via UVenture CRM) <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
       to,
       subject: 'Approve your access domain',
       text,

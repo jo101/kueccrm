@@ -1,9 +1,11 @@
 """Regenerate Twenty's front-end icon set from the uVENTURE icon.
 
-Every existing PNG keeps its exact size. The uVENTURE mark is placed in the same
-box the Twenty mark occupied (its alpha bounding box), or with an 8% margin when
-the Twenty icon was full-bleed. iOS icons get a white background because iOS
-renders transparency as black; everything else stays transparent.
+Every existing PNG keeps its exact size. The uVENTURE mark is fitted into a
+centred square of 84% of the shorter side, which is where Twenty's own marks sat
+(full-bleed icons with an 8% margin, tiles and splash screens at about 85%).
+Only the file sizes are read, never their pixels, so re-running gives the same
+result. iOS icons get a white background because iOS renders transparency as
+black; everything else stays transparent.
 """
 import glob
 import os
@@ -18,13 +20,11 @@ mark = mark.crop(mark.getchannel("A").getbbox())
 
 count = 0
 for path in sorted(glob.glob(os.path.join(icons_dir, "**", "*.png"), recursive=True)):
-    old = Image.open(path).convert("RGBA")
-    w, h = old.size
-    box = old.getchannel("A").getbbox() or (0, 0, w, h)
-    if box == (0, 0, w, h):
-        mx, my = round(w * 0.08), round(h * 0.08)
-        box = (mx, my, w - mx, h - my)
-    bw, bh = box[2] - box[0], box[3] - box[1]
+    with Image.open(path) as old:
+        w, h = old.size
+    side = round(min(w, h) * 0.84)
+    box = ((w - side) // 2, (h - side) // 2, (w - side) // 2 + side, (h - side) // 2 + side)
+    bw, bh = side, side
     scale = min(bw / mark.width, bh / mark.height)
     size = (max(1, round(mark.width * scale)), max(1, round(mark.height * scale)))
     resized = mark.resize(size, Image.LANCZOS)
@@ -40,3 +40,27 @@ for path in sorted(glob.glob(os.path.join(icons_dir, "**", "*.png"), recursive=T
     count += 1
 
 print(f"regenerated {count} icons")
+
+# The loader, onboarding header and app-connection header point at this one file.
+# Twenty ships it as SVG, so the mark goes in as an embedded PNG to keep the path.
+if len(sys.argv) > 3:
+    import base64
+    import io
+
+    side = 96
+    inner = round(side * 0.84)
+    scale = inner / max(mark.width, mark.height)
+    size = (round(mark.width * scale * 4), round(mark.height * scale * 4))
+    buffer = io.BytesIO()
+    mark.resize(size, Image.LANCZOS).save(buffer, format="PNG", optimize=True)
+    data = base64.b64encode(buffer.getvalue()).decode("ascii")
+    width, height = size[0] / 4, size[1] / 4
+    svg = (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{side}px" height="{side}px" '
+        f'viewBox="0 0 {side} {side}"><image x="{(side - width) / 2:.2f}" '
+        f'y="{(side - height) / 2:.2f}" width="{width:.2f}" height="{height:.2f}" '
+        f'href="data:image/png;base64,{data}"/></svg>\n'
+    )
+    with open(sys.argv[3], "w", encoding="ascii", newline="\n") as handle:
+        handle.write(svg)
+    print(f"wrote {sys.argv[3]} ({len(svg)} bytes)")
